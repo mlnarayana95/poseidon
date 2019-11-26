@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/58d8ede058.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,700&display=swap" rel="stylesheet">
+    <title>Poseidon</title>
+    
+    <style>
+    
+    .container-fluid{
+    padding: 0;
+    }
+    .container{
+      position: relative;
+      font-family: 'Poppins';
+      font-size: 16px;
+    }
+    ul.nav{
+      margin-right: 20px;
+    }
+    ul.nav li:first-child{
+      border-right: 1px solid #333;
+    }
+    
+    nav.navbar{
+      position: absolute;
+      z-index: 99999;
+      width: 100%;
+      background: rgba(255,255,255,.7) !important;
+    }
+    ul.navbar-nav{
+      position: absolute;
+      right: 40px;
+    }
+    .navs .nav-item a {
+      color: #575757;
+    }
+    .navs .nav-item img{
+      padding: 2px;
+    }
+    
+     .navbar-light .navbar-nav .nav-link, 
+     .navbar-light .navbar-nav .active>.nav-link{
+      color: #F68500;
+      font-size: 1.25em;
+    }
+    
+    div#carouselExampleControls{
+      position: relative;
+    }
+    
+    div#carouselExampleControls form{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,.75);
+      color: #fff;
+      padding: 20px 0;
+    }
+    
+    button#search{
+      background-color: #f68500;
+      border: none;
+      width: 100%;
+    }
+    
+    h2{
+      text-align: center;
+      color: #F68500;
+      padding: 40px 0;
+      text-decoration: underline;
+    }
+    
+    .bc-gray{
+      background-color: #fafafa;
+      padding-bottom: 40px;
+    }
+    
+    .rooms img{
+      width: 100%;
+      max-height: 200px;
+    }
+    
+    .room{
+      background-color: #fff;
+    }
+    
+    .room .room-info{
+      margin: 0;
+      border: 1px solid #999;
+      border-top: none;
+      box-shadow: 2px 3px 4px #999;
+      padding: 20px 0;
+    }
+    
+     .fa, .fas, .choose-us-icon i{
+      color: #209ebb;
+    }
+    
+    div.why-choose-us i{
+      padding: 20px 20px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    
+    span.price{
+      background-color: #f4364f;
+      color: #fff;
+      padding: 5px 10px;
+    }
+    
+    div.top-destination{
+      position: relative;
+      margin-bottom: 30px;
+    }
+    
+    div.top-destination .destination{
+      position: absolute;
+      top: 0;
+      right: 15px;
+      bottom: 0;
+      left: 15px;
+      background: rgba(0,0,0,.25);
+      text-align: center;
+    }
+    
+    div.top-destination .destination h4{
+      text-align: center;
+      color: #fff;
+      margin: 150px auto 100px;
+    }
+    
+    .destination button{
+      background-color: #f4364f;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+    }
+    
+    .stats{
+      padding-top: 30px;
+    }
+    
+    .stats h4{
+      color: #f68500;
+    }
+    
+    div.contact{
+      position: relative;
+    }
+    
+    div.contact div{
+      position: absolute;
+      top: 0;
+      right: 15px;
+      bottom: 0;
+      left: 15px;
+      text-align: center;
+      background: rgba(0,0,0,.45);
+    }
+    
+    div.contact div h3{
+      color: #f68500;
+      margin: 100px auto 50px;
+    }
+    
+    div.contact div button{
+      background-color: #f4364f;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+    }
+    
+    div.footer{
+      background-color: #161527;
+      height: 300px;
+      color: #fff;
+
+    }
+    
+    div.footer .fa, .fas{
+      color: #fff;
+    }
+    
+    div.footer li{
+      list-style-type: none;
+    }
+    
+    div.footer ul{
+    padding-left: 0;
+    }
+    
+    
+    div.footer li a{
+      line-height: 1.8;
+      text-decoration: none;
+      color: #fff;
+    }
+    
+    div.footer .social-footer .fab{
+      padding: 20px 10px;
+    }
+    
+    div.footer .foot-header{
+      font-size: 1.2em;
+      padding-bottom: 4px;
+
+    }
+    
+    div.footer .row{
+      font-size: .9em;
+      padding-top: 30px;
+    }
+    
+    div.footer .contact-info{
+      line-height: 1.9;
+    }
+    
+    div.footer .footer-image{
+      padding-bottom: 8px;
+      width: 175px;
+    }
+    
+    div.copy{
+      background-color: #161527;
+      opacity: .9;
+      color: #fff;
+    }
+    
+    </style>  
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="container">
+          <div class="navs">
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Register</a>
+              </li>
+              <li class="nav-item">
+                <img src="images/fbook.png" alt="fbook">
+              </li>
+              <li class="nav-item">
+                <img src="images/twitter.png" alt="twitter">
+              </li>
+              <li class="nav-item">
+                <img src="images/insta.png" alt="insta" >
+              </li>
+            </ul>
+          </div>
+      </div>
+        
+        <!-- navbar in banner -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand" href="#">
+            <img src="images/logo.png" alt="logo">
+           </a>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Rooms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Offers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+           </ul>
+         </div>
+       </nav> <!-- end of navbar -->
+        
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/banner.jpg" class="d-block w-100" alt="banner">
+            </div>
+            <div class="carousel-item">
+              <img src="images/banner2.jpg" class="d-block w-100" alt="banner">
+            </div>
+            <div class="carousel-item">
+              <img src="images/banner3.jpg" class="d-block w-100" alt="banner">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          
+          <form>
+            <div class="form-row">
+              <div class="col-md-1">
+                
+              </div>
+              <div class="form-group col-md-2">
+                <label for="checkin">Check In</label>
+                <input type="date" class="form-control" id="checkin" placeholder="Check-in date">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="checkout">Check Out</label>
+                <input type="date" class="form-control" id="checkout" placeholder="Check-out date">
+              </div>
+
+            <div class="form-group col-md-2">
+              <label for="adults">Adults</label>
+              <input type="number" class="form-control" id="adults" placeholder="">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="children">Children</label>
+              <input type="number" class="form-control" id="children" placeholder="">
+            </div>
+            <div class="form-group col-md-2">
+              <label>&nbsp;</label><br>
+              <button id="search" type="submit" class="btn btn-primary">Search</button>
+            </div>
+            <div class="col-md-1">
+              
+            </div>
+           </div>
+          </form>
+        </div>  
+      </div>
+        
+        <div class="container-fluid">
+          <div class="container">
+              <h2>Why Choose Us?</h2>
+            <div class="row why-choose-us">
+            
+              <div class="col-md-3 text-center">
+              <i class="fas fa-globe-americas fa-2x choose-us-icon"></i>
+                <h4>World Class Service</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
+              </div>
+              <div class="col-md-3 text-center">
+                <i class="fas fa-dollar-sign fa-2x choose-us-icon"></i>
+                <h4>Best Price Guaranteed</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
+              </div>
+              <div class="col-md-3 text-center">
+                <i class="fas fa-glass-cheers fa-2x choose-us-icon"></i>
+                <h4>Exotic Ambience</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
+              </div>
+              <div class="col-md-3 text-center">
+                <i class="fas fa-thumbs-up fa-2x choose-us-icon"></i>
+                <h4>Great Reviews</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
+              </div>
+            </div>
+          </div>  
+        </div>  
+
+      
+      <div class="container-fluid bc-gray">
+        <div class="container rooms">
+          <h2>Our Hotel Rooms</h2>
+          <div class="row">
+
+            <div class="col-md-4 col-sm-12 text-center">
+              <div class="room">
+                <img src="images/room1.jpg" alt="room1" >
+                <div class="row room-info">
+                  <div class="col-md-8">
+                    <h4>Family Room</h4>Place Cuba</div>
+                  <div class="col-md-4 text-right"><span class="price">$420</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12  text-center">
+              <div class="room">
+              <img src="images/room2.jpg" alt="room2" >
+              <div class="row room-info">
+                <div class="col-md-8">
+                  <h4>Deluxe Room</h4>Place Mexico</div>
+                  <div class="col-md-4 text-right"><span class="price">$610</span></div>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-4 col-sm-12  text-center">
+              <div class="room">
+                <img src="images/room3.jpg" alt="room3"  >
+                <div class="row room-info">
+                  <div class="col-md-8">
+                    <h4>Family Room</h4>Place Maldives</div>
+                    <div class="col-md-4 text-right"><span class="price">$530</span></div>
+                </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid">
+        <div class="container">
+          <h2>Our Top Destinations</h2>
+          <div class="row">
+
+            <div class="col-md-4 col-sm-12 top-destination">
+              <img class="img-fluid" src="images/top1.png" alt="top 1">
+              <div class="destination">
+                <h4>Cuba</h4>
+                <button>Explore</button>
+              </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-12 top-destination">
+              <img class="img-fluid" src="images/top3.png" alt="top 3">
+              <div class="destination">
+                <h4>Maldives</h4>
+                <button>Explore</button>
+              </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-12 top-destination">
+              <img class="img-fluid" src="images/top2.png" alt="top 2">
+              <div class="destination">
+                <h4>Mexico</h4>
+                <button>Explore</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid bc-gray">
+        <div class="container">
+          <div class="row stats">
+            <div class="col-md-3 text-center">
+              <h4>35472</h4>
+              <span>HAPPY CUSTOMERS</span>
+            </div>
+            <div class="col-md-3 text-center">
+              <h4>6</h4>
+              <span>AMAZING DESTINATIONS</span>
+            </div>
+            <div class="col-md-3 text-center">
+              <h4>404</h4>
+              <span>ROOMS AVAILABLE</span>
+            </div>
+            <div class="col-md-3 text-center">
+              <h4>4.5</h4>
+              <span>CUSTOMER RATINGS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-sm-12 contact">
+              <img class="img-fluid" src="images/start.png" alt="contact">
+              <div>
+                <h3>Start Your Adventure With Us</h3>
+                <button>Contact Us</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid footer">
+        <div class="container">
+          <div class="row footer-row">
+            <div class='col-md-4 mx-auto'>
+              <img class="footer-image" src="images/foot_logo.png" alt="footer logo">
+              <div>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+              </div>
+              <div class="social-footer">
+                <i class="fab fa-facebook-f fa-lg"></i>
+                <i class="fab fa-instagram fa-lg"></i>
+                <i class="fab fa-youtube fa-lg"></i>  
+                <i class="fab fa-twitter fa-lg"></i>          
+              </div>
+            </div>
+            <div class='col-md-4 mx-auto'>
+              <div class="foot-header"><span>Quick Links</span></div>
+              <div>
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Hotel</a></li>
+                  <li><a href="#">Popular Destinations</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">FAQs</a></li>
+                </ul>
+              </div>
+    
+            </div>
+            <div class='col-md-4 mx-auto'>
+              <div class="foot-header"><span>Contact Us</span></div>
+              <div class="contact-info">
+                <ul>
+                  <li><i class="fas fa-map-marker-alt fa-xs"></i>    72 Fake Address</li>
+                  <li>Winnipeg, MB</li>
+                  <li>Canada</li>
+                  <li><i class="fas fa-phone-alt fa-xs"></i>    (204) 847 - 7264</li>
+                  <li> <i class="far fa-envelope fa-xs"></i>    contact@poseidon.com</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid copy">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
