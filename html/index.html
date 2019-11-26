@@ -9,7 +9,26 @@
     <title>Poseidon</title>
     
     <style>
+    .container{
+      position: relative;
+    }
+    ul.nav{
+      margin-right: 20px;
+    }
+    ul.nav li:first-child{
+      border-right: 1px solid #333;
+    }
     
+    nav.navbar{
+      position: absolute;
+      z-index: 99999;
+      width: 100%;
+      background: rgba(255,255,255,.7) !important;
+    }
+    ul.navbar-nav{
+      position: absolute;
+      right: 40px;
+    }
     .navs .nav-item a {
       color: #575757;
     }
@@ -20,15 +39,39 @@
      .navbar-light .navbar-nav .nav-link, 
      .navbar-light .navbar-nav .active>.nav-link{
       color: #F68500;
+      font-size: 1.25em;
     }
     
-    .container-fluid .container h2{
+    div#carouselExampleControls{
+      position: relative;
+    }
+    
+    div#carouselExampleControls form{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,.75);
+      color: #fff;
+      padding: 20px 0;
+    }
+    
+    button#search{
+      background-color: #f68500;
+      border: none;
+      width: 100%;
+    }
+    
+    h2{
       text-align: center;
       color: #F68500;
+      padding: 40px 0;
+      text-decoration: underline;
     }
     
     .bc-gray{
       background-color: #fafafa;
+      padding-bottom: 40px;
     }
     
     .rooms img{
@@ -40,11 +83,92 @@
       background-color: #fff;
     }
     
+    .room .room-info{
+      margin: 0;
+      border: 1px solid #999;
+      border-top: none;
+      box-shadow: 2px 3px 4px #999;
+      padding: 20px 0;
+    }
+    
     .fa, .fas{
       color: #209ebb;
     }
     
-
+    div.why-choose-us i{
+      padding: 20px 20px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    
+    span.price{
+      background-color: #f4364f;
+      color: #fff;
+      padding: 5px 10px;
+    }
+    
+    div.top-destination{
+      position: relative;
+      margin-bottom: 30px;
+    }
+    
+    div.top-destination .destination{
+      position: absolute;
+      top: 0;
+      right: 15px;
+      bottom: 0;
+      left: 15px;
+      background: rgba(0,0,0,.25);
+      text-align: center;
+    }
+    
+    div.top-destination .destination h4{
+      text-align: center;
+      color: #fff;
+      margin: 150px auto 100px;
+    }
+    
+    .destination button{
+      background-color: #f4364f;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+    }
+    
+    .stats{
+      padding-top: 30px;
+    }
+    
+    .stats h4{
+      color: #f68500;
+    }
+    
+    div.contact{
+      position: relative;
+    }
+    
+    div.contact div{
+      position: absolute;
+      top: 0;
+      right: 15px;
+      bottom: 0;
+      left: 15px;
+      text-align: center;
+      background: rgba(0,0,0,.45);
+    }
+    
+    div.contact div h3{
+      color: #f68500;
+      margin: 100px auto 50px;
+    }
+    
+    div.contact div button{
+      background-color: #f4364f;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+    }
     
     </style>  
   </head>
@@ -119,56 +243,65 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-2">
-              <label for="checkin">Check In</label>
-              <input type="date" class="form-control" id="checkin" placeholder="Check-in date">
-            </div>
-            <div class="form-group col-md-2">
-              <label for="checkout">Check Out</label>
-              <input type="date" class="form-control" id="checkout" placeholder="Check-out date">
-            </div>
+          
+          <form>
+            <div class="form-row">
+              <div class="col-md-1">
+                
+              </div>
+              <div class="form-group col-md-2">
+                <label for="checkin">Check In</label>
+                <input type="date" class="form-control" id="checkin" placeholder="Check-in date">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="checkout">Check Out</label>
+                <input type="date" class="form-control" id="checkout" placeholder="Check-out date">
+              </div>
 
-          <div class="form-group col-md-2">
-            <label for="adults">Adults</label>
-            <input type="number" class="form-control" id="adults" placeholder="">
-          </div>
-          <div class="form-group col-md-2">
-            <label for="children">Children</label>
-            <input type="number" class="form-control" id="children" placeholder="">
-          </div>
-          <div class="form-group col-md-2">
-            <button type="submit" class="btn btn-primary">Search</button>
-          </div>
-         </div>
-        </form>
+            <div class="form-group col-md-2">
+              <label for="adults">Adults</label>
+              <input type="number" class="form-control" id="adults" placeholder="">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="children">Children</label>
+              <input type="number" class="form-control" id="children" placeholder="">
+            </div>
+            <div class="form-group col-md-2">
+              <label>&nbsp;</label><br>
+              <button id="search" type="submit" class="btn btn-primary">Search</button>
+            </div>
+            <div class="col-md-1">
+              
+            </div>
+           </div>
+          </form>
+        </div>
+        
       </div>
         
         <div class="container-fluid">
           <div class="container">
               <h2>Why Choose Us?</h2>
-            <div class="row">
+            <div class="row why-choose-us">
             
               <div class="col-md-3 text-center">
               <i class="fas fa-globe-americas fa-2x"></i>
-                <p>World Class Service</p>
+                <h4>World Class Service</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
               </div>
               <div class="col-md-3 text-center">
                 <i class="fas fa-dollar-sign fa-2x"></i>
-                <p>Best Price Guaranteed</p>
+                <h4>Best Price Guaranteed</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
               </div>
               <div class="col-md-3 text-center">
                 <i class="fas fa-glass-cheers fa-2x"></i>
-                <p>Exotic Ambience</p>
+                <h4>Exotic Ambience</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
               </div>
               <div class="col-md-3 text-center">
                 <i class="fas fa-thumbs-up fa-2x"></i>
-                <p>Great Reviews</p>
+                <h4>Great Reviews</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
               </div>
             </div>
@@ -184,31 +317,109 @@
             <div class="col-md-4 col-sm-12 text-center">
               <div class="room">
                 <img src="images/room1.jpg" alt="room1" >
-                <div class="row">
+                <div class="row room-info">
                   <div class="col-md-8">
-                    <h3>Family Room</h3>Place Cuba</div>
-                  <div class="col-md-4 text-right">$420</div>
+                    <h4>Family Room</h4>Place Cuba</div>
+                  <div class="col-md-4 text-right"><span class="price">$420</span></div>
                 </div>
               </div>
             </div>
             <div class="col-md-4 col-sm-12  text-center">
               <div class="room">
               <img src="images/room2.jpg" alt="room2" >
-              <div class="row">
+              <div class="row room-info">
                 <div class="col-md-8">
-                  <h3>Deluxe Room</h3>Place Mexico</div>
-                  <div class="col-md-4 text-right">$610</div>
+                  <h4>Deluxe Room</h4>Place Mexico</div>
+                  <div class="col-md-4 text-right"><span class="price">$610</span></div>
               </div>
             </div>
           </div>
             <div class="col-md-4 col-sm-12  text-center">
               <div class="room">
                 <img src="images/room3.jpg" alt="room3"  >
+                <div class="row room-info">
+                  <div class="col-md-8">
+                    <h4>Family Room</h4>Place Maldives</div>
+                    <div class="col-md-4 text-right"><span class="price">$530</span></div>
+                </div>
             </div>
           </div>
           </div>
         </div>
       </div>
+      
+      <div class="container-fluid">
+        <div class="container">
+          <h2>Our Top Destinations</h2>
+          <div class="row">
+
+            <div class="col-md-4 col-sm-12 top-destination">
+              <img class="img-fluid" src="images/top1.png" alt="top 1">
+              <div class="destination">
+                <h4>Cuba</h4>
+                <button>Explore</button>
+              </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-12 top-destination">
+              <img class="img-fluid" src="images/top3.png" alt="top 3">
+              <div class="destination">
+                <h4>Maldives</h4>
+                <button>Explore</button>
+              </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-12 top-destination">
+              <img class="img-fluid" src="images/top2.png" alt="top 2">
+              <div class="destination">
+                <h4>Mexico</h4>
+                <button>Explore</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid bc-gray">
+        <div class="container">
+          <div class="row stats">
+            <div class="col-md-3 text-center">
+              <h4>35472</h4>
+              <span>HAPPY CUSTOMERS</span>
+            </div>
+            <div class="col-md-3 text-center">
+              <h4>6</h4>
+              <span>AMAZING DESTINATIONS</span>
+            </div>
+            <div class="col-md-3 text-center">
+              <h4>404</h4>
+              <span>ROOMS AVAILABLE</span>
+            </div>
+            <div class="col-md-3 text-center">
+              <h4>4.5</h4>
+              <span>CUSTOMER RATINGS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-sm-12 contact">
+              <img class="img-fluid" src="images/start.png" alt="contact">
+              <div>
+                <h3>Start Your Adventure With Us</h3>
+                <button>Contact Us</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
