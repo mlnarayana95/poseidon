@@ -1,478 +1,526 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <!-- Boostrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
     <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/58d8ede058.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/58d8ede058.js"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,700&display=swap"
+          rel="stylesheet">
     <title>Poseidon</title>
-    
+
     <style>
-    
-    .container-fluid{
-    padding: 0;
-    }
-    .container{
-      position: relative;
-      font-family: 'Poppins';
-      font-size: 16px;
-    }
-    ul.nav{
-      margin-right: 20px;
-    }
-    ul.nav li:first-child{
-      border-right: 1px solid #333;
-    }
-    
-    nav.navbar{
-      position: absolute;
-      z-index: 99999;
-      width: 100%;
-      background: rgba(255,255,255,.7) !important;
-    }
-    ul.navbar-nav{
-      position: absolute;
-      right: 40px;
-    }
-    .navs .nav-item a {
-      color: #575757;
-    }
-    .navs .nav-item img{
-      padding: 2px;
-    }
-    
-     .navbar-light .navbar-nav .nav-link, 
-     .navbar-light .navbar-nav .active>.nav-link{
-      color: #F68500;
-      font-size: 1.25em;
-    }
-    
-    li{
-      list-style: none;
-    }
-    
-    h2{
-    text-align: left;
-    color: #fff;
-    padding: 15px 0;
-    }
 
-    h3{
-      width: 100%;
-      color: #000;
-      padding: 8px 45px;
-      display: block;
-    }
-    
-    .bc-gray{
-      background-color: #fafafa;
-      padding-bottom: 40px;
-    }
-    
-    
-     .fa, .fas, .choose-us-icon i{
-      color: #209ebb;
-    }
-    
-    
-    
-    div.footer{
-      background-color: #161527;
-      height: 300px;
-      color: #fff;
-
-    }
-    
-    div.footer .fa, .fas{
-      color: #fff;
-    }
-    
-    div.footer li{
-      list-style-type: none;
-    }
-    
-    div.footer ul{
-    padding-left: 0;
-    }
-    
-    
-    div.footer li a{
-      line-height: 1.8;
-      text-decoration: none;
-      color: #fff;
-    }
-    
-    div.footer .social-footer .fab{
-      padding: 20px 10px;
-    }
-    
-    div.footer .foot-header{
-      font-size: 1.2em;
-      padding-bottom: 4px;
-
-    }
-    
-    div.footer .row{
-      font-size: .9em;
-      padding-top: 30px;
-    }
-    
-    div.footer .contact-info{
-      line-height: 1.9;
-    }
-    
-    div.footer .footer-image{
-      padding-bottom: 8px;
-      width: 175px;
-    }
-    
-    div.copy{
-      background-color: #161527;
-      opacity: .9;
-      color: #fff;
-    }
-
-    #wrapper {
-      width: 960px;
-      margin: 0px auto;
-      margin-top:100px;
-    }
-
-    .wrapper{
-        width: 960px;
-        margin: 0px auto;
-    }    .div1 {
-      width: 300px;
-      height: 100px;
-      border: 1px solid black;
-      box-sizing: border-box;
-    }
-
-    #box1{
-          background-color: #e5e5e5;
-          min-height: 200px;
-          margin-top: 20px;
-          padding: 20px;
-    }
-
-        .box{
-          text-align:center;
+        .container-fluid {
+            padding: 0;
         }
 
-          .number{
-              border-bottom: 1px solid #666;
-              display: inline-block;
-              width: 78px;
-              font-size: 25px;
-              font-weight: 500;
-              margin-bottom: 11px;
-          }
-    
-          .join_now{
+        .container {
+            position: relative;
+            font-family: 'Poppins';
+            font-size: 16px;
+        }
+
+        ul.nav {
+            margin-right: 20px;
+        }
+
+        ul.nav li:first-child {
+            border-right: 1px solid #333;
+        }
+
+        nav.navbar {
+            position: absolute;
+            z-index: 99999;
+            width: 100%;
+            background: rgba(255, 255, 255, .7) !important;
+        }
+
+        ul.navbar-nav {
+            position: absolute;
+            right: 40px;
+        }
+
+        .navs .nav-item a {
+            color: #575757;
+        }
+
+        .navs .nav-item img {
+            padding: 2px;
+        }
+
+        .navbar-light .navbar-nav .nav-link,
+        .navbar-light .navbar-nav .active > .nav-link {
+            color: #F68500;
+            font-size: 1.25em;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        h2 {
+            text-align: left;
+            color: #fff;
+            padding: 15px 0;
+        }
+
+        h3 {
+            width: 100%;
+            color: #000;
+            padding: 8px 45px;
+            display: block;
+        }
+
+        .bc-gray {
+            background-color: #fafafa;
+            padding-bottom: 40px;
+        }
+
+
+        .fa, .fas, .choose-us-icon i {
+            color: #209ebb;
+        }
+
+
+        div.footer {
+            background-color: #161527;
+            height: 300px;
+            color: #fff;
+
+        }
+
+        div.footer .fa, .fas {
+            color: #fff;
+        }
+
+        div.footer li {
+            list-style-type: none;
+        }
+
+        div.footer ul {
+            padding-left: 0;
+        }
+
+
+        div.footer li a {
+            line-height: 1.8;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        div.footer .social-footer .fab {
+            padding: 20px 10px;
+        }
+
+        div.footer .foot-header {
+            font-size: 1.2em;
+            padding-bottom: 4px;
+
+        }
+
+        div.footer .row {
+            font-size: .9em;
+            padding-top: 30px;
+        }
+
+        div.footer .contact-info {
+            line-height: 1.9;
+        }
+
+        div.footer .footer-image {
+            padding-bottom: 8px;
+            width: 175px;
+        }
+
+        div.copy {
+            background-color: #161527;
+            opacity: .9;
+            color: #fff;
+        }
+
+        #wrapper {
+            width: 960px;
+            margin: 0px auto;
+            margin-top: 100px;
+        }
+
+        .wrapper {
+            width: 960px;
+            margin: 0px auto;
+        }
+
+        .div1 {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        #box1 {
+            background-color: #e5e5e5;
+            min-height: 200px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .box {
+            text-align: center;
+        }
+
+        .number {
+            border-bottom: 1px solid #666;
+            display: inline-block;
+            width: 78px;
+            font-size: 25px;
+            font-weight: 500;
+            margin-bottom: 11px;
+        }
+
+        .join_now {
             font-weight: 700;
             font-size: 25px;
             width: 173px;
             background-color: #F68500;
             color: #fff;
             border: 1px solid #000;
-          }
-    
-          .ceo{
+        }
+
+        .ceo {
             border-radius: 133px;
             vertical-align: middle;
             border-style: none;
             width: 243px;
             margin: 10px;
-          }
+        }
 
-          .leaders{
+        .leaders {
             border-radius: 133px;
             vertical-align: middle;
             border-style: none;
             width: 200px;
             margin: 10px;
-          }
+        }
 
-          #ceo{
+        #ceo {
             font-size: 21px;
             font-weight: 500;
             color: #999;
-          }
+        }
 
-          .about-hero{
+        .about-hero {
             position: relative;
-          }
+        }
 
-          .about-hero div{
+        .about-hero div {
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
             background: rgba(0, 0, 0, .25);
-          }
+        }
 
-          .about-hero div p{
+        .about-hero div p {
             color: #fff;
             font-size: 48px;
             text-align: center;
             line-height: 480px;
-          }
-          
-          .box1{
+        }
+
+        .box1 {
             border: 1px solid #1085F1;
-          }
+        }
 
-          .booking-header{
+        .booking-header {
             background-color: #F68500;
-          }
+        }
 
-          #hotel_details  ul  li{
+        #hotel_details ul li {
             color: #717171;
             font-size: 14px;
-          }
+        }
 
-          #price  ul  li{
+        #price ul li {
             color: #717171;
             font-size: 14px;
-          }
+        }
 
-          header {
-    min-height: 142px;
-    -webkit-box-shadow: 0 10px 6px -6px #ccc;
-    -moz-box-shadow: 0 10px 6px -6px #ccc;
-    box-shadow: 0 10px 6px -6px #ccc;
-    margin-bottom: 37px;
-}
-
-
-  h1{
-    color: #f68500;
-  }
+        header {
+            min-height: 142px;
+            -webkit-box-shadow: 0 10px 6px -6px #ccc;
+            -moz-box-shadow: 0 10px 6px -6px #ccc;
+            box-shadow: 0 10px 6px -6px #ccc;
+            margin-bottom: 37px;
+        }
 
 
-    </style>  
-  </head>
-  <body>
-    <header>
+        h1 {
+            color: #f68500;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
     <div class="container-fluid">
-      <div class="container">
-          <div class="navs">
-            <ul class="nav justify-content-end">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
-              </li>
-              <li class="nav-item">
-                <img src="images/fbook.png" alt="fbook">
-              </li>
-              <li class="nav-item">
-                <img src="images/twitter.png" alt="twitter">
-              </li>
-              <li class="nav-item">
-                <img src="images/insta.png" alt="insta" >
-              </li>
-            </ul>
-          </div>
-      </div>
-        
+        <div class="container">
+            <div class="navs">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="images/fbook.png" alt="fbook">
+                    </li>
+                    <li class="nav-item">
+                        <img src="images/twitter.png" alt="twitter">
+                    </li>
+                    <li class="nav-item">
+                        <img src="images/insta.png" alt="insta">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <!-- navbar in banner -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="logo">
-           </a>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Rooms</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Offers</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
-            </li>
-           </ul>
-         </div>
-       </nav> <!-- end of navbar -->
-        
-        </div>
-      </header>
-          <div id="wrapper" class="container-fluid">
-            <main>
-              <div class="row">
-                <div class="col-md-7">
-                  <h1>Villa Donna <span><img src="images/star.png"></span> <span><img src="images/star.png"></span>
-                   <span><img src="images/star.png"></span> <span><img src="images/star.png"></span> <span><img src="images/star.png"></span></h1>
-                  <p><span style="margin-right:10px"><img width="30px"src="images/86fd17769a3b2537d2b028601cda7b92.png"></span>Santa Maria, Cuba</p>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <img src="images/room1.jpg">
-                    </div>
-                  </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" alt="logo">
+                </a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> <!-- end of navbar -->
+
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <h1>Villa Donna <span><img src="images/star.png"></span> <span><img
+                    src="images/star.png"></span>
+                <span><img src="images/star.png"></span> <span><img
+                        src="images/star.png"></span> <span><img
+                        src="images/star.png"></span></h1>
+            <p><span style="margin-right:10px"><img width="30px"
+                                                    src="images/86fd17769a3b2537d2b028601cda7b92.png"></span>Santa
+                Maria, Cuba</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="images/room1.jpg">
                 </div>
-                <div class="col-md-5">
-                  <div class="row booking-header">
-                    <div class="col-md-12">
-                      <h2>Booking Summary</h2>
-                    </div>                   
-                  </div>
-                  <div id="hotel_details" class="row box1">
-                    <div class="col-md-12">
-                      <ul>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row booking-header">
+                <div class="col-md-12">
+                    <h2>Booking Summary</h2>
+                </div>
+            </div>
+            <div id="hotel_details" class="row box1">
+                <div class="col-md-12">
+                    <ul>
                         <li>Hotel</li>
                         <li>Villa Donna</li>
                         <li>Room Breakfast</li>
                         <li>Thu Nov 28 2019 - Thu Dec 05 2019</li>
                         <li>1 Room, 7 Days</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div id="price" class="row box1">
-                    <div class="col-md-12">
-                      <ul>
+                    </ul>
+                </div>
+            </div>
+            <div id="price" class="row box1">
+                <div class="col-md-12">
+                    <ul>
                         <li>2 Adults X $75</li>
                         <li>Taxes and Fees</li>
-                      </ul>
-                    </div>
-                  </div>
-                   <div style="padding: 10px" class="row box1">
-                    <div class="col-md-4 box">
-                      <p style="font-size: 20px; font-weight:500">Total</p>
-                    </div>
-                    <div class="col-md-8 box">
-                     <p>$950 CAD</p>
-                    </div>
-                    <div style="width: 100%;" class="row box">
-                      <div class="col-md-12">
-                        <input type="button" name="" value="Continue" class="join_now">
-                      </div>
-                    </div>
-                  </div>
-                  
+                    </ul>
                 </div>
-
-              </div> 
             </div>
-            </main>
-            <div>
+            <div style="padding: 10px" class="row box1">
+                <div class="col-md-4 box">
+                    <p style="font-size: 20px; font-weight:500">Total</p>
+                </div>
+                <div class="col-md-8 box">
+                    <p>$950 CAD</p>
+                </div>
+                <div style="width: 100%;" class="row box">
+                    <div class="col-md-12">
+                        <input type="button" name="" value="Continue"
+                               class="join_now">
+                    </div>
+                </div>
+            </div>
 
-          <div class="accordion" id="accordionExample">
-            <div class="card">
-              <div class="card-header" id="headingOne">
+        </div>
+
+    </div>
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Collapsible Group Item #1
-                  </button>
+                    <button class="btn btn-link" type="button"
+                            data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                        Collapsible Group Item #1
+                    </button>
                 </h2>
-              </div>
+            </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-4 box">
-                      <h3>Hotel Information</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div id="collapseOne" class="collapse show"
+                 aria-labelledby="headingOne"
+                 data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 box">
+                            <h3>Hotel Information</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris
+                                nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.</p>
+                        </div>
+                        <div class="col-md-4 box">
+                            <h3>Key Amenities</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris
+                                nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.</p>
+                        </div>
+                        <div class="col-md-4 box">
+                            <h3>About Poseidon</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris
+                                nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.</p>
+                        </div>
                     </div>
-                    <div class="col-md-4 box">
-                      <h3>Key Amenities</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
-                    </div>
-                    <div class="col-md-4 box">
-                      <h3>About Poseidon</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                  </div>
-              </div>
+                </div>
             </div>
-          </div>
-
-      
-      
-      <div class="container-fluid footer">
-        <div class="container">
-          <div class="row footer-row">
-            <div class='col-md-4 mx-auto'>
-              <img class="footer-image" src="images/foot_logo.png" alt="footer logo">
-              <div>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-              </div>
-              <div class="social-footer">
-                <i class="fab fa-facebook-f fa-lg"></i>
-                <i class="fab fa-instagram fa-lg"></i>
-                <i class="fab fa-youtube fa-lg"></i>  
-                <i class="fab fa-twitter fa-lg"></i>          
-              </div>
-            </div>
-            <div class='col-md-4 mx-auto'>
-              <div class="foot-header"><span>Quick Links</span></div>
-              <div>
-                <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Hotel</a></li>
-                  <li><a href="#">Popular Destinations</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">FAQs</a></li>
-                </ul>
-              </div>
-    
-            </div>
-            <div class='col-md-4 mx-auto'>
-              <div class="foot-header"><span>Contact Us</span></div>
-              <div class="contact-info">
-                <ul>
-                  <li><i class="fas fa-map-marker-alt fa-xs"></i>    72 Fake Address</li>
-                  <li>Winnipeg, MB</li>
-                  <li>Canada</li>
-                  <li><i class="fas fa-phone-alt fa-xs"></i>    (204) 847 - 7264</li>
-                  <li> <i class="far fa-envelope fa-xs"></i>    contact@poseidon.com</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      
-      <div class="container-fluid copy">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+</div>
+
+<div class="container-fluid footer">
+    <div class="container">
+        <div class="row footer-row">
+            <div class='col-md-4 mx-auto'>
+                <img class="footer-image" src="images/foot_logo.png"
+                     alt="footer logo">
+                <div>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                </div>
+                <div class="social-footer">
+                    <i class="fab fa-facebook-f fa-lg"></i>
+                    <i class="fab fa-instagram fa-lg"></i>
+                    <i class="fab fa-youtube fa-lg"></i>
+                    <i class="fab fa-twitter fa-lg"></i>
+                </div>
+            </div>
+            <div class='col-md-4 mx-auto'>
+                <div class="foot-header"><span>Quick Links</span></div>
+                <div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Hotel</a></li>
+                        <li><a href="#">Popular Destinations</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class='col-md-4 mx-auto'>
+                <div class="foot-header"><span>Contact Us</span></div>
+                <div class="contact-info">
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt fa-xs"></i> 72
+                            Fake Address
+                        </li>
+                        <li>Winnipeg, MB</li>
+                        <li>Canada</li>
+                        <li><i class="fas fa-phone-alt fa-xs"></i> (204) 847
+                            - 7264
+                        </li>
+                        <li><i class="far fa-envelope fa-xs"></i>
+                            contact@poseidon.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid copy">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
 </html>
