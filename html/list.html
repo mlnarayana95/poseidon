@@ -345,6 +345,14 @@
             float: right;
         }
 
+        .panel i {
+            color: #F68500;
+        }
+
+        .panel-body {
+            padding: 20px 0;
+        }
+
     </style>
 </head>
 <body>
@@ -608,10 +616,8 @@
         <div class="col-md-4 bc-gray mb-3">
             <div class="title">Filter By</div>
 
-
-
             <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
+                <div class="panel panel-default mb-2">
                     <div class="panel-heading">
                         <div class="panel-title text-orange">
                             Price
@@ -622,13 +628,15 @@
                             </a>
                         </div>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
-                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    <div id="collapse1" class="panel-collapse collapse show">
+                        <div class="panel-body">
+                            <input type="text" class="price-slider"
+                                   name="my_range" value="" />
+                        </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+
+                <div class="panel panel-default mb-2">
                     <div class="panel-heading">
                         <div class="panel-title text-orange">
                             Room Type
@@ -645,7 +653,8 @@
                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+
+                <div class="panel panel-default mb-2">
                     <div class="panel-heading">
                         <div class="panel-title text-orange">
                             Amenities
@@ -662,12 +671,26 @@
                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                     </div>
                 </div>
+
+                <div class="panel panel-default mb-2">
+                    <div class="panel-heading">
+                        <div class="panel-title text-orange">
+                            Location
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse4"
+                               class="pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="text-orange">Price</div>
-            <div class="text-orange">Room Type</div>
-            <div class="text-orange">Amenities</div>
-            <div class="text-orange">Location</div>
         </div>
     </div>
 </div>
@@ -734,14 +757,36 @@
     </div>
 </div>
 
+<!--Plugin CSS file with desired skin-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
+
+<!--jQuery khosada-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+
+<!--Plugin JavaScript file-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+
+<script>
+    $(".price-slider").ionRangeSlider({
+        type: "double",
+        grid: true,
+        min: 0,
+        max: 1000,
+        from: 200,
+        to: 800,
+        prefix: "$"
+    });
+
+</script>
 </body>
 </html>
