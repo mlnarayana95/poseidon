@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/58d8ede058.js"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,700&display=swap"
+          rel="stylesheet">
+    <title>Poseidon</title>
+
+    <style>
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .container {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+
+        ul.nav {
+            margin-right: 20px;
+        }
+
+        ul.nav li:first-child {
+            border-right: 1px solid #333;
+        }
+
+        nav.navbar {
+            width: 100%;
+            background: rgba(255, 255, 255, .7) !important;
+        }
+
+        ul.navbar-nav {
+            font-family: 'Josefin Sans', sans-serif;
+            position: absolute;
+            right: 40px;
+        }
+
+        .navs .nav-item a {
+            color: #575757;
+        }
+
+        .navs .nav-item img {
+            padding: 2px;
+        }
+
+        .navbar-light .navbar-nav .nav-link,
+        .navbar-light .navbar-nav .active > .nav-link {
+            color: #F68500;
+            font-size: 1.25em;
+        }
+
+        div#carouselExampleControls {
+            position: relative;
+        }
+
+        div#carouselExampleControls form {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .75);
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        button#search {
+            background-color: #f68500;
+            border: none;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #F68500;
+            padding: 40px 0;
+        }
+
+        .bc-gray {
+            background-color: #fafafa;
+            padding-bottom: 40px;
+        }
+
+        .rooms img {
+            width: 100%;
+            max-height: 200px;
+        }
+
+        .room {
+            background-color: #fff;
+        }
+
+        .room .room-info {
+            margin: 0;
+            border: 1px solid #999;
+            border-top: none;
+            box-shadow: 2px 3px 4px #999;
+            padding: 20px 0;
+        }
+
+        .fa, .fas, .choose-us-icon i {
+            color: #209ebb;
+        }
+
+        div.why-choose-us i {
+            padding: 20px 20px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        span.price {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+        }
+
+        div.top-destination {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        div.top-destination .destination {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+            background: rgba(0, 0, 0, .25);
+            text-align: center;
+        }
+
+        div.top-destination .destination h4 {
+            text-align: center;
+            color: #fff;
+            margin: 150px auto 100px;
+        }
+
+        .destination button {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+        }
+
+        .stats {
+            padding-top: 30px;
+        }
+
+        .stats h4 {
+            color: #f68500;
+        }
+
+        div.contact {
+            position: relative;
+        }
+
+        div.contact div {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+            text-align: center;
+            background: rgba(0, 0, 0, .45);
+        }
+
+        div.contact div h3 {
+            color: #f68500;
+            margin: 100px auto 50px;
+        }
+
+        div.contact div button {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+        }
+
+        div.footer {
+            background-color: #161527;
+            height: 300px;
+            color: #fff;
+
+        }
+
+        div.footer .fa, .fas {
+            color: #fff;
+        }
+
+        div.footer li {
+            list-style-type: none;
+        }
+
+        div.footer ul {
+            padding-left: 0;
+        }
+
+
+        div.footer li a {
+            line-height: 1.8;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        div.footer .social-footer .fab {
+            padding: 20px 10px;
+        }
+
+        div.footer .foot-header {
+            font-size: 1.2em;
+            padding-bottom: 4px;
+
+        }
+
+        div.footer .row {
+            font-size: .9em;
+            padding-top: 30px;
+        }
+
+        div.footer .contact-info {
+            line-height: 1.9;
+        }
+
+        div.footer .footer-image {
+            padding-bottom: 8px;
+            width: 175px;
+        }
+
+        div.copy {
+            background-color: #161527;
+            opacity: .9;
+            color: #fff;
+        }
+
+        /* Krita */
+
+        header {
+            -webkit-box-shadow: 0 10px 6px -6px #ccc;
+            -moz-box-shadow: 0 10px 6px -6px #ccc;
+            box-shadow: 0 10px 6px -6px #ccc;
+            margin-bottom: 6px;
+        }
+
+        .title-div {
+            background-color: #FAFAFA;
+            height: 90px;
+            line-height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .content-header {
+            width: 100%;
+        }
+
+        .content-header .title {
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 12px 0;
+            font-size: 1.5em;
+            float: left;
+            color: #f68500;
+        }
+
+        /* Breadcrumb style */
+        .content-header .content-breadcrumb {
+            font-size: 0.8em;
+            list-style: none;
+        }
+
+        .content-breadcrumb > li {
+            display: inline-block;
+        }
+
+        .content-breadcrumb > li + li::before {
+            padding: 0 5px;
+            content: "\003e";
+        }
+
+        /* List Items */
+        .room {
+            width: 48%;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .room:nth-of-type(2n) {
+            margin-right: 0;
+        }
+
+        .room:nth-of-type(2n+1) {
+            margin-left: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="navs">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <img src="images/fbook.png" alt="fbook">
+                </li>
+                <li class="nav-item">
+                    <img src="images/twitter.png" alt="twitter">
+                </li>
+                <li class="nav-item">
+                    <img src="images/insta.png" alt="insta">
+                </li>
+            </ul>
+        </div>
+
+        <!-- navbar in banner -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" alt="logo">
+                </a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> <!-- end of navbar -->
+
+    </div>
+
+</header>
+
+<div class="title-div">
+    <div class="container">
+        <div class="row content-header">
+            <div class="col-md-8 title">
+                Choose Form Our Best Rooms
+            </div>
+            <div class="col-md-4 text-right">
+                <ol class="content-breadcrumb">
+                    <li><a href="">Home</a></li>
+                    <li class="active"><a href="">Rooms</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div><!-- /.title-div -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="d-flex">
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/640/480/?14748" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/blog-post-test" title="Blog Post Steve">
+                            Blog Post Steve</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Sep 09, 2019                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/travelling">
+                                Travelling                                    </a>
+                        </div>
+                        <div class="work-info">Things things thing
+                        </div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/400/228/?43283" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/terrible-joke" title="Terrible Joke Updated">
+                            Terrible Joke Updated</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Sep 09, 2019                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/travelling">
+                                Travelling                                    </a>
+                        </div>
+                        <div class="work-info">A programmer is walking along a beach and finds a lamp.&nbsp; He rubs the lamp, and a genie appears.&nbsp; “I am the most powerful genie in the world.&nbsp; I can grant you any wish, but only one wish.”
+
+                            The programmer...</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/200/200/?75886" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/terrible-joke-2" title=" Everest Base Camp Trek">
+                            Everest Base Camp Trek</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Sep 07, 2019                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/travelling">
+                                Travelling                                    </a>
+                        </div>
+                        <div class="work-info">Everybody wants a glimpse of the world’s highest mountain and that’s the reason why the Everest Base Camp Trek is so popular. The trek has a number of stunning attractions, not least of these is being able to say you’ve...</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/200/200/?12455" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/laborum-vitae-tempore-id-omnis-et-consequuntur" title="Icie Bayer">
+                            Icie Bayer</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Jul 08, 2002                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/coding">
+                                Coding                                    </a>
+                        </div>
+                        <div class="work-info">March Hare. 'Then it ought to have got in your knocking,' the Footman remarked, 'till tomorrow--' At this moment Alice appeared, she was up to the heads of the deepest contempt. 'I've seen a good.</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/200/200/?55521" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/consequatur-voluptatem-asperiores-et-nam-reiciendis" title="Vivianne Wintheiser">
+                            Vivianne Wintheiser</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Oct 15, 1989                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/technologies">
+                                Technologies                                    </a>
+                        </div>
+                        <div class="work-info">Good-bye, feet!' (for when she had nothing else to do, so Alice soon came upon a low trembling voice, 'Let us get to the porpoise, "Keep back, please: we don't want YOU with us!"' 'They were.</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/200/200/?15884" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/velit-suscipit-totam-consequatur-ab-earum-molestiae" title="Kariane Cassin">
+                            Kariane Cassin</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Oct 01, 1976                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/lifestyle">
+                                Lifestyle                                    </a>
+                        </div>
+                        <div class="work-info">The master was an old woman--but then--always to have any pepper in that soup!' Alice said very politely, 'for I never heard it muttering to itself 'The Duchess! The Duchess! Oh my dear paws! Oh my.</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/200/200/?86517" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/odio-et-placeat-impedit-quia-quidem-et-eveniet" title="Miss Maia Kshlerin PhD">
+                            Miss Maia Kshlerin PhD</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Mar 19, 2009                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/lifestyle">
+                                Lifestyle                                    </a>
+                        </div>
+                        <div class="work-info">Oh, I shouldn't like THAT!' 'Oh, you foolish Alice!' she answered herself. 'How can you learn lessons in the morning, just time to see if he had come back in their mouths; and the great wonder is.</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/200/200/?51344" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/ipsa-fuga-est-at-cum-reprehenderit-ut" title="Elian Kilback">
+                            Elian Kilback</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Jan 19, 1970                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/lifestyle">
+                                Lifestyle                                    </a>
+                        </div>
+                        <div class="work-info">And then a great crowd assembled about them--all sorts of little Alice and all would change (she knew) to the baby, and not to make out that it was looking at Alice for protection. 'You shan't be.</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/200/200/?58814" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/possimus-possimus-possimus-ad-voluptatem-quia-voluptas-quo" title="Marquise Quitzon">
+                            Marquise Quitzon</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Mar 09, 1974                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/food">
+                                Food                                    </a>
+                        </div>
+                        <div class="work-info">No, I've made up my mind about it; if I'm not the smallest notice of them didn't know that cats COULD grin.' 'They all can,' said the Gryphon. 'Turn a somersault in the pool of tears which she.</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/200/200/?91310" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/alias-dignissimos-laboriosam-excepturi-consequuntur" title="Yesenia Gislason I">
+                            Yesenia Gislason I</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Jan 16, 2019                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/lifestyle">
+                                Lifestyle                                    </a>
+                        </div>
+                        <div class="work-info">Alice, 'and why it is to give the hedgehog to, and, as the hall was very uncomfortable, and, as the White Rabbit blew three blasts on the door of the table. 'Have some wine,' the March Hare. The.</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="work-img">
+                        <img src="https://lorempixel.com/200/200/?28514" alt="Code">
+                    </div>
+                    <div class="blog-desc">
+                        <div class="work-title"><a href="http://php.capstone/blog/dolorem-voluptatem-alias-molestiae-voluptatem" title="Harvey Turner">
+                            Harvey Turner</a>
+                        </div>
+                        <div class="work-date">
+                            <i class="fa fa-calendar"></i>
+                            Nov 12, 1978                                    | <i class="fa fa-folder"></i>
+                            <a href="http://php.capstone/category/travelling">
+                                Travelling                                    </a>
+                        </div>
+                        <div class="work-info">CHAPTER VIII. The Queen's argument was, that her neck would bend about easily in any direction, like a sky-rocket!' 'So you think you might like to be a footman because he was gone, and the moment.</div>
+                        <!--<hr/>-->
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- List Ends Here -->
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid footer">
+    <div class="container">
+        <div class="row footer-row">
+            <div class='col-md-4 mx-auto'>
+                <img class="footer-image" src="images/foot_logo.png"
+                     alt="footer logo">
+                <div>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                </div>
+                <div class="social-footer">
+                    <i class="fab fa-facebook-f fa-lg"></i>
+                    <i class="fab fa-instagram fa-lg"></i>
+                    <i class="fab fa-youtube fa-lg"></i>
+                    <i class="fab fa-twitter fa-lg"></i>
+                </div>
+            </div>
+            <div class='col-md-4 mx-auto'>
+                <div class="foot-header"><span>Quick Links</span></div>
+                <div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Hotel</a></li>
+                        <li><a href="#">Popular Destinations</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class='col-md-4 mx-auto'>
+                <div class="foot-header"><span>Contact Us</span></div>
+                <div class="contact-info">
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt fa-xs"></i> 72 Fake
+                            Address
+                        </li>
+                        <li>Winnipeg, MB</li>
+                        <li>Canada</li>
+                        <li><i class="fas fa-phone-alt fa-xs"></i> (204) 847 -
+                            7264
+                        </li>
+                        <li><i class="far fa-envelope fa-xs"></i>
+                            contact@poseidon.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid copy">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
