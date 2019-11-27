@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <!-- Boostrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/58d8ede058.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,700&display=swap" rel="stylesheet">
@@ -135,84 +138,26 @@
         margin: 0px auto;
     }
 
-    .div1 {
-      width: 300px;
-      height: 100px;
-      border: 1px solid black;
-      box-sizing: border-box;
-    }
-
-    #box1{
-          background-color: #e5e5e5;
-          min-height: 200px;
-          margin-top: 20px;
-          padding: 20px;
-    }
-
-        .box{
-          text-align:center;
-        }
-
-          .number{
-              border-bottom: 1px solid #666;
-              display: inline-block;
-              width: 78px;
-              font-size: 25px;
-              font-weight: 500;
-              margin-bottom: 11px;
-          }
     
-          .join_now{
-            font-weight: 700;
-            font-size: 25px;
-            width: 173px;
-            background-color: #f9A606;
-            color: #fff;
-            border: 1px solid #000;
-          }
-    
-          .ceo {
-            border-radius: 163px;
-            vertical-align: middle;
-            border-style: none;
-            width: 333px;
-            margin: 30px;
-          }
+    .form-control {
+    display: block;
+    width: 50%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 
-          .leaders{
-            border-radius: 133px;
-            vertical-align: middle;
-            border-style: none;
-            width: 200px;
-            margin: 50px;
-          }
 
-          #ceo{
-            font-size: 21px;
-            font-weight: 500;
-            color: #999;
-          }
 
-          .about-hero{
-            position: relative;
-          }
 
-          .about-hero div{
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: rgba(0, 0, 0, .25);
-          }
-
-          .about-hero div p{
-            color: #fff;
-            font-size: 48px;
-            text-align: center;
-            line-height: 480px;
-          }
-        
 
     </style>  
   </head>
@@ -268,131 +213,68 @@
        </nav> <!-- end of navbar -->
         
         
-          
-          <div id="wrapper">
-            <main>
-                  <h2>  <img src="images/logo.png" alt="logo"></h2>
-                  <div class="wrapper about-hero">
-                    <img width="100%" src="images/hero.jpg" alt="hero">
-                    <div>
-                      <p>Great Deals, Amazing Places</p>
-                    </div>
-                  </div>
-                  <div class="wrapper" id="box1">
-                    <div class="row">
-                      <div class="col-md-12">
-                    <h2>Why Choose Poseidon for your next holiday?</h2>
-                    </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4 box"> 
-                        <span class="number">1</span>
-                        <p>We'll give our best price guarantee. Your escape
-                        is negotiated exclusively</p>
-                      </div>
-                      <div class="col-md-4 box"> 
-                        <span class="number">2</span>
-                        <p>We'll give you a 7-day 'Change of Mind' refund 
-                        guarantee</p>
-                      </div>
-                      <div class="col-md-4 box"> 
-                        <span class="number">3</span>
-                        <p>We'll give you VIP inclusions.
-                        Get more with your escape</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="box"> 
-                      <h2>Become a member today</h2>
-                      <p><input type="button" class="btn join_now" name="btn" value="Join Now" /></p>
-                  </div>
-                    <div class="container-fluid footer">
-      <div class="wrapper">
-          <div class="row">
-              <div class="col-xs-12">
-                <h2 style="color:#fff">The Company</h2>
-                <p>Poseidon is owned by Lux Group Limited, a privately-owned business based in Melbourne Luxury Escapes is owned by Lux Group Limited, a privately-owned business based in Melbourne which was founded in 2009 by Jeremy Same and Adam Schwab. Lux Group has more than 150 team members globally, with major offices in Sydney, Melbourne, Bangalore, Singapore and San Francisco. In addition to Luxury Escapes, the Lux Group is a joint venture partner with the Catch 
-                Group in Scoopon, Cudo and TreatMe</p> 
-              </div> 
-          </div>
-      </div>
+          <form method="post" action="http://www.scott-media.com/test/form_display.php" id="register" name="register" autocomplete="off" enctype="multipart/form-data">
+    <span class="required_asterisk"></span>
+
+    <fieldset>
+
+      <!--Set up all necessary information for my form in HTML  -->
+      <div id="wrapper">
+        <legend><b>Contact Us</b></legend>
+ 
+        <h1>If You Have Any Question </br>
+        Drop A Message</h1>
+
+
+       <label for="name"></label>
+  <input type="name" class="form-control" id="name" placeholder="Name">
+  <label for="email"></label>
+  <input type="email" class="form-control" id="email" placeholder="Email">
+  <label for="subject"></label>
+  <input type="subject" class="form-control" id="subject" placeholder="Subject">
+  <div class="form-check">
+    
+  </div>
+
+        
+        
+      
+      <!--Set up sabmit and clear button for my page in HTML -->
+
+      <div class="container">
+  
+  <form action="/action_page.php">
+    <div class="form-group">
+      <label for="comment"></label>
+      <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Your Massage"></textarea>
     </div>
-
-    <div class="wrapper"> 
-      <h2> Leadership Team</h2>
-      <div class="row">
-          <div class="col-xs-12">
-          <p>
-            Our leaders inspire our team to live according to our company values, which include impressing our customers and clients with a truly exceptional experience, innovation, experementing and learning, being accountable and being positive and fun.
-          </p> 
-          </div> 
-      </div>
-
-      <div class="row"> 
-          <div id="ceo" style="text-align:center" class="col-md-5">
-             <img class="ceo" src="images/0 (2).jpg"> 
-             <p>Krita Maharjan</p>
-             <p>CEO</p>
-          </div>
-          <div style="text-align:center" class="col-md-7"> 
-            <div class="row">
-              <div class="col-md-5">
-                  <img class="leaders" src="images/0 (1).jpg">
-              </div>
-              <div class="col-md-7"  style="
-                    vertical-align: center;
-                    padding: 92px;">
-                  <p>Juan</p>
-                  <p> Chief Financial Officer</p> 
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
-                  <img class="leaders" src="images/0 (3).jpg">
-              </div>
-              <div class="col-md-7" style="
-                    vertical-align: center;
-                    padding: 92px;
-                ">
-                  <p>Narain</p>
-                  <p>Chief Customer Officer</p> 
-              </div>
-            </div>
-                        <div class="row">
-              <div class="col-md-5">
-                  <img class="leaders" src="images/0.jpg">
-              </div>
-              <div class="col-md-7" style="
-                    vertical-align: center;
-                    padding: 92px;
-                ">
-                  <p>Katie Peters</p>
-                  <p>Peope & Culture Director</p> 
-              </div>
-            </div>
-                        <div class="row">
-              <div class="col-md-5">
-                  <img class="leaders" src="images/evg.jpg">
-              </div>
-              <div class="col-md-7" style="
-                    vertical-align: center;
-                    padding: 92px;
-                ">
-                  <p>Evgheni</p>
-                  <p>General Company Secretary</p> 
-              </div>
-            </div>
-          </div>
-      </div>
-      </div>
-    </div>
-
-
-          </div>
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
 </div>
-            </main>
-          </div>
+    </fieldset>
 
+  </form>
+
+<div class="container">
+  <p>Map-marker icon on a styled link button:
+        <a href="#" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-map-marker"></span> Map
+        </a>
+      </p> 
+
+       <p>Bullhorn icon on a styled link button:
+        <a href="#" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-bullhorn"></span> Bullhorn
+        </a>
+      </p> 
+      <p>Envelope icon on a styled link button:
+        <a href="#" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-envelope"></span> Envelope 
+        </a>
+      </p> 
+</div>
+  
+    
       
       
       <div class="container-fluid footer">
@@ -456,3 +338,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
