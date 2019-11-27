@@ -12,13 +12,23 @@
     <style>
     
     .container-fluid{
-    padding: 0;
+      padding: 0;
     }
+    
     .container{
       position: relative;
       font-family: 'Poppins';
       font-size: 16px;
     }
+    
+    div.container h2{
+      font-family: 'Josefin Sans';
+      }
+    
+    div.social-head{
+      background-color: #F5F5F5; 
+    }
+    
     ul.nav{
       margin-right: 20px;
     }
@@ -39,6 +49,7 @@
     .navs .nav-item a {
       color: #575757;
     }
+    
     .navs .nav-item img{
       padding: 2px;
     }
@@ -92,14 +103,11 @@
     
     .room .room-info{
       margin: 0;
-      border: 1px solid #999;
-      border-top: none;
-      box-shadow: 2px 3px 4px #999;
       padding: 20px 0;
     }
     
-     .fa, .fas, .choose-us-icon i{
-      color: #209ebb;
+     div.why-choose-us h6{ 
+      font-weight: bold;
     }
     
     div.why-choose-us i{
@@ -107,6 +115,15 @@
       border: 1px solid #ccc;
       border-radius: 50%;
       margin-bottom: 10px;
+      color: #209ebb;
+    }
+    
+    div.why-choose-us-dollar i{
+      padding: 20px 28px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      color: #209ebb;
     }
     
     span.price{
@@ -155,6 +172,11 @@
       position: relative;
     }
     
+    div.contact-us-image{
+      background-image: url('images/start.jpeg');
+      min-height: 229px;
+    }
+    
     div.contact div{
       position: absolute;
       top: 0;
@@ -179,28 +201,29 @@
     
     div.footer{
       background-color: #161527;
-      height: 300px;
+      min-height: 300px;
       color: #fff;
 
     }
     
-    div.footer .fa, .fas{
+    div.footer .fa .fas{
       color: #fff;
     }
     
-    div.footer li{
+    div.footer li, span{
       list-style-type: none;
+      color: #c9c7bf;
     }
     
     div.footer ul{
-    padding-left: 0;
+      padding-left: 0;
     }
     
     
     div.footer li a{
       line-height: 1.8;
       text-decoration: none;
-      color: #fff;
+      color: #c9c7bf;
     }
     
     div.footer .social-footer .fab{
@@ -208,9 +231,9 @@
     }
     
     div.footer .foot-header{
-      font-size: 1.2em;
-      padding-bottom: 4px;
-
+      color: #fff;
+      font-size: 1.4em;
+      padding-bottom: 6px;
     }
     
     div.footer .row{
@@ -222,21 +245,35 @@
       line-height: 1.9;
     }
     
+    div.fa, .fas{
+      margin-right: 8px;
+      color: #fff;
+    }
+    
+    div.footer .contact-info li{
+      margin-bottom: 8px;
+    }
+    
     div.footer .footer-image{
       padding-bottom: 8px;
       width: 175px;
     }
     
-    div.copy{
+    div.copy-container{
       background-color: #161527;
       opacity: .9;
       color: #fff;
+      min-height: 35px;
+      line-height: 36px;
+    }
+    div.copy{
+      font-size: .7em;
     }
     
     </style>  
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid social-head">
       <div class="container">
           <div class="navs">
             <ul class="nav justify-content-end">
@@ -258,6 +295,8 @@
             </ul>
           </div>
       </div>
+      
+      <div class="container-fluid">
         
         <!-- navbar in banner -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -275,9 +314,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Rooms</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Offers</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contact Us</a>
@@ -347,24 +383,24 @@
               <h2>Why Choose Us?</h2>
             <div class="row why-choose-us">
             
-              <div class="col-md-3 text-center">
+              <div class="col-md-3 text-center why-choose-us">
               <i class="fas fa-globe-americas fa-2x choose-us-icon"></i>
-                <h4>World Class Service</h4>
+                <h6>World Class Service</h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
               </div>
-              <div class="col-md-3 text-center">
+              <div class="col-md-3 text-center why-choose-us-dollar">
                 <i class="fas fa-dollar-sign fa-2x choose-us-icon"></i>
-                <h4>Best Price Guaranteed</h4>
+                <h6>Best Price Guaranteed</h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
               </div>
-              <div class="col-md-3 text-center">
+              <div class="col-md-3 text-center why-choose-us">
                 <i class="fas fa-glass-cheers fa-2x choose-us-icon"></i>
-                <h4>Exotic Ambience</h4>
+                <h6>Exotic Ambience</h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
               </div>
-              <div class="col-md-3 text-center">
+              <div class="col-md-3 text-center why-choose-us">
                 <i class="fas fa-thumbs-up fa-2x choose-us-icon"></i>
-                <h4>Great Reviews</h4>
+                <h6>Great Reviews</h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
               </div>
             </div>
@@ -372,13 +408,13 @@
         </div>  
 
       
-      <div class="container-fluid bc-gray">
-        <div class="container rooms">
+      <div class="container-fluid bc-gray ">
+        <div class="container rooms ">
           <h2>Our Hotel Rooms</h2>
           <div class="row">
 
             <div class="col-md-4 col-sm-12 text-center">
-              <div class="room">
+              <div class="room shadow">
                 <img src="images/room1.jpg" alt="room1" >
                 <div class="row room-info">
                   <div class="col-md-8">
@@ -388,7 +424,7 @@
               </div>
             </div>
             <div class="col-md-4 col-sm-12  text-center">
-              <div class="room">
+              <div class="room shadow">
               <img src="images/room2.jpg" alt="room2" >
               <div class="row room-info">
                 <div class="col-md-8">
@@ -398,7 +434,7 @@
             </div>
           </div>
             <div class="col-md-4 col-sm-12  text-center">
-              <div class="room">
+              <div class="room shadow">
                 <img src="images/room3.jpg" alt="room3"  >
                 <div class="row room-info">
                   <div class="col-md-8">
@@ -467,12 +503,11 @@
         </div>
       </div>
       
-      <div class="container-fluid">
+      <div class="container-fluid contact-us-image">
         <div class="container">
           <div class="row">
 
             <div class="col-sm-12 contact">
-              <img class="img-fluid" src="images/start.png" alt="contact">
               <div>
                 <h3>Start Your Adventure With Us</h3>
                 <button>Contact Us</button>
@@ -499,7 +534,7 @@
               </div>
             </div>
             <div class='col-md-4 mx-auto'>
-              <div class="foot-header"><span>Quick Links</span></div>
+              <div class="foot-header">Quick Links</div>
               <div>
                 <ul>
                   <li><a href="#">Home</a></li>
@@ -512,14 +547,14 @@
     
             </div>
             <div class='col-md-4 mx-auto'>
-              <div class="foot-header"><span>Contact Us</span></div>
+              <div class="foot-header">Contact Us</div>
               <div class="contact-info">
                 <ul>
-                  <li><i class="fas fa-map-marker-alt fa-xs"></i>    72 Fake Address</li>
-                  <li>Winnipeg, MB</li>
-                  <li>Canada</li>
-                  <li><i class="fas fa-phone-alt fa-xs"></i>    (204) 847 - 7264</li>
-                  <li> <i class="far fa-envelope fa-xs"></i>    contact@poseidon.com</li>
+                  <li><i class="fas fa-map-marker-alt fa-lg"></i>    72 Fake Address<br/>
+                  Winnipeg, MB<br/>
+                  Canada</li>
+                  <li><i class="fas fa-phone-alt fa-lg"></i>    (204) 847 - 7264</li>
+                  <li><i class="fas fa-envelope fa-lg"></i>    contact@poseidon.com</li>
                 </ul>
               </div>
             </div>
@@ -527,8 +562,8 @@
         </div>
       </div>
       
-      <div class="container-fluid copy">
-        <div class="container">
+      <div class="container-fluid copy-container">
+        <div class="container copy">
           <div class="row">
             <div class="col-md-12 text-center">
               <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
