@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/58d8ede058.js"
+            crossorigin="anonymous"></script>
+    <link
+            href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,600&display=swap"
+            rel="stylesheet">
+    <title>Poseidon</title>
+
+    <style>
+
+        body {
+            color: #717171;
+            font-size: 14px;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .container {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        ul.nav {
+            margin-right: 20px;
+        }
+
+        ul.nav li:first-child {
+            border-right: 1px solid #333;
+        }
+
+        nav.navbar {
+            background: rgba(255, 255, 255, .7) !important;
+            padding: 20px 0;
+        }
+
+        div.navbar-nav {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .navs .nav-item a {
+            color: #575757;
+        }
+
+        .navs .nav-item img {
+            padding: 2px;
+        }
+
+        .navbar-light .navbar-nav .nav-link,
+        .navbar-light .navbar-nav .active > .nav-link {
+            color: #F68500;
+            font-size: 1.25em;
+        }
+
+        div#carouselExampleControls {
+            position: relative;
+        }
+
+        div#carouselExampleControls form {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .75);
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        button#search {
+            background-color: #f68500;
+            border: none;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #F68500;
+            padding: 40px 0;
+        }
+
+        .bc-gray {
+            background-color: #fafafa;
+            /*padding-bottom: 40px;*/
+        }
+
+        .rooms img {
+            width: 100%;
+            max-height: 200px;
+        }
+
+        .room {
+            background-color: #fff;
+        }
+
+        .room .room-info {
+            margin: 0;
+            border-top: none;
+            padding: 20px;
+        }
+
+        .fa, .fas, .choose-us-icon i {
+            color: #209ebb;
+        }
+
+        div.why-choose-us i {
+            padding: 20px 20px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        span.price {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+        }
+
+        div.top-destination {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        div.top-destination .destination {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+            background: rgba(0, 0, 0, .25);
+            text-align: center;
+        }
+
+        div.top-destination .destination h4 {
+            text-align: center;
+            color: #fff;
+            margin: 150px auto 100px;
+        }
+
+        .destination button {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+        }
+
+        .stats {
+            padding-top: 30px;
+        }
+
+        .stats h4 {
+            color: #f68500;
+        }
+
+        div.contact {
+            position: relative;
+        }
+
+        div.contact div {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+            text-align: center;
+            background: rgba(0, 0, 0, .45);
+        }
+
+        div.contact div h3 {
+            color: #f68500;
+            margin: 100px auto 50px;
+        }
+
+        div.contact div button {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+        }
+
+        div.footer {
+            background-color: #161527;
+            height: 300px;
+            color: #fff;
+
+        }
+
+        div.footer .fa, .fas {
+            color: #fff;
+        }
+
+        div.footer li {
+            list-style-type: none;
+        }
+
+        div.footer ul {
+            padding-left: 0;
+        }
+
+
+        div.footer li a {
+            line-height: 1.8;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        div.footer .social-footer .fab {
+            padding: 20px 10px;
+        }
+
+        div.footer .foot-header {
+            font-size: 1.2em;
+            padding-bottom: 4px;
+
+        }
+
+        div.footer .row {
+            font-size: .9em;
+            padding-top: 30px;
+        }
+
+        div.footer .contact-info {
+            line-height: 1.9;
+        }
+
+        div.footer .footer-image {
+            padding-bottom: 8px;
+            width: 175px;
+        }
+
+        div.copy {
+            background-color: #161527;
+            opacity: .9;
+            color: #fff;
+        }
+
+        /* Krita */
+
+        header {
+            -webkit-box-shadow: 0 10px 6px -6px #ccc;
+            -moz-box-shadow: 0 10px 6px -6px #ccc;
+            box-shadow: 0 10px 6px -6px #ccc;
+            margin-bottom: 6px;
+        }
+
+        .title-div {
+            background-color: #FAFAFA;
+            height: 90px;
+            line-height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .content-header {
+            width: 100%;
+        }
+
+        .title {
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 12px 0;
+            font-size: 1.5em;
+            color: #f68500;
+        }
+
+        /* Breadcrumb style */
+        .content-header .content-breadcrumb {
+            font-size: 0.8em;
+            list-style: none;
+        }
+
+        .content-breadcrumb > li {
+            display: inline-block;
+        }
+
+        .content-breadcrumb > li + li::before {
+            padding: 0 5px;
+            content: "\003e";
+        }
+
+        /* List Items */
+        .list-section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .room {
+            width: 48%;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .room:nth-of-type(2n) {
+            margin-right: 0;
+        }
+
+        .room:nth-of-type(2n+1) {
+            margin-left: 0;
+        }
+
+        .room-img img {
+            width: 100%;
+        }
+
+        .room-info {
+            padding: 10px;
+        }
+
+        .room .room-title {
+            color: #f68500;
+            font-weight: 600;
+            font-size: 1.4em;
+        }
+
+        .room .room-price {
+            color: #F4364F;
+            font-weight: 600;
+        }
+
+        .btn-link {
+            background: #F68500;
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 0;
+            -webkit-box-shadow: 0 10px 6px -6px #ddd;
+            -moz-box-shadow: 0 10px 6px -6px #ddd;
+            box-shadow: 0 10px 6px -6px #ddd;
+        }
+
+        .text-orange {
+            color: #F68500;
+        }
+
+        .pull-right {
+            float: right;
+        }
+
+        .panel i {
+            color: #F68500;
+        }
+
+        .panel-body {
+            padding: 20px 0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <div class="navs">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <img src="images/fbook.png" alt="fbook">
+                </li>
+                <li class="nav-item">
+                    <img src="images/twitter.png" alt="twitter">
+                </li>
+                <li class="nav-item">
+                    <img src="images/insta.png" alt="insta">
+                </li>
+            </ul>
+        </div>
+
+        <!-- main navbar -->
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a href="#" class="navbar-brand">
+                <img src="images/logo.png" alt="logo">
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse"
+                    data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between"
+                 id="navbarCollapse">
+
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link nav-item active" href="#">Home</a>
+                    <a class="nav-link nav-item" href="#">About Us</a>
+                    <a class="nav-link nav-item" href="#">Rooms</a>
+                    <a class="nav-link nav-item" href="#">Offers</a>
+                    <a class="nav-link nav-item" href="#">Contact Us</a>
+                </div>
+            </div>
+        </nav>
+        <!-- main navbar ends -->
+
+    </div>
+</header>
+
+<div class="title-div">
+    <div class="container">
+        <div class="row content-header">
+            <div class="col-md-8 title">
+                Choose Form Our Best Rooms
+            </div>
+            <div class="col-md-4 text-right">
+                <ol class="content-breadcrumb">
+                    <li><a href="">Home</a></li>
+                    <li class="active"><a href="">Rooms</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div><!-- /.title-div -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="list-section">
+
+                <div class="room shadow">
+                    <div class="room-img">
+                        <img src="images/room1.jpg" alt="Code">
+                    </div>
+                    <div class="room-info">
+                        <div class="room-title">
+                            Deluxe Room
+                        </div>
+                        <div class="mb-2">
+                            from <span class="room-price">$420</span> per night
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-map-marker"></i> Somewhere St., Cuba
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-snowflake"></i> Air Conditioning |
+                            <i class="fa fa-shower"></i> Shower Room |
+                            <i class="fa fa-coffee"></i> Tea/Coffee maker |
+                            <i class="fa fa-tv"></i> Flat-screen TV
+                        </div>
+
+                        <div class="mb-2">
+                            Ut tellus dolor, dapibus eget, elementum vel, cursus
+                            eleifend, elit. Aenean auctor wisi et urna...
+                        </div>
+
+                        <hr/>
+
+                        <div class="text-right">
+                            <a href="" class="btn btn-link">Details</a>
+                        </div>
+                    </div>
+                </div><!-- /.room -->
+
+                <div class="room shadow">
+                    <div class="room-img">
+                        <img src="images/room1.jpg" alt="Code">
+                    </div>
+                    <div class="room-info">
+                        <div class="room-title">
+                            Deluxe Room
+                        </div>
+                        <div class="mb-2">
+                            from <span class="room-price">$420</span> per night
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-map-marker"></i> Somewhere St., Cuba
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-snowflake"></i> Air Conditioning |
+                            <i class="fa fa-shower"></i> Shower Room |
+                            <i class="fa fa-coffee"></i> Tea/Coffee maker |
+                            <i class="fa fa-tv"></i> Flat-screen TV
+                        </div>
+
+                        <div class="mb-2">
+                            Ut tellus dolor, dapibus eget, elementum vel, cursus
+                            eleifend, elit. Aenean auctor wisi et urna...
+                        </div>
+
+                        <hr/>
+
+                        <div class="text-right">
+                            <a href="" class="btn btn-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room shadow">
+                    <div class="room-img">
+                        <img src="images/room1.jpg" alt="Code">
+                    </div>
+                    <div class="room-info">
+                        <div class="room-title">
+                            Deluxe Room
+                        </div>
+                        <div class="mb-2">
+                            from <span class="room-price">$420</span> per night
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-map-marker"></i> Somewhere St., Cuba
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-snowflake"></i> Air Conditioning |
+                            <i class="fa fa-shower"></i> Shower Room |
+                            <i class="fa fa-coffee"></i> Tea/Coffee maker |
+                            <i class="fa fa-tv"></i> Flat-screen TV
+                        </div>
+
+                        <div class="mb-2">
+                            Ut tellus dolor, dapibus eget, elementum vel, cursus
+                            eleifend, elit. Aenean auctor wisi et urna...
+                        </div>
+
+                        <hr/>
+
+                        <div class="text-right">
+                            <a href="" class="btn btn-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room shadow">
+                    <div class="room-img">
+                        <img src="images/room1.jpg" alt="Code">
+                    </div>
+                    <div class="room-info">
+                        <div class="room-title">
+                            Deluxe Room
+                        </div>
+                        <div class="mb-2">
+                            from <span class="room-price">$420</span> per night
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-map-marker"></i> Somewhere St., Cuba
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-snowflake"></i> Air Conditioning |
+                            <i class="fa fa-shower"></i> Shower Room |
+                            <i class="fa fa-coffee"></i> Tea/Coffee maker |
+                            <i class="fa fa-tv"></i> Flat-screen TV
+                        </div>
+
+                        <div class="mb-2">
+                            Ut tellus dolor, dapibus eget, elementum vel, cursus
+                            eleifend, elit. Aenean auctor wisi et urna...
+                        </div>
+
+                        <hr/>
+
+                        <div class="text-right">
+                            <a href="" class="btn btn-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room shadow">
+                    <div class="room-img">
+                        <img src="images/room1.jpg" alt="Code">
+                    </div>
+                    <div class="room-info">
+                        <div class="room-title">
+                            Deluxe Room
+                        </div>
+                        <div class="mb-2">
+                            from <span class="room-price">$420</span> per night
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-map-marker"></i> Somewhere St., Cuba
+                        </div>
+
+                        <div class="mb-2">
+                            <i class="fa fa-snowflake"></i> Air Conditioning |
+                            <i class="fa fa-shower"></i> Shower Room |
+                            <i class="fa fa-coffee"></i> Tea/Coffee maker |
+                            <i class="fa fa-tv"></i> Flat-screen TV
+                        </div>
+
+                        <div class="mb-2">
+                            Ut tellus dolor, dapibus eget, elementum vel, cursus
+                            eleifend, elit. Aenean auctor wisi et urna...
+                        </div>
+
+                        <hr/>
+
+                        <div class="text-right">
+                            <a href="" class="btn btn-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <ul class="pagination justify-content-center mt-3">
+                <li class="page-item"><a class="page-link" href="#">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a>
+                </li>
+            </ul><!-- /.pagination -->
+        </div><!-- List Ends Here -->
+
+        <div class="col-md-4 bc-gray mb-3">
+            <div class="title">Filter By</div>
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default mb-2">
+                    <div class="panel-heading">
+                        <div class="panel-title text-orange">
+                            Price
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse1"
+                               class="pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse show">
+                        <div class="panel-body">
+                            <input type="text" class="price-slider"
+                                   name="my_range" value=""/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default mb-2">
+                    <div class="panel-heading">
+                        <div class="panel-title text-orange">
+                            Room Type
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse2"
+                               class="pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox"
+                                               class="custom-control-input"
+                                               id="deluxe" name="example1">
+                                        <label class="custom-control-label"
+                                               for="deluxe">Deluxe</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox"
+                                               class="custom-control-input"
+                                               id="business-class"
+                                               name="example1">
+                                        <label class="custom-control-label"
+                                               for="business-class">Business
+                                            Class
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox"
+                                               class="custom-control-input"
+                                               id="double" name="example1">
+                                        <label class="custom-control-label"
+                                               for="double">Double</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox"
+                                               class="custom-control-input"
+                                               id="mini-suite" name="example1">
+                                        <label class="custom-control-label"
+                                               for="mini-suite">Mini
+                                            Suite</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox"
+                                               class="custom-control-input"
+                                               id="ultra-deluxe"
+                                               name="example1">
+                                        <label class="custom-control-label"
+                                               for="ultra-deluxe">Ultra
+                                            Deluxe</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default mb-2">
+                    <div class="panel-heading">
+                        <div class="panel-title text-orange">
+                            Amenities
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse3"
+                               class="pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body">Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default mb-2">
+                    <div class="panel-heading">
+                        <div class="panel-title text-orange">
+                            Location
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse4"
+                               class="pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                        <div class="panel-body">Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row footer-row">
+                <div class='col-md-4 col-sm-12'>
+                    <img class="footer-image" src="images/foot_logo.png"
+                         alt="footer logo">
+                    <div>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                    </div>
+                    <div class="social-footer">
+                        <i class="fab fa-facebook-f fa-lg"></i>
+                        <i class="fab fa-instagram fa-lg"></i>
+                        <i class="fab fa-youtube fa-lg"></i>
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </div>
+                </div>
+                <div class='col-md-4 col-sm-12'>
+                    <div class="foot-header"><span>Quick Links</span></div>
+                    <div>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Hotel</a></li>
+                            <li><a href="#">Popular Destinations</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class='col-md-4 col-sm-12'>
+                    <div class="foot-header"><span>Contact Us</span></div>
+                    <div class="contact-info">
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt fa-xs"></i> 72
+                                Fake
+                                Address
+                            </li>
+                            <li>Winnipeg, MB</li>
+                            <li>Canada</li>
+                            <li><i class="fas fa-phone-alt fa-xs"></i> (204) 847
+                                -
+                                7264
+                            </li>
+                            <li><i class="far fa-envelope fa-xs"></i>
+                                contact@poseidon.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copy">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!--Plugin CSS file with desired skin-->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
+
+<!--jQuery khosada-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+<!--Plugin JavaScript file-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+
+<script>
+    $(".price-slider").ionRangeSlider({
+        type: "double",
+        grid: true,
+        min: 0,
+        max: 1000,
+        from: 200,
+        to: 800,
+        prefix: "$"
+    });
+
+</script>
+</body>
+</html>
