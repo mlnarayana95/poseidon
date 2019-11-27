@@ -14,18 +14,9 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../html/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="951">
+            <state relative-caret-position="7580">
               <caret line="614" column="61" selection-start-line="614" selection-start-column="61" selection-end-line="614" selection-end-column="61" />
               <folding>
                 <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
@@ -169,6 +160,13 @@
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-backup" />
+      <path value="$PROJECT_DIR$/vendor/spatie/db-dumper" />
+      <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -189,11 +187,6 @@
             <path>
               <item name="poseidon" type="b2602c69:ProjectViewProjectNode" />
               <item name="poseidon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="poseidon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="poseidon" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -240,15 +233,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574821920106</updated>
-      <workItem from="1574821921255" duration="10121000" />
+      <workItem from="1574821921255" duration="10775000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10121000" />
+    <option name="totallyTimeSpent" value="10775000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -293,9 +286,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../html/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="951">
+        <state relative-caret-position="7580">
           <caret line="614" column="61" selection-start-line="614" selection-start-column="61" selection-end-line="614" selection-end-column="61" />
           <folding>
             <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
@@ -309,13 +309,6 @@
             <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
         </state>
       </provider>
     </entry>
