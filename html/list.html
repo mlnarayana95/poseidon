@@ -106,7 +106,6 @@
         .room .room-info {
             margin: 0;
             border-top: none;
-            box-shadow: 2px 3px 4px #999;
             padding: 20px;
         }
 
@@ -269,7 +268,6 @@
             font-family: 'Josefin Sans', sans-serif;
             margin: 12px 0;
             font-size: 1.5em;
-            float: left;
             color: #f68500;
         }
 
@@ -341,6 +339,10 @@
 
         .text-orange {
             color: #F68500;
+        }
+
+        .pull-right {
+            float: right;
         }
 
     </style>
@@ -605,6 +607,62 @@
 
         <div class="col-md-4 bc-gray mb-3">
             <div class="title">Filter By</div>
+
+
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title text-orange">
+                            Price
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse1"
+                               class="pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title text-orange">
+                            Room Type
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse2"
+                               class="pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title text-orange">
+                            Amenities
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse3"
+                               class="pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    </div>
+                </div>
+            </div>
 
             <div class="text-orange">Price</div>
             <div class="text-orange">Room Type</div>
