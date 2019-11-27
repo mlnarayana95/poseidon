@@ -10,11 +10,17 @@
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/58d8ede058.js"
             crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,700&display=swap"
+    <link
+            href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,600&display=swap"
           rel="stylesheet">
     <title>Poseidon</title>
 
     <style>
+
+        body {
+            color: #717171;
+            font-size: 14px;
+        }
 
         .container-fluid {
             padding: 0;
@@ -22,7 +28,6 @@
 
         .container {
             font-family: 'Poppins', sans-serif;
-            font-size: 16px;
         }
 
         ul.nav {
@@ -100,10 +105,9 @@
 
         .room .room-info {
             margin: 0;
-            border: 1px solid #999;
             border-top: none;
             box-shadow: 2px 3px 4px #999;
-            padding: 20px 0;
+            padding: 20px;
         }
 
         .fa, .fas, .choose-us-icon i {
@@ -285,12 +289,20 @@
         }
 
         /* List Items */
+        .list-section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
         .room {
             width: 48%;
             margin-left: 2%;
             margin-right: 2%;
             margin-bottom: 20px;
             border-bottom: 1px solid #eee;
+            -webkit-box-shadow: 0 10px 6px -6px #ddd;
+            -moz-box-shadow: 0 10px 6px -6px #ddd;
+            box-shadow: 0 10px 6px -6px #ddd;
         }
 
         .room:nth-of-type(2n) {
@@ -301,6 +313,24 @@
             margin-left: 0;
         }
 
+        .room-img img {
+            width: 100%;
+        }
+
+        .room-info {
+            padding: 10px;
+        }
+
+        .room .room-title {
+            color: #f68500;
+            font-weight: 600;
+            font-size: 1.4em;
+        }
+
+        .room .room-price {
+            color: #F4364F;
+            font-weight: 600;
+        }
 
     </style>
 </head>
@@ -355,7 +385,6 @@
         </nav> <!-- end of navbar -->
 
     </div>
-
 </header>
 
 <div class="title-div">
@@ -378,217 +407,38 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <div class="d-flex">
+            <div class="list-section">
 
                 <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/640/480/?14748" alt="Code">
+                    <div class="room-img">
+                        <img src="images/room1.jpg" alt="Code">
                     </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/blog-post-test" title="Blog Post Steve">
-                            Blog Post Steve</a>
+                    <div class="room-info">
+                        <div class="room-title">
+                            Deluxe Room
                         </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Sep 09, 2019                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/travelling">
-                                Travelling                                    </a>
+                        <div class="mb-2">
+                            from <span class="room-price">$420</span> per night
                         </div>
-                        <div class="work-info">Things things thing
-                        </div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
 
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/400/228/?43283" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/terrible-joke" title="Terrible Joke Updated">
-                            Terrible Joke Updated</a>
+                        <div class="mb-2">
+                            <i class="fa fa-map-marker"></i> Somewhere St., Cuba
                         </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Sep 09, 2019                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/travelling">
-                                Travelling                                    </a>
-                        </div>
-                        <div class="work-info">A programmer is walking along a beach and finds a lamp.&nbsp; He rubs the lamp, and a genie appears.&nbsp; “I am the most powerful genie in the world.&nbsp; I can grant you any wish, but only one wish.”
 
-                            The programmer...</div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
+                        <div class="mb-2">
+                            <i class="fa fa-snowflake"></i> Air Conditioning |
+                            <i class="fa fa-shower"></i> Shower Room |
+                            <i class="fa fa-coffee"></i> Tea/Coffee maker |
+                            <i class="fa fa-tv"></i> Flat-screen TV
+                        </div>
 
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/200/200/?75886" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/terrible-joke-2" title=" Everest Base Camp Trek">
-                            Everest Base Camp Trek</a>
+                        <div class="mb-2">
+                            Ut tellus dolor, dapibus eget, elementum vel, cursus
+                            eleifend, elit. Aenean auctor wisi et urna...
                         </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Sep 07, 2019                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/travelling">
-                                Travelling                                    </a>
-                        </div>
-                        <div class="work-info">Everybody wants a glimpse of the world’s highest mountain and that’s the reason why the Everest Base Camp Trek is so popular. The trek has a number of stunning attractions, not least of these is being able to say you’ve...</div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
 
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/200/200/?12455" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/laborum-vitae-tempore-id-omnis-et-consequuntur" title="Icie Bayer">
-                            Icie Bayer</a>
-                        </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Jul 08, 2002                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/coding">
-                                Coding                                    </a>
-                        </div>
-                        <div class="work-info">March Hare. 'Then it ought to have got in your knocking,' the Footman remarked, 'till tomorrow--' At this moment Alice appeared, she was up to the heads of the deepest contempt. 'I've seen a good.</div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
-
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/200/200/?55521" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/consequatur-voluptatem-asperiores-et-nam-reiciendis" title="Vivianne Wintheiser">
-                            Vivianne Wintheiser</a>
-                        </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Oct 15, 1989                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/technologies">
-                                Technologies                                    </a>
-                        </div>
-                        <div class="work-info">Good-bye, feet!' (for when she had nothing else to do, so Alice soon came upon a low trembling voice, 'Let us get to the porpoise, "Keep back, please: we don't want YOU with us!"' 'They were.</div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
-
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/200/200/?15884" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/velit-suscipit-totam-consequatur-ab-earum-molestiae" title="Kariane Cassin">
-                            Kariane Cassin</a>
-                        </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Oct 01, 1976                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/lifestyle">
-                                Lifestyle                                    </a>
-                        </div>
-                        <div class="work-info">The master was an old woman--but then--always to have any pepper in that soup!' Alice said very politely, 'for I never heard it muttering to itself 'The Duchess! The Duchess! Oh my dear paws! Oh my.</div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
-
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/200/200/?86517" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/odio-et-placeat-impedit-quia-quidem-et-eveniet" title="Miss Maia Kshlerin PhD">
-                            Miss Maia Kshlerin PhD</a>
-                        </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Mar 19, 2009                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/lifestyle">
-                                Lifestyle                                    </a>
-                        </div>
-                        <div class="work-info">Oh, I shouldn't like THAT!' 'Oh, you foolish Alice!' she answered herself. 'How can you learn lessons in the morning, just time to see if he had come back in their mouths; and the great wonder is.</div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
-
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/200/200/?51344" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/ipsa-fuga-est-at-cum-reprehenderit-ut" title="Elian Kilback">
-                            Elian Kilback</a>
-                        </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Jan 19, 1970                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/lifestyle">
-                                Lifestyle                                    </a>
-                        </div>
-                        <div class="work-info">And then a great crowd assembled about them--all sorts of little Alice and all would change (she knew) to the baby, and not to make out that it was looking at Alice for protection. 'You shan't be.</div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
-
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/200/200/?58814" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/possimus-possimus-possimus-ad-voluptatem-quia-voluptas-quo" title="Marquise Quitzon">
-                            Marquise Quitzon</a>
-                        </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Mar 09, 1974                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/food">
-                                Food                                    </a>
-                        </div>
-                        <div class="work-info">No, I've made up my mind about it; if I'm not the smallest notice of them didn't know that cats COULD grin.' 'They all can,' said the Gryphon. 'Turn a somersault in the pool of tears which she.</div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
-
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/200/200/?91310" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/alias-dignissimos-laboriosam-excepturi-consequuntur" title="Yesenia Gislason I">
-                            Yesenia Gislason I</a>
-                        </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Jan 16, 2019                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/lifestyle">
-                                Lifestyle                                    </a>
-                        </div>
-                        <div class="work-info">Alice, 'and why it is to give the hedgehog to, and, as the hall was very uncomfortable, and, as the White Rabbit blew three blasts on the door of the table. 'Have some wine,' the March Hare. The.</div>
-                        <!--<hr/>-->
-                    </div>
-                </div>
-
-                <div class="room">
-                    <div class="work-img">
-                        <img src="https://lorempixel.com/200/200/?28514" alt="Code">
-                    </div>
-                    <div class="blog-desc">
-                        <div class="work-title"><a href="http://php.capstone/blog/dolorem-voluptatem-alias-molestiae-voluptatem" title="Harvey Turner">
-                            Harvey Turner</a>
-                        </div>
-                        <div class="work-date">
-                            <i class="fa fa-calendar"></i>
-                            Nov 12, 1978                                    | <i class="fa fa-folder"></i>
-                            <a href="http://php.capstone/category/travelling">
-                                Travelling                                    </a>
-                        </div>
-                        <div class="work-info">CHAPTER VIII. The Queen's argument was, that her neck would bend about easily in any direction, like a sky-rocket!' 'So you think you might like to be a footman because he was gone, and the moment.</div>
-                        <!--<hr/>-->
+                        <hr />
+                        <a href="" class="btn btn-flat pull-right">Details</a>
                     </div>
                 </div>
 
