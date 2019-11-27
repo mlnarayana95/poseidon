@@ -127,9 +127,12 @@
     }
 
     #wrapper {
-      margin:100px auto;
-      width:960px;
+      margin-top:100px;
+    }
 
+    .wrapper{
+        width: 960px;
+        margin: 0px auto;
     }
 
     .div1 {
@@ -142,17 +145,15 @@
     #box1{
           background-color: #e5e5e5;
           min-height: 200px;
-          width: 100%;
-          margin: 0px;
           margin-top: 20px;
           padding: 20px;
-        }
+    }
 
         .box{
           text-align:center;
         }
 
-          span{
+          .number{
               border-bottom: 1px solid #666;
               display: inline-block;
               width: 78px;
@@ -161,7 +162,58 @@
               margin-bottom: 11px;
           }
     
+          .join_now{
+            font-weight: 700;
+            font-size: 25px;
+            width: 173px;
+            background-color: #f9A606;
+            color: #fff;
+            border: 1px solid #000;
+          }
     
+          .ceo{
+            border-radius: 133px;
+            vertical-align: middle;
+            border-style: none;
+            width: 243px;
+            margin: 10px;
+          }
+
+          .leaders{
+            border-radius: 133px;
+            vertical-align: middle;
+            border-style: none;
+            width: 200px;
+            margin: 10px;
+          }
+
+          #ceo{
+            font-size: 21px;
+            font-weight: 500;
+            color: #999;
+          }
+
+          .about-hero{
+            position: relative;
+          }
+
+          .about-hero div{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, .25);
+          }
+
+          .about-hero div p{
+            color: #fff;
+            font-size: 48px;
+            text-align: center;
+            line-height: 480px;
+          }
+        
+
     </style>  
   </head>
   <body>
@@ -220,29 +272,118 @@
           <div id="wrapper">
             <main>
                   <h2>  <img src="images/logo.png" alt="logo"></h2>
-                  <div>
+                  <div class="wrapper about-hero">
                     <img width="100%" src="images/hero.jpg" alt="hero">
+                    <div>
+                      <p>Great Deals, Amazing Places</p>
+                    </div>
                   </div>
-                  <div id="box1">
+                  <div class="wrapper" id="box1">
                     <h2>Why Choose Poseidon for your next holiday?</h2>
                     <div class="row">
                       <div class="col-md-4 box"> 
-                        <span>1</span>
+                        <span class="number">1</span>
                         <p>We'll give our best price guarantee. Your escape
                         is negotiated exclusively</p>
                       </div>
                       <div class="col-md-4 box"> 
-                        <span>2</span>
+                        <span class="number">2</span>
                         <p>We'll give you a 7-day 'Change of Mind' refund 
                         guarantee</p>
                       </div>
                       <div class="col-md-4 box"> 
-                        <span>3</span>
+                        <span class="number">3</span>
                         <p>We'll give you VIP inclusions.
                         Get more with your escape</p>
                       </div>
                     </div>
                   </div>
+                  <div class="box"> 
+                      <h2>Become a member today</h2>
+                      <p><input type="button" class="btn join_now" name="" value="Join Now" /></p>
+                  </div>
+                    <div class="container-fluid footer">
+      <div class="wrapper">
+          <div class="row">
+              <div class="col-xs-12">
+                <h2 style="color:#fff">The Company</h2>
+                <p>Poseidon is owned by Lux Group Limited, a privately-owned business based in Melbourne Luxury Escapes is owned by Lux Group Limited, a privately-owned business based in Melbourne which was founded in 2009 by Jeremy Same and Adam Schwab. Lux Group has more than 150 team members globally, with major offices in Sydney, Melbourne, Bangalore, Singapore and San Francisco. In addition to Luxury Escapes, the Lux Group is a joint venture partner with the Catch 
+                Group in Scoopon, Cudo and TreatMe</p> 
+              </div> 
+          </div>
+      </div>
+    </div>
+
+    <div class="wrapper"> 
+      <h2> Leadership Team</h2>
+      <div class="row">
+          <div class="col-xs-12">
+          <p>
+            Our leaders inspire our team to live according to our company values, which include impressing our customers and clients with a truly exceptional experience, innovation, experementing and learning, being accountable and being positive and fun.
+          </p> 
+          </div> 
+      </div>
+
+      <div class="row"> 
+          <div id="ceo" style="text-align:center" class="col-md-5">
+             <img class="ceo" src="images/0 (2).jpg"> 
+             <p>Krita Maharjan</p>
+             <p>CEO</p>
+          </div>
+          <div style="text-align:center" class="col-md-7"> 
+            <div class="row">
+              <div class="col-md-5">
+                  <img class="leaders" src="images/0 (1).jpg">
+              </div>
+              <div class="col-md-7"  style="
+                    vertical-align: center;
+                    padding: 92px;">
+                  <p>Juan</p>
+                  <p>CFO</p> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                  <img class="leaders" src="images/0 (3).jpg">
+              </div>
+              <div class="col-md-7" style="
+                    vertical-align: center;
+                    padding: 92px;
+                ">
+                  <p>Narain</p>
+                  <p>CCO</p> 
+              </div>
+            </div>
+                        <div class="row">
+              <div class="col-md-5">
+                  <img class="leaders" src="images/0.jpg">
+              </div>
+              <div class="col-md-7" style="
+                    vertical-align: center;
+                    padding: 92px;
+                ">
+                  <p>Katie Peters</p>
+                  <p>Peope & Culture Director</p> 
+              </div>
+            </div>
+                        <div class="row">
+              <div class="col-md-5">
+                  <img class="leaders" src="images/evg.jpg">
+              </div>
+              <div class="col-md-7" style="
+                    vertical-align: center;
+                    padding: 92px;
+                ">
+                  <p>Evgheni</p>
+                  <p>General Company Secretary</p> 
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+
+
           </div>
 </div>
             </main>
