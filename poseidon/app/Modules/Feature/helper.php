@@ -1,0 +1,5 @@
+<?php
+
+/**
+ *	Feature Helper
+ */

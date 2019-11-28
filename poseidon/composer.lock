@@ -4,8 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45c5fd05da1d03b3db57e00ce66d5925",
+    "content-hash": "ead46529093257ff3b07bf4960bbf59e",
     "packages": [
+        {
+            "name": "artem-schander/l5-modular",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Artem-Schander/L5Modular.git",
+                "reference": "2bf2c58c938e6c30af893508197c5ac7d59cd5ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Artem-Schander/L5Modular/zipball/2bf2c58c938e6c30af893508197c5ac7d59cd5ed",
+                "reference": "2bf2c58c938e6c30af893508197c5ac7d59cd5ed",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.7",
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ArtemSchander\\L5Modular\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Schander",
+                    "email": "a.schander@vanameland.de"
+                }
+            ],
+            "description": "Modular pattern generator for Laravel",
+            "homepage": "https://github.com/Artem-Schander/L5Modular",
+            "keywords": [
+                "Artem",
+                "Schander",
+                "artisan",
+                "generator",
+                "l5modular",
+                "laravel",
+                "modular",
+                "module",
+                "modules",
+                "pattern",
+                "structure"
+            ],
+            "time": "2019-11-17T16:07:16+00:00"
+        },
         {
             "name": "cocur/slugify",
             "version": "v3.2",

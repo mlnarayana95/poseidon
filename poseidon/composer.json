@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "artem-schander/l5-modular": "^1.4",
         "cviebrock/eloquent-sluggable": "^6.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",

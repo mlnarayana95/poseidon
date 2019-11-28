@@ -1,0 +1,5 @@
+<?php
+
+/**
+ *	Amenity Helper
+ */
