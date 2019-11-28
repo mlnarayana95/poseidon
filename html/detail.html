@@ -398,17 +398,18 @@
         }
 
         .box1 {
-            border: 1px solid #1085F1;
+            border: 1px solid #e4e4e4;
             padding: 12px;
         }
 
         .continue{
-             font-weight: 700;
-            font-size: 25px;
+            font-weight: 700;
+            font-size: 19px;
             width: 173px;
-            background-color: #F68500;
+            background-color: #49ad60;
             color: #fff;
-            border: 1px solid #000;
+            border: 1px solid #827c7c;
+            box-shadow: 0px 2px 4px #001;
         }
 
         #wrapper{
@@ -434,6 +435,25 @@
             border: 1px solid #e4e4e4 !important;
         }
 
+        #pernight{
+           overflow-wrap: break-word !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            line-height: 1.33333em !important;
+            color: rgb(72, 72, 72) !important;
+            margin: 0px !important;
+        }
+
+        .details{
+            width: 100%;
+            border-bottom: 1px solid #c7bdbd;
+            padding: 16px;
+            margin: 0 auto;
+            }
+
+        .details span{
+           color: #717171!important;
+        }
     </style>
 </head>
 
@@ -501,7 +521,7 @@
 <div class="container">
     <div id="wrapper">
         <div id="content" class="row">
-            <div id="box_left" class="col-md-7">
+            <div id="box_left" class="col-md-8">
                 <h1>Villa Donna <span><img src="images/star.png"></span> <span><img
                     src="images/star.png"></span>
                 <span><img src="images/star.png"></span> <span><img
@@ -516,45 +536,21 @@
                 </div>
             </div>
             </div>
-            <div id="booking_summary" class="col-md-5">
+            <div id="booking_summary" class="col-md-4">
                 <div class="row booking-header">
                 <div class="col-md-12">
                     <h2>Booking Summary</h2>
+                   
                 </div>
             </div>
             <div id="hotel_details" class="row box1">
-                <div class="col-md-12">
-                    <ul>
-                        <li>Hotel</li>
-                        <li>Villa Donna</li>
-                        <li>Room Breakfast</li>
-                        <li>Thu Nov 28 2019 - Thu Dec 05 2019</li>
-                        <li>1 Room, 7 Days</li>
-                    </ul>
-                </div>
-            </div>
-            <div id="price" class="row box1">
-                <div class="col-md-12">
-                    <ul>
-                        <li>2 Adults X $75</li>
-                        <li>Taxes and Fees</li>
-                    </ul>
-                </div>
-            </div>
-            <div style="padding: 10px" class="row box1">
-                <div class="col-md-4 box">
-                    <p style="font-size: 20px; font-weight:500">Total</p>
-                </div>
-                <div class="col-md-8 box">
-                    <p>$950 CAD</p>
-                </div>
-                <div style="width: 100%;" class="row box">
-                    <div class="col-md-12">
-                        <input type="button" name="" value="Continue"
-                               class="continue">
-                    </div>
-                </div>
-            </div>
+                 <p style="font-size:20px;width: 100%;border: 1px solid #c7bdbd;padding: 21px;">
+                    $67 <span id="pernight">per night</span></p>
+                 <div class="row details"><span class="col-md-6">$67 x 2 nights</span><span class="col-md-6">$134</span></div>
+                 <div class="row details"><span class="col-md-6">Guests: </span><span class="col-md-6">2</span></div>
+                 <div class="row details"><span class="col-md-6">Tax & Fees: </span><span class="col-md-6">$15</span></div>
+                 <div class="row details"><span class="col-md-6"><strong>Trip Total: </strong></span><span class="col-md-6">$ 149</span></div> 
+                 <p class="details"><input type="button" name="" value="Proceed >" class="continue"></p>   
             </div>
         </div>
     </div>
