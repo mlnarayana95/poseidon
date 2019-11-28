@@ -1,7 +1,7 @@
 <?php
 
-Route::group(['module' => 'Destination', 'middleware' => ['web'], 'namespace' => 'App\Modules\Destination\Controllers'], function() {
+Route::group(['module' => 'Destination', 'middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'App\Modules\Destination\Controllers'], function() {
 
-    Route::resource('Destination', 'DestinationController');
+    Route::resource('destination', 'DestinationController');
 
 });

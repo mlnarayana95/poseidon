@@ -1,7 +1,7 @@
 <?php
 
-Route::group(['module' => 'Hotel', 'middleware' => ['web'], 'namespace' => 'App\Modules\Hotel\Controllers'], function() {
+Route::group(['module' => 'Hotel', 'middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'App\Modules\Hotel\Controllers'], function() {
 
-    Route::resource('Hotel', 'HotelController');
+    Route::resource('hotel', 'HotelController');
 
 });
