@@ -10,9 +10,7 @@
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/58d8ede058.js"
             crossorigin="anonymous"></script>
-    <link
-            href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,600&display=swap"
-            rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans%7cPoppins:400,700&display=swap" rel="stylesheet">
     <title>Poseidon</title>
 
     <style>
@@ -423,7 +421,7 @@
           color: #F68500;
         }
         
-        div.both-forms, .reservations{
+        form, .reservations{
           border: 2px solid #f7f7f7;
         }
         
@@ -444,6 +442,7 @@
         button.btn.btn-primary{
           background-color: #F68500;
           border: none;
+          margin-bottom: 30px;
         }
 
     </style>
@@ -534,43 +533,39 @@
        </div>
 
   <form class="col-md-7 contact-us">
-    <div class="both-forms">
       <h3>1. Billing Address</h3>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="name">First Name</label>
-          <input type="text" class="form-control" placeholder="First Name">
+          <label for="firstname">First Name</label>
+          <input type="text" class="form-control" placeholder="First Name" id="firstname">
         </div>
         <div class="form-group col-md-6">
-          <label for="name">Last Name</label>
-          <input type="text" class="form-control" placeholder="Last Name">
+          <label for="lastname">Last Name</label>
+          <input type="text" class="form-control" placeholder="Last Name" id="lastname">
         </div>
         <div class="form-group col-md-6">
-          <label for="inputEmail4">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          <label for="useremail">Email</label>
+          <input type="email" class="form-control" placeholder="Email" id="useremail">
         </div>
       </div>
       <div class="form-group">
-        <label for="inputAddress">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        <label for="useraddress">Address</label>
+        <input type="text" class="form-control" id="useraddress">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputCity">City</label>
-          <input type="text" class="form-control" >
+          <label for="usercity">City</label>
+          <input type="text" class="form-control" id="usercity" >
         </div>
         <div class="form-group col-md-4">
-          <label for="province">Province</label>
-          <input type="text" class="form-control">
+          <label for="userprovince">Province</label>
+          <input type="text" class="form-control" id="userprovince">
         </div>
         <div class="form-group col-md-2 col-sm-12">
-          <label for="inputpostal">Postal Code</label>
-          <input type="text" class="form-control" id="inputpostal">
+          <label for="userpostal">Postal Code</label>
+          <input type="text" class="form-control" id="userpostal">
         </div>
       </div>
-
-    </form>
-    <form class="col-md-7 contact-us">
       <h3>2. Payment Method</h3>
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -583,18 +578,18 @@
             </select>
           </div>
         <div class="form-group col-md-6">
-          <label for="inputEmail4">Credit Card Number</label>
-          <input type="number" class="form-control" placeholder="Card Number">
+          <label for="creditnumber">Credit Card Number</label>
+          <input type="number" class="form-control" placeholder="Card Number" id="creditnumber">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-8">
-          <label for="inputCity">Expiry Date</label>
-          <input type="date" class="form-control" >
+          <label for="expirydate">Expiry Date</label>
+          <input type="date" class="form-control" id="expirydate" >
         </div>
         <div class="form-group col-md-4">
-          <label for="province">CVN</label>
-          <input type="number" class="form-control">
+          <label for="cvn">CVN</label>
+          <input type="number" class="form-control" id="cvn">
         </div>
 
         <div class="form-group">
@@ -608,11 +603,10 @@
       </div>
       <button type="submit" class="btn btn-primary">Complete My Order</button>
     </form>
+  </div>
+
     </div>
   </div>
-</div>
-
-
 <footer>
   <div class="container-fluid footer">
     <div class="container">
