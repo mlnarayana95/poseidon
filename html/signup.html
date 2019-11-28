@@ -1,458 +1,317 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <!-- Boostrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/58d8ede058.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,700&display=swap" rel="stylesheet">
     <title>Poseidon</title>
-    
+
     <style>
-    
-    .container-fluid{
-    padding: 0;
-    }
-    .container{
-      position: relative;
-      font-family: 'Poppins';
-      font-size: 16px;
-    }
-    ul.nav{
-      margin-right: 20px;
-    }
-    ul.nav li:first-child{
-      border-right: 1px solid #333;
-    }
-    
-    nav.navbar{
-      position: absolute;
-      z-index: 99999;
-      width: 100%;
-      background: rgba(255,255,255,.7) !important;
-    }
-    ul.navbar-nav{
-      position: absolute;
-      right: 40px;
-    }
-    .navs .nav-item a {
-      color: #575757;
-    }
-    .navs .nav-item img{
-      padding: 2px;
-    }
-    
-     .navbar-light .navbar-nav .nav-link, 
-     .navbar-light .navbar-nav .active>.nav-link{
-      color: #F68500;
-      font-size: 1.25em;
-    }
-    
-    
- 
-    
-    h2{
-      text-align: center;
-      color: #000;
-      padding: 40px 0;
-    }
-    
-    .bc-gray{
-      background-color: #fafafa;
-      padding-bottom: 40px;
-    }
-    
-    
-     .fa, .fas, .choose-us-icon i{
-      color: #209ebb;
-    }
-    
-    
-    
-    div.footer{
-      background-color: #161527;
-      height: 300px;
-      color: #fff;
+        *{
+            margin: 0;
+            padding: 0;            
+        }       
 
-    }
-    
-    div.footer .fa, .fas{
-      color: #fff;
-    }
-    
-    div.footer li{
-      list-style-type: none;
-    }
-    
-    div.footer ul{
-    padding-left: 0;
-    }
-    
-    
-    div.footer li a{
-      line-height: 1.8;
-      text-decoration: none;
-      color: #fff;
-    }
-    
-    div.footer .social-footer .fab{
-      padding: 20px 10px;
-    }
-    
-    div.footer .foot-header{
-      font-size: 1.2em;
-      padding-bottom: 4px;
-
-    }
-    
-    div.footer .row{
-      font-size: .9em;
-      padding-top: 30px;
-    }
-    
-    div.footer .contact-info{
-      line-height: 1.9;
-    }
-    
-    div.footer .footer-image{
-      padding-bottom: 8px;
-      width: 175px;
-    }
-    
-    div.copy{
-      background-color: #161527;
-      opacity: .9;
-      color: #fff;
-    }
-
-    #wrapper {
-      margin-top:100px;
-    }
-
-    .wrapper{
-        width: 960px;
-        margin: 0px auto;
-    }
-
-    .div1 {
-      width: 300px;
-      height: 100px;
-      border: 1px solid black;
-      box-sizing: border-box;
-    }
-
-    #box1{
-          background-color: #e5e5e5;
-          min-height: 200px;
-          margin-top: 20px;
-          padding: 20px;
-    }
-
-        .box{
-          text-align:center;
+        .container-fluid {
+            padding: 0;
         }
 
-          .number{
-              border-bottom: 1px solid #666;
-              display: inline-block;
-              width: 78px;
-              font-size: 25px;
-              font-weight: 500;
-              margin-bottom: 11px;
-          }
-    
-          .join_now{
-            font-weight: 700;
-            font-size: 25px;
-            width: 173px;
-            background-color: #f9A606;
-            color: #fff;
-            border: 1px solid #000;
-          }
-    
-          .ceo {
-            border-radius: 163px;
-            vertical-align: middle;
-            border-style: none;
-            width: 333px;
-            margin: 30px;
-          }
-
-          .leaders{
-            border-radius: 133px;
-            vertical-align: middle;
-            border-style: none;
-            width: 200px;
-            margin: 50px;
-          }
-
-          #ceo{
-            font-size: 21px;
-            font-weight: 500;
-            color: #999;
-          }
-
-          .about-hero{
+        .container {
             position: relative;
-          }
+            font-family: 'Poppins';
+            font-size: 16px;
+        }
 
-          .about-hero div{
+        ul.nav {
+            margin-right: 20px;
+        }
+
+        ul.nav li:first-child {
+            border-right: 1px solid #333;
+        }
+
+        nav.navbar {
+            position: absolute;
+            z-index: 99999;
+            width: 100%;
+            background: rgba(255, 255, 255, .7) !important;
+        }
+
+        ul.navbar-nav {
+            position: absolute;
+            right: 40px;
+        }
+
+        .navs .nav-item a {
+            color: #575757;
+        }
+
+        .navs .nav-item img {
+            padding: 2px;
+        }
+
+        .navbar-light .navbar-nav .nav-link,
+        .navbar-light .navbar-nav .active > .nav-link {
+            color: #F68500;
+            font-size: 1.25em;
+        }
+
+
+        h2 {
+            text-align: center;
+            color: #000;
+            padding: 40px 0;
+        }
+
+        .bc-gray {
+            background-color: #fafafa;
+            padding-bottom: 40px;
+        }
+
+
+        .fa, .fas, .choose-us-icon i {
+            color: #209ebb;
+        }
+
+
+        div.footer {
+            background-color: #161527;
+            height: 300px;
+            color: #fff;
+
+        }
+
+        div.footer .fa, .fas {
+            color: #fff;
+        }
+
+        div.footer li {
+            list-style-type: none;
+        }
+
+        div.footer ul {
+            padding-left: 0;
+        }
+
+
+        div.footer li a {
+            line-height: 1.8;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        div.footer .social-footer .fab {
+            padding: 20px 10px;
+        }
+
+        div.footer .foot-header {
+            font-size: 1.2em;
+            padding-bottom: 4px;
+
+        }
+
+        div.footer .row {
+            font-size: .9em;
+            padding-top: 30px;
+        }
+
+        div.footer .contact-info {
+            line-height: 1.9;
+        }
+
+        div.footer .footer-image {
+            padding-bottom: 8px;
+            width: 175px;
+        }
+
+        div.copy {
+            background-color: #161527;
+            opacity: .9;
+            color: #fff;
+        }        
+
+        .about-hero div {
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
             background: rgba(0, 0, 0, .25);
-          }
+        }
 
-          .about-hero div p{
+        .about-hero div p {
             color: #fff;
             font-size: 48px;
             text-align: center;
             line-height: 480px;
-          }
+        }
+        /*start Signup form Styles Juan Carlos Jimenez*/
+        #wrapper {
+            margin-top: 110px;
+            padding: 20px;
+            background-image: url('images/register.jpg');
+            background-size:cover ;
+            /*background-attachment: fixed;*/
+        }
+        h1{
+            margin-top: 80px;
+            color: #0e2b56;
+            font-size: 35px;
+        }
+        p{
+            color: #161527;
+            font-size: 15px;
+        }
+        h3 {
+            font-size: 25px;
+            color: #fff;
+        }
         
+        /*end Signup form Styles Juan Carlos Jimenez*/
 
-    </style>  
-  </head>
-  <body>
-    <div class="container-fluid">
-      <div class="container">
-          <div class="navs">
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="container">
+        <div class="navs">
             <ul class="nav justify-content-end">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
-              </li>
-              <li class="nav-item">
-                <img src="images/fbook.png" alt="fbook">
-              </li>
-              <li class="nav-item">
-                <img src="images/twitter.png" alt="twitter">
-              </li>
-              <li class="nav-item">
-                <img src="images/insta.png" alt="insta" >
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <img src="images/fbook.png" alt="fbook">
+                </li>
+                <li class="nav-item">
+                    <img src="images/twitter.png" alt="twitter">
+                </li>
+                <li class="nav-item">
+                    <img src="images/insta.png" alt="insta">
+                </li>
             </ul>
-          </div>
-      </div>
-        
-        <!-- navbar in banner -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        </div>
+    </div>
+
+    <!-- navbar in banner -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="logo">
-           </a>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Rooms</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Offers</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
-            </li>
-           </ul>
-         </div>
-       </nav> <!-- end of navbar -->
-        
-        
-          
-          <div id="wrapper">
-            <main>
-                  <h2>  <img src="images/logo.png" alt="logo"></h2>
-                  <div class="wrapper about-hero">
-                    <img width="100%" src="images/hero.jpg" alt="hero">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="logo">
+            </a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Offers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav> <!-- end of navbar -->
+    <div class="container" id="wrapper">
+        <div class="row">
+            <div class="col-md-7">
+                <h1 class="text-left">Poseidon Registration Form</h1>
+                <p class="text-left">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cupiditate dolore,
+                    exercitationem explicabo fuga inventore labore laudantium maiores mollitia, necessitatibus omnis
+                    porro repellat, ullam! Dolorem incidunt minus nobis odio ratione!
+                </p>
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="text-left">Register Here</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row footer-row">
+                <div class='col-md-4 mx-auto'>
+                    <img class="footer-image" src="images/foot_logo.png" alt="footer logo">
                     <div>
-                      <p>Great Deals, Amazing Places</p>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
                     </div>
-                  </div>
-                  <div class="wrapper" id="box1">
-                    <div class="row">
-                      <div class="col-md-12">
-                    <h2>Why Choose Poseidon for your next holiday?</h2>
+                    <div class="social-footer">
+                        <i class="fab fa-facebook-f fa-lg"></i>
+                        <i class="fab fa-instagram fa-lg"></i>
+                        <i class="fab fa-youtube fa-lg"></i>
+                        <i class="fab fa-twitter fa-lg"></i>
                     </div>
+                </div>
+                <div class='col-md-4 mx-auto'>
+                    <div class="foot-header"><span>Quick Links</span></div>
+                    <div>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Hotel</a></li>
+                            <li><a href="#">Popular Destinations</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
                     </div>
-                    <div class="row">
-                      <div class="col-md-4 box"> 
-                        <span class="number">1</span>
-                        <p>We'll give our best price guarantee. Your escape
-                        is negotiated exclusively</p>
-                      </div>
-                      <div class="col-md-4 box"> 
-                        <span class="number">2</span>
-                        <p>We'll give you a 7-day 'Change of Mind' refund 
-                        guarantee</p>
-                      </div>
-                      <div class="col-md-4 box"> 
-                        <span class="number">3</span>
-                        <p>We'll give you VIP inclusions.
-                        Get more with your escape</p>
-                      </div>
+
+                </div>
+                <div class='col-md-4 mx-auto'>
+                    <div class="foot-header"><span>Contact Us</span></div>
+                    <div class="contact-info">
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt fa-xs"></i> 72 Fake Address</li>
+                            <li>Winnipeg, MB</li>
+                            <li>Canada</li>
+                            <li><i class="fas fa-phone-alt fa-xs"></i> (204) 847 - 7264</li>
+                            <li><i class="far fa-envelope fa-xs"></i> contact@poseidon.com</li>
+                        </ul>
                     </div>
-                  </div>
-                  <div class="box"> 
-                      <h2>Become a member today</h2>
-                      <p><input type="button" class="btn join_now" name="btn" value="Join Now" /></p>
-                  </div>
-                    <div class="container-fluid footer">
-      <div class="wrapper">
-          <div class="row">
-              <div class="col-xs-12">
-                <h2 style="color:#fff">The Company</h2>
-                <p>Poseidon is owned by Lux Group Limited, a privately-owned business based in Melbourne Luxury Escapes is owned by Lux Group Limited, a privately-owned business based in Melbourne which was founded in 2009 by Jeremy Same and Adam Schwab. Lux Group has more than 150 team members globally, with major offices in Sydney, Melbourne, Bangalore, Singapore and San Francisco. In addition to Luxury Escapes, the Lux Group is a joint venture partner with the Catch 
-                Group in Scoopon, Cudo and TreatMe</p> 
-              </div> 
-          </div>
-      </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="wrapper"> 
-      <h2> Leadership Team</h2>
-      <div class="row">
-          <div class="col-xs-12">
-          <p>
-            Our leaders inspire our team to live according to our company values, which include impressing our customers and clients with a truly exceptional experience, innovation, experementing and learning, being accountable and being positive and fun.
-          </p> 
-          </div> 
-      </div>
-
-      <div class="row"> 
-          <div id="ceo" style="text-align:center" class="col-md-5">
-             <img class="ceo" src="images/0 (2).jpg"> 
-             <p>Krita Maharjan</p>
-             <p>CEO</p>
-          </div>
-          <div style="text-align:center" class="col-md-7"> 
+    <div class="container-fluid copy">
+        <div class="container">
             <div class="row">
-              <div class="col-md-5">
-                  <img class="leaders" src="images/0 (1).jpg">
-              </div>
-              <div class="col-md-7"  style="
-                    vertical-align: center;
-                    padding: 92px;">
-                  <p>Juan</p>
-                  <p> Chief Financial Officer</p> 
-              </div>
+                <div class="col-md-12 text-center">
+                    <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
+                </div>
             </div>
-            <div class="row">
-              <div class="col-md-5">
-                  <img class="leaders" src="images/0 (3).jpg">
-              </div>
-              <div class="col-md-7" style="
-                    vertical-align: center;
-                    padding: 92px;
-                ">
-                  <p>Narain</p>
-                  <p>Chief Customer Officer</p> 
-              </div>
-            </div>
-                        <div class="row">
-              <div class="col-md-5">
-                  <img class="leaders" src="images/0.jpg">
-              </div>
-              <div class="col-md-7" style="
-                    vertical-align: center;
-                    padding: 92px;
-                ">
-                  <p>Katie Peters</p>
-                  <p>Peope & Culture Director</p> 
-              </div>
-            </div>
-                        <div class="row">
-              <div class="col-md-5">
-                  <img class="leaders" src="images/evg.jpg">
-              </div>
-              <div class="col-md-7" style="
-                    vertical-align: center;
-                    padding: 92px;
-                ">
-                  <p>Evgheni</p>
-                  <p>General Company Secretary</p> 
-              </div>
-            </div>
-          </div>
-      </div>
-      </div>
+        </div>
     </div>
 
-
-          </div>
 </div>
-            </main>
-          </div>
 
-      
-      
-      <div class="container-fluid footer">
-        <div class="container">
-          <div class="row footer-row">
-            <div class='col-md-4 mx-auto'>
-              <img class="footer-image" src="images/foot_logo.png" alt="footer logo">
-              <div>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-              </div>
-              <div class="social-footer">
-                <i class="fab fa-facebook-f fa-lg"></i>
-                <i class="fab fa-instagram fa-lg"></i>
-                <i class="fab fa-youtube fa-lg"></i>  
-                <i class="fab fa-twitter fa-lg"></i>          
-              </div>
-            </div>
-            <div class='col-md-4 mx-auto'>
-              <div class="foot-header"><span>Quick Links</span></div>
-              <div>
-                <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Hotel</a></li>
-                  <li><a href="#">Popular Destinations</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">FAQs</a></li>
-                </ul>
-              </div>
-    
-            </div>
-            <div class='col-md-4 mx-auto'>
-              <div class="foot-header"><span>Contact Us</span></div>
-              <div class="contact-info">
-                <ul>
-                  <li><i class="fas fa-map-marker-alt fa-xs"></i>    72 Fake Address</li>
-                  <li>Winnipeg, MB</li>
-                  <li>Canada</li>
-                  <li><i class="fas fa-phone-alt fa-xs"></i>    (204) 847 - 7264</li>
-                  <li> <i class="far fa-envelope fa-xs"></i>    contact@poseidon.com</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="container-fluid copy">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
 </html>
