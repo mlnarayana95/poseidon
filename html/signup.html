@@ -1,3 +1,20 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@juanjimenez80 
+2
+00mlnarayana95/poseidon
+ Code Issues 0 Pull requests 1 Actions Projects 0 Wiki Security Insights
+poseidon/html/signup.html
+@juanjimenez80 juanjimenez80 signup form complete and polished
+5612a26 4 hours ago
+376 lines (327 sloc)  12.1 KB
+  
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -11,129 +28,88 @@
     <title>Poseidon</title>
 
     <style>
-        *{
-            margin: 0;
-            padding: 0;            
-        }       
-
         .container-fluid {
             padding: 0;
         }
-
         .container {
             position: relative;
             font-family: 'Poppins';
             font-size: 16px;
         }
-
         ul.nav {
             margin-right: 20px;
         }
-
         ul.nav li:first-child {
             border-right: 1px solid #333;
         }
-
         nav.navbar {
             position: absolute;
             z-index: 99999;
             width: 100%;
             background: rgba(255, 255, 255, .7) !important;
         }
-
         ul.navbar-nav {
             position: absolute;
             right: 40px;
         }
-
         .navs .nav-item a {
             color: #575757;
         }
-
         .navs .nav-item img {
             padding: 2px;
         }
-
         .navbar-light .navbar-nav .nav-link,
         .navbar-light .navbar-nav .active > .nav-link {
             color: #F68500;
             font-size: 1.25em;
         }
-
-
         h2 {
             text-align: center;
             color: #000;
             padding: 40px 0;
         }
-
-        .bc-gray {
-            background-color: #fafafa;
-            padding-bottom: 40px;
-        }
-
-
-        .fa, .fas, .choose-us-icon i {
-            color: #209ebb;
-        }
-
-
         div.footer {
             background-color: #161527;
             height: 300px;
             color: #fff;
-
         }
-
         div.footer .fa, .fas {
             color: #fff;
         }
-
         div.footer li {
             list-style-type: none;
         }
-
         div.footer ul {
             padding-left: 0;
         }
-
-
         div.footer li a {
             line-height: 1.8;
             text-decoration: none;
             color: #fff;
         }
-
         div.footer .social-footer .fab {
             padding: 20px 10px;
         }
-
         div.footer .foot-header {
             font-size: 1.2em;
             padding-bottom: 4px;
-
         }
-
         div.footer .row {
             font-size: .9em;
             padding-top: 30px;
         }
-
         div.footer .contact-info {
             line-height: 1.9;
         }
-
         div.footer .footer-image {
             padding-bottom: 8px;
             width: 175px;
         }
-
         div.copy {
             background-color: #161527;
             opacity: .9;
             color: #fff;
-        }        
-
+        }
         .about-hero div {
             position: absolute;
             top: 0;
@@ -142,7 +118,6 @@
             left: 0;
             background: rgba(0, 0, 0, .25);
         }
-
         .about-hero div p {
             color: #fff;
             font-size: 48px;
@@ -150,56 +125,54 @@
             line-height: 480px;
         }
         /*start Sign-up form Styles Juan Carlos Jimenez*/
-        #wrapper {
-            margin-top: 110px;
-            padding: 20px;
-            margin-bottom: 20px;
-            background-image: url('images/register.jpg');
-            background-size:cover ;
-            /*background-attachment: fixed;*/
+        #reg_form {
+            border: 1px solid #ddd;
+            margin: 100px 0;
+            box-shadow: 5px 10px 10px #ddd;
         }
-        h1{
-            margin-top: 80px;
+        #reg_form .col-md-8 {
+            background-image: url("images/register.jpg");
+            background-size: cover;
+            background-position: right;
+        }
+        #reg_form .col-md-4 {
+            padding: 40px 20px;
+        }
+        #reg_form label {
+            font-size: 16px;
+            color: #0e2b56;
+            padding-top: 10px;
+        }
+        #reg_form .form-control {
+            background: none;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #ddd;
+            padding: 0;
+            font-size: 16px;
+        }
+        #reg_form .btn-primary {
+            background-color: #0e2b56;
+            border: none;
+            width: 160px;
+        }
+        h1 {
+            margin-top: 100px;
             color: #0e2b56;
             font-size: 35px;
         }
-        p{
-            color: #161527;
+        p {
+            color: #000000;
             font-size: 15px;
         }
         h3 {
-            font-size: 25px;
+            text-align: center;
+            padding-top: 20px;
+            font-size: 30px;
             color: #F68500;
             width: 100%;
         }
-
-        .fa-pencil{
-            color: #F68500;
-            font-size: 25px;
-            float: right;
-        }
-        .col-md-7{
-            margin-top: 80px;
-            box-shadow: -1px 1px 60px 10px black;
-            rgba(0,0,0,0.4);
-        }
-        .label{
-            font-weight: normal;
-            margin-top:19px;
-            color: #0e2b56;
-            font-size: 18px;
-            padding-left: 21px;
-        }
-        .form-control{
-            background: transparent;
-            border-radius: 0px;
-            border:0px;
-            border-bottom: 1px solid #0e2b56;
-            font-size: 18px;
-            margin-top: 10px;
-        }
         /*end Sign-up form Styles Juan Carlos Jimenez*/
-
     </style>
 </head>
 <body>
@@ -252,36 +225,65 @@
             </ul>
         </div>
     </nav> <!-- end of navbar -->
-    <div class="container" id="wrapper">
-        <div class="row">
-            <div class="col-md-5">
-                <h1 class="text-left">Poseidon Registration Form</h1>
-                <p class="text-left">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cupiditate dolore,
-                    exercitationem explicabo fuga inventore labore laudantium maiores mollitia, necessitatibus omnis
-                    porro repellat, ullam! Dolorem incidunt minus nobis odio ratione!
-                </p>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="row" id="reg_form">
+            <div class="col-md-8">
+
             </div>
-            <div class="col-md-7">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="text-left">Register Here</h3>
+            <div class="col-md-4">
+                <form action="#">
+                    <h3>Sign Up</h3>
+                    <br>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" placeholder="First Name" id="firstName">
                     </div>
-                    <div class="col-md-6">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" id="lastName">
                     </div>
-                    <hr>
-                    <div class="row">
-                        <label class="label col-md-3 control-label">E-mail</label>
-                        <div class="col-md-9">
-                            <input type="Email" class="form-control" name="Email" placeholder="E-mail">
+                    <div class="form-group">
+                        <label for="birthDate">Birth Date</label>
+                        <input type="date" class="form-control" placeholder="Birth Date" id="birthDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                   value="Female">
+                            <label class="form-check-label" for="inlineRadio1">Female</label>
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                   value="Male">
+                            <label class="form-check-label" for="inlineRadio2">Male</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                   value="N/A">
+                            <label class="form-check-label" for="inlineRadio3">Prefer not to say</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" placeholder="Address" id="address">
+                        </div>
+                        <div class="form-group">
+                            <label for="zipcode">Postal Code</label>
+                            <input type="text" class="form-control" placeholder="Postal Code" id="zipcode">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" class="form-control" placeholder="Phone Number" id="phone">
+                        </div>
+                        <button type="button" class="btn btn-primary">Sign up</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-
+    <!-- End Content -->
     <div class="container-fluid footer">
         <div class="container">
             <div class="row footer-row">
@@ -349,3 +351,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
