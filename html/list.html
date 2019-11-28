@@ -2,17 +2,19 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
+
     <!-- Boostrap CSS -->
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
+
     <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/58d8ede058.js"
-            crossorigin="anonymous"></script>
-    <link
-            href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,600&display=swap"
-            rel="stylesheet">
+    <script src="https://kit.fontawesome.com/58d8ede058.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,600&display=swap" rel="stylesheet">
+
     <title>Poseidon</title>
 
     <style>
@@ -30,10 +32,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        ul.nav {
-            margin-right: 20px;
-        }
-
         ul.nav li:first-child {
             border-right: 1px solid #333;
         }
@@ -41,10 +39,6 @@
         nav.navbar {
             background: rgba(255, 255, 255, .7) !important;
             padding: 20px 0;
-        }
-
-        div.navbar-nav {
-            font-family: 'Josefin Sans', sans-serif;
         }
 
         .navs .nav-item a {
@@ -186,19 +180,21 @@
             border: none;
         }
 
+        /* Footer Style Starts Here*/
         div.footer {
             background-color: #161527;
-            height: 300px;
+            min-height: 250px;
             color: #fff;
 
         }
 
-        div.footer .fa, .fas {
+        div.footer .fa, div.footer .fas {
             color: #fff;
         }
 
-        div.footer li {
+        div.footer li, span {
             list-style-type: none;
+            color: #c9c7bf;
         }
 
         div.footer ul {
@@ -209,7 +205,7 @@
         div.footer li a {
             line-height: 1.8;
             text-decoration: none;
-            color: #fff;
+            color: #c9c7bf;
         }
 
         div.footer .social-footer .fab {
@@ -217,9 +213,9 @@
         }
 
         div.footer .foot-header {
-            font-size: 1.2em;
-            padding-bottom: 4px;
-
+            color: #fff;
+            font-size: 1.4em;
+            padding-bottom: 6px;
         }
 
         div.footer .row {
@@ -231,16 +227,33 @@
             line-height: 1.9;
         }
 
+        div.footer fa, .fas {
+            margin-right: 8px;
+            color: #fff;
+        }
+
+        div.footer .contact-info li {
+            margin-bottom: 8px;
+        }
+
         div.footer .footer-image {
             padding-bottom: 8px;
             width: 175px;
         }
 
-        div.copy {
+        div.copy-container {
             background-color: #161527;
             opacity: .9;
             color: #fff;
+            min-height: 35px;
+            line-height: 36px;
         }
+
+        div.copy {
+            font-size: .8em;
+        }
+
+        /* Footer Style Ends Here */
 
         /* Krita */
 
@@ -249,6 +262,10 @@
             -moz-box-shadow: 0 10px 6px -6px #ccc;
             box-shadow: 0 10px 6px -6px #ccc;
             margin-bottom: 6px;
+        }
+
+        header .nav-link {
+            font-family: 'Josefin Sans', sans-serif;
         }
 
         .title-div {
@@ -323,6 +340,7 @@
         .room .room-price {
             color: #F4364F;
             font-weight: 600;
+            font-size: 1.6em;
         }
 
         .btn-link {
@@ -357,28 +375,40 @@
 <body>
 
 <header>
-    <div class="container">
-        <div class="navs">
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
-                </li>
-                <li class="nav-item">
-                    <img src="images/fbook.png" alt="fbook">
-                </li>
-                <li class="nav-item">
-                    <img src="images/twitter.png" alt="twitter">
-                </li>
-                <li class="nav-item">
-                    <img src="images/insta.png" alt="insta">
-                </li>
-            </ul>
+    <!-- Utility Bar Starts -->
+    <div class="bc-gray">
+        <div class="container">
+            <div class="navs">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="" href="#">
+                            <img src="images/fbook.png" alt="fbook">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="" href="#">
+                            <img src="images/twitter.png" alt="twitter">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="" href="#">
+                            <img src="images/insta.png" alt="insta">
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </div>
+    <!-- Utility Bar Ends -->
 
-        <!-- main navbar -->
+    <!-- main navbar -->
+    <div class="container">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <a href="#" class="navbar-brand">
                 <img src="images/logo.png" alt="logo">
@@ -400,9 +430,8 @@
                 </div>
             </div>
         </nav>
-        <!-- main navbar ends -->
-
     </div>
+    <!-- main navbar ends -->
 </header>
 
 <div class="title-div">
@@ -764,10 +793,11 @@
 </div>
 
 <footer>
-    <div class="footer">
+
+    <div class="container-fluid footer">
         <div class="container">
             <div class="row footer-row">
-                <div class='col-md-4 col-sm-12'>
+                <div class='col-md-5 mx-auto'>
                     <img class="footer-image" src="images/foot_logo.png"
                          alt="footer logo">
                     <div>
@@ -780,8 +810,8 @@
                         <i class="fab fa-twitter fa-lg"></i>
                     </div>
                 </div>
-                <div class='col-md-4 col-sm-12'>
-                    <div class="foot-header"><span>Quick Links</span></div>
+                <div class='col-md-4 mx-auto'>
+                    <div class="foot-header">Quick Links</div>
                     <div>
                         <ul>
                             <li><a href="#">Home</a></li>
@@ -793,21 +823,19 @@
                     </div>
 
                 </div>
-                <div class='col-md-4 col-sm-12'>
-                    <div class="foot-header"><span>Contact Us</span></div>
+                <div class='col-md-3 mx-auto'>
+                    <div class="foot-header">Contact Us</div>
                     <div class="contact-info">
                         <ul>
-                            <li><i class="fas fa-map-marker-alt fa-xs"></i> 72
-                                Fake
-                                Address
+                            <li><i class="fas fa-map-marker-alt fa-lg"></i> 72
+                                Fake Address<br/>
+                                Winnipeg, MB<br/>
+                                Canada
                             </li>
-                            <li>Winnipeg, MB</li>
-                            <li>Canada</li>
-                            <li><i class="fas fa-phone-alt fa-xs"></i> (204) 847
-                                -
-                                7264
+                            <li><i class="fas fa-phone-alt fa-lg"></i> (204) 847
+                                - 7264
                             </li>
-                            <li><i class="far fa-envelope fa-xs"></i>
+                            <li><i class="fas fa-envelope fa-lg"></i>
                                 contact@poseidon.com
                             </li>
                         </ul>
@@ -817,8 +845,8 @@
         </div>
     </div>
 
-    <div class="copy">
-        <div class="container">
+    <div class="container-fluid copy-container">
+        <div class="container copy">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
