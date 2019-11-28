@@ -3,10 +3,6 @@ body {
     font-size: 14px;
 }
 
-.container-fluid {
-    padding: 0;
-}
-
 .container {
     font-family: 'Poppins', sans-serif;
 }
@@ -18,6 +14,17 @@ ul.nav li:first-child {
 nav.navbar {
     background: rgba(255, 255, 255, .7) !important;
     padding: 20px 0;
+}
+
+nav.home-navbar{
+    position: absolute;
+    z-index: 99999;
+    width: 100%;
+    background: rgba(255,255,255,.7) !important;
+}
+ul.home-navbar-nav{
+    position: absolute;
+    right: 40px;
 }
 
 .navs .nav-item a {
@@ -65,30 +72,42 @@ h2 {
     /*padding-bottom: 40px;*/
 }
 
-.rooms img {
+.home-rooms img{
     width: 100%;
     max-height: 200px;
 }
 
-.room {
+.home-room {
     background-color: #fff;
 }
 
-.room .room-info {
+.home-room .home-room-info{
     margin: 0;
-    border-top: none;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 .fa, .fas, .choose-us-icon i {
     color: #209ebb;
 }
 
-div.why-choose-us i {
+div.why-choose-us h6{
+    font-weight: bold;
+}
+
+div.why-choose-us i{
     padding: 20px 20px;
     border: 1px solid #ccc;
     border-radius: 50%;
     margin-bottom: 10px;
+    color: #209ebb;
+}
+
+div.why-choose-us-dollar i{
+    padding: 20px 28px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    color: #209ebb;
 }
 
 span.price {
@@ -133,26 +152,16 @@ div.top-destination .destination h4 {
     color: #f68500;
 }
 
-div.contact {
-    position: relative;
+div.contact-us-image{
+    background-image: url('../../images/start.jpeg');
+    min-height: 229px;
 }
 
-div.contact div {
-    position: absolute;
-    top: 0;
-    right: 15px;
-    bottom: 0;
-    left: 15px;
-    text-align: center;
-    background: rgba(0, 0, 0, .45);
-}
-
-div.contact div h3 {
+div.contact h3 {
     color: #f68500;
-    margin: 100px auto 50px;
 }
 
-div.contact div button {
+div.contact button {
     background-color: #f4364f;
     color: #fff;
     padding: 5px 10px;
@@ -349,33 +358,6 @@ header .nav-link {
 }
 
 /* Contact Us Page: Evgheni */
-
-div.contact {
-    position: relative;
-}
-
-div.contact div {
-    position: absolute;
-    top: 0;
-    right: 15px;
-    bottom: 0;
-    left: 15px;
-    text-align: center;
-    background: rgba(0, 0, 0, .45);
-}
-
-div.contact div h3 {
-    color: #f68500;
-    margin: 100px auto 50px;
-}
-
-div.contact div button {
-    background-color: #f4364f;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
-}
-
 #contact_form{
     padding: 62px;
 }

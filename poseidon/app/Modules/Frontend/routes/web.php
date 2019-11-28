@@ -4,5 +4,7 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
 
     Route::get('/', 'HomeController@index');
     Route::get('contact', 'ContactController@index');
+    Route::get('about', 'AboutController@index');
+    Route::get('room', 'RoomController@index');
 
 });
