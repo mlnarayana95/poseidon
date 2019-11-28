@@ -351,32 +351,70 @@ header .nav-link {
 /* Contact Us Page: Evgheni */
 
 div.contact {
-    position: relative;
-}
+            position: relative;
+        }
 
-div.contact div {
-    position: absolute;
-    top: 0;
-    right: 15px;
-    bottom: 0;
-    left: 15px;
-    text-align: center;
-    background: rgba(0, 0, 0, .45);
-}
+        div.contact div {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+            text-align: center;
+            background: rgba(0, 0, 0, .45);
+        }
 
-div.contact div h3 {
-    color: #f68500;
-    margin: 100px auto 50px;
-}
+        div.contact div h3 {
+            color: #f68500;
+            margin: 100px auto 50px;
+        }
 
-div.contact div button {
-    background-color: #f4364f;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
-}
+        div.contact div button {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+        }
 
 #contact_form{
     padding: 62px;
 }
+.text-orange {
+            color: #F68500;
+        }
+
+        .pull-right {
+            float: right;
+        }
+
+        h1, h3{
+            text-align: center;
+        }
+
+        h1{
+            color: orange;
+        }
+        .btn-danger {
+    color: #fff;
+    background-color: orange;
+    border-color: grey;
+}
+.icons{
+  padding:70px;
+ 
+
+}
+.required_asterisk {
+      color: #f00;
+      font-size: 1.5em;
+      padding-right: 4px;
+    }
+    
+    .required::after {
+      padding-left: 4px;
+      content: "*";
+      color: #f00;
+      text-shadow: 1px 1px 1px #000;
+    }
+
 /* Contact Us Page End: Evgheni */
