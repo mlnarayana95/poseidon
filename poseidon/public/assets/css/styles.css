@@ -347,3 +347,36 @@ header .nav-link {
 .panel-body {
     padding: 20px 0;
 }
+
+/* Contact Us Page: Evgheni */
+
+div.contact {
+    position: relative;
+}
+
+div.contact div {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    left: 15px;
+    text-align: center;
+    background: rgba(0, 0, 0, .45);
+}
+
+div.contact div h3 {
+    color: #f68500;
+    margin: 100px auto 50px;
+}
+
+div.contact div button {
+    background-color: #f4364f;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+}
+
+#contact_form{
+    padding: 62px;
+}
+/* Contact Us Page End: Evgheni */
