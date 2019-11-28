@@ -4,8 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45c5fd05da1d03b3db57e00ce66d5925",
+    "content-hash": "2a6e468c904ad0e5ec59cd19f51f49d5",
     "packages": [
+        {
+            "name": "artem-schander/l5-modular",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Artem-Schander/L5Modular.git",
+                "reference": "2bf2c58c938e6c30af893508197c5ac7d59cd5ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Artem-Schander/L5Modular/zipball/2bf2c58c938e6c30af893508197c5ac7d59cd5ed",
+                "reference": "2bf2c58c938e6c30af893508197c5ac7d59cd5ed",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.7",
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ArtemSchander\\L5Modular\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Schander",
+                    "email": "a.schander@vanameland.de"
+                }
+            ],
+            "description": "Modular pattern generator for Laravel",
+            "homepage": "https://github.com/Artem-Schander/L5Modular",
+            "keywords": [
+                "Artem",
+                "Schander",
+                "artisan",
+                "generator",
+                "l5modular",
+                "laravel",
+                "modular",
+                "module",
+                "modules",
+                "pattern",
+                "structure"
+            ],
+            "time": "2019-11-17T16:07:16+00:00"
+        },
         {
             "name": "cocur/slugify",
             "version": "v3.2",
@@ -595,6 +646,60 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "laracasts/flash",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "77fe3a0f0ebf32c66d9c891782e3fa4b305df249"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/77fe3a0f0ebf32c66d9c891782e3fa4b305df249",
+                "reference": "77fe3a0f0ebf32c66d9c891782e3fa4b305df249",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|^6.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laracasts\\Flash\\FlashServiceProvider"
+                    ],
+                    "aliases": {
+                        "Flash": "Laracasts\\Flash\\Flash"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2019-09-03T18:59:42+00:00"
         },
         {
             "name": "laravel/framework",

@@ -1,0 +1,5 @@
+<?php
+
+/**
+ *	Room Helper
+ */
