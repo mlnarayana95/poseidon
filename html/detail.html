@@ -75,6 +75,8 @@
             color: #fff;
         }
 
+
+
         div.footer li, span {
             list-style-type: none;
             color: #c9c7bf;
@@ -298,7 +300,7 @@
         }
 
         #box_left{
-            padding: 20px;
+            padding: 10px;
         }
 
         #hotel{
@@ -306,7 +308,7 @@
         }
 
         #booking_summary{
-            margin-top: 120px;
+            margin-top: 110px;
         }
 
         #content{
@@ -335,6 +337,13 @@
         .details span{
            color: #717171!important;
         }
+
+        .cardheading{
+            color: rgb(72, 72, 72);
+            font-size: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px #666;
+        }   
     </style>
 </head>
 
@@ -408,34 +417,94 @@
                 <span><img src="images/star.png"></span> <span><img
                         src="images/star.png"></span> <span><img
                         src="images/star.png"></span></h1>
-            <p><span style="margin-right:10px"><img width="30px"
-                                                    src="images/map.png"></span>Santa
-                Maria, Cuba</p>
-            <div class="row">
-                <div class="col-md-12">
-                    <img id="hotel" src="images/hotel1.jpg">
+                <p><span style="margin-right:10px">
+                    <img width="30px" src="images/map.png">
+                    </span>Santa Maria, Cuba
+                </p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img id="hotel" src="images/hotel1.jpg">
+                    </div>
                 </div>
-            </div>
             </div>
             <div id="booking_summary" class="col-md-4">
                 <div class="row booking-header">
-                <div class="col-md-12">
-                    <h2>Booking Summary</h2>
-                   
+                    <div class="col-md-12">
+                        <h2>Booking Summary</h2>       
+                    </div>
+                </div>
+                <div id="hotel_details" class="row box1">
+                     <p style="font-size:20px;
+                               width: 100%;
+                               border: 1px solid #c7bdbd;
+                               padding: 21px;">
+                        $67 <span id="pernight">per night</span>
+                    </p>
+                    <div class="row details">
+                        <span class="col-md-6">$67 x 2 nights</span>
+                        <span class="col-md-6">$134</span>
+                    </div>
+                    <div class="row details">
+                        <span class="col-md-6">Guests: </span>
+                        <span class="col-md-6">2</span>
+                    </div>
+                    <div class="row details">
+                        <span class="col-md-6">Tax & Fees: </span>
+                        <span class="col-md-6">$15</span>
+                    </div>
+                    <div class="row details">
+                        <span class="col-md-6"><strong>Trip Total: </strong></span>
+                        <span class="col-md-6">$ 149</span>
+                    </div> 
+                    <p class="details">
+                        <input type="button" name="" value="Proceed >" class="continue">
+                    </p>   
                 </div>
             </div>
-            <div id="hotel_details" class="row box1">
-                 <p style="font-size:20px;width: 100%;border: 1px solid #c7bdbd;padding: 21px;">
-                    $67 <span id="pernight">per night</span></p>
-                 <div class="row details"><span class="col-md-6">$67 x 2 nights</span><span class="col-md-6">$134</span></div>
-                 <div class="row details"><span class="col-md-6">Guests: </span><span class="col-md-6">2</span></div>
-                 <div class="row details"><span class="col-md-6">Tax & Fees: </span><span class="col-md-6">$15</span></div>
-                 <div class="row details"><span class="col-md-6"><strong>Trip Total: </strong></span><span class="col-md-6">$ 149</span></div> 
-                 <p class="details"><input type="button" name="" value="Proceed >" class="continue"></p>   
+        </div>
+        <div id="accordion" class="row">
+            <div class="col-md-12">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" 
+                                data-toggle="collapse" data-target="#collapseOne" 
+                                aria-expanded="true" aria-controls="collapseOne">
+                                    Overview
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" 
+                        aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      <p class="cardheading">Hotel Information</p>
+                                      <p>Poseidon is a global brand of full-service hotels and resorts and the flagship brand of Canadian multinational hospitality company Poseidon. The original company was founded by Poseidon</p>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <p class="cardheading">Key Amenities</p>
+                                        <ul>
+                                            <li>Indoor Swimming Pool</li>
+                                            <li>Hi-speed Internet</li>
+                                            <li>Fitness center</li>
+                                            <li>Restaurant on site</li>
+                                            <li>Breakfast Provided</li>
+                                        </ul>
+                                    </div>
+                                  <div class="col-md-4">
+                                      <p class="cardheading">Reviews</p>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <footer>
 
@@ -446,7 +515,10 @@
                     <img class="footer-image" src="images/foot_logo.png"
                          alt="footer logo">
                     <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span>Lorem ipsum dolor sit amet, 
+                        consectetur adipisicing elit, sed do 
+                        eiusmod tempor incididunt ut labore et 
+                        dolore magna aliqua.</span>
                     </div>
                     <div class="social-footer">
                         <i class="fab fa-facebook-f fa-lg"></i>
