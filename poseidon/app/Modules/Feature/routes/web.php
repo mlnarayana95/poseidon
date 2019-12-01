@@ -1,7 +1,7 @@
 <?php
 
-Route::group(['module' => 'Feature', 'middleware' => ['web'], 'namespace' => 'App\Modules\Feature\Controllers'], function() {
+Route::group(['module' => 'Feature', 'middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'App\Modules\Feature\Controllers'], function() {
 
-    Route::resource('Feature', 'FeatureController');
+    Route::resource('feature', 'FeatureController');
 
 });

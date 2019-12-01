@@ -1,7 +1,7 @@
 <?php
 
-Route::group(['module' => 'Amenity', 'middleware' => ['web'], 'namespace' => 'App\Modules\Amenity\Controllers'], function() {
+Route::group(['module' => 'Amenity', 'middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'App\Modules\Amenity\Controllers'], function() {
 
-    Route::resource('Amenity', 'AmenityController');
+    Route::resource('amenity', 'AmenityController');
 
 });

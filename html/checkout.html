@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/58d8ede058.js"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans%7cPoppins:400,700&display=swap" rel="stylesheet">
+    <title>Poseidon</title>
+
+    <style>
+
+        body {
+            color: #717171;
+            font-size: 14px;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .container {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        ul.nav {
+            margin-right: 20px;
+        }
+
+        ul.nav li:first-child {
+            border-right: 1px solid #333;
+        }
+
+        nav.navbar {
+            background: rgba(255, 255, 255, .7) !important;
+            padding: 20px 0;
+        }
+
+        div.navbar-nav {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .navs .nav-item a {
+            color: #575757;
+        }
+
+        .navs .nav-item img {
+            padding: 2px;
+        }
+
+        .navbar-light .navbar-nav .nav-link,
+        .navbar-light .navbar-nav .active > .nav-link {
+            color: #F68500;
+            font-size: 1.25em;
+        }
+
+        div#carouselExampleControls {
+            position: relative;
+        }
+
+        div#carouselExampleControls form {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .75);
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        button#search {
+            background-color: #f68500;
+            border: none;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #F68500;
+            padding: 40px 0;
+        }
+
+        .bc-gray {
+            background-color: #fafafa;
+            /*padding-bottom: 40px;*/
+        }
+
+        .rooms img {
+            width: 100%;
+            max-height: 200px;
+        }
+
+        .room {
+            background-color: #fff;
+        }
+
+        .room .room-info {
+            margin: 0;
+            border-top: none;
+            padding: 20px;
+        }
+
+        .fa, .fas, .choose-us-icon i {
+            color: #209ebb;
+        }
+
+        div.why-choose-us i {
+            padding: 20px 20px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        span.price {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+        }
+
+        div.top-destination {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        div.top-destination .destination {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+            background: rgba(0, 0, 0, .25);
+            text-align: center;
+        }
+
+        div.top-destination .destination h4 {
+            text-align: center;
+            color: #fff;
+            margin: 150px auto 100px;
+        }
+
+        .destination button {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+        }
+
+        .stats {
+            padding-top: 30px;
+        }
+
+        .stats h4 {
+            color: #f68500;
+        }
+
+        div.contact {
+            position: relative;
+        }
+
+        div.contact div {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+            text-align: center;
+            background: rgba(0, 0, 0, .45);
+        }
+
+        div.contact div h3 {
+            color: #f68500;
+            margin: 100px auto 50px;
+        }
+
+        div.contact div button {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+        }
+
+        div.footer{
+          background-color: #161527;
+          min-height: 300px;
+          color: #fff;
+
+        }
+        
+        div.footer .fa .fas{
+          color: #fff;
+        }
+        
+        div.footer li, span{
+          list-style-type: none;
+          color: #c9c7bf;
+        }
+        
+        div.footer ul{
+          padding-left: 0;
+        }
+        
+        
+        div.footer li a{
+          line-height: 1.8;
+          text-decoration: none;
+          color: #c9c7bf;
+        }
+        
+        div.footer .social-footer .fab{
+          padding: 20px 10px;
+        }
+        
+        div.footer .foot-header{
+          color: #fff;
+          font-size: 1.4em;
+          padding-bottom: 6px;
+        }
+        
+        div.footer .row{
+          font-size: .9em;
+          padding-top: 30px;
+        }
+        
+        div.footer .contact-info{
+          line-height: 1.9;
+        }
+        
+        div.fa, .fas{
+          margin-right: 8px;
+          color: #fff;
+        }
+        
+        div.footer .contact-info li{
+          margin-bottom: 8px;
+        }
+        
+        div.footer .footer-image{
+          padding-bottom: 8px;
+          width: 175px;
+        }
+        
+        div.copy-container{
+          background-color: #161527;
+          opacity: .9;
+          color: #fff;
+          min-height: 35px;
+          line-height: 36px;
+        }
+        div.copy{
+          font-size: .7em;
+        }
+        
+
+
+
+        /* Krita */
+
+        header {
+            -webkit-box-shadow: 0 10px 6px -6px #ccc;
+            -moz-box-shadow: 0 10px 6px -6px #ccc;
+            box-shadow: 0 10px 6px -6px #ccc;
+            margin-bottom: 6px;
+        }
+
+        .title-div {
+            background-color: #FAFAFA;
+            height: 90px;
+            line-height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .content-header {
+            width: 100%;
+        }
+
+        .title {
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 12px 0;
+            font-size: 1.5em;
+            color: #f68500;
+        }
+
+        /* Breadcrumb style */
+        .content-header .content-breadcrumb {
+            font-size: 0.8em;
+            list-style: none;
+        }
+
+        .content-breadcrumb > li {
+            display: inline-block;
+        }
+
+        .content-breadcrumb > li + li::before {
+            padding: 0 5px;
+            content: "\003e";
+        }
+
+        /* List Items */
+        .list-section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .room {
+            width: 48%;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .room:nth-of-type(2n) {
+            margin-right: 0;
+        }
+
+        .room:nth-of-type(2n+1) {
+            margin-left: 0;
+        }
+
+        .room-img img {
+            width: 100%;
+        }
+
+        .room-info {
+            padding: 10px;
+        }
+
+        .room .room-title {
+            color: #f68500;
+            font-weight: 600;
+            font-size: 1.4em;
+        }
+
+        .room .room-price {
+            color: #F4364F;
+            font-weight: 600;
+        }
+
+        .btn-link {
+            background: #F68500;
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 0;
+            -webkit-box-shadow: 0 10px 6px -6px #ddd;
+            -moz-box-shadow: 0 10px 6px -6px #ddd;
+            box-shadow: 0 10px 6px -6px #ddd;
+        }
+
+        .text-orange {
+            color: #F68500;
+        }
+
+        .pull-right {
+            float: right;
+        }
+
+        .panel i {
+            color: #F68500;
+        }
+
+        .panel-body {
+            padding: 20px 0;
+        }
+        
+        div.checkout-banner-image{
+          background-image: url('images/checkout.jpeg');
+          min-height: 300px;
+        }
+        
+        div.checkout-banner h3{
+          color: #fff;
+          margin: 135px auto 50px;
+          font-size: 2.6em;
+        }
+        
+        div.checkout-banner{
+          position: relative;
+        }
+        
+        div.checkout-banner div{
+          position: absolute;
+          top: 0;
+          right: 15px;
+          bottom: 0;
+          left: 15px;
+          text-align: center;
+          background: rgba(0,0,0,.45);
+        }
+        
+
+        div.reservations h4{
+          color: #161527;
+          font-family: 'Josefin Sans';
+          font-weight: 700;
+        }
+        
+        h4:after {
+          content: ""; 
+          display: block; 
+          margin: 0 auto; 
+          width: 25%; 
+          padding-top: 8px; 
+          border-bottom: 2px solid #F68500;
+        }
+        
+        div.res-info{
+          color: #000;
+          line-height: 2.4em;
+        }
+        
+        .total{
+          margin-top: 15px;
+        }
+
+        form h3{
+          color: #F68500;
+        }
+        
+        form, .reservations{
+          border: 2px solid #f7f7f7;
+        }
+        
+        div.order-num{
+          background-color: #f7f7f7;
+          margin: 20px 0 20px 0;
+        }
+        
+        div.form-row, .form-group, h3, .reservations{
+          padding: 10px;
+        }
+        
+        form.contact-us, .reservations{
+          margin-bottom: 40px;
+          margin-top: 50px;
+        }
+        
+        button.btn.btn-primary{
+          background-color: #F68500;
+          border: none;
+          margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <div class="navs">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <img src="images/fbook.png" alt="fbook">
+                </li>
+                <li class="nav-item">
+                    <img src="images/twitter.png" alt="twitter">
+                </li>
+                <li class="nav-item">
+                    <img src="images/insta.png" alt="insta">
+                </li>
+            </ul>
+        </div>
+
+        <!-- main navbar -->
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a href="#" class="navbar-brand">
+                <img src="images/logo.png" alt="logo">
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse"
+                    data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between"
+                 id="navbarCollapse">
+
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link nav-item active" href="#">Home</a>
+                    <a class="nav-link nav-item" href="#">About Us</a>
+                    <a class="nav-link nav-item" href="#">Rooms</a>
+                    <a class="nav-link nav-item" href="#">Offers</a>
+                    <a class="nav-link nav-item" href="#">Contact Us</a>
+                </div>
+            </div>
+        </nav>
+        <!-- main navbar ends -->
+
+    </div>
+</header>
+
+<div class="container-fluid checkout-banner-image">
+  <div class="container">
+      <div class="row">
+        <div class="col-sm-12 checkout-banner">
+          <div>
+            <h3>Checkout</h3>
+          </div>
+        </div>
+        
+      </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class=" col-md-5">
+        <div class="col-md-12 text-center reservations">
+          <h4>YOUR RESERVATION</h4>
+          <div class="row res-info">
+            <div class="col-md-12 text-center order-num">Order #19092-192400381</div>
+            <div class="col-md-12 text-left">Deluxe Room</div>
+              <div class="col-md-6 col-sm-6 text-left">Check In</div>
+              <div class="col-md-6 col-sm-6 text-right">January 12,2020</div>
+              <div class="col-md-6 col-sm-6 text-left">Check Out</div>
+              <div class="col-md-6 col-sm-6 text-right">January 22,2020</div>
+              <div class="col-md-2 col-sm-2 text-left">Guests</div>
+              <div class="col-md-8 col-sm-8 text-left">Adult</div>
+              <div class="col-md-2 col-sm-2 text-right">2</div>
+              <div class="col-md-12 text-right total">Total Amount:  $180</div>
+           </div>
+         </div>
+       </div>
+
+  <form class="col-md-7 contact-us">
+      <h3>1. Billing Address</h3>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstname">First Name</label>
+          <input type="text" class="form-control" placeholder="First Name" id="firstname">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastname">Last Name</label>
+          <input type="text" class="form-control" placeholder="Last Name" id="lastname">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="useremail">Email</label>
+          <input type="email" class="form-control" placeholder="Email" id="useremail">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="useraddress">Address</label>
+        <input type="text" class="form-control" id="useraddress">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="usercity">City</label>
+          <input type="text" class="form-control" id="usercity" >
+        </div>
+        <div class="form-group col-md-4">
+          <label for="userprovince">Province</label>
+          <input type="text" class="form-control" id="userprovince">
+        </div>
+        <div class="form-group col-md-2 col-sm-12">
+          <label for="userpostal">Postal Code</label>
+          <input type="text" class="form-control" id="userpostal">
+        </div>
+      </div>
+      <h3>2. Payment Method</h3>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="exampleFormControlSelect1">Credit Card Type</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>Select Option</option>
+              <option>Visa</option>
+              <option>MasterCard</option>
+              <option>American Express</option>
+            </select>
+          </div>
+        <div class="form-group col-md-6">
+          <label for="creditnumber">Credit Card Number</label>
+          <input type="number" class="form-control" placeholder="Card Number" id="creditnumber">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="expirydate">Expiry Date</label>
+          <input type="date" class="form-control" id="expirydate" >
+        </div>
+        <div class="form-group col-md-4">
+          <label for="cvn">CVN</label>
+          <input type="number" class="form-control" id="cvn">
+        </div>
+
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              I read and agree to the terms &amp; conditions
+            </label>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Complete My Order</button>
+    </form>
+  </div>
+
+    </div>
+  </div>
+<footer>
+  <div class="container-fluid footer">
+    <div class="container">
+      <div class="row footer-row">
+        <div class='col-md-4 mx-auto'>
+          <img class="footer-image" src="images/foot_logo.png" alt="footer logo">
+          <div>
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+          </div>
+          <div class="social-footer">
+            <i class="fab fa-facebook-f fa-lg"></i>
+            <i class="fab fa-instagram fa-lg"></i>
+            <i class="fab fa-youtube fa-lg"></i>  
+            <i class="fab fa-twitter fa-lg"></i>          
+          </div>
+        </div>
+        <div class='col-md-4 mx-auto'>
+          <div class="foot-header">Quick Links</div>
+          <div>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Hotel</a></li>
+              <li><a href="#">Popular Destinations</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQs</a></li>
+            </ul>
+          </div>
+
+        </div>
+        <div class='col-md-4 mx-auto'>
+          <div class="foot-header">Contact Us</div>
+          <div class="contact-info">
+            <ul>
+              <li><i class="fas fa-map-marker-alt fa-lg"></i>    72 Fake Address<br/>
+              Winnipeg, MB<br/>
+              Canada</li>
+              <li><i class="fas fa-phone-alt fa-lg"></i>    (204) 847 - 7264</li>
+              <li><i class="fas fa-envelope fa-lg"></i>    contact@poseidon.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid copy-container">
+    <div class="container copy">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <span>Copyright &copy; All rights reserved | Poseidon Hotels and Travel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!--Plugin CSS file with desired skin-->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
+
+<!--jQuery khosada-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

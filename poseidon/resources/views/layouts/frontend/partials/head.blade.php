@@ -16,7 +16,7 @@
             crossorigin="anonymous"></script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,600&display=swap"
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans%7cPoppins:400,600&display=swap"
           rel="stylesheet">
 
     <!-- Our Custom CSS -->

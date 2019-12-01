@@ -5,7 +5,7 @@ namespace App\Modules\Frontend\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class ContactController extends Controller
 {
 
     /**
@@ -15,8 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //return view("Frontend::list");
-        return view("Frontend::home");
+        return view("Frontend::contact");
     }
 
     /**
