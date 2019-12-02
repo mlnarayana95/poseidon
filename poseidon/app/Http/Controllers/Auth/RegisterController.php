@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Person\Models\Person;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -49,10 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255|regex:^[a-zA-Z]+(([\',. -][a-zA-Z ])?[a-zA-Z]*)*$'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users|
-            regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
-            'password' => ['required', 'string', 'min:8', 'confirmed|regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -64,13 +64,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'user_type'=>1
         ]);
-        return $this->redirect()->route('home');
+
+        $user_id = $user->id;
+        $person = Person::create(
+            $data['first_name'],
+            $data['last_name'],
+            $data['birthdate'],
+            $data['']
+        );
+
+
+        return $this->route('home');
 
     }
 }

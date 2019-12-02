@@ -7,7 +7,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/58d8ede058.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans%7cPoppins:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,700&display=swap" rel="stylesheet">
     <title>Poseidon</title>
 
     <style>
@@ -187,8 +187,28 @@
             width: 100%;
         }
 
+        #reg_form .cnf {
+            margin: 0;
+            padding: 0;
+        }
+
         /*end Sign-up form Styles Juan Carlos Jimenez*/
     </style>
+    <script type="text/javascript">
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var form = document.getElementById('needs-validation');
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            }, false);
+        })();
+    </script>
 </head>
 <body>
 <div class="container-fluid">
@@ -248,67 +268,96 @@
 
             </div>
             <div class="col-md-5">
-                <form action="#">
+                <form action="#" class="needs-validation">
                     <h3>Sign Up</h3>
                     <br>
                     <div class="form-group">
-                        <label for="firstName">First Name</label><label for="firstName"> *</label>
+                        <label for="firstName">First Name</label><label for="firstName" class="cnf"> *</label>
                         <input type="text" class="form-control" placeholder="First Name" id="firstName">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="lastName">Last Name</label><label for="lastName"> *</label>
+                        <label for="lastName">Last Name</label><label for="lastName" class="cnf"> *</label>
                         <input type="text" class="form-control" placeholder="Last Name" id="lastName">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="birthDate">Birth Date</label><label for="birthDate"> *</label>
+                        <label for="birthDate">Birth Date</label><label for="birthDate" class="cnf"> *</label>
                         <input type="date" class="form-control" placeholder="Birth Date" id="birthDate">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Gender</label>
+                        <label>Gender</label><label class="cnf">*</label>
                         <div class="form-check">
-                            <label class="form-check-label"><label> *</label>
+                            <label class="form-check-label">
                                 <input type="radio" class="form-check-input" name="female">Female
                             </label>
                         </div>
                         <div class="form-check">
-                            <label class="form-check-label"><label> *</label>
+                            <label class="form-check-label">
                                 <input type="radio" class="form-check-input" name="optradio">Male
                             </label>
                         </div>
                         <div class="form-check disabled">
-                            <label class="form-check-label"><label> *</label>
-                                <input type="radio" class="form-check-input" name="optradio" disabled>Prefer not to say
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optradio">Prefer not to say
                             </label>
                         </div>
                         <div class="form-group">
-                            <label for="address">Address</label><label> *</label>
+                            <label for="address">Address</label><label for="address" class="cnf"> *</label>
                             <input type="text" class="form-control" placeholder="Address" id="address">
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="zipcode">Postal Code</label><label> *</label>
+                            <label for="zipcode">Postal Code</label><label for="zipcode" class="cnf"> *</label>
                             <input type="text" class="form-control" placeholder="Postal Code" id="zipcode">
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label><label> *</label>
+                            <label for="phone">Phone Number</label><label for="phone" class="cnf"> *</label>
                             <input type="text" class="form-control" placeholder="Phone Number" id="phone">
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
                         </div>
                     </div>
                 </form>
-                <form action="">
+                <form class="needs-validation" class="needs-validation">
                     <h3>Access Information</h3>
                     <div class="form-group">
-                        <label for="email">Email</label><label> *</label>
+                        <label for="email">Email</label><label for="email" class="cnf"> *</label>
                         <input type="text" class="form-control" placeholder="Phone Number" id="email">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label><label> *</label>
+                        <label for="password">Password</label><label for="password" class="cnf"> *</label>
                         <input type="password" class="form-control" placeholder="Phone Number" id="password">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="cnf_password">Confirm Password</label><label> *</label>
+                        <label for="cnf_password">Confirm Password</label><label for="cnf_password" class="cnf">
+                        *</label>
                         <input type="password" class="form-control" placeholder="Phone Number" id="cnf_password">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-primary">Sign up</button>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
                 </form>
             </div>
         </div>
@@ -369,7 +418,6 @@
     </div>
 
 </div>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
