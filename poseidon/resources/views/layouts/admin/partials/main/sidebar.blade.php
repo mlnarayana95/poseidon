@@ -101,14 +101,14 @@
             <li class="treeview {{ (request()->is('admin/service*')) ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-tv"></i>
-                    <span>Room Services</span>
+                    <span>Room Features</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                         <span class="label label-primary pull-right">4</span>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.service.index') }}"><i
+                    <li><a href="{{ route('admin.feature.index') }}"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
                     <li><a href="pages/layout/boxed.html"><i

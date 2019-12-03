@@ -12,7 +12,7 @@ class Amenity extends Model {
     /**
      * Get all of the hotels for the amenity.
      */
-    public function amenities()
+    public function hotels()
     {
         return $this->belongsToMany('App\Modules\Hotel\Models\Hotel');
     }
