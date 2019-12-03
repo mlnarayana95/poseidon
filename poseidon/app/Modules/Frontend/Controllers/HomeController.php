@@ -15,7 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view("Frontend::list");
+        //return view("Frontend::list");
+        return view("Frontend::home");
     }
 
     /**

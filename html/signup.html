@@ -1,20 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@juanjimenez80 
-2
-00mlnarayana95/poseidon
- Code Issues 0 Pull requests 1 Actions Projects 0 Wiki Security Insights
-poseidon/html/signup.html
-@juanjimenez80 juanjimenez80 signup form complete and polished
-5612a26 4 hours ago
-376 lines (327 sloc)  12.1 KB
-  
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -31,85 +14,106 @@ poseidon/html/signup.html
         .container-fluid {
             padding: 0;
         }
+
         .container {
             position: relative;
             font-family: 'Poppins';
             font-size: 16px;
         }
+
         ul.nav {
             margin-right: 20px;
         }
+
         ul.nav li:first-child {
             border-right: 1px solid #333;
         }
+
         nav.navbar {
             position: absolute;
             z-index: 99999;
             width: 100%;
             background: rgba(255, 255, 255, .7) !important;
         }
+
         ul.navbar-nav {
             position: absolute;
             right: 40px;
         }
+
         .navs .nav-item a {
             color: #575757;
         }
+
         .navs .nav-item img {
             padding: 2px;
         }
+
         .navbar-light .navbar-nav .nav-link,
         .navbar-light .navbar-nav .active > .nav-link {
             color: #F68500;
             font-size: 1.25em;
         }
+
         h2 {
             text-align: center;
             color: #000;
             padding: 40px 0;
         }
+
         div.footer {
             background-color: #161527;
             height: 300px;
             color: #fff;
         }
+
         div.footer .fa, .fas {
             color: #fff;
         }
+
         div.footer li {
             list-style-type: none;
         }
+
         div.footer ul {
             padding-left: 0;
         }
+
         div.footer li a {
             line-height: 1.8;
             text-decoration: none;
             color: #fff;
         }
+
         div.footer .social-footer .fab {
             padding: 20px 10px;
         }
+
         div.footer .foot-header {
             font-size: 1.2em;
             padding-bottom: 4px;
         }
+
         div.footer .row {
             font-size: .9em;
             padding-top: 30px;
         }
+
         div.footer .contact-info {
             line-height: 1.9;
         }
+
         div.footer .footer-image {
             padding-bottom: 8px;
             width: 175px;
         }
+
         div.copy {
             background-color: #161527;
             opacity: .9;
             color: #fff;
         }
+
         .about-hero div {
             position: absolute;
             top: 0;
@@ -118,31 +122,37 @@ poseidon/html/signup.html
             left: 0;
             background: rgba(0, 0, 0, .25);
         }
+
         .about-hero div p {
             color: #fff;
             font-size: 48px;
             text-align: center;
             line-height: 480px;
         }
+
         /*start Sign-up form Styles Juan Carlos Jimenez*/
         #reg_form {
             border: 1px solid #ddd;
             margin: 100px 0;
             box-shadow: 5px 10px 10px #ddd;
         }
-        #reg_form .col-md-8 {
+
+        #reg_form .col-md-7 {
             background-image: url("images/register.jpg");
             background-size: cover;
             background-position: right;
         }
-        #reg_form .col-md-4 {
+
+        #reg_form .col-md-5 {
             padding: 40px 20px;
         }
+
         #reg_form label {
             font-size: 16px;
             color: #0e2b56;
             padding-top: 10px;
         }
+
         #reg_form .form-control {
             background: none;
             border: none;
@@ -151,20 +161,24 @@ poseidon/html/signup.html
             padding: 0;
             font-size: 16px;
         }
+
         #reg_form .btn-primary {
             background-color: #0e2b56;
             border: none;
             width: 160px;
         }
+
         h1 {
             margin-top: 100px;
             color: #0e2b56;
             font-size: 35px;
         }
+
         p {
             color: #000000;
             font-size: 15px;
         }
+
         h3 {
             text-align: center;
             padding-top: 20px;
@@ -172,8 +186,29 @@ poseidon/html/signup.html
             color: #F68500;
             width: 100%;
         }
+
+        #reg_form .cnf {
+            margin: 0;
+            padding: 0;
+        }
+
         /*end Sign-up form Styles Juan Carlos Jimenez*/
     </style>
+    <script type="text/javascript">
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var form = document.getElementById('needs-validation');
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            }, false);
+        })();
+    </script>
 </head>
 <body>
 <div class="container-fluid">
@@ -229,56 +264,100 @@ poseidon/html/signup.html
     <!-- Content -->
     <div class="container">
         <div class="row" id="reg_form">
-            <div class="col-md-8">
+            <div class="col-md-7">
 
             </div>
-            <div class="col-md-4">
-                <form action="#">
+            <div class="col-md-5">
+                <form action="#" class="needs-validation">
                     <h3>Sign Up</h3>
                     <br>
                     <div class="form-group">
-                        <label for="firstName">First Name</label>
+                        <label for="firstName">First Name</label><label for="firstName" class="cnf"> *</label>
                         <input type="text" class="form-control" placeholder="First Name" id="firstName">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="lastName">Last Name</label>
+                        <label for="lastName">Last Name</label><label for="lastName" class="cnf"> *</label>
                         <input type="text" class="form-control" placeholder="Last Name" id="lastName">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="birthDate">Birth Date</label>
+                        <label for="birthDate">Birth Date</label><label for="birthDate" class="cnf"> *</label>
                         <input type="date" class="form-control" placeholder="Birth Date" id="birthDate">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Gender</label>
+                        <label>Gender</label><label class="cnf">*</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                   value="Female">
-                            <label class="form-check-label" for="inlineRadio1">Female</label>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="female">Female
+                            </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                   value="Male">
-                            <label class="form-check-label" for="inlineRadio2">Male</label>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optradio">Male
+                            </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                   value="N/A">
-                            <label class="form-check-label" for="inlineRadio3">Prefer not to say</label>
+                        <div class="form-check disabled">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optradio">Prefer not to say
+                            </label>
                         </div>
                         <div class="form-group">
-                            <label for="address">Address</label>
+                            <label for="address">Address</label><label for="address" class="cnf"> *</label>
                             <input type="text" class="form-control" placeholder="Address" id="address">
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="zipcode">Postal Code</label>
+                            <label for="zipcode">Postal Code</label><label for="zipcode" class="cnf"> *</label>
                             <input type="text" class="form-control" placeholder="Postal Code" id="zipcode">
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone">Phone Number</label><label for="phone" class="cnf"> *</label>
                             <input type="text" class="form-control" placeholder="Phone Number" id="phone">
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
                         </div>
-                        <button type="button" class="btn btn-primary">Sign up</button>
                     </div>
+                </form>
+                <form class="needs-validation" class="needs-validation">
+                    <h3>Access Information</h3>
+                    <div class="form-group">
+                        <label for="email">Email</label><label for="email" class="cnf"> *</label>
+                        <input type="text" class="form-control" placeholder="Phone Number" id="email">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label><label for="password" class="cnf"> *</label>
+                        <input type="password" class="form-control" placeholder="Phone Number" id="password">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cnf_password">Confirm Password</label><label for="cnf_password" class="cnf">
+                        *</label>
+                        <input type="password" class="form-control" placeholder="Phone Number" id="cnf_password">
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
                 </form>
             </div>
         </div>
@@ -339,7 +418,6 @@ poseidon/html/signup.html
     </div>
 
 </div>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
