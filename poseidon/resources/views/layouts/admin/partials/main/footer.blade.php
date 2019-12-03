@@ -6,7 +6,7 @@
 <!-- Bootstrap JS -->
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
-<!-- bootstrap datepicker -->
+<!-- bootstrap datepicker @to do - check this -->
 <script src="{{ asset('assets/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
 
 <!-- Datatable JS -->
@@ -15,6 +15,9 @@
 
 <!-- Select 2 Dropdown -->
 <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+
+<!-- Date Time Picker JS-->
+<script src="{{ asset('assets/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/js/app.js') }}"></script>

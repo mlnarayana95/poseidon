@@ -20,13 +20,14 @@
     <!-- select 2 dropdown -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2/select2.min.css') }}">
 
+    <!-- Date TimePicker -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/timepicker/bootstrap-timepicker.min.css') }}" />
+
     {{-- Load Custom CSS --}}
     <link rel="stylesheet" href="{{ asset('assets/css/custom-admin.css') }}">
 
     {{-- Load Essential JS --}}
     <script src="{{ asset('assets/plugins/jQuery/jQuery.min.js') }}"></script>
-
-    {{--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">--}}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hotel extends Model {
 
+    protected $fillable = ['name', 'description', 'location_id', 'address', 'postal_code', 'phone_number', 'checkin_time', 'checkout_time', 'airport_distance', 'airport_transportation', 'pet_friendly'];
+
     /**
      * Get all of the amenities for the hotel.
      */
