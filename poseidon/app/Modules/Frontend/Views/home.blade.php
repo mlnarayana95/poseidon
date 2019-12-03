@@ -241,7 +241,7 @@
 
     <div class="bc-gray">
         <div class="container">
-            <div class="row stats">
+            <div class="row stats pb-4">
                 <div class="col-md-3 text-center">
                     <h4>35472</h4>
                     <span>HAPPY CUSTOMERS</span>
@@ -264,7 +264,7 @@
 
     <div class="d-flex align-content-center flex-wrap justify-content-center contact-us-image">
         <div class="contact text-center">
-            <h3>Start Your Adventure With Us</h3>
+            <h3 class="pb-4">Start Your Adventure With Us</h3>
             <button>Contact Us</button>
         </div>
     </div>

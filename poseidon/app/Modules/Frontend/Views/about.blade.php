@@ -11,131 +11,6 @@
 
 @section('content')
 
-<style>
-
-div.banner{
-  margin: 0;
-  background: #161527;
-  height: 300px;
-  color: #F68500;
-  max-height: 800px;
-}
-
-div.banner h1{
-  padding-top: 116px;
-}
-
-div.about-rows{
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-div.header{
-  font-size: 1.8em;
-  color: #161527;
-  font-weight: bold;
-  font-family: 'Poppins';
-  padding-bottom: 25px;
-}
-
-div.why-info{
-  max-width: 78%;
-  padding-left: 75px;
-}
-
-img{
-  padding-top: 15px;
-  max-height: 248px;
-}
-
-div.background-color{
-  background: #fafafa;
-}
-
-div.white-background{
-  padding: 50px;
-  min-height: 300px;
-}
-
-div.become-member{
-  font-size: 2.5em;
-  color: #F68500;
-  font-family: 'Poppins';
-}
-
-button.join{
-  color: #fff;
-  background: #F68500;
-  border: none;
-  padding: 15px 25px;
-  margin: 10px;
-  font-size: 1.4em;
-}
-
-blockquote{
-    font-family: 'Poppins';
-    font-style: italic;
-    margin: 0.25em 0;
-    padding: 0.35em 40px;
-    line-height: 1.45;
-    position: relative;
-    color: #383838;
-}
-
-blockquote:before{
-    display: block;
-    padding-left: 10px;
-    content: "\201C";
-    font-size: 80px;
-    position: absolute;
-    left: -20px;
-    top: -20px;
-    color: #7a7a7a;
-}
-
-div.cite{
-  padding-right: 50px;
-  color: #F68500;
-  font-size: 1.2em;
-}
-
-div.who-we-are{
-  font-size: 2.3em;
-  color: #fff;
-  padding-bottom: 25px;
-}
-
-div.pos-desc{
-  font-size: 14px;
-  color: #fafafa;
-}
-
-div.blue-background{
-  background: #161527;
-  max-height: 400px;
-}
-
-div.pos-desc{
-  font-size: 16px;
-  color: #c8cbcf;
-}
-
-div.about-container{
-  max-width: 800px;
-}
-
-div.review{
-  font-style: italic;
-  font-size: 1.2em;
-}
-
-img.award{
-  max-width: 200px;
-  max-height: 200px;
-}
-
-</style>
-
 <div class="container-fluid banner text-center">
   <div class="container">
     <h1>About</h1> 
@@ -154,7 +29,7 @@ img.award{
         </div>
       </div>
       <div class="col-md-6 text-center">
-        <img src="/images/location.jpg" alt="photo">
+        <img class="about-image" src="/images/location.jpg" alt="photo">
       </div>  
     </div>
   </div>
@@ -164,7 +39,7 @@ img.award{
   <div class="container">
     <div class="row about-rows">
       <div class="col-md-6 text-center">
-        <img src="/images/satisfaction.jpg" alt="photo">
+        <img class="about-image" src="/images/satisfaction.jpg" alt="photo">
       </div>  
       <div class="col-md-6">
         <div class="header why-info">
