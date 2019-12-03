@@ -4,6 +4,7 @@ namespace App\Modules\Hotel\Controllers;
 
 use App\Modules\Hotel\Models\HotelAmenity;
 use App\Modules\Hotel\Models\Hotel;
+use App\Modules\Location\Models\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -28,7 +29,8 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        $data['locations'] = Location::pluck('location', 'id');
+        return view("Hotel::add", $data);
     }
 
     /**

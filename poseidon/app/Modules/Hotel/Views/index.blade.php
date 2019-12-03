@@ -13,8 +13,14 @@
         @include('flash::message')
 
         <div class="box box-primary">
-            <div class="box-header">
+            <div class="box-header with-border">
                 <h3 class="box-title">All Hotels</h3>
+
+                <div class="box-tools">
+                    <a href="{{ route('hotel.create') }}" class="btn btn-primary">
+                        <i class="fa fa-plus-circle"></i> Add Hotel
+                    </a>
+                </div>
             </div>
             <div class="box-body">
 
