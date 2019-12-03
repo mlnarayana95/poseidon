@@ -1,6 +1,8 @@
 @extends('layouts.frontend.main')
 @section('title', 'About Us')
 
+@section('heading', 'Why Choose Us')
+
 
 @section('breadcrumb')
     @parent
@@ -29,10 +31,10 @@ div.about-rows{
 }
 
 div.header{
-  font-size: 2.1em;
+  font-size: 1.8em;
   color: #161527;
   font-weight: bold;
-  font-family: 'Josefin Sans';
+  font-family: 'Poppins';
   padding-bottom: 25px;
 }
 
@@ -42,7 +44,8 @@ div.why-info{
 }
 
 img{
-  padding-top: 31px;
+  padding-top: 15px;
+  max-height: 248px;
 }
 
 div.background-color{
@@ -51,21 +54,22 @@ div.background-color{
 
 div.white-background{
   padding: 50px;
-  max-height: 379px;
+  min-height: 300px;
 }
 
 div.become-member{
   font-size: 2.5em;
   color: #F68500;
-  font-family: 'Josefin Sans';
+  font-family: 'Poppins';
 }
 
 button.join{
   color: #fff;
   background: #F68500;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 25px;
   margin: 10px;
+  font-size: 1.4em;
 }
 
 blockquote{
@@ -92,12 +96,18 @@ blockquote:before{
 div.cite{
   padding-right: 50px;
   color: #F68500;
+  font-size: 1.2em;
 }
 
 div.who-we-are{
   font-size: 2.3em;
   color: #fff;
   padding-bottom: 25px;
+}
+
+div.pos-desc{
+  font-size: 14px;
+  color: #fafafa;
 }
 
 div.blue-background{
@@ -110,11 +120,25 @@ div.pos-desc{
   color: #fff;
 }
 
+div.about-container{
+  max-width: 800px;
+}
+
+div.review{
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+img.award{
+  max-width: 200px;
+  max-height: 200px;
+}
+
 </style>
 
 <div class="container-fluid banner text-center">
   <div class="container">
-    <h1>About Us</h1> 
+    <h1>About</h1> 
   </div>
 </div>  
 
@@ -161,7 +185,7 @@ div.pos-desc{
         <div class="become-member">
           Become a member today
         </div>
-        <button class="join">Join Now</button>
+        <button class="join shadow">Join Now</button>
       </div>
   </div>
 </div> 
@@ -194,7 +218,7 @@ div.pos-desc{
 </div>
 
 <div class="contianer-fluid blue-background">
-  <div class="container">
+  <div class="container about-container">
     <div class="row about-rows">
       <div class="col-md-12">
         <div class="text-center who-we-are">Who we are</div>
@@ -206,7 +230,14 @@ div.pos-desc{
 
 <div class="container-fluid white-background">
   <div class="container">
-    <div class="row">
+    <div class="row text-center">
+      <div class="col-md-12 review">"One of the most luxurious stays we have ever experienced."
+        <div>- New York Times</div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-6 col-sm-12"><img class="award" src="images/award2.png" alt="award2"></div>
+      <div class="col-md-6 col-sm-12"><img class="award" src="images/award1.png" alt="award1"></div>
     </div>
   </div>
 </div>  
