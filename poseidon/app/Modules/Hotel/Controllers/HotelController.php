@@ -45,7 +45,7 @@ class HotelController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -63,41 +63,51 @@ class HotelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $data['hotel'] = Hotel::with('location', 'amenities')->find($id);
+        //dd($data['hotel']->toArray());
+        $data['locations'] = Location::pluck('location', 'id');
+        return view("Hotel::edit", $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validate Form Inputs
+        $validated_data = $this->validateHotel($request);
+
+        Hotel::find($id)->update($validated_data);
+
+        flash('Hotel has been updated successfully!')->success();
+
+        return redirect()->route('hotel.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -118,9 +128,11 @@ class HotelController extends Controller
         $validated_data['location_id'] = $request->location_id;
         $validated_data['airport_distance'] = $request->airport_distance;
         $validated_data['airport_transportation'] = $request->airport_transportation;
-        $validated_data['pet_friendly'] = $request->pet_friendly;
-        $validated_data['checkin_time'] = Carbon::createFromFormat('H:i A', $request->checkin_time)->toTimeString();
-        $validated_data['checkout_time'] = Carbon::createFromFormat('H:i A', $request->checkout_time)->toTimeString();
+        $validated_data['pet_friendly'] = ($request->pet_friendly == null) ? 0 : 1;
+        $validated_data['checkin_time'] = Carbon::createFromFormat('H:i A',
+            $request->checkin_time)->toTimeString();
+        $validated_data['checkout_time'] = Carbon::createFromFormat('H:i A',
+            $request->checkout_time)->toTimeString();
 
         return $validated_data;
     }

@@ -43,7 +43,7 @@
                             <td>{{ $hotel->location->location }}</td>
                             <td>{{ $hotel->phone_number }}</td>
                             <td>
-                                <a href="#" class="btn btn-primary marginRight">
+                                <a href="{{ route('hotel.edit', $hotel) }}" class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
                                 <a href="#" type="button" class="btn btn-danger">
