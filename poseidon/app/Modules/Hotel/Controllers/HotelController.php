@@ -2,6 +2,8 @@
 
 namespace App\Modules\Hotel\Controllers;
 
+use App\Modules\Amenity\Models\HotelAmenity;
+use App\Modules\Hotel\Models\Hotel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +17,12 @@ class HotelController extends Controller
      */
     public function index()
     {
+        dd(HotelAmenity::all()->toArray());
+        $hotels = (Hotel::all());
+
+        foreach ($hotels as $hotel) {
+            dd($hotel->amenities);
+        }
         return view("Hotel::index");
     }
 
