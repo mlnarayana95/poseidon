@@ -17,7 +17,7 @@
                 <h3 class="box-title">All Hotels</h3>
 
                 <div class="box-tools">
-                    <a href="{{ route('hotel.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.hotel.create') }}" class="btn btn-primary">
                         <i class="fa fa-plus-circle"></i> Add Hotel
                     </a>
                 </div>
@@ -43,7 +43,7 @@
                             <td>{{ $hotel->location->location }}</td>
                             <td>{{ $hotel->phone_number }}</td>
                             <td>
-                                <a href="{{ route('hotel.edit', $hotel) }}" class="btn btn-primary marginRight">
+                                <a href="{{ route('admin.hotel.edit', $hotel) }}" class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
                                 <a href="#" type="button" class="btn btn-danger">

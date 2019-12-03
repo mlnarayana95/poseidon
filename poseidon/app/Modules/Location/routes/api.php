@@ -1,7 +1,9 @@
 <?php
 
-Route::group(['module' => 'Destination', 'middleware' => ['api'], 'namespace' => 'App\Modules\Destination\Controllers'], function() {
+Route::group(['module' => 'Location', 'middleware' => ['api'], 'namespace' => 'App\Modules\Location\Controllers'], function() {
 
-    Route::resource('Destination', 'DestinationController');
+    Route::name('admin.')->group(function () {
+        Route::resource('location', 'LocationController');
+    });
 
 });

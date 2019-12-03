@@ -57,7 +57,7 @@ class HotelController extends Controller
 
         flash('Hotel has been created successfully!')->success();
 
-        return redirect()->route('hotel.index');
+        return redirect()->route('admin.hotel.index');
     }
 
     /**
@@ -101,7 +101,7 @@ class HotelController extends Controller
 
         flash('Hotel has been updated successfully!')->success();
 
-        return redirect()->route('hotel.index');
+        return redirect()->route('admin.hotel.index');
     }
 
     /**

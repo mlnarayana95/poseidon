@@ -4,7 +4,7 @@
 @section('breadcrumb')
     @parent
     <li>
-        <a href="{{ route('hotel.index') }}">Hotels</a>
+        <a href="{{ route('admin.hotel.index') }}">Hotels</a>
         <a href="#">Add</a>
     </li>
 @stop
@@ -18,7 +18,7 @@
                 <h3 class="box-title">Hotel Details</h3>
             </div>
 
-            {!! Form::open(['route' => 'hotel.store', 'method' => 'post', 'class' => 'form-horizontal']) !!}
+            {!! Form::open(['route' => 'admin.hotel.store', 'method' => 'post', 'class' => 'form-horizontal']) !!}
             <div class="box-body">
                 @include('Hotel::form')
             </div>
