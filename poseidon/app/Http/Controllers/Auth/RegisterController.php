@@ -23,15 +23,16 @@ class RegisterController extends Controller
     */
 
     protected $rules =[
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'string', 'min:8', 'confirmed'],
-        'first_name' => ['required','max:255','alpha'],
-        'last_name' => ['required','max:255','alpha'],
-        'birth_date' => ['required','max:255','alpha'],
+        'email' => ['required', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'],
+        'cnf_password' => ['required', 'string', 'min:8', 'confirmed','regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'],
+        'first_name' => ['required','max:255','regex:/^[\pL\s\-]+$/u'],
+        'last_name' => ['required','max:255','regex:/^[\pL\s\-]+$/u'],
+        'birth_date' => ['required','max:255','date_format:Y-m-d'],
         'gender' => ['required','max:1','alpha'],
-        'address' => ['required','max:500','alpha_num'],
+        'address' => ['required','max:500','regex:/^(\d{3,})\s?(\w{0,5})\s([a-zA-Z]{2,30})\s([a-zA-Z]{2,15})\.?\s?(\w{0,5})$/'],
         'postal_code' => ['required','max:500','regex:/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/'],
-        'phone_number' => ['required','max:500','regex:/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/']
+        'phone_number' => ['required','max:500','regex:/^(\(\d{3}\)[.-]?|\d{3}[.-]?)?\d{3}[.-]?\d{4}$/']
     ];
 
 
