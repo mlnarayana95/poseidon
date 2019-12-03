@@ -7,7 +7,7 @@
     <!-- Bootstrap 3.3.5 -->
     <link href="{{ asset('assets/css/bootstrap-admin.min.css')}}" rel="stylesheet" type="text/css"/>
     <!-- Datatable css -->
-    <link href="{{ asset('assets/plugins/datatables/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet" type="text/css"/>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -25,6 +25,8 @@
 
     {{-- Load Essential JS --}}
     <script src="{{ asset('assets/plugins/jQuery/jQuery.min.js') }}"></script>
+
+    {{--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">--}}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Modules\Hotel\Controllers;
+namespace App\Modules\Location\Controllers;
 
-use App\Modules\Hotel\Models\HotelAmenity;
-use App\Modules\Hotel\Models\Hotel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class HotelController extends Controller
+class LocationController extends Controller
 {
 
     /**
@@ -17,8 +15,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $data['hotels'] = Hotel::with('location')->get();
-        return view("Hotel::index", $data);
+        return view("Destination::index");
     }
 
     /**
