@@ -1,6 +1,4 @@
 @extends('layouts.frontend.main')
-@section('title', 'Room List')
-
 @section('content')
 
 <div class="title-div">
