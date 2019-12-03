@@ -3,10 +3,6 @@
 @section('content')
 
     <div class="container">
-        @if($errors->has())
-            @foreach ($errors->all() as $error)
-                <div>{{ $error }}</div>
-            @endforeach
         <div class="row" id="reg_form">
             <div class="col-md-7">
             </div>
@@ -20,28 +16,27 @@
                         <label for="first_name">First Name</label><label for="first_name" class="cnf"> *</label>
                         <input type="text" class="form-control" placeholder="First Name" id="first_name"
                                name="first_name">
+                        @if($errors->has('first_name'))
+                            {!! $errors->first('first_name', '<label class="control-label"
+                                                                   for="inputError">:message</label>') !!}
                         @endif
-                        @error('first_name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong></span>
-                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="last_name">Last Name</label><label for="last_name" class="cnf"> *</label>
                         <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name">
-                        @error('last_name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong></span>
-                        @enderror
+                        @if($errors->has('last_name'))
+                            {!! $errors->first('last_name', '<label class="control-label"
+                                                                   for="inputError">:message</label>') !!}
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="birth_date">Birth Date</label><label for="birth_date" class="cnf"> *</label>
                         <input type="date" class="form-control" placeholder="Birth Date" id="birth_date"
                                name="birth_date">
-                        @error('birth_date')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong></span>
-                        @enderror
+                        @if($errors->has('birth_date'))
+                            {!! $errors->first('birth_date', '<label class="control-label"
+                                                                   for="inputError">:message</label>') !!}
+                        @endif
                     </div>
                     <div class="form-group">
                         <label>Gender</label><label class="cnf">*</label>
@@ -64,57 +59,57 @@
                         <div class="form-group">
                             <label for="address">Address</label><label for="address" class="cnf"> *</label>
                             <input type="text" class="form-control" placeholder="Address" id="address" name="address">
-                            <div class="invalid-feedback">
-                                Please provide a valid state.
-                            </div>
+                            @if($errors->has('address'))
+                                {!! $errors->first('address', '<label class="control-label"
+                                                                       for="inputError">:message</label>') !!}
+                            @endif
                         </div>
                         <div class="form-group">
-                            <label for="zipcode">Postal Code</label><label for="zipcode" class="cnf"> *</label>
-                            <input type="text" class="form-control" placeholder="Postal Code" id="zipcode"
-                                   name="zipcode">
-                            <div class="invalid-feedback">
-                                Please provide a valid state.
-                            </div>
+                            <label for="postal_code">Postal Code</label><label for="postal_code" class="cnf"> *</label>
+                            <input type="text" class="form-control" placeholder="Postal Code" id="postal_code"
+                                   name="postal_code">
+                            @if($errors->has('postal_code'))
+                                {!! $errors->first('postal_code', '<label class="control-label"
+                                                                       for="inputError">:message</label>') !!}
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label><label for="phone" class="cnf"> *</label>
-                            <input type="text" class="form-control" placeholder="Phone Number" id="phone" name="phone">
-                            <div class="invalid-feedback">
-                                Please provide a valid state.
-                            </div>
+                            <input type="text" class="form-control" placeholder="Phone Number" id="phone" name="phone_number">
+                            @if($errors->has('phone_number'))
+                                {!! $errors->first('phone_number', '<label class="control-label"
+                                                                       for="inputError">:message</label>') !!}
+                            @endif
                         </div>
                     </div>
                     <br>
                     <h3>Access Information</h3>
                     <div class="form-group">
                         <label for="email">Email</label><label for="email" class="cnf"> *</label>
-                        <input type="text" class="form-control" placeholder="Phone Number" id="email" name="email">
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong></span>
-                        @enderror
+                        <input type="text" class="form-control" placeholder="email address" id="email" name="email">
+                        @if($errors->has('email'))
+                            {!! $errors->first('email', '<label class="control-label"
+                                                                   for="inputError">:message</label>') !!}
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label><label for="password" class="cnf"> *</label>
                         <input type="password" class="form-control" placeholder="Password" id="password"
                                name="password">
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong></span>
-                        @enderror
+                        @if($errors->has('password'))
+                            {!! $errors->first('password', '<label class="control-label"
+                                                                   for="inputError">:message</label>') !!}
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="cnf_password">Confirm Password</label><label for="cnf_password" class="cnf">
                             *</label>
                         <input type="password" class="form-control" placeholder="Phone Number" id="cnf_password"
-                            name="cnf_password">
-                        <div class="invalid-feedback">
-                            Please provide a valid state.
-                        </div>
-                        @error('cnf_password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong></span>
-                        @enderror
+                               name="cnf_password">
+                        @if($errors->has('password'))
+                            {!! $errors->first('password', '<label class="control-label"
+                                                                   for="inputError">:message</label>') !!}
+                        @endif
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">

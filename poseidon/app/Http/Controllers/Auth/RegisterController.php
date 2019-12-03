@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-
+use DB;
 class RegisterController extends Controller
 {
     /*
@@ -63,33 +63,31 @@ class RegisterController extends Controller
      * @param array $data
      * @return \App\User
      */
-    protected function create(Request $request)
+    protected function register(Request $request)
     {
-        die('begin create');
+
         DB::BeginTransaction();
-        try {
+        try
+        {
+            $request->validate($this->rules);
 
-
-
-            $user = User::create([
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'user_type' => 1
-            ]);
-
-            $user_id = $user->id;
-            Person::create([
-                'user_id' => $user_id,
-                'first_name' =>$data['first_name'],
-                'last_name' =>$data['last_name'],
-                'birth_date' =>$data['birth_date'],
-                'gender' =>$data['gender'],
-                'address' =>$data['address'],
-                'postal_code' =>$data['postal_code'],
-                'phone_number' =>$data['phone_number']
-            ]);
-            die('User and person inserted successfully');
-            DB::Commit();
+                $user = User::create([
+                    'email' => $data['email'],
+                    'password' => Hash::make($data['password']),
+                    'user_type' => 1
+                ]);
+                $user_id = $user->id;
+                Person::create([
+                    'user_id' => $user_id,
+                    'first_name' =>$data['first_name'],
+                    'last_name' =>$data['last_name'],
+                    'birth_date' =>$data['birth_date'],
+                    'gender' =>$data['gender'],
+                    'address' =>$data['address'],
+                    'postal_code' =>$data['postal_code'],
+                    'phone_number' =>$data['phone_number']
+                ]);
+                DB::Commit();
 
         } catch (Exception $e) {
             DB::rollback();
