@@ -2,6 +2,7 @@
 
 namespace App\Modules\Room\Controllers;
 
+use App\Modules\Room\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +16,8 @@ class RoomController extends Controller
      */
     public function index()
     {
+        $data['hotels'] = Room::with('type', 'features')->get();
+        dd($data['hotels']->toArray());
         return view("Room::index");
     }
 

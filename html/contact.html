@@ -349,7 +349,7 @@
         }
 
         h1{
-            color: #000;
+            color: orange;
         }
 
         .panel i {
@@ -362,6 +362,16 @@
 
         #contact_form{
             padding: 62px;
+        }
+
+        .btn-danger {
+            color: #fff;
+            background-color: orange;
+            border-color: black;
+        }
+
+        .container{
+            padding:30px;
         }
 
     </style>
@@ -431,6 +441,7 @@
     <div class="row">
         <div class="col-md-6">
             <form>
+                <span class="required_asterisk"></span>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Name</label>
@@ -455,25 +466,31 @@
             </form>
         </div>
         <div class="col-md-6">
+            <div class="container">
             <p>
                 <a href="#" class="btn btn-info btn-lg">
-                    <span class="fa fa-map-marker-alt"></span>
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                    Fake Adress,Winnipeg<br/>
+                         MB R7B 7T7
                 </a>
-                Map-marker icon on a styled link button:
             </p>
 
            <p>
             <a href="#" class="btn btn-info btn-lg">
               <span class="glyphicon glyphicon-bullhorn"></span>
+               1(289)7777-777 
             </a>
-            Bullhorn icon on a styled link button:
+           
           </p>
           <p>
             <a href="#" class="btn btn-info btn-lg">
               <span class="glyphicon glyphicon-envelope"></span>
+              help@poseidon.com
             </a>
-            Envelope icon on a styled link button:
-          </p>    
+            
+          </p>
+          </div>    
+      </div>
         </div>
     </div>
 </div>
