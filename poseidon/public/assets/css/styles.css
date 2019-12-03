@@ -1,3 +1,6 @@
+
+/* Katie */
+
 body {
     color: #717171;
     font-size: 14px;
@@ -243,6 +246,7 @@ div.copy {
 
 /* Footer Style Ends Here */
 
+
 /* Krita */
 
 header {
@@ -258,9 +262,8 @@ header .nav-link {
 
 .title-div {
     background-color: #FAFAFA;
-    height: 90px;
-    line-height: 80px;
-    margin-bottom: 20px;
+    height: 75px;
+    line-height: 55px;
 }
 
 .content-header {

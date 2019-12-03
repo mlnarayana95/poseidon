@@ -117,7 +117,7 @@ div.blue-background{
 
 div.pos-desc{
   font-size: 16px;
-  color: #fff;
+  color: #c8cbcf;
 }
 
 div.about-container{
