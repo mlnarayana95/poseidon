@@ -18,7 +18,7 @@
                 <h3 class="box-title">Hotel Details</h3>
             </div>
 
-            {!! Form::open(['method' => 'put', 'class' => 'form-horizontal']) !!}
+            {!! Form::open(['route' => 'hotel.store', 'method' => 'post', 'class' => 'form-horizontal']) !!}
             <div class="box-body">
                 @include('Hotel::form')
             </div>
@@ -36,6 +36,8 @@
     <script>
         $('.timepicker').timepicker({
             showInputs: false
-        })
+        });
+
+        $('.select2').select2();
     </script>
 @endsection

@@ -23,7 +23,7 @@
 <div class="form-group">
     {!!Form::label('location_id', 'Select Location *', array('class' => 'col-md-2 col-sm-12 control-label')) !!}
     <div class="col-md-10 col-sm-12">
-        {!!Form::select('location_id', $locations, null, array('class' => 'form-control institute select2', 'id' => 'institute'))!!}
+        {!!Form::select('location_id', $locations, null, array('class' => 'form-control select2', 'id' => 'location_id', 'style'=>'width: 100%;'))!!}
     </div>
 </div>
 
@@ -49,6 +49,23 @@
     </div>
 </div>
 
+<div class="form-group @if($errors->has('phone_number')) {{'has-error'}} @endif">
+    {!!Form::label('phone_number', 'Phone Number *', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-phone"></i>
+            </div>
+
+            {!!Form::text('phone_number', null, array('class' => 'form-control', 'id'=>'phone_number'))!!}
+        </div>
+        @if($errors->has('phone_number'))
+            {!! $errors->first('phone_number', '<label class="control-label"
+                                                   for="inputError">:message</label>') !!}
+        @endif
+    </div>
+</div>
+
 <div class="form-group @if($errors->has('checkin_time')) {{'has-error'}} @endif">
     {!!Form::label('checkin_time', 'Check In Time *', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
@@ -60,16 +77,61 @@
             {!!Form::text('checkin_time', null, array('class' => 'form-control timepicker', 'id'=>'checkin_time'))!!}
         </div>
 
-        <div class="input-group date" id="timepicker" data-target-input="nearest">
-            <input type="text" class="form-control datetimepicker-input" data-target="#timepicker"/>
-            <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="far fa-clock"></i></div>
-            </div>
-        </div>
-
         @if($errors->has('checkin_time'))
             {!! $errors->first('checkin_time', '<label class="control-label"
                                                    for="inputError">:message</label>') !!}
         @endif
+    </div>
+</div>
+
+<div class="form-group @if($errors->has('checkout_time')) {{'has-error'}} @endif">
+    {!!Form::label('checkout_time', 'Check Out Time *', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+            </div>
+
+            {!!Form::text('checkout_time', null, array('class' => 'form-control timepicker', 'id'=>'checkout_time'))!!}
+        </div>
+
+        @if($errors->has('checkout_time'))
+            {!! $errors->first('checkout_time', '<label class="control-label"
+                                                   for="inputError">:message</label>') !!}
+        @endif
+    </div>
+</div>
+
+<div class="form-group @if($errors->has('airport_distance')) {{'has-error'}} @endif">
+    {!!Form::label('airport_distance', 'Airport Distance', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!!Form::text('airport_distance', null, array('class' => 'form-control', 'id'=>'airport_distance'))!!}
+        @if($errors->has('airport_distance'))
+            {!! $errors->first('airport_distance', '<label class="control-label"
+                                                   for="inputError">:message</label>') !!}
+        @endif
+    </div>
+</div>
+
+<div class="form-group @if($errors->has('airport_transportation')) {{'has-error'}} @endif">
+    {!!Form::label('airport_transportation', 'Airport Transportation', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!!Form::text('airport_transportation', null, array('class' => 'form-control', 'id'=>'airport_transportation'))!!}
+        @if($errors->has('airport_transportation'))
+            {!! $errors->first('airport_transportation', '<label class="control-label"
+                                                   for="inputError">:message</label>') !!}
+        @endif
+    </div>
+</div>
+
+<div class="form-group">
+    {!!Form::label('pet_friendly', 'Pet Friendly', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        <strong>No </strong>
+        <label class="switch">
+            {!! Form::checkbox('pet_friendly', 1, null) !!}
+            <span class="slider round"></span>
+        </label>
+        <strong>Yes </strong>
     </div>
 </div>

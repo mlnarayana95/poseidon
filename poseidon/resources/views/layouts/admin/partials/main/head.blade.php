@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link href="{{ asset('assets/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css"/>
     <!-- Blue Skin For the Admin Panel -->
     <link rel="stylesheet" href="{{ asset('assets/css/skin-blue.css') }}">
 
@@ -28,6 +26,9 @@
 
     {{-- Load Essential JS --}}
     <script src="{{ asset('assets/plugins/jQuery/jQuery.min.js') }}"></script>
+
+    <!-- Theme style -->
+    <link href="{{ asset('assets/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
