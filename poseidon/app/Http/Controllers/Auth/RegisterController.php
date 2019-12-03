@@ -7,7 +7,7 @@ use App\Modules\Person\Models\Person;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -21,6 +21,19 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+
+    protected $rules =[
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+        'first_name' => ['required','max:255','alpha'],
+        'last_name' => ['required','max:255','alpha'],
+        'birth_date' => ['required','max:255','alpha'],
+        'gender' => ['required','max:1','alpha'],
+        'address' => ['required','max:500','alpha_num'],
+        'postal_code' => ['required','max:500','regex:/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/'],
+        'phone_number' => ['required','max:500','regex:/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/']
+    ];
+
 
     use RegistersUsers;
 
@@ -41,28 +54,8 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param array $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
 
-        $validation = Validator::make($data, [
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'first_name' => ['required','max:255','alpha'],
-            'last_name' => ['required','max:255','alpha'],
-            'birth_date' => ['required','max:255','alpha'],
-            'gender' => ['required','max:1','alpha'],
-            'address' => ['required','max:500','alpha_num'],
-            'postal_code' => ['required','max:500','regex:/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/'],
-            'phone_number' => ['required','max:500','regex:/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/']
-        ]);
-        return $validation;
-    }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -70,11 +63,14 @@ class RegisterController extends Controller
      * @param array $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
         die('begin create');
         DB::BeginTransaction();
         try {
+
+
+
             $user = User::create([
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),

@@ -3,6 +3,10 @@
 @section('content')
 
     <div class="container">
+        @if($errors->has())
+            @foreach ($errors->all() as $error)
+                <div>{{ $error }}</div>
+            @endforeach
         <div class="row" id="reg_form">
             <div class="col-md-7">
             </div>
@@ -16,6 +20,7 @@
                         <label for="first_name">First Name</label><label for="first_name" class="cnf"> *</label>
                         <input type="text" class="form-control" placeholder="First Name" id="first_name"
                                name="first_name">
+                        @endif
                         @error('first_name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong></span>
