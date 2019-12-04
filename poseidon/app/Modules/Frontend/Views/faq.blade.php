@@ -188,25 +188,27 @@
         }
 
 
-.container{
-    padding:30px;
-}
+        .container{
+            padding:30px;
+        }
 
+        form{
+            text-align: center;
+            width: 100%;
+        }
 
-.search input[type="search"] {
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    color: #999;
-    height: 40px;
-    width: 40%;
-    padding: 20px;
-    margin: 40px 580px;
-
-}
+        .search input[type="search"] {
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            color: #999;
+            height: 40px;
+            padding: 20px;
+            width: 100%;
+        }
 
 .btn-link {
     font-weight: 400;
-    color: orange;
+    color: white;
     border-radius: 0;
 }
 
@@ -219,13 +221,25 @@ a {
     margin: -13px;
 }
 
+    .hero-inner{
+        width: 960px;
+        margin: 0 auto;
+    }
+
 @endsection
 
 @section('content')
- <div class="hero-inner">
+ <div class="container">
     
     <h2>Find what you're looking for by conducting a search</h2>
-    <form role="search" class="search search-full" data-search="" data-instant="true" autocomplete="off" action="/hc/en-us/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" /><input type="search" name="query" id="query" placeholder="Search" autocomplete="off" aria-label="Search" /></form>
+    <form role="search" class="search search-full" data-search="" data-instant="true" autocomplete="off" action="/hc/en-us/search" accept-charset="UTF-8" method="get">
+        <input name="utf8" type="hidden" value="&#x2713;" />
+    <div class="row">
+        <div class="col-md-12">
+            <input type="search" name="query" id="query" placeholder="Search" autocomplete="off" aria-label="Search" />
+        </div>
+    </div>
+    </form>
     
   </div>
   <div class="container">
