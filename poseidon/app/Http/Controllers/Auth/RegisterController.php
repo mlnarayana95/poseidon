@@ -7,8 +7,8 @@ use App\Modules\Person\Models\Person;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Http\Request;
+use DB;
 class RegisterController extends Controller
 {
     /*
@@ -21,6 +21,20 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+
+    protected $rules =[
+        'email' => ['required', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'],
+        'cnf_password' => ['required', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/','same:password'],
+        'first_name' => ['required','max:255','regex:/^[\pL\s\-]+$/u'],
+        'last_name' => ['required','max:255','regex:/^[\pL\s\-]+$/u'],
+        'birthdate' => ['required','max:255','date_format:Y-m-d'],
+        'gender' => ['required'],
+        'address' => ['required','max:500','regex:/^\d+\s[A-z]+\s[A-z]+/'],
+        'postal_code' => ['required','max:500','regex:/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/'],
+        'phone_number' => ['required','max:500','regex:/^(\(\d{3}\)[.-]?|\d{3}[.-]?)?\d{3}[.-]?\d{4}$/']
+    ];
+
 
     use RegistersUsers;
 
@@ -41,46 +55,43 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+
+
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function register(Request $request)
     {
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'user_type'=>1
-        ]);
+        DB::BeginTransaction();
+        try
+        {
+            $request->validate($this->rules);
 
-        $user_id = $user->id;
-        $person = Person::create(
-            $data['first_name'],
-            $data['last_name'],
-            $data['birthdate'],
-            $data['']
-        );
+                $user = User::create([
+                    'email' => $request['email'],
+                    'password' => Hash::make($request['password']),
+                    'user_type' => 1
+                ]);
+                $user_id = $user->id;
+                Person::create([
+                    'user_id' => $user_id,
+                    'first_name' =>$request['first_name'],
+                    'last_name' =>$request['last_name'],
+                    'birthdate' =>$request['birthdate'],
+                    'gender' =>$request['gender'],
+                    'address' =>$request['address'],
+                    'postal_code' =>$request['postal_code'],
+                    'phone_number' =>$request['phone_number']
+                ]);
+                DB::Commit();
 
-
-        return $this->route('home');
+        } catch (Exception $e) {
+            DB::rollback();
+        }
 
     }
 }
