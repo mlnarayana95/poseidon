@@ -17,7 +17,8 @@
                 <h3 class="box-title">All Rooms</h3>
 
                 <div class="box-tools">
-                    <a href="{{ route('admin.room.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.room.create') }}"
+                       class="btn btn-primary">
                         <i class="fa fa-plus-circle"></i> Add Room
                     </a>
                 </div>
@@ -28,7 +29,6 @@
                     <thead>
                     <tr>
                         <th>Room ID</th>
-                        <th>Room Name</th>
                         <th>Room Type</th>
                         <th>Room Number</th>
                         <th>Cost</th>
@@ -41,16 +41,20 @@
                     @foreach($rooms as $room)
                         <tr>
                             <td>{{ $room->id }}</td>
-                            <td>{{ $room->name }}</td>
                             <td>{{ $room->type->type }}</td>
                             <td>{{ $room->room_number }}</td>
                             <td>${{ $room->room_cost }}</td>
                             <td>{{ $room->hotel->name }}</td>
                             <td>
-                                <a href="{{ route('admin.room.edit', $room) }}" class="btn btn-primary marginRight">
+                                <a href="{{ route('admin.room.edit', $room) }}"
+                                   class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
-                                <a href="#" type="button" class="btn btn-danger">
+
+
+                                <a href="{{ route('admin.room.destroy', $room) }}" data-method="delete"
+                                   data-token="{{csrf_token()}}"
+                                   data-confirm="Are you sure?" class="btn btn-danger">
                                     <i class="fa fa-trash"></i> Delete
                                 </a>
                             </td>
