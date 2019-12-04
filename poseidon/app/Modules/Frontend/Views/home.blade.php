@@ -84,7 +84,7 @@
                 <span class="sr-only">Next</span>
             </a>
 
-            <form>
+            <form class="col-sm-12">
                 <div class="form-row">
                     <div class="col-md-1">
 
@@ -265,7 +265,7 @@
     <div class="d-flex align-content-center flex-wrap justify-content-center contact-us-image">
         <div class="contact text-center">
             <h3 class="pb-4">Start Your Adventure With Us</h3>
-            <button>Contact Us</button>
+            <button class="shadow">Contact Us</button>
         </div>
     </div>
 
