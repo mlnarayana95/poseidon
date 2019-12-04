@@ -417,6 +417,38 @@ div.contact {
 
 /* Contact Us Page End: Evgheni */
 
+
+        h1, h3{
+            text-align: center;
+        }
+
+        h1{
+            color: orange;
+        }
+        .btn-danger {
+            color: #fff;
+            background-color: orange;
+            border-color: grey;
+        }
+        .icons{
+          padding:70px;
+        }
+
+        .required_asterisk {
+              color: #f00;
+              font-size: 1.5em;
+              padding-right: 4px;
+            }
+    
+    .required::after {
+      padding-left: 4px;
+      content: "*";
+      color: #f00;
+      text-shadow: 1px 1px 1px #000;
+    }
+/* Contact Us Page End: Evgheni */
+
+
 /* About Us page Start: Katie */
 div.banner{
   margin: 0;
@@ -541,38 +573,8 @@ img.award{
 
 /* About Us page End: Katie */
 
-        h1, h3{
-            text-align: center;
-        }
 
-        h1{
-            color: orange;
-        }
-        .btn-danger {
-            color: #fff;
-            background-color: orange;
-            border-color: grey;
-        }
-        .icons{
-          padding:70px;
-        }
-
-        .required_asterisk {
-              color: #f00;
-              font-size: 1.5em;
-              padding-right: 4px;
-            }
-    
-    .required::after {
-      padding-left: 4px;
-      content: "*";
-      color: #f00;
-      text-shadow: 1px 1px 1px #000;
-    }
-/* Contact Us Page End: Evgheni */
-
-
-/* media */
+/* media Queires*/
 
 @media (max-width: 769px){
   div#carouselExampleControls form{
