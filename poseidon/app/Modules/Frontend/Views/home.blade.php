@@ -84,7 +84,7 @@
                 <span class="sr-only">Next</span>
             </a>
 
-            <form class="col-sm-12">
+            <form>
                 <div class="form-row">
                     <div class="col-md-1">
 
