@@ -83,62 +83,6 @@
         }
 
 
-        div.footer {
-            background-color: #161527;
-            height: 300px;
-            color: #fff;
-
-        }
-
-        div.footer .fa, .fas {
-            color: #fff;
-        }
-
-        div.footer li {
-            list-style-type: none;
-        }
-
-        div.footer ul {
-            padding-left: 0;
-        }
-
-
-        div.footer li a {
-            line-height: 1.8;
-            text-decoration: none;
-            color: #fff;
-        }
-
-        div.footer .social-footer .fab {
-            padding: 20px 10px;
-        }
-
-        div.footer .foot-header {
-            font-size: 1.2em;
-            padding-bottom: 4px;
-
-        }
-
-        div.footer .row {
-            font-size: .9em;
-            padding-top: 30px;
-        }
-
-        div.footer .contact-info {
-            line-height: 1.9;
-        }
-
-        div.footer .footer-image {
-            padding-bottom: 8px;
-            width: 175px;
-        }
-
-        div.copy {
-            background-color: #161527;
-            opacity: .9;
-            color: #fff;
-        }
-
         /* Krita */
 
         header {
