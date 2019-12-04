@@ -46,7 +46,13 @@ class LoginController extends Controller
         {
             if(auth()->user()->user_type==1)
             {
+                $request->session()->put('user_info',$request->input());
+                /*how to get the info from the session variable*/
+                $info = $request->session()->get('user_info');
+                /*Set the session one the user is loggedin*/
+                config(['session.lifetime' => 1440]);
                 return redirect()->route('/index');
+
             }
             else{
                 return $this->redirect()->route('/index');
