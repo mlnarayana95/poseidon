@@ -105,7 +105,11 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Room::find($id)->delete();
+
+        flash('Room has been deleted successfully!')->success();
+
+        return redirect()->route('admin.room.index');
     }
 
     /**
