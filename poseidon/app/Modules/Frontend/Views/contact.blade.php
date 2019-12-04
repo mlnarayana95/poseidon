@@ -33,7 +33,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <form>
+            <form method="post">
                   <span class="required_asterisk"></span>
               <div class="form-row">
                 <div class="form-group col-md-6">
