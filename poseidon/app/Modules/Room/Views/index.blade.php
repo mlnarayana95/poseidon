@@ -28,6 +28,7 @@
                     <thead>
                     <tr>
                         <th>Room ID</th>
+                        <th>Room Name</th>
                         <th>Room Type</th>
                         <th>Room Number</th>
                         <th>Cost</th>
@@ -40,6 +41,7 @@
                     @foreach($rooms as $room)
                         <tr>
                             <td>{{ $room->id }}</td>
+                            <td>{{ $room->name }}</td>
                             <td>{{ $room->type->type }}</td>
                             <td>{{ $room->room_number }}</td>
                             <td>${{ $room->room_cost }}</td>
