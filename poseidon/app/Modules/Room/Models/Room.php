@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model {
 
-    protected $fillable = [];
+    protected $fillable = ['hotel_id', 'room_number', 'room_cost', 'description', 'max_adults', 'max_children', 'room_type_id', 'no_bathrooms', 'smoking', 'featured'];
 
     /**
      * Get all of the features for the room
