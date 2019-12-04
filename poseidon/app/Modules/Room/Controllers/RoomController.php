@@ -16,9 +16,9 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $data['hotels'] = Room::with('type', 'features')->get();
-        dd($data['hotels']->toArray());
-        return view("Room::index");
+        $data['rooms'] = Room::with('type', 'hotel')->get();
+        //dd($data['rooms']->toArray());
+        return view("Room::index", $data);
     }
 
     /**
