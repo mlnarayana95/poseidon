@@ -71,12 +71,11 @@
             <div class="col-md-5">
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
-                    <?php ;?>
                     <h3>Sign Up</h3>
                     <br>
                     <div class="form-group">
                         <label for="first_name">First Name</label><label for="first_name" class="text-danger"> *</label>
-                        <input type="text" class="form-control @if($errors->has('first_name')) is-invalid @endif"
+                        <input type="text" class="form-control @if($errors->has('first_name'))is-invalid @endif"
                                placeholder="First Name" id="first_name"
                                name="first_name" value="{{ old('first_name') }}">
                         @if($errors->has('first_name'))
@@ -124,38 +123,38 @@
                             </label>
                         </div>
                         <br>
-                        <div class="form-group">
-                            <label for="address">Address</label><label for="address" class="text-danger"> *</label>
-                            <input type="text" class="form-control @if($errors->has('birthdate')) is-invalid @endif"
-                                   placeholder="Address" id="address" name="address"
-                                   value="{{ old('address') }}">
-                            @if($errors->has('address'))
-                                {!! $errors->first('address', '<label class="control-label text-danger"
-                                                                       for="inputError">:message</label>') !!}
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label for="postal_code">Postal Code</label><label for="postal_code" class="text-danger">
-                                *</label>
-                            <input type="text" class="form-control @if($errors->has('postal_code')) is-invalid @endif"
-                                   placeholder="Postal Code" id="postal_code"
-                                   name="postal_code" value="{{ old('postal_code') }}">
-                            @if($errors->has('postal_code'))
-                                {!! $errors->first('postal_code', '<label class="control-label text-danger"
-                                                                       for="inputError">:message</label>') !!}
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label><label for="phone" class="text-danger"> *</label>
-                            <input type="text" class="form-control @if($errors->has('phone_number')) is-invalid @endif"
-                                   placeholder="Phone Number" id="phone"
-                                   name="phone_number"
-                                   value="{{ old('phone_number') }}">
-                            @if($errors->has('phone_number'))
-                                {!! $errors->first('phone_number', '<label class="control-label text-danger"
-                                                                       for="inputError">:message</label>') !!}
-                            @endif
-                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label><label for="address" class="text-danger"> *</label>
+                        <input type="text" class="form-control @if($errors->has('address')) is-invalid @endif"
+                               placeholder="Address" id="address" name="address"
+                               value="{{ old('address') }}">
+                        @if($errors->has('address'))
+                            {!! $errors->first('address', '<label class="control-label text-danger"
+                                                                   for="inputError">:message</label>') !!}
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="postal_code">Postal Code</label><label for="postal_code" class="text-danger">
+                            *</label>
+                        <input type="text" class="form-control @if($errors->has('postal_code')) is-invalid @endif"
+                               placeholder="Postal Code" id="postal_code"
+                               name="postal_code" value="{{ old('postal_code') }}">
+                        @if($errors->has('postal_code'))
+                            {!! $errors->first('postal_code', '<label class="control-label text-danger"
+                                                                   for="inputError">:message</label>') !!}
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label><label for="phone" class="text-danger"> *</label>
+                        <input type="text" class="form-control @if($errors->has('phone_number')) is-invalid @endif"
+                               placeholder="Phone Number" id="phone"
+                               name="phone_number"
+                               value="{{ old('phone_number') }}">
+                        @if($errors->has('phone_number'))
+                            {!! $errors->first('phone_number', '<label class="control-label text-danger"
+                                                                   for="inputError">:message</label>') !!}
+                        @endif
                     </div>
                     <br>
                     <h3>Access Information</h3>
