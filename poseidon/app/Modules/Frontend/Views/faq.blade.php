@@ -151,9 +151,12 @@
         }
 
 .btn-link {
-    font-weight: 400;
+    font-weight: 500;
     color: white;
     border-radius: 0;
+    width: 100%;
+    height: 90px;
+
 }
 
 a {
@@ -163,6 +166,8 @@ a {
 
 .accordion>.card .card-header {
     margin: -13px;
+    padding: 0px;
+
 }
 
     .hero-inner{
@@ -188,13 +193,13 @@ a {
   </div>
   <div class="container">
 <div class="accordion" id="accordion">
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+     
+        <button class="btn btn-link  type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Why do customers choose Poseidon? 
         </button>
-      </h2>
+    
     </div>
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -203,15 +208,28 @@ a {
 <p>Customers choose us for our unbeatable locations, because at Iberostar, you'll be right on the seafront, in the heart of the city or in the midst of the finest architecture. They choose us for the quality of our cuisine, in which we combine traditional recipes with new concepts, using only the finest quality ingredients. We take care of every detail, creating a unique experience and providing excellent service in all of our hotels. And all of this with a commitment to the future, since sustainability is the basis of our business philosophy. </p>
       </div>
     </div>
+  </div> -->
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Why do customers choose Poseidon?
+        </button>
+    
+    </div>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <p>Customers choose us for our unbeatable locations, because at Iberostar, you'll be right on the seafront, in the heart of the city or in the midst of the finest architecture. They choose us for the quality of our cuisine, in which we combine traditional recipes with new concepts, using only the finest quality ingredients. We take care of every detail, creating a unique experience and providing excellent service in all of our hotels. And all of this with a commitment to the future, since sustainability is the basis of our business philosophy. </p>
+      </div>
+    </div>
   </div>
-  
   <div class="card">
     <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
+      
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
          What are the check-in and check-out times at the hotel?
         </button>
-      </h2>
+    
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
@@ -223,11 +241,11 @@ Check-out is before midday, but if you want to extend your stay as long as possi
   </div>
   <div class="card">
     <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
+     
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           My search hasn't produced any results. What should I do? 
         </button>
-      </h2>
+      
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
@@ -238,11 +256,11 @@ Check-out is before midday, but if you want to extend your stay as long as possi
   </div>
   <div class="card">
     <div class="card-header" id="headingFour">
-      <h2 class="mb-0">
+     
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           How can I modify or cancel my booking? 
         </button>
-      </h2>
+   
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
@@ -258,11 +276,11 @@ And of course, you can <a class="mobile-call-center view-phones" data-remote="tr
   </div>
   <div class="card">
     <div class="card-header" id="headingFive">
-      <h2 class="mb-0">
+     
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
          I can't decide which room to choose. 
         </button>
-      </h2>
+    
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
@@ -277,11 +295,11 @@ And if you're still having trouble choosing, you can contact our customer servic
   </div>
   <div class="card">
     <div class="card-header" id="headingSix">
-      <h2 class="mb-0">
+    
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
        I can't decide which rate to choose.  
         </button>
-      </h2>
+   
     </div>
     <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
       <div class="card-body">
@@ -301,11 +319,11 @@ Or if you prefer, you can <a class="mobile-call-center view-phones" data-remote=
   </div>
   <div class="card">
     <div class="card-header" id="headingSeven">
-      <h2 class="mb-0">
+    
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
         I can't decide between two or more hotels. 
         </button>
-      </h2>
+    
     </div>
     <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
       <div class="card-body">
