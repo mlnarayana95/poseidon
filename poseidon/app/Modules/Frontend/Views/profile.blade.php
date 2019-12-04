@@ -69,50 +69,47 @@
             <div class="col-md-7">
             </div>
             <div class="col-md-5">
-                <form method="POST" action="#">
-                    @csrf
-                    <h3>Profile</h3>
-                    <br>
-                    <div class="form-group">
-                        <label for="first_name">First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="first_name" name="first_name"
-                               value="{{ $person->first_name }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name"
-                               value="{{ $person->last_name}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="birthdate">Birth Date</label>
-                        <input type="date" class="form-control" placeholder="Birth Date" id="birthdate" name="birthdate"
-                               value="{{ $person->birthdate }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">gender</label>
-                        <input type="text" class="form-control" placeholder="gender" id="gender" name="gender"
-                               value="{{ $person->gender }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" placeholder="Address" id="address" name="address"
-                               value="{{ $person->address }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="postal_code">Postal Code</label>
-                        <input type="text" class="form-control" placeholder="Postal Code" id="postal_code" name="postal_code"
-                               value="{{ $person->postal_code }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="text" class="form-control" placeholder="Phone Number" id="phone" name="phone_number"
-                               value="{{ $person->phone_number }}">
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Edit Profile') }}
-                    </button>
-                </form>
+                <h3>Profile</h3>
+                <br>
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <label class="form-control">{{$person->first_name}}</label>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <label class="form-control">{{ $person->last_name}}</label>
+                </div>
+                <div class="form-group">
+                    <label for="birthdate">Birth Date</label>
+                    <label class="form-control">{{ $person->birthdate }}</label>
+                </div>
+                <div class="form-group">
+                    <label for="gender">gender</label>
+                    <label class="form-control">
+                        @if($person->gender == 'F')
+                            Female
+                        @elseif($person->gender == 'M')
+                            Male
+                        @else
+                            Prefer not to say
+                        @endif
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <label class="form-control">{{$person->address}}</label>
+                </div>
+                <div class="form-group">
+                    <label for="postal_code">Postal Code</label>
+                    <label class="form-control">{{ $person->postal_code }}</label>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <label class="form-control">{{ $person->phone_number }}</label>
+                </div>
+                <br>
+                <a href="{{ route('update') }}" class="btn btn-primary">Update Profile</a>
+                <a href="#" class="btn btn-primary">Home Page</a>
                 <br>
             </div>
         </div>
