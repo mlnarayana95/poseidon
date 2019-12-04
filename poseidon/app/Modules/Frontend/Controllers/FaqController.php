@@ -2,10 +2,9 @@
 
 namespace App\Modules\Frontend\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ContactController extends Controller
+class FaqController extends Controller
 {
 
     /**
@@ -15,13 +14,6 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view("Frontend::contact");
-    }
-
-    public function sendMail(Request $data)
-    {
-        // Evgheni... Your code goes here
-
-
+        return view("Frontend::faq");
     }
 }
