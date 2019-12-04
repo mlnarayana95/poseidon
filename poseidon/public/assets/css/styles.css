@@ -66,8 +66,6 @@ button#search {
     width: 100%;
 }
 
-
-
 .bc-gray {
     background-color: #fafafa;
     /*padding-bottom: 40px;*/
@@ -123,7 +121,7 @@ div.why-choose-us-dollar i {
 span.price {
     background-color: #f4364f;
     color: #fff;
-    padding: 5px 10px;
+    padding: 10px 15px;
 }
 
 div.top-destination {
@@ -550,9 +548,11 @@ img.award{
 
 /* About Us page End: Katie */
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 769px){
   div#carouselExampleControls form{
     position: relative;
+    padding: 10px 30px;
+    font-size: 18px;
   }
   
   .img-fluid{
