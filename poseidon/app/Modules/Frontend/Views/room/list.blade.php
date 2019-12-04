@@ -15,6 +15,44 @@
         <div class="col-md-8">
             <div class="list-section">
 
+                @foreach($rooms as $room)
+                    <div class="room shadow">
+                        <div class="room-img">
+                            <img src="/images/room1.jpg" alt="Code">
+                        </div>
+                        <div class="room-info">
+                            <div class="room-title">
+                                {{ $room->full_name }}
+                            </div>
+                            <div class="mb-2">
+                                from <span class="room-price">${{ $room->room_cost }}</span> per night
+                            </div>
+
+                            <div class="mb-2">
+                                <i class="fa fa-map-marker"></i> {{ $room->address }}<br />
+                                <i class="fa fa-hotel"></i> {{ $room->hotel }}
+                            </div>
+
+                            <div class="mb-2">
+                                @foreach($room->features as $feature)
+                                    <i class="fa fa-snowflake"></i> {{ $feature->feature }}
+                                @endforeach
+                            </div>
+
+                            <div class="mb-2">
+                                Ut tellus dolor, dapibus eget, elementum vel, cursus
+                                eleifend, elit. Aenean auctor wisi et urna...
+                            </div>
+
+                            <hr/>
+
+                            <div class="text-right">
+                                <a href="" class="btn btn-link">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
                 <div class="room shadow">
                     <div class="room-img">
                         <img src="/images/room1.jpg" alt="Code">
