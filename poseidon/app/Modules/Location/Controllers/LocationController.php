@@ -15,7 +15,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        return view("Destination::index");
+        return view("Location::index");
     }
 
     /**
