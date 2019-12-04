@@ -28,9 +28,10 @@
                     <thead>
                     <tr>
                         <th>Room ID</th>
-                        <th>Name</th>
-                        <th>Location</th>
-                        <th>Phone Number</th>
+                        <th>Room Type</th>
+                        <th>Room Number</th>
+                        <th>Cost</th>
+                        <th>Hotel</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -39,9 +40,10 @@
                     @foreach($rooms as $room)
                         <tr>
                             <td>{{ $room->id }}</td>
-                            <td>{{ $room->name }}</td>
-                            <td>{{ $room->location->location }}</td>
-                            <td>{{ $room->phone_number }}</td>
+                            <td>{{ $room->type->type }}</td>
+                            <td>{{ $room->room_number }}</td>
+                            <td>${{ $room->room_cost }}</td>
+                            <td>{{ $room->hotel->name }}</td>
                             <td>
                                 <a href="{{ route('admin.room.edit', $room) }}" class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
