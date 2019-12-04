@@ -69,44 +69,44 @@
             <div class="col-md-7">
             </div>
             <div class="col-md-5">
-                <form method="POST" action="{{ route('update') }}">
+                <form method="POST" action="#">
                     @csrf
                     <h3>Profile</h3>
                     <br>
                     <div class="form-group">
                         <label for="first_name">First Name</label>
                         <input type="text" class="form-control" placeholder="First Name" id="first_name" name="first_name"
-                               value="{{ $person('first_name') }}">
+                               value="{{ $person->first_name }}">
                     </div>
                     <div class="form-group">
                         <label for="last_name">Last Name</label>
                         <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name"
-                               value="{{ $person('last_name') }}">
+                               value="{{ $person->last_name}}">
                     </div>
                     <div class="form-group">
                         <label for="birthdate">Birth Date</label>
                         <input type="date" class="form-control" placeholder="Birth Date" id="birthdate" name="birthdate"
-                               value="{{ $person('birthdate') }}">
+                               value="{{ $person->birthdate }}">
                     </div>
                     <div class="form-group">
                         <label for="gender">gender</label>
-                        <input type="date" class="form-control" placeholder="gender" id="gender" name="gender"
-                               value="{{ $person('gender') }}">
+                        <input type="text" class="form-control" placeholder="gender" id="gender" name="gender"
+                               value="{{ $person->gender }}">
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
                         <input type="text" class="form-control" placeholder="Address" id="address" name="address"
-                               value="{{ $person('address') }}">
+                               value="{{ $person->address }}">
                     </div>
                     <div class="form-group">
                         <label for="postal_code">Postal Code</label>
                         <input type="text" class="form-control" placeholder="Postal Code" id="postal_code" name="postal_code"
-                               value="{{ $person('postal_code') }}">
+                               value="{{ $person->postal_code }}">
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="text" class="form-control" placeholder="Phone Number" id="phone" name="phone_number"
-                               value="{{ $person('phone_number') }}">
+                               value="{{ $person->phone_number }}">
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">
