@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('mg.poseidon.com'),
-        'secret' => env('v=spf1 include:mailgun.org ~all'),
+        'domain' => env('poseidon.uwpace.ca'),
+        'secret' => env('f7910792-17aae3e4'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
