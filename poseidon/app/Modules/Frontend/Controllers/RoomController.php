@@ -2,11 +2,19 @@
 
 namespace App\Modules\Frontend\Controllers;
 
+use App\Modules\Room\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class RoomController extends Controller
 {
+
+    protected $room;
+
+    function __construct(Room $room)
+    {
+        $this->room = $room;
+    }
 
     /**
      * Display a listing of the resource.
@@ -15,7 +23,8 @@ class RoomController extends Controller
      */
     public function index()
     {
-        return view("Frontend::list");
+        $data['rooms'] = $this->room->getList();
+        return view("Frontend::room/list", $data);
     }
 
     /**
