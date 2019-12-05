@@ -2,11 +2,12 @@
 
 namespace App\Modules\Room\Models;
 
+use App\Modules\Base\Model\MyModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
 
-class Room extends Model
+class Room extends MyModel
 {
 
     use SoftDeletes;
@@ -64,6 +65,10 @@ class Room extends Model
         return $this->belongsTo('App\Modules\Hotel\Models\Hotel');
     }
 
+    /**
+     * Get the List of Rooms for Frontend
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function getList()
     {
         $rooms = self::with('features')
@@ -76,9 +81,6 @@ class Room extends Model
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
             ->limit(20)
             ->get();
-        //dd($rooms->toArray());
-
         return $rooms;
     }
-
 }

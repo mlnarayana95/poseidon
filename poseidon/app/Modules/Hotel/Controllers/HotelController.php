@@ -27,7 +27,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $data['hotels'] = Hotel::with('location')->get();
+        $data['hotels'] = Hotel::with('location')->get();//dd($data['hotels']->toArray());
         return view("Hotel::index", $data);
     }
 
