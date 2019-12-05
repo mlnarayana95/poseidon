@@ -9,5 +9,5 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
     Route::get('faq','FaqController@index');
     Route::get('profile','ProfileController@show')->name('profile');
     Route::get('update_profile','profileController@load')->name('update');
-    Route::post('update_profile','profileController@load')->name('update');
+    Route::post('update_profile','profileController@update')->name('update');
 });
