@@ -31,13 +31,3 @@
         </div>
     </div>
 @endsection
-
-@section('scripts')
-    <script>
-        $('.timepicker').timepicker({
-            showInputs: false
-        });
-
-        $('.select2').select2();
-    </script>
-@endsection

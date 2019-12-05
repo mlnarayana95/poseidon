@@ -2,6 +2,7 @@
 
 namespace App\Modules\Room\Controllers;
 
+use App\Modules\Feature\Models\Feature;
 use App\Modules\Hotel\Models\Hotel;
 use App\Modules\Room\Models\Room;
 use App\Modules\Room\Models\RoomType;
@@ -31,6 +32,7 @@ class RoomController extends Controller
     {
         $data['hotels'] = Hotel::pluck('name', 'id');
         $data['types'] = RoomType::pluck('type', 'id');
+        $data['features'] = Feature::pluck('feature', 'id');
         return view("Room::add", $data);
     }
 
@@ -72,7 +74,8 @@ class RoomController extends Controller
     {
         $data['hotels'] = Hotel::pluck('name', 'id');
         $data['types'] = RoomType::pluck('type', 'id');
-        $data['room'] = Room::find($id);
+        $data['features'] = Feature::pluck('feature', 'id');
+        $data['room'] = Room::with('features')->find($id);
         return view("Room::edit", $data);
     }
 
@@ -91,7 +94,6 @@ class RoomController extends Controller
         Room::find($id)->update($validated_data);
 
         flash('Room has been updated successfully!')->success();
-
         return redirect()->route('admin.room.index');
     }
 
@@ -123,7 +125,8 @@ class RoomController extends Controller
             'max_adults' => 'required|numeric',
             'max_children' => 'required|numeric',
             'room_type_id' => 'required',
-            'no_bathrooms' => 'required|numeric'
+            'no_bathrooms' => 'required|numeric',
+            'features' => 'required',
         ];
 
         $validated_data = $request->validate($rules);
