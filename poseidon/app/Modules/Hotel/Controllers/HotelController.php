@@ -27,7 +27,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $data['hotels'] = Hotel::with('location')->get();
+        $data['hotels'] = Hotel::with('location')->get();//dd($data['hotels']->toArray());
         return view("Hotel::index", $data);
     }
 
@@ -112,7 +112,9 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Hotel::find($id)->delete();
+        flash('Hotel has been deleted successfully!')->success();
+        return redirect()->route('admin.hotel.index');
     }
 
     /**

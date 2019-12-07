@@ -2,19 +2,34 @@
 
 namespace App\Modules\Feature\Models;
 
+use App\Modules\Room\Models\FeatureRoom;
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
-class Feature extends Model {
+class Feature extends Model
+{
 
-    // Disable TimeStamps
-    public $timestamps = false;
+    protected $fillable = [
+        'feature',
+        'feature_icon'
+    ];
 
     /**
-     * Get all of the rooms for the service.
+     * Delete feature
+     * @param $id
      */
-    public function rooms()
+    public function remove($id)
     {
-        return $this->belongsToMany('App\Modules\Room\Models\Room');
+        DB::beginTransaction();
+
+        try {
+            FeatureRoom::where('feature_id', $id)->delete();
+            Feature::find($id)->delete();
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
     }
 
 }

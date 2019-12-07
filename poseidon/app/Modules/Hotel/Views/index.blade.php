@@ -46,7 +46,9 @@
                                 <a href="{{ route('admin.hotel.edit', $hotel) }}" class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
-                                <a href="#" type="button" class="btn btn-danger">
+                                <a href="{{ route('admin.hotel.destroy', $hotel) }}" data-method="delete"
+                                   data-token="{{csrf_token()}}"
+                                   data-confirm="Are you sure?" class="btn btn-danger">
                                     <i class="fa fa-trash"></i> Delete
                                 </a>
                             </td>

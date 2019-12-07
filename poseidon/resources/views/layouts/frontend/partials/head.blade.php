@@ -21,4 +21,12 @@
 
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}"/>
+
+    <!-- Additional Page Specific CSS-->
+    @yield('stylelink')
+
+    <style type="text/css">
+      @yield('style')      
+    </style>
+
 </head>

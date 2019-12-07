@@ -22,5 +22,8 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/js/app.js') }}"></script>
 
+<!-- Delete JS -->
+<script src="{{ asset('assets/js/delete.js') }}"></script>
+
 <!-- Custom JS -->
 @yield('scripts')
