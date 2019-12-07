@@ -65,20 +65,9 @@
                     @endforeach
                 </div>
 
-                <ul class="pagination justify-content-center mt-3">
-                    <li class="page-item"><a class="page-link"
-                                             href="#">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link"
-                                                    href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a>
-                    </li>
-                </ul><!-- /.pagination -->
+                <div class="pagination-links mt-3">
+                    {!! $rooms->links() !!}
+                </div>
             </div><!-- List Ends Here -->
 
             <div class="col-md-4 bc-gray mb-3">

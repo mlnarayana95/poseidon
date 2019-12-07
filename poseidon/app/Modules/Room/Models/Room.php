@@ -67,9 +67,9 @@ class Room extends MyModel
 
     /**
      * Get the List of Rooms for Frontend
-     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getList()
+    public static function getList()
     {
         $rooms = self::with('features')
             ->join('hotels', 'hotels.id', '=', 'rooms.hotel_id')
@@ -79,8 +79,7 @@ class Room extends MyModel
             ->select('rooms.*',
                 DB::raw('CONCAT_WS(" ", room_types.type, hotels.name, rooms.room_number) AS full_name'),
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
-            ->limit(20)
-            ->get();
+            ->paginate(20);
         return $rooms;
     }
 }
