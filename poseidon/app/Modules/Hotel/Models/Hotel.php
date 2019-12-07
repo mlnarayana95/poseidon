@@ -50,4 +50,24 @@ class Hotel extends Model {
         return $this->belongsTo('App\Modules\Location\Models\Location');
     }
 
+    /**
+     * Get the rooms for the hotel
+     */
+    public function rooms()
+    {
+        return $this->hasMany('App\Modules\Room\Models\Room');
+    }
+
+    /**
+     * Get Hotels With Count
+     * @return mixed
+     */
+    public static function hotelsWithCount()
+    {
+        $hotels = self::has('rooms')
+            ->withCount('rooms')
+            ->orderBy('name')
+            ->get();
+        return $hotels;
+    }
 }

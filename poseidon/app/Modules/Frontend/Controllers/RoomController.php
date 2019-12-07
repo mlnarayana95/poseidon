@@ -2,7 +2,11 @@
 
 namespace App\Modules\Frontend\Controllers;
 
+use App\Modules\Amenity\Models\Amenity;
+use App\Modules\Feature\Models\Feature;
+use App\Modules\Hotel\Models\Hotel;
 use App\Modules\Room\Models\Room;
+use App\Modules\Room\Models\RoomType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,72 +28,10 @@ class RoomController extends Controller
     public function index()
     {
         $data['rooms'] = $this->room->getList();
+        $data['room_types'] = RoomType::typesWithCount();
+        $data['hotels'] = Hotel::hotelsWithCount();
+        $data['amenities'] = Amenity::all();
+        $data['features'] = Feature::all();
         return view("Frontend::room/list", $data);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
