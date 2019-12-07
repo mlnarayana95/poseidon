@@ -2,6 +2,8 @@
 
 namespace App\Modules\Booking\Controllers;
 
+use App\Modules\Room\Models\Room;
+use App\Modules\Room\Models\RoomType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,9 +15,15 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view("Booking::index");
+        $data['room'] = Room::with('room_type')->find($id);
+        $data['room_types'] = RoomType::pluck('room_type','id');
+        //$date1 = new Datetime($check_in_date);
+        //$date2 = new DateTime($checkout_date);
+        //$data['date_info']= $check_in_date.'|'.$checkout_date| $date2->diff($date1)->format('%a');
+        dd($data);
+        return view("Booking::index",$data);
     }
 
     /**
@@ -47,7 +55,7 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
