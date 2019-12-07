@@ -28,8 +28,8 @@ class RoomController extends Controller
     public function index()
     {
         $data['rooms'] = $this->room->getList();
-        $data['room_types'] = RoomType::all();
-        $data['hotels'] = Hotel::all();
+        $data['room_types'] = RoomType::typesWithCount();
+        $data['hotels'] = Hotel::hotelsWithCount();
         $data['amenities'] = Amenity::all();
         $data['features'] = Feature::all();
         return view("Frontend::room/list", $data);
