@@ -4,6 +4,7 @@ namespace App\Modules\Location\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Modules\Location\Models\Location;
 
 class LocationController extends Controller
 {
@@ -15,7 +16,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        return view("Location::index");
+        $data['locations'] = Location::all();
+        return view("Location::index",$data);
     }
 
     /**
