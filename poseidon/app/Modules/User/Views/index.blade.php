@@ -17,7 +17,7 @@
 
                 <div class="box-tools">
                     <a href="{{ route('admin.user.create') }}" class="btn btn-primary">
-                        <i class="fa fa-plus-circle"></i> Add Hotel
+                        <i class="fa fa-plus-circle"></i> Add User
                     </a>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{ $user->user_id }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->user_type }}</td>
+                            <td>{{ $user->user_type ? 'Admin' : 'User'}} </td>
                             <td>{{ $user->created_at->format('M d Y')}}</td>
                             <td>
                                 <a href="{{ route('admin.user.edit', 
