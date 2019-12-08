@@ -14,7 +14,7 @@ class LocationController extends Controller
         'description' => 'required|min:2|max:255',
         'slug' => 'required|min:2|max:10',
         'image_id' => 'required',
-        'is_featured' => 'required',
+        'is_featured' => 'required'
     ];
 
     /**
@@ -35,8 +35,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        $data['locations'] = Location::pluck('location', 'id');
-        return view("Location::add", $data);
+        return view("Location::add");
     }
 
     /**
