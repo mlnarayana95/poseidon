@@ -4,6 +4,7 @@ namespace App\Modules\User\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Modules\User\Models\User;
 
 class UserController extends Controller
 {
@@ -15,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view("User::index");
+        $data['users'] = User::all();  
+        return view("User::index",$data);
     }
 
     /**
