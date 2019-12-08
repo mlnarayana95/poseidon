@@ -88,7 +88,13 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated_data = $this->validateLocation($request);
+
+        Location::find($id)->update($validated_data);
+
+        flash('Location has been updated successfully!')->success();
+
+        return redirect()->route('admin.location.index');
     }
 
     /**

@@ -28,7 +28,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Location</th>
-                        <th>Slug</th>
+                        <th>Description</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -38,7 +38,7 @@
                         <tr>
                             <td>{{ $location->id }}</td>
                             <td>{{ $location->location }}</td>
-                            <td>{{ $location->slug }}</td>
+                            <td>{{ $location->description }}</td>
                             <td>
                                 <a href="{{ route('admin.location.edit', $location) }}" class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
