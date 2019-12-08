@@ -29,25 +29,39 @@
     </div>
 </div>
 
+  <div class="container">
+      @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div><br />
+      @endif
 <div id="contact_form" class="container">
 
     <div class="row">
         <div class="col-md-6">
-            <form method="post">
+            <form method="post" action="{{url('contact')}}" novalidate>
+        {{csrf_field()}}
                   <span class="required_asterisk"></span>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name" class="required">Name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Name" required>
+                  <input type="text" class="form-control" name="name" 
+                  id="name" placeholder="Name" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="email" class="required">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="Email" required>
+                  <input type="email" class="form-control" name="email"
+                  id="email" placeholder="Email" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputAddress" class="required">Subject</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Subject"
+                <input type="text" class="form-control" 
+                id="inputAddress" placeholder="Subject" name="subject"
                 required>
               </div>
               <div class="form-group">
