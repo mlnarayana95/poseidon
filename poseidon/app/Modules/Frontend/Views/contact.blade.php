@@ -30,6 +30,8 @@
 </div>
 
   <div class="container">
+
+<div id="contact_form" class="container">
       @if ($errors->any())
           <div class="alert alert-danger">
               <ul>
@@ -39,8 +41,6 @@
               </ul>
           </div><br />
       @endif
-<div id="contact_form" class="container">
-
     <div class="row">
         <div class="col-md-6">
             <form method="post" action="{{url('contact')}}" novalidate>
@@ -85,7 +85,7 @@
             </p>
 
            <p>
-            <a href="#" class="btn btn-info btn-lg">
+            <a style="width: 276px;" href="#" class="btn btn-info btn-lg">
               <span class="fas fa-phone-alt"></span>
                1(289)7777-777 
             </a>
