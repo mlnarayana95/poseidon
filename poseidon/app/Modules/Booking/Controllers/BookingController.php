@@ -2,8 +2,7 @@
 
 namespace App\Modules\Booking\Controllers;
 
-use App\Modules\Room\Models\Room;
-use App\Modules\Room\Models\RoomType;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DateTime;
@@ -42,8 +41,11 @@ class BookingController extends Controller
                 ,'images.file_name'
             )
             ->first();
-        $data['date_info']= $check_in_date.'|'.$checkout_date.'|'.$no_nights;
-        dd($data);
+        $tax1 = DB::table('site_settings')->where('name','=','psd_tax')->select('value')->first();
+        $tax2 = DB::table('site_settings')->where('name','=','gst_tax')->select('value')->first();
+        $psd_tax = (double)$tax1->value;
+        $gst_tax = (double)$tax2->value;
+        $data['other_info']=['psd_tax' =>$psd_tax, 'gst_tax'=>$gst_tax,'checkin_date'=>$check_in_date,'checkout_date'=>$checkout_date,'no_nights'=>$no_nights];
         return view("Booking::index",$data);
     }
 
