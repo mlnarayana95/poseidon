@@ -1,9 +1,9 @@
 <div class="form-group">
-    {!!Form::label('name', 'Location Name', array('class' => 'col-sm-2 control-label')) !!}
+    {!!Form::label('location', 'Location Name', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!!Form::text('name', null, array('class' => 'form-control', 'id'=>'name'))!!}
+        {!!Form::text('location', null, array('class' => 'form-control', 'id'=>'location'))!!}
         @if($errors ?? '')
-            {!! $errors ?? '' ?? ''->first('name', '<label class="control-label"
+            {!! $errors ?? '' ?? ''->first('location', '<label class="control-label"
                                                    for="inputError">:message</label>') !!}
         @endif
     </div>

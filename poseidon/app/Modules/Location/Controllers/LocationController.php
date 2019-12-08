@@ -75,7 +75,8 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['locations'] = Location::find($id);
+        return view("Location::edit", $data);
     }
 
     /**
