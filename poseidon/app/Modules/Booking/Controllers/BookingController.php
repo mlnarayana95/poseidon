@@ -6,7 +6,8 @@ use App\Modules\Room\Models\Room;
 use App\Modules\Room\Models\RoomType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DateTime;
+use DB;
 class BookingController extends Controller
 {
 
@@ -15,13 +16,33 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $data['room'] = Room::with('room_type')->find($id);
-        $data['room_types'] = RoomType::pluck('room_type','id');
-        //$date1 = new Datetime($check_in_date);
-        //$date2 = new DateTime($checkout_date);
-        //$data['date_info']= $check_in_date.'|'.$checkout_date| $date2->diff($date1)->format('%a');
+        $id = (int)request('room_id');
+        $check_in_date = request('checkin');
+        $checkout_date = request('checkout');
+        $date1 = new Datetime($check_in_date);
+        $date2 = new Datetime($checkout_date);
+        $no_nights = $date2->diff($date1)->format('%a');
+        $data['room'] = DB::table('rooms')
+            ->join('room_types','rooms.room_type_id','=','room_types.id')
+            ->join('image_rooms','rooms.id','=','image_rooms.room_id')
+            ->join('images','images.id','=','image_rooms.image_id')
+            ->where('rooms.id','=',$id)
+            ->select(
+                'rooms.id'
+                ,'rooms.room_number'
+                ,'rooms.description'
+                ,'room_types.type'
+                ,'rooms.max_adults'
+                ,'rooms.max_children'
+                ,'rooms.no_bathrooms'
+                ,'rooms.smoking'
+                ,'rooms.room_cost'
+                ,'images.file_name'
+            )
+            ->first();
+        $data['date_info']= $check_in_date.'|'.$checkout_date.'|'.$no_nights;
         dd($data);
         return view("Booking::index",$data);
     }
