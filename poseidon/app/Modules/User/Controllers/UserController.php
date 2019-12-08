@@ -11,8 +11,8 @@ class UserController extends Controller
 
     protected $rules = [
         'email' => 'required|email',
-        'password' => 'required|min:4|max:255|same:confirm_password',
-        'confirm_password' => 'required|min:4|max:255'
+        'password' => 'required|min:8|max:255|same:confirm_password',
+        'confirm_password' => 'required|min:8|max:255'
     ];
 
     /**
@@ -86,7 +86,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validate Form Inputs
+        $validated_data = $this->validateUser($request);
+
+        User::find($id)->update($validated_data);
+
+        flash('Hotel has been updated successfully!')->success();
+
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -97,7 +104,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        flash('User has been deleted successfully!')->success();
+        return redirect()->route('admin.user.index');
     }
 
     /**
