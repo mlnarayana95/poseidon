@@ -104,7 +104,9 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Location::find($id)->delete();
+        flash('Location has been deleted successfully!')->success();
+        return redirect()->route('admin.location.index');
     }
 
      /**

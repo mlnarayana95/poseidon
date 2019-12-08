@@ -7,6 +7,7 @@
         <a href="#">Locations</a>
     </li>
 @stop
+
 @section('content')
     <div class="col-xs-12">
         @include('flash::message')
