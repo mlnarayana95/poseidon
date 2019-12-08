@@ -10,7 +10,7 @@
 </div>
 
 <div class="form-group @if($errors->has('password')) {{'has-error'}} @endif">
-    {!!Form::label('passwd', 'Password', array('class' => 'col-sm-2 control-label')) !!}
+    {!!Form::label('passwd', 'Password *', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!!Form::password('passwd',array('class' => 'form-control'))!!}
         @if($errors->has('passwd'))
@@ -20,7 +20,16 @@
     </div>
 </div>
 
-
+<div class="form-group @if($errors->has('confirm_pass')) {{'has-error'}} @endif">
+    {!!Form::label('confirm_pass', 'Confirm Password *', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!!Form::password('confirm_pass',array('class' => 'form-control'))!!}
+        @if($errors->has('confirm_pass'))
+            {!! $errors->first('confirm_pass', '<label class="control-label"
+                                                   for="inputError">:message</label>') !!}
+        @endif
+    </div>
+</div>
 <div class="form-group">
     {!!Form::label('user_type', 'Select User Type', array('class' => 'col-md-2 col-sm-12 control-label')) !!}
     <div class="col-md-10 col-sm-12">
