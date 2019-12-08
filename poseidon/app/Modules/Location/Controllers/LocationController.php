@@ -13,8 +13,7 @@ class LocationController extends Controller
         'location' => 'required|min:2|max:255',
         'description' => 'required|min:2|max:255',
         'slug' => 'required|min:2|max:10',
-        'image_id' => 'required',
-        'is_featured' => 'required'
+        'image_id' => 'required'
     ];
 
     /**
