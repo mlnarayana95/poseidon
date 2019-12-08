@@ -9,6 +9,12 @@ use App\Modules\User\Models\User;
 class UserController extends Controller
 {
 
+    protected $rules = [
+        'email' => 'required|email',
+        'password' => 'required|min:4|max:255|same:confirm_password',
+        'confirm_password' => 'required|min:4|max:255'
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +44,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate Form Inputs
+        $validated_data = $this->validateUser($request);
+
+        User::create($validated_data);
+
+        flash('User has been created successfully!')->success();
+
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -84,5 +97,19 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Validate User Form
+     * @param $request
+     * @return mixed
+     */
+    public function validateUser($request)
+    {
+        $validated_data = $request->validate($this->rules);
+        $validated_data['email'] = $request->email;
+        $validated_data['passwd'] = $request->password;
+        $validated_data['user_type'] = $request->user_type;
+        return $validated_data;
     }
 }
