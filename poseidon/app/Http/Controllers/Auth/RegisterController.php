@@ -95,11 +95,11 @@ class RegisterController extends Controller
         return redirect('/login');
     }
 
-    public function sendEmail($first_name, $email){
+    public function sendEmail($first_name, $email,$subject){
         try{
             $data = array('name'=>$first_name, 'email'=>$email);
             Mail::send('login' ,$data,function($mesage) use ($data){
-                $mesage->to($data['email'],$data['name'])->subject('Test subject');
+                $mesage->to($data['email'],$data['name'])->subject($subject);
 
             });
             return back();
