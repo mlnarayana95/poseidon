@@ -30,27 +30,29 @@
     <div class="nav-background">
         <!-- navbar in banner -->
         <nav class="navbar home-navbar navbar-expand-lg navbar-light bg-light">
-
-            <div class="collapse navbar-collapse"
-                 id="navbarSupportedContent">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" alt="logo">
-                </a>
-                <ul class="navbar-nav home-navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span
-                                    class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Rooms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-                </ul>
+            <div class="container">
+              <div class="collapse navbar-collapse"
+                   id="navbarSupportedContent">
+                  
+                  <a class="navbar-brand" href="#">
+                      <img src="images/logo.png" alt="logo">
+                  </a>
+                  <ul class="navbar-nav home-navbar-nav mr-auto">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="#">Home <span
+                                      class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">About Us</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Rooms</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Contact Us</a>
+                      </li>
+                  </ul>
+                </div>
             </div>
         </nav> <!-- end of navbar -->
 
