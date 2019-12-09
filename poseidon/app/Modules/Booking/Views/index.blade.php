@@ -122,13 +122,14 @@
     #checkout ul.nav li:first-child{
         border-right: none;
     }
-    #checkout ul.nav li .fa{
+
+    #checkout .btn{
+        border-radius: 0;
+        background-color: #0f264b;
         color: #fff;
+        border: none;
     }
-    #checkout ul.nav a:hover{
-        background-color: #1a5297;
-        color: #0f264b;
-    }
+
 
     /*end content styles*/
 </style>
@@ -235,18 +236,6 @@
                                     Credit Card
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link">
-                                    <i class="fab fa-paypal"></i>
-                                    Paypal
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a data-toggle="pill" href="#nav-tab-bank" class="nav-link">
-                                    <i class="fas fa-university"></i>
-                                    Bank Transfer
-                                </a>
-                            </li>
                         </ul>
                         <!-- End -->
                         <!-- Credit card form content -->
@@ -297,44 +286,9 @@
 
                                     </div>
                                     <button type="button"
-                                            class="btn btn-primary shadow-sm"> Confirm
+                                            class="btn btn-primary"> Confirm
                                     </button>
                                 </form>
-                            </div>
-                            <!-- End -->
-
-                            <!-- Paypal info -->
-                            <div id="nav-tab-paypal" class="tab-pane fade">
-                                <p>Paypal is easiest way to pay online</p>
-                                <p>
-                                    <button type="button" class="btn btn-primary"><i
-                                                class="fab fa-paypal mr-2"></i> Log into my Paypal
-                                    </button>
-                                </p>
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
-                            </div>
-                            <!-- End -->
-
-                            <!-- bank transfer info -->
-                            <div id="nav-tab-bank" class="tab-pane fade">
-                                <h6>Bank account details</h6>
-                                <dl>
-                                    <dt>Bank</dt>
-                                    <dd> THE WORLD BANK</dd>
-                                </dl>
-                                <dl>
-                                    <dt>Account number</dt>
-                                    <dd>7775877975</dd>
-                                </dl>
-                                <dl>
-                                    <dt>IBAN</dt>
-                                    <dd>CZ7775877975656</dd>
-                                </dl>
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
                             </div>
                             <!-- End -->
                         </div>
