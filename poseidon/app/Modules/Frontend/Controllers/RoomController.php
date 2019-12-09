@@ -2,9 +2,9 @@
 
 namespace App\Modules\Frontend\Controllers;
 
-use App\Modules\Amenity\Models\Amenity;
 use App\Modules\Feature\Models\Feature;
 use App\Modules\Hotel\Models\Hotel;
+use App\Modules\Location\Models\Location;
 use App\Modules\Room\Models\Room;
 use App\Modules\Room\Models\RoomType;
 use Illuminate\Http\Request;
@@ -27,11 +27,11 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $data['rooms'] = $this->room->getList();
+        $data['rooms'] = Room::getList();
         $data['room_types'] = RoomType::typesWithCount();
         $data['hotels'] = Hotel::hotelsWithCount();
-        $data['amenities'] = Amenity::all();
-        $data['features'] = Feature::all();
+        $data['features'] = Feature::featuresWithCount();
+        $data['locations'] = Location::locationsWithCount();
         return view("Frontend::room/list", $data);
     }
 }
