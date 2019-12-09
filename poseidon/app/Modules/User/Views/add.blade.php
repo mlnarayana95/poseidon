@@ -4,7 +4,7 @@
 @section('breadcrumb')
     @parent
     <li>
-        <a href="{{ route('admin.hotel.index') }}">Users</a>
+        <a href="{{ route('admin.user.index') }}">Users</a>
         <a href="#">Add</a>
     </li>
 @stop
