@@ -7,6 +7,7 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
     Route::post('contact', 'ContactController@sendMail');
     Route::get('about', 'AboutController@index');
     Route::get('room', 'RoomController@index');
+    Route::get('payment', 'RoomController@payment');
     Route::get('faq','FaqController@index');
     Route::get('hotels', 'HotelController@index');
     Route::get('hotel/{slug}', 'HotelController@show');
