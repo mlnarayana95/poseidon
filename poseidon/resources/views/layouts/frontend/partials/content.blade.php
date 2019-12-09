@@ -8,7 +8,7 @@
             <div class="col-md-4 text-right">
                 <ol class="content-breadcrumb">
                     @section('breadcrumb')
-                        <li><a href="{{ url('/')}}" data-push="true"><i class="fa fa-dashboard"></i> Home </a></li>
+                        <li><a href="{{ url('/')}}" data-push="true"><i class="fa fa-home"></i> Home </a></li>
                     @show
                 </ol>
             </div>

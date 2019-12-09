@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64271c31e759e6647b95de8c3ddf3f50",
+    "content-hash": "19aec4acb1b732c1e35ca5f15b70de3c",
     "packages": [
         {
             "name": "artem-schander/l5-modular",
@@ -1570,6 +1570,32 @@
                 "serialize"
             ],
             "time": "2019-11-29T22:36:02+00:00"
+        },
+        {
+            "name": "pagerange/5bx-client-library",
+            "version": "v1.0.3-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pagerange/5bx-client-library",
+                "reference": "6f390b824d7ff1c4c070a7ef48e283aa8517e0df"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-0": {
+                    "Pagerange\\Bx": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steve George",
+                    "email": "steve@pagerange.com"
+                }
+            ],
+            "description": "5bx Client Library",
+            "time": "2018-10-21T16:10:03+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -5886,7 +5912,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "pagerange/5bx-client-library": 15
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
