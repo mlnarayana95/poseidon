@@ -56,7 +56,7 @@
                 required>
               </div>
               <div class="form-group">
-                <label for="inputAddress2" class="required">Message</label>
+                <label for="inputAddress2" name="message" class="required">Message</label>
 
                 <textarea class="form-control" required></textarea>
               </div>
@@ -65,7 +65,7 @@
             </form>
         </div>
         <div class="col-md-6">
-            <div class="icons">
+             <div class="icons">
             <p>
                 <a href="#" class="btn btn-info btn-lg">
                     <span class="fas fa-map-marker-alt"></span>
