@@ -41,6 +41,8 @@ ul.home-navbar-nav{
     font-size: 1.25em;
 }
 
+/* Home Page Start: Katie */
+
 div#carouselExampleControls {
     position: relative;
 }
@@ -59,12 +61,6 @@ button#search {
     background-color: #f68500;
     border: none;
     width: 100%;
-}
-
-h2 {
-    text-align: center;
-    color: #F68500;
-    padding: 40px 0;
 }
 
 .bc-gray {
@@ -90,6 +86,13 @@ h2 {
     color: #209ebb;
 }
 
+h2{
+  text-decoration: none;
+  text-align: center;
+  color: #F68500;
+  padding: 40px 0;
+}
+
 div.why-choose-us h6{
     font-weight: bold;
 }
@@ -113,7 +116,7 @@ div.why-choose-us-dollar i{
 span.price {
     background-color: #f4364f;
     color: #fff;
-    padding: 5px 10px;
+    padding: 10px 15px;
 }
 
 div.top-destination {
@@ -138,9 +141,10 @@ div.top-destination .destination h4 {
 }
 
 .destination button {
+    font-size: 1.4em;
     background-color: #f4364f;
     color: #fff;
-    padding: 5px 10px;
+    padding: 11px 30px;
     border: none;
 }
 
@@ -164,9 +168,12 @@ div.contact h3 {
 div.contact button {
     background-color: #f4364f;
     color: #fff;
-    padding: 5px 10px;
+    font-size: 1.4em;
+    padding: 14px 18px;
     border: none;
 }
+
+/* Home Page End */
 
 /* Footer Style Starts Here*/
 div.footer {
@@ -388,12 +395,26 @@ div.contact {
     padding: 62px;
 }
 .text-orange {
-            color: #F68500;
-        }
+    color: #F68500;
+}
 
-        .pull-right {
-            float: right;
-        }
+.icons {
+    padding: 70px;
+}
+
+.required_asterisk {
+    color: #f00;
+    font-size: 1.5em;
+    padding-right: 4px;
+}
+
+.required::after {
+    padding-left: 4px;
+    content: "*";
+    color: #f00;
+    text-shadow: 1px 1px 1px #000;
+}
+
 
         h1, h3{
             text-align: center;
@@ -424,3 +445,144 @@ div.contact {
       text-shadow: 1px 1px 1px #000;
     }
 /* Contact Us Page End: Evgheni */
+
+
+/* About Us page Start: Katie */
+div.banner{
+  margin: 0;
+  background: #161527;
+  height: 300px;
+  color: #F68500;
+  max-height: 800px;
+}
+
+div.banner h1{
+  padding-top: 116px;
+}
+
+div.about-rows{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+div.header{
+  font-size: 1.8em;
+  color: #161527;
+  font-weight: bold;
+  font-family: 'Poppins';
+  padding-bottom: 25px;
+}
+
+div.why-info{
+  max-width: 78%;
+  padding-left: 75px;
+}
+
+img.about-image{
+  padding-top: 15px;
+  max-height: 248px;
+}
+
+div.background-color{
+  background: #fafafa;
+}
+
+div.white-background{
+  padding: 50px;
+  min-height: 300px;
+}
+
+div.become-member{
+  font-size: 2.5em;
+  color: #F68500;
+  font-family: 'Poppins';
+}
+
+button.join{
+  color: #fff;
+  background: #F68500;
+  border: none;
+  padding: 15px 25px;
+  margin: 10px;
+  font-size: 1.4em;
+}
+
+blockquote{
+    font-family: 'Poppins';
+    font-style: italic;
+    margin: 0.25em 0;
+    padding: 0.35em 40px;
+    line-height: 1.45;
+    position: relative;
+    color: #383838;
+}
+
+blockquote:before{
+    display: block;
+    padding-left: 10px;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}
+
+div.cite{
+  padding-right: 50px;
+  color: #F68500;
+  font-size: 1.2em;
+}
+
+div.who-we-are{
+  font-size: 2.3em;
+  color: #fff;
+  padding-bottom: 25px;
+}
+
+div.pos-desc{
+  font-size: 14px;
+  color: #fafafa;
+}
+
+div.blue-background{
+  background: #161527;
+  max-height: 400px;
+}
+
+div.pos-desc{
+  font-size: 16px;
+  color: #c8cbcf;
+}
+
+div.about-container{
+  max-width: 800px;
+}
+
+div.review{
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+img.award{
+  max-width: 200px;
+  max-height: 200px;
+}
+
+/* About Us page End: Katie */
+
+
+/* media Queires*/
+
+@media (max-width: 769px){
+  div#carouselExampleControls form{
+    position: relative;
+    padding: 10px 30px;
+    font-size: 18px;
+  }
+  
+  .img-fluid{
+    width: 100%;
+  }
+
+}

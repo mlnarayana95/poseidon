@@ -134,8 +134,7 @@ return [
     'log_channel' => env('MAIL_LOG_CHANNEL'),
 
     'mailgun' => [
-        'domain' => 'poseidon.uwpace.ca',
-        'secret' => 'f7910792-17aae3e4',
+        'domain' => 'poseidon@uwpace.ca'
     ],
 
 ];
