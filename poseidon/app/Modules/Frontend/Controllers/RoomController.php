@@ -27,7 +27,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $data['rooms'] = $this->room->getList();
+        $data['rooms'] = Room::getList();
         $data['room_types'] = RoomType::typesWithCount();
         $data['hotels'] = Hotel::hotelsWithCount();
         $data['features'] = Feature::featuresWithCount();

@@ -8,4 +8,6 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
     Route::get('about', 'AboutController@index');
     Route::get('room', 'RoomController@index');
     Route::get('faq','FaqController@index');
+    Route::get('hotels', 'HotelController@index');
+    Route::get('hotel/{slug}', 'HotelController@show');
 });

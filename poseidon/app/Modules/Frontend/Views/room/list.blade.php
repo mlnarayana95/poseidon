@@ -100,7 +100,7 @@
                             <a data-toggle="collapse"
                                data-parent="#accordion" href="#collapse2">
                                 <div class="panel-title text-orange">
-                                    Room Type
+                                    Room Types
                                     <i class="fa fa-chevron-down pull-right"></i>
                                 </div>
                             </a>

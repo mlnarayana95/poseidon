@@ -3,7 +3,7 @@
     <!-- Set the viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Poseidon</title>
+    <title>Poseidon {{ $title ?? '' }}</title>
 
     <!-- Boostrap CSS -->
     <link rel="stylesheet"

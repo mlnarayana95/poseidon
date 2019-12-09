@@ -17,4 +17,17 @@ class Amenity extends Model {
         return $this->belongsToMany('App\Modules\Hotel\Models\Hotel');
     }
 
+    /**
+     * Get Amenity With Count
+     * @return mixed
+     */
+    public static function amenitiesWithCount()
+    {
+        $hotels = self::has('hotels')
+            ->withCount('hotels')
+            ->orderBy('amenity')
+            ->get();
+        return $hotels;
+    }
+
 }
