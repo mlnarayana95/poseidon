@@ -12,17 +12,17 @@
                     </li>
                     <li class="nav-item">
                         <a class="" href="#">
-                            <img src="images/fbook.png" alt="fbook">
+                            <img src="/images/fbook.png" alt="fbook">
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="" href="#">
-                            <img src="images/twitter.png" alt="twitter">
+                            <img src="/images/twitter.png" alt="twitter">
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="" href="#">
-                            <img src="images/insta.png" alt="insta">
+                            <img src="/images/insta.png" alt="insta">
                         </a>
                     </li>
                 </ul>
@@ -46,11 +46,11 @@
                  id="navbarCollapse">
 
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-link nav-item active" href="#">Home</a>
-                    <a class="nav-link nav-item" href="#">About Us</a>
-                    <a class="nav-link nav-item" href="#">Rooms</a>
-                    <a class="nav-link nav-item" href="#">Offers</a>
-                    <a class="nav-link nav-item" href="#">Contact Us</a>
+                    <a class="nav-link nav-item active" href="/">Home</a>
+                    <a class="nav-link nav-item" href="/about">About Us</a>
+                    <a class="nav-link nav-item" href="/room">Rooms</a>
+                    <a class="nav-link nav-item" href="/hotels">Hotels</a>
+                    <a class="nav-link nav-item" href="/contact">Contact Us</a>
                 </div>
             </div>
         </nav>

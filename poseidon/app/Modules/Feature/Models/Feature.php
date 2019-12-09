@@ -15,6 +15,14 @@ class Feature extends Model
     ];
 
     /**
+     * Get all of the rooms for the feature.
+     */
+    public function rooms()
+    {
+        return $this->belongsToMany('App\Modules\Room\Models\Room');
+    }
+
+    /**
      * Delete feature
      * @param $id
      */
@@ -30,6 +38,19 @@ class Feature extends Model
         } catch (\Exception $e) {
             DB::rollback();
         }
+    }
+
+    /**
+     * Get Features With Count
+     * @return mixed
+     */
+    public static function featuresWithCount()
+    {
+        $features = self::has('rooms')
+            ->withCount('rooms')
+            ->orderBy('feature')
+            ->get();
+        return $features;
     }
 
 }

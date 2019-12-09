@@ -2,16 +2,30 @@
 
 namespace App\Modules\Hotel\Models;
 
+use App\Modules\Room\Models\Room;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Hotel extends Model {
+class Hotel extends Model
+{
 
     use Sluggable;
     use SoftDeletes;
 
-    protected $fillable = ['name', 'description', 'location_id', 'address', 'postal_code', 'phone_number', 'checkin_time', 'checkout_time', 'airport_distance', 'airport_transportation', 'pet_friendly'];
+    protected $fillable = [
+        'name',
+        'description',
+        'location_id',
+        'address',
+        'postal_code',
+        'phone_number',
+        'checkin_time',
+        'checkout_time',
+        'airport_distance',
+        'airport_transportation',
+        'pet_friendly'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -59,6 +73,22 @@ class Hotel extends Model {
     }
 
     /**
+     * Get the images for the hotel
+     */
+    public function images()
+    {
+        return $this->belongsToMany('App\Modules\Base\Models\Image');
+    }
+
+    /**
+     * Get the images for the hotel
+     */
+    public function featuredImage()
+    {
+        return $this->belongsToMany('App\Modules\Base\Models\Image')->where('is_featured',1);
+    }
+
+    /**
      * Get Hotels With Count
      * @return mixed
      */
@@ -69,5 +99,35 @@ class Hotel extends Model {
             ->orderBy('name')
             ->get();
         return $hotels;
+    }
+
+    /**
+     * Get the List of Hotels for Frontend
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function getList()
+    {
+        $hotels = self::with('featuredImage', 'amenities', 'location')
+            ->has('rooms')
+            ->paginate(20);
+
+        foreach ($hotels as $hotel) {
+            $hotel->min_price = self::getLowestRoomPrice($hotel->id);
+        }
+        //dd($hotels->toArray());
+        return $hotels;
+    }
+
+    /**
+     * Get Lowest Room Price for Hotel
+     * @param $hotel_id
+     * @return mixed
+     */
+    public static function getLowestRoomPrice($hotel_id)
+    {
+        $room = Room::where('hotel_id', $hotel_id)
+            ->selectRaw('min(room_cost) as min_price')
+            ->first();
+        return $room->min_price;
     }
 }
