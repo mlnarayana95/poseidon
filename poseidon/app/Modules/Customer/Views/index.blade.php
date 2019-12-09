@@ -1,3 +1,78 @@
-<?php
+@extends('layouts.admin.main')
+@section('title', 'Customer')
+@section('heading', 'Customers')
+@section('breadcrumb')
+    @parent
+    <li>
+        <a href="#">Customers</a>
+    </li>
+@stop
+@section('content')
+    <div class="col-xs-12">
+        @include('flash::message')
 
-echo trans('Customer::example.welcome');
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">All Customers</h3>
+
+                <div class="box-tools">
+                    <a href="{{ route('admin.customer.create') }}" class="btn btn-primary">
+                        <i class="fa fa-plus-circle"></i> Add Customers
+                    </a>
+                </div>
+            </div>
+            <div class="box-body">
+
+                <table id="customers" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>User Type</th>
+                        <th>Phone Number</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach($customers as $customer)
+                        <tr>
+                            <td>{{ $customer->user_id }}</td>
+                            <td>{{ $customer->first_name . ' '. $customer->last_name }}</td>
+                            <td>{{ $customer->user->user_type ? 'Admin' : 'User'}} </td>
+                            <td>{{ $customer->phone_number}}</td>
+                            <td>
+                                <a href="{{ route('admin.customer.edit', 
+                                $customer->user_id) }}" class="btn btn-primary marginRight">
+                                    <i class="fa fa-pencil"></i> Edit
+                                </a>
+                                <a href="{{ route('admin.customer.destroy', $customer->user) }}" data-method="delete"
+                                   data-token="{{csrf_token()}}"
+                                   data-confirm="Are you sure?" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(function () {
+            $('#customers').DataTable({
+                'paging': true,
+                'lengthChange': true,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            });
+        });
+    </script>
+@endsection

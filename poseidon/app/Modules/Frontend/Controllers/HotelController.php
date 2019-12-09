@@ -24,8 +24,8 @@ class HotelController extends Controller
 
     public function show($slug)
     {
-        $data['hotel'] = Hotel::whereSlug($slug)->firstOrFail();
+        $data['hotel'] = Hotel::with('images', 'amenities')->whereSlug($slug)->firstOrFail();
+        //dd($data['hotel']->toArray());
         return view("Frontend::hotel/show", $data);
-        dd($hotel);
     }
 }

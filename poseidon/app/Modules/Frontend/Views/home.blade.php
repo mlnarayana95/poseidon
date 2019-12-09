@@ -30,27 +30,29 @@
     <div class="nav-background">
         <!-- navbar in banner -->
         <nav class="navbar home-navbar navbar-expand-lg navbar-light bg-light">
-
-            <div class="collapse navbar-collapse"
-                 id="navbarSupportedContent">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" alt="logo">
-                </a>
-                <ul class="navbar-nav home-navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span
-                                    class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Rooms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-                </ul>
+            <div class="container">
+              <div class="collapse navbar-collapse"
+                   id="navbarSupportedContent">
+                  
+                  <a class="navbar-brand" href="#">
+                      <img src="images/logo.png" alt="logo">
+                  </a>
+                  <ul class="navbar-nav home-navbar-nav mr-auto">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="#">Home <span
+                                      class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">About Us</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Rooms</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Contact Us</a>
+                      </li>
+                  </ul>
+                </div>
             </div>
         </nav> <!-- end of navbar -->
 
@@ -126,7 +128,7 @@
 
     <div>
         <div class="container">
-            <h2>Why Choose Us?</h2>
+            <h2 class="header-effect">Why Choose Us?</h2>
             <div class="row why-choose-us">
 
                 <div class="col-md-3 text-center why-choose-us">
@@ -160,7 +162,7 @@
 
     <div class="bc-gray">
         <div class="container home-rooms">
-            <h2>Our Hotel Rooms</h2>
+            <h2 class="header-effect">Our Hotel Rooms</h2>
             <div class="row">
 
                 <div class="col-md-4 col-sm-12 text-center">
@@ -205,7 +207,7 @@
 
     <div>
         <div class="container">
-            <h2>Our Top Destinations</h2>
+            <h2 class="header-effect">Our Top Destinations</h2>
             <div class="row">
 
                 <div class="col-md-4 col-sm-12 top-destination">
@@ -213,7 +215,7 @@
                          alt="top 1">
                     <div class="destination">
                         <h4>Cuba</h4>
-                        <button>Explore</button>
+                        <button class="home-button">Explore</button>
                     </div>
                 </div>
 
@@ -222,7 +224,7 @@
                          alt="top 3">
                     <div class="destination">
                         <h4>Maldives</h4>
-                        <button>Explore</button>
+                        <button class="home-button">Explore</button>
                     </div>
                 </div>
 
@@ -231,7 +233,7 @@
                          alt="top 2">
                     <div class="destination">
                         <h4>Mexico</h4>
-                        <button>Explore</button>
+                        <button class="home-button">Explore</button>
                     </div>
                 </div>
 
@@ -265,7 +267,7 @@
     <div class="d-flex align-content-center flex-wrap justify-content-center contact-us-image">
         <div class="contact text-center">
             <h3 class="pb-4">Start Your Adventure With Us</h3>
-            <button class="shadow">Contact Us</button>
+            <button class="home-button">Contact Us</button>
         </div>
     </div>
 

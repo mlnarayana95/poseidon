@@ -4,6 +4,8 @@ namespace App\Modules\Customer\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Modules\Customer\Models\Customer;
+
 
 class CustomerController extends Controller
 {
@@ -15,9 +17,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $data['rooms'] = Room::with('type', 'hotel')->get();
-        //dd($data['rooms']->toArray());
-        return view("Room::index", $data);
+        $data['customers'] = Customer::with('user')->get();
+        return view("Customer::index", $data);
     }
 
     /**
