@@ -65,20 +65,9 @@
                     @endforeach
                 </div>
 
-                <ul class="pagination justify-content-center mt-3">
-                    <li class="page-item"><a class="page-link"
-                                             href="#">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link"
-                                                    href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a>
-                    </li>
-                </ul><!-- /.pagination -->
+                <div class="pagination-links mt-3">
+                    {!! $rooms->links() !!}
+                </div>
             </div><!-- List Ends Here -->
 
             <div class="col-md-4 bc-gray mb-3">
@@ -87,14 +76,14 @@
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default mb-2">
                         <div class="panel-heading">
-                            <div class="panel-title text-orange">
-                                Price
-                                <a data-toggle="collapse"
-                                   data-parent="#accordion" href="#collapse1"
-                                   class="pull-right">
-                                    <i class="fa fa-chevron-down"></i>
-                                </a>
-                            </div>
+
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse1">
+                                <div class="panel-title text-orange">
+                                    Price
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </div>
+                            </a>
                         </div>
                         <div id="collapse1"
                              class="panel-collapse collapse show">
@@ -107,14 +96,14 @@
 
                     <div class="panel panel-default mb-2">
                         <div class="panel-heading">
-                            <div class="panel-title text-orange">
-                                Room Type
-                                <a data-toggle="collapse"
-                                   data-parent="#accordion" href="#collapse2"
-                                   class="pull-right">
-                                    <i class="fa fa-chevron-down"></i>
-                                </a>
-                            </div>
+
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse2">
+                                <div class="panel-title text-orange">
+                                    Room Types
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </div>
+                            </a>
                         </div>
                         <div id="collapse2" class="panel-collapse collapse">
                             <div class="panel-body">
@@ -147,8 +136,7 @@
                         <div class="panel-heading">
 
                             <a data-toggle="collapse"
-                               data-parent="#accordion" href="#collapse3"
-                               class="">
+                               data-parent="#accordion" href="#collapse3">
                                 <div class="panel-title text-orange">
                                     Hotels
                                     <i class="fa fa-chevron-down pull-right"></i>
@@ -185,48 +173,72 @@
 
                     <div class="panel panel-default mb-2">
                         <div class="panel-heading">
-                            <div class="panel-title text-orange">
-                                Amenities
-                                <a data-toggle="collapse"
-                                   data-parent="#accordion" href="#collapse4"
-                                   class="pull-right">
-                                    <i class="fa fa-chevron-down"></i>
-                                </a>
-                            </div>
+
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse4">
+                                <div class="panel-title text-orange">
+                                    Features
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </div>
+                            </a>
                         </div>
                         <div id="collapse4" class="panel-collapse collapse">
-                            <div class="panel-body">Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et
-                                dolore
-                                magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi
-                                ut
-                                aliquip ex ea commodo consequat.
+                            <div class="panel-body">
+                                <ul class="list-unstyled">
+                                    @foreach($features as $feature)
+                                        <li>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox"
+                                                       class="custom-control-input"
+                                                       id="feature{{$feature->id}}"
+                                                       name="example1">
+                                                <label class="custom-control-label"
+                                                       for="feature{{$feature->id}}">
+                                                    {{$feature->feature}}
+                                                    <span class="badge badge-info ml-1">
+                                                    {{$feature->rooms_count}}
+                                                </span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                     </div>
 
                     <div class="panel panel-default mb-2">
                         <div class="panel-heading">
-                            <div class="panel-title text-orange">
-                                Location
-                                <a data-toggle="collapse"
-                                   data-parent="#accordion" href="#collapse5"
-                                   class="pull-right">
-                                    <i class="fa fa-chevron-down"></i>
-                                </a>
-                            </div>
+
+                            <a data-toggle="collapse"
+                               data-parent="#accordion" href="#collapse5">
+                                <div class="panel-title text-orange">
+                                    Location
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </div>
+                            </a>
                         </div>
                         <div id="collapse5" class="panel-collapse collapse">
-                            <div class="panel-body">Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et
-                                dolore
-                                magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi
-                                ut
-                                aliquip ex ea commodo consequat.
+                            <div class="panel-body">
+                                <ul class="list-unstyled">
+                                    @foreach($locations as $location)
+                                        <li>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox"
+                                                       class="custom-control-input"
+                                                       id="location{{$location->id}}"
+                                                       name="example1">
+                                                <label class="custom-control-label"
+                                                       for="location{{$location->id}}">
+                                                    {{$location->location}}
+                                                    <span class="badge badge-info ml-1">
+                                                    {{$location->rooms_count}}
+                                                </span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                     </div>

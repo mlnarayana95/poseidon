@@ -2,7 +2,7 @@
 
 namespace App\Modules\Room\Models;
 
-use App\Modules\Base\Model\MyModel;
+use App\Modules\Base\Models\MyModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
@@ -67,20 +67,17 @@ class Room extends MyModel
 
     /**
      * Get the List of Rooms for Frontend
-     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getList()
+    public static function getList()
     {
         $rooms = self::with('features')
             ->join('hotels', 'hotels.id', '=', 'rooms.hotel_id')
             ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id')
-            ->join('hotel_images', 'hotel_images.hotel_id', '=', 'hotels.id')
-            ->join('images', 'images.id', '=', 'hotel_images.image_id')
             ->select('rooms.*',
                 DB::raw('CONCAT_WS(" ", room_types.type, hotels.name, rooms.room_number) AS full_name'),
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
-            ->limit(20)
-            ->get();
+            ->paginate(20);
         return $rooms;
     }
 }
