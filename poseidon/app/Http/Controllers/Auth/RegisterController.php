@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use DB;
+
 class RegisterController extends Controller
 {
     /*
@@ -92,6 +93,5 @@ class RegisterController extends Controller
         } catch (Exception $e) {
             DB::rollback();
         }
-
     }
 }
