@@ -95,17 +95,5 @@ class RegisterController extends Controller
         return redirect('/login');
     }
 
-    public function sendEmail($first_name, $email){
-        try{
-            $data = array('name'=>$first_name, 'email'=>$email);
-            Mail::send('login' ,$data,function($mesage) use ($data){
-                $mesage->to($data['email'],$data['name'])->subject('Test subject');
 
-            });
-            return back();
-        }
-        catch(Exception $e){
-
-        }
-    }
 }
