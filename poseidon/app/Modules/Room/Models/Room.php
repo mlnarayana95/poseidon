@@ -49,6 +49,14 @@ class Room extends MyModel
     }
 
     /**
+     * Get the images for the room
+     */
+    public function featuredImage()
+    {
+        return $this->belongsToMany('App\Modules\Base\Models\Image')->where('is_featured',1);
+    }
+
+    /**
      * Get the room type
      */
     public function type()
