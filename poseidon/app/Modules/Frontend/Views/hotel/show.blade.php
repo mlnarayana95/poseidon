@@ -12,7 +12,10 @@
 @section('content')
 
     <div class="container">
-
+        <h1>{{ $hotel->name }}</h1>
+        @foreach($hotel->images as $image)
+            <img src="/images/hotels/{{ $image->file_name }}" alt=""/>
+            @endforeach
     </div>
 
 @endsection
