@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use DB;
-
+use Mail;
 class RegisterController extends Controller
 {
     /*
@@ -57,8 +57,6 @@ class RegisterController extends Controller
     }
 
 
-
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -89,9 +87,25 @@ class RegisterController extends Controller
                     'phone_number' =>$request['phone_number']
                 ]);
                 DB::Commit();
-
+                $user->sendEmailVerificationNotification();
         } catch (Exception $e) {
             DB::rollback();
+        }
+
+        return redirect('/login');
+    }
+
+    public function sendEmail($first_name, $email){
+        try{
+            $data = array('name'=>$first_name, 'email'=>$email);
+            Mail::send('login' ,$data,function($mesage) use ($data){
+                $mesage->to($data['email'],$data['name'])->subject('Test subject');
+
+            });
+            return back();
+        }
+        catch(Exception $e){
+
         }
     }
 }
