@@ -87,11 +87,12 @@ class RegisterController extends Controller
                     'phone_number' =>$request['phone_number']
                 ]);
                 DB::Commit();
-                //$this->sendEmail($request['first_name'],$request['email']);
+                $user->sendEmailVerificationNotification();
         } catch (Exception $e) {
             DB::rollback();
         }
-        return redirect('/profile');
+
+        return redirect('/login');
     }
 
     public function sendEmail($first_name, $email){
