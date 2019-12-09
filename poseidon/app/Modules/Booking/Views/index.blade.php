@@ -2,9 +2,9 @@
 <style>
     /*start Booking style*/
     #info_head {
-        background-color: #eeeeee;
+        background-color: #fff;
         padding: 20px;
-        box-shadow: 0px 6px 5px 0px rgba(201,197,201,1);
+        box-shadow: 0px 6px 5px 0px rgba(201, 197, 201, 1);
     }
 
     #det_header .col-md {
@@ -16,18 +16,101 @@
         font-size: 15px;
     }
 
-    #det_header .col-md h3{
+    #det_header .col-md h3 {
         font-size: 18px;
         color: #0e2b56;
     }
-    #det_header label{
+
+    #det_header label {
         font-size: 10px;
     }
-    #det_header .btn{
+
+    #det_header .btn {
         border-radius: 0;
         padding: 15px;
         font-size: 15px;
+        background-color: #0f264b;
     }
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+        #det_header .col-md {
+            text-align: left;
+        }
+    }
+
+    /*start content styles*/
+    #content {
+        margin-top: 5px;
+        padding: 50px;
+        background-color: #e2e2e2;
+    }
+
+    #content .container h1 {
+        font-size: 24px;
+        color: #0f264b;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+    }
+
+    #content .col-md-7 {
+        background-image: url("{{ URL::to('/')."/images/rooms/".$room->file_name }}");
+        background-size: cover;
+        background-position: right;
+        /*box-shadow: 7px 7px 5px 0px rgba(166, 166, 166, 1);*/
+    }
+
+    #content .col-md-5 {
+        /*box-shadow: 7px 7px 5px 0px rgba(166, 166, 166, 1);*/
+        background-color: #fff;
+        border-bottom: 1px solid #e2e2e2;
+    }
+
+    #content .container .col-md-5 h2 {
+        font-size: 20px;
+        color: #0f264b;
+        font-weight: bold;
+        padding: 20px 0 0 0;
+        margin: 0;
+    }
+
+    #content .container .col-md-5 a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #f68500;
+        font-size: 15px;
+        background-color: #fff !important;
+    }
+
+    #content .container .col-md-5 .det_type {
+        padding-top: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #0f264b;
+    }
+    #content .col-md-12{
+        background-color: #fff;
+    }
+    #content .col-md-12 h1{
+        text-align: left;
+        font-size: 20px;
+    }
+
+    #content .col-md-6{
+        background-color: #fff;
+        font-size: 16px;
+    }
+    #content .col-md-6 .value{
+        color: #0f264b;
+    }
+    #content .col-md-12 a{
+        border-radius: 0;
+        padding: 10px;
+        margin: 10px;
+        background-color: #0f264b;
+    }
+    /*end content styles*/
 </style>
 @section('content')
     <div class="container-fluid fixed" id="info_head">
@@ -43,7 +126,7 @@
                 <div class="col-md">
                     <h4>Total for Stay</h4>
                     <h3 class="text-left">
-                        <?=number_format((double)$room->room_cost * (double)$other_info['no_nights']);?>
+                        <?=number_format((double)$room->room_cost * (double)$other_info['no_nights']);?> CAD
                     </h3>
                 </div>
                 <div class="col-md text-right">
@@ -52,137 +135,73 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row" id="reg_form">
-            <div class="col-md-7">
+    <div class="container-fluid" id="content">
+        <div class="container">
+            <div class="row">
+                <h1>Review Reservation Details</h1>
             </div>
-            <div class="col-md-5">
-                <form method="POST" action="{{ route('register') }}">
-                    @csrf
-                    <h3>Sign Up</h3>
+            <div class="row">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5">
+                    <h2 class="text-left">Guest room, {{$room->type}}</h2>
+                    <a href="#">Room details</a>
                     <br>
-                    <div class="form-group">
-                        <label for="first_name">First Name</label><label for="first_name" class="text-danger"> *</label>
-                        <input type="text" class="form-control @if($errors->has('first_name'))is-invalid @endif"
-                               placeholder="First Name" id="first_name"
-                               name="first_name" value="{{ old('first_name') }}">
-                        @if($errors->has('first_name'))
-                            {!! $errors->first('first_name', '<label class="control-label text-danger"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name">Last Name</label><label for="last_name" class="text-danger"> *</label>
-                        <input type="text" class="form-control @if($errors->has('last_name')) is-invalid @endif"
-                               placeholder="Last Name" id="last_name" name="last_name"
-                               value="{{ old('last_name') }}">
-                        @if($errors->has('last_name'))
-                            {!! $errors->first('last_name', '<label class="control-label text-danger"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="birthdate">Birth Date</label><label for="birthdate" class="text-danger"> *</label>
-                        <input type="date" class="form-control @if($errors->has('birthdate')) is-invalid @endif"
-                               placeholder="Birth Date" id="birthdate"
-                               name="birthdate" value="{{ old('birthdate') }}">
-                        @if($errors->has('birthdate'))
-                            {!! $errors->first('birthdate', '<label class="control-label text-danger"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label>Gender</label><label class="text-danger">*</label>
-                        <div class="form-check @if($errors->has('gender')) is-invalid @endif">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="gender" checked="checked"
-                                       value="F">Female
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="gender" value="M">Male
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="gender" value="N">Prefer
-                                not to say
-                            </label>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label><label for="address" class="text-danger"> *</label>
-                        <input type="text" class="form-control @if($errors->has('address')) is-invalid @endif"
-                               placeholder="Address" id="address" name="address"
-                               value="{{ old('address') }}">
-                        @if($errors->has('address'))
-                            {!! $errors->first('address', '<label class="control-label text-danger"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="postal_code">Postal Code</label><label for="postal_code" class="text-danger">
-                            *</label>
-                        <input type="text" class="form-control @if($errors->has('postal_code')) is-invalid @endif"
-                               placeholder="Postal Code" id="postal_code"
-                               name="postal_code" value="{{ old('postal_code') }}">
-                        @if($errors->has('postal_code'))
-                            {!! $errors->first('postal_code', '<label class="control-label text-danger"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label><label for="phone" class="text-danger"> *</label>
-                        <input type="text" class="form-control @if($errors->has('phone_number')) is-invalid @endif"
-                               placeholder="Phone Number" id="phone"
-                               name="phone_number"
-                               value="{{ old('phone_number') }}">
-                        @if($errors->has('phone_number'))
-                            {!! $errors->first('phone_number', '<label class="control-label text-danger"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
+                    <label class="det_type">Room:</label> <label>{{$room->room_number}}</label>
                     <br>
-                    <h3>Access Information</h3>
-                    <div class="form-group">
-                        <label for="email">Email</label><label for="email" class="text-danger"> *</label>
-                        <input type="text" class="form-control @if($errors->has('email')) is-invalid @endif"
-                               placeholder="email address" id="email" name="email"
-                               value="{{ old('email') }}">
-                        @if($errors->has('email'))
-                            {!! $errors->first('email', '<label class="control-label text-danger"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label><label for="password" class="text-danger"> *</label>
-                        <input type="password" class="form-control @if($errors->has('password')) is-invalid @endif"
-                               placeholder="Password" id="password"
-                               name="password" value="{{ old('password') }}">
-                        @if($errors->has('password'))
-                            {!! $errors->first('password', '<label class="control-label text-danger"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="cnf_password">Confirm Password</label><label for="cnf_password" class="text-danger">
-                            *</label>
-                        <input type="password" class="form-control @if($errors->has('cnf_password')) is-invalid @endif"
-                               placeholder="Confirm Password" id="cnf_password"
-                               name="cnf_password" value="{{ old('cnf_password') }}">
-                        @if($errors->has('cnf_password'))
-                            {!! $errors->first('cnf_password', '<label class="control-label text-danger"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
+                    <label class="det_type">Description</label>
+                    <p>{{$room->description}}</p>
+                    <label class="det_type">Adults Capacity:</label> <label>{{$room->max_adults}}</label>
+                    <label class="det_type">Children Capacity:</label> <label>{{$room->max_adults}}</label>
+                    <label class="det_type">No. Bathrooms:</label> <label>{{$room->max_adults}}</label>
                     <br>
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Register') }}
-                    </button>
-                </form>
-                <br>
+                    <label class="det_type">Smoking:</label> <label>@if( $room->smoking == 1) Yes @else
+                            No @endif</label>
+                    <br>
+                    <label class="det_type">Cost per night:</label> <label>{{number_format((double)$room->room_cost)}}
+                        CAD</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Rate Details</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="value">1</label> <label>room(s) for</label><label class="value">{{$other_info['no_nights']}}</label>
+                    <label>nights</label>
+                    <br>
+                    <label>Price:</label>
+                    <br>
+                    <label>GST Tax:</label>
+                    <br>
+                    <label>PSD Tax:</label>
+                    <hr>
+                    <label>Total Stay:</label>
+                </div>
+                <div class="col-md-6 text-right">
+                    <label>Prices in CAD</label>
+                    <br>
+                    <label class="value">{{number_format((double)$room->room_cost)}}</label>
+                    <br>
+                    <label class="value">{{$other_info['gst_tax']*$room->room_cost}}</label>
+                    <br>
+                    <label class="value">{{$other_info['psd_tax']*$room->room_cost}}</label>
+                    <hr>
+                    <label class="value">{{
+                    number_format(
+                    ($other_info['psd_tax']*$room->room_cost)+
+                    ($other_info['gst_tax']*$room->room_cost)+
+                    ((double)$room->room_cost)
+                    )}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <a class="btn btn-dark" href="#">Continue</a>
+                </div>
             </div>
         </div>
     </div>
