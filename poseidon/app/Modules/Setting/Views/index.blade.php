@@ -17,59 +17,44 @@
                 <h3 class="box-title">Update Site Settings</h3>
             </div>
 
-            {!! Form::model($setting, ['route' => 'admin.setting.update', 'method' => 'put', 'class' => 'form-horizontal']) !!}
+            {!! Form::open(['route' => 'admin.setting.update', 'method' => 'put', 'class' => 'form-horizontal']) !!}
             <div class="box-body">
 
-                <div class="form-group @if($errors->has('gst_tax')) {{'has-error'}} @endif">
-                    {!!Form::label('gst_tax', 'GST Tax *', array('class' => 'col-sm-2 control-label')) !!}
-                    <div class="col-sm-8">
-                        <div class="input-group">
-                            {!!Form::text('gst_tax', null, array('class' => 'form-control', 'id'=>'gst_tax'))!!}
-                            <div class="input-group-addon">%</div>
-                        </div>
-                        @if($errors->has('gst_tax'))
-                            {!! $errors->first('gst_tax', '<label class="control-label"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                </div>
+                    @if(count(config('settings', [])) )
 
-                <div class="form-group @if($errors->has('pst_tax')) {{'has-error'}} @endif">
-                    {!!Form::label('pst_tax', 'PST Tax *', array('class' => 'col-sm-2 control-label')) !!}
-                    <div class="col-sm-8">
-                        <div class="input-group">
-                            {!!Form::text('pst_tax', null, array('class' => 'form-control', 'id'=>'pst_tax'))!!}
-                            <div class="input-group-addon">%</div>
-                        </div>
+                        @foreach(config('settings') as $section => $fields)
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <i class="{{ Arr::get($fields, 'icon', 'fa fa-flash') }}"></i>
+                                    {{ $fields['title'] }}
+                                </div>
 
-                        @if($errors->has('pst_tax'))
-                            {!! $errors->first('pst_tax', '<label class="control-label"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                </div>
+                                <div class="panel-body">
+                                    <p class="text-muted">{{ $fields['desc'] }}</p>
+                                </div>
 
-                <div class="form-group @if($errors->has('contact_mail')) {{'has-error'}} @endif">
-                    {!!Form::label('contact_mail', 'Contact Email Address *', array('class' => 'col-sm-2 control-label')) !!}
-                    <div class="col-sm-8">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-envelope"></i>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-7  col-md-offset-2">
+                                            @foreach($fields['elements'] as $field)
+                                                @includeIf('Setting::fields/' . $field['type'] )
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                            {!!Form::text('contact_mail', null, array('class' => 'form-control', 'id'=>'contact_mail'))!!}
-                        </div>
+                        <!-- end panel for {{ $fields['title'] }} -->
+                        @endforeach
 
-                        @if($errors->has('contact_mail'))
-                            {!! $errors->first('contact_mail', '<label class="control-label"
-                                                                   for="inputError">:message</label>') !!}
-                        @endif
-                    </div>
-                </div>
+                    @endif
+
+
 
             </div>
 
             <div class="box-footer">
-                {!! Form::submit('Update', ['class' => 'btn btn-success pull-right']) !!}
+                {!! Form::submit('Save Settings', ['class' => 'btn btn-success pull-right']) !!}
             </div>
             {!! Form::close() !!}
         </div>
