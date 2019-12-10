@@ -24,7 +24,7 @@
     {!!Form::label('birthdate', 'Birth Date *', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
            
-        {{ Form::text('birthdate',null, array('class' => 'form-control date','id' => 'birthdate','data-provide'=>'datepicker')) }}                           
+        {{ Form::text('birthdate',$customer['birthdate'], array('class' => 'form-control date','id' => 'birthdate','data-provide'=>'datepicker')) }}                           
     
         @if($errors->has('birthdate'))
             {!! $errors->first('birthdate', '<label class="control-label"
