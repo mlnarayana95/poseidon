@@ -83,6 +83,9 @@
       color: #000;
     }
     
+    #nav-tab{
+      margin-bottom: 30px;
+    }
     #tabs .check-in-out, .hotel-location{
       padding: 10px 0;
     }
@@ -107,6 +110,11 @@
     
     #hotel-page .looped-icon.fa{
       padding-right: 10px;
+    }
+    
+    .carousel-inner img{
+      max-height: 349px;
+      width: 100%;
     }
     
 
