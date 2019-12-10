@@ -108,41 +108,43 @@
   <div class="container hotel-name">
     <h1>{{ $hotel->name }}</h1>
   </div>
-    <div class="row align-items-center">
-        <div class="col-lg-8 offset-lg-2" id="slider">
-            <div id="myCarousel" class="carousel slide shadow">
-                <!-- main slider carousel items -->
-                <div class="carousel-inner">
-                    @foreach($hotel->images as $key => $image)
-                        <div class="{{$key == 0 ?'active' : ''}} carousel-item" data-slide-number="{{ $key }}">
-                            <img src="/images/hotels/{{$image->file_name}}" class="img-fluid" alt="{{$hotel->name}}" />
-                        </div>
-                    @endforeach
-                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
 
-                </div>
-                <!-- main slider carousel nav controls -->
-
-                <ul class="carousel-indicators list-inline mx-auto border px-2">
-                    @foreach($hotel->images as $key => $image)
-                    <li class="list-inline-item {{$key == 0 ? 'active' : ''}}">
-                        <a id="carousel-selector-{{$key}}" class="{{$key == 0 ? 'selected' : ''}}" data-slide-to="{{$key}}" data-target="#myCarousel">
-                            <img src="/images/hotels/{{$image->file_name}}" class="img-fluid"  alt="{{$hotel->name}}" width="80" height="60" />
+  <div class="row min-vh-100 align-items-center">
+            <div class="col-lg-8 offset-lg-2" id="slider">
+                <div id="myCarousel" class="carousel slide shadow">
+                    <!-- main slider carousel items -->
+                    <div class="carousel-inner">
+                        @foreach($hotel->images as $key => $image)
+                            <div class="{{$key == 0 ?'active' : ''}} carousel-item" data-slide-number="{{ $key }}">
+                                <img src="/images/hotels/{{$image->file_name}}" class="img-fluid" alt="{{$hotel->name}}" />
+                            </div>
+                        @endforeach
+                        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
                         </a>
-                    </li>
-                    @endforeach
-               </ul>
+                        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+
+                    </div>
+                    <!-- main slider carousel nav controls -->
+
+                    <ul class="carousel-indicators list-inline mx-auto border px-2">
+                        @foreach($hotel->images as $key => $image)
+                        <li class="list-inline-item {{$key == 0 ? 'active' : ''}}">
+                            <a id="carousel-selector-{{$key}}" class="{{$key == 0 ? 'selected' : ''}}" data-slide-to="{{$key}}" data-target="#myCarousel">
+                                <img src="/images/hotels/{{$image->file_name}}" class="img-fluid"  alt="{{$hotel->name}}" width="80" height="60" />
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
         </div>
-      </div>
-    </div>
-<!--/main slider carousel-->
+        <!--/main slider carousel-->
 
   
     <section id="tabs">
@@ -167,7 +169,6 @@
                 <div class="hotel-phone">
                   <span><em>Phone number: </em>{{ $hotel->phone_number }}</span>
                 </div>
-
   					</div>
   					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
               <div class="col-md-12">
@@ -178,6 +179,10 @@
               </div>
   					</div>
           </div>
+
+        </div>
+        <!--/main slider carousel-->
+
 
   					<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
               <div class="hotel-distance">
