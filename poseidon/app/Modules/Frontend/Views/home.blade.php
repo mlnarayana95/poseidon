@@ -88,7 +88,7 @@
                 <span class="sr-only">Next</span>
             </a>
 
-            <form method="post" action="/search" id="search-form">
+            <form method="post" action="/search" id="search-form" autocomplete="off">
                 @csrf
                 <div class="form-row no-margin">
                     <div class="col-md-1">
