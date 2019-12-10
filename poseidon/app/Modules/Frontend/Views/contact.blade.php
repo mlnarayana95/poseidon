@@ -41,11 +41,13 @@
                 <div class="form-group col-md-6">
                   <label for="name" class="required">Name</label>
                   <input type="text" class="form-control" name="name" 
+                  value="{{ old('name') }}"
                   id="name" placeholder="Name" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="email" class="required">Email</label>
                   <input type="email" class="form-control" name="email"
+                  value="{{ old('email') }}"
                   id="email" placeholder="Email" required>
                 </div>
               </div>
