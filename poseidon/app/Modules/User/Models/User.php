@@ -4,6 +4,8 @@ namespace App\Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Modules\Customer\Models\Customer;
+
 
 class User extends Model {
 
@@ -20,4 +22,8 @@ class User extends Model {
      */
     protected $dates = ['deleted_at'];
 
+    public function customer()
+    {
+        $this->belongsTo('App\Modules\Customer\Models\Customer');
+    }
 }

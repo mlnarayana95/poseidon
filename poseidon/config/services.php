@@ -14,11 +14,7 @@ return [
     |
     */
 
-    'mailgun' => [
-        'domain' => env('poseidon.uwpace.ca'),
-        'secret' => env('f7910792-17aae3e4'),
-        'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
-    ],
+
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),

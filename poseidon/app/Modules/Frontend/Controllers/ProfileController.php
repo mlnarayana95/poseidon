@@ -21,6 +21,7 @@ class ProfileController
     public function show()
     {
         $person = DB::table('persons')->where('user_id',Session::get('user_id'))->first();
+        dd($person);
         return view("Frontend::profile", compact('person'));
     }
     public function load()
@@ -39,7 +40,6 @@ class ProfileController
     public function validateProfile($request)
     {
         $validated_data = $request->validate($this->rules);
-
         $validated_data['first_name'] = $request->first_name;
         $validated_data['last_name'] = $request->last_name;
         $validated_data['birthdate'] = $request->birthdate;

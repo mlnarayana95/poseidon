@@ -27,7 +27,6 @@ if (! function_exists('setting')) {
 
         return is_null($value) ? value($default) : $value;
     }
-}
 
 if (! function_exists('format_price')) {
 
@@ -38,5 +37,24 @@ if (! function_exists('format_price')) {
     function format_price($price = 0)
     {
         return '$'.number_format($price, 2).' CAD';
+    }
+
+}
+/**
+ * @param $first_name Name of the recipient
+ * @param $email email reciever email address
+ * @param $view create a view that shows the format of the email
+ * @return \Illuminate\Http\RedirectResponse
+ */
+function sendEmail($first_name, $email,$view){
+    try{
+        $data = array('name'=>$first_name, 'email'=>$email);
+        Mail::send($view ,$data,function($mesage) use ($data){
+            $mesage->to($data['email'],$data['name'])->subject('Test subject');
+
+        });
+        return back();
+    }
+    catch(Exception $e){
     }
 }
