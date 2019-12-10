@@ -56,9 +56,9 @@
                 required>
               </div>
               <div class="form-group">
-                <label for="inputAddress2" name="message" class="required">Message</label>
+                <label for="inputAddress2"  class="required">Message</label>
 
-                <textarea class="form-control" required></textarea>
+                <textarea class="form-control" name="message" id="message" required></textarea>
               </div>
 
               <button type="submit" class="btn btn-danger">Send Message</button>

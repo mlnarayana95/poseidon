@@ -2,7 +2,7 @@
 
 namespace App\Modules\Amenity\Controllers;
 
-use App\Modules\Feature\Models\Feature;
+use App\Modules\Amenity\Models\Amenity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,8 +16,8 @@ class AmenityController extends Controller
      */
     public function index()
     {
-        $data['features'] = Feature::get();
-        return view("Feature::index", $data);
+        $data['amenity'] = Amenity::get();
+        return view("Amenity::index", $data);
     }
 
     /**
@@ -27,7 +27,7 @@ class AmenityController extends Controller
      */
     public function create()
     {
-        return view("Feature::add");
+        return view("Amenity::add");
     }
 
     /**
@@ -39,12 +39,12 @@ class AmenityController extends Controller
     public function store(Request $request)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateFeature($request);
+        $validated_data = $this->validateAmenity($request);
 
         Feature::create($validated_data);
 
-        flash('Feature has been created successfully!')->success();
-        return redirect()->route('admin.feature.index');
+        flash('Amenity has been created successfully!')->success();
+        return redirect()->route('admin.amenity.index');
     }
 
     /**
@@ -55,8 +55,8 @@ class AmenityController extends Controller
      */
     public function edit($id)
     {
-        $data['feature'] = Feature::find($id);
-        return view("Feature::edit", $data);
+        $data['amenity'] = Amenity::find($id);
+        return view("Amenity::edit", $data);
     }
 
     /**
@@ -69,12 +69,12 @@ class AmenityController extends Controller
     public function update(Request $request, $id)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateFeature($request);
+        $validated_data = $this->validateAmenity($request);
 
-        Feature::find($id)->update($validated_data);
+        Amenity::find($id)->update($validated_data);
 
-        flash('Feature has been updated successfully!')->success();
-        return redirect()->route('admin.feature.index');
+        flash('Amenity has been updated successfully!')->success();
+        return redirect()->route('admin.amenity.index');
     }
 
     /**
@@ -85,10 +85,10 @@ class AmenityController extends Controller
      */
     public function destroy($id)
     {
-        $feature = new Feature();
-        $feature->remove($id);
-        flash('Feature has been deleted successfully!')->success();
-        return redirect()->route('admin.feature.index');
+        $amenity = new Amenity();
+        $amenity->remove($id);
+        flash('Amenity has been deleted successfully!')->success();
+        return redirect()->route('admin.amenity.index');
     }
 
     /**
@@ -96,11 +96,11 @@ class AmenityController extends Controller
      * @param $request
      * @return mixed
      */
-    public function validateFeature($request)
+    public function validateAmenity($request)
     {
         $rules = [
-            'feature' => 'required|max:255',
-            'feature_icon' => 'required|max:20'
+            'amenity' => 'required|max:255',
+            'amenity_icon' => 'required|max:20'
         ];
 
         $validated_data = $request->validate($rules);
