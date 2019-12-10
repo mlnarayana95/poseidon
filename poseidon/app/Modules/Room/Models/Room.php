@@ -3,6 +3,7 @@
 namespace App\Modules\Room\Models;
 
 use App\Modules\Base\Models\MyModel;
+use App\Modules\Booking\Models\Booking;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -39,6 +40,14 @@ class Room extends MyModel
     public function features()
     {
         return $this->belongsToMany('App\Modules\Feature\Models\Feature');
+    }
+
+    /**
+     * Get all of the bookings for the room
+     */
+    public function bookings()
+    {
+        return $this->hasMany('App\Modules\Booking\Models\Booking');
     }
 
     /**
@@ -90,6 +99,12 @@ class Room extends MyModel
         return $rooms;
     }
 
+    /**
+     * @param int $room_id
+     * @param     $checkin
+     * @param     $checkout
+     * @return mixed
+     */
     public static function calculateRoomCost(int $room_id, $checkin, $checkout)
     {
         $room = Room::findOrFail($room_id);
@@ -104,5 +119,26 @@ class Room extends MyModel
         $data['total_cost'] = $data['total_fees'] + $data['total_tax'];
 
         return $data;
+    }
+
+    /**
+     * @param $room_id
+     * @param $checkin
+     * @param $checkout
+     * @return bool
+     */
+    public function isBookingAvailable($room_id, $checkin, $checkout) {
+        $bookings = Booking::where('room_id', $room_id)->all();
+        $from = Carbon::parse($checkin);
+        $to = Carbon::parse($checkout);
+
+        foreach ($bookings as $booking) {
+            $book_start = Carbon::createFromFormat($booking->checkin_date, 'Y-m-d');
+            $book_end = Carbon::createFromFormat($booking->checkout_date, 'Y-m-d');
+            if ($from->between($book_start, $book_end) || $to->between($book_start, $book_end) || ($book_start->between($from, $to) && $book_end->between($from, $to))) {
+                return false;
+            }
+        }
+        return true;
     }
 }

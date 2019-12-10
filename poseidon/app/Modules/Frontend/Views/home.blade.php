@@ -88,20 +88,34 @@
                 <span class="sr-only">Next</span>
             </a>
 
-            <form>
+            <form method="post" action="" id="search-form">
+                @csrf
                 <div class="form-row no-margin">
                     <div class="col-md-1">
-
                     </div>
                     <div class="form-group col-md-2">
                         <label for="checkin">Check In</label>
-                        <input type="date" class="form-control"
-                               id="checkin">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control datepicker"
+                                   id="checkin">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="checkout">Check Out</label>
-                        <input type="date" class="form-control"
-                               id="checkout">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control datepicker"
+                                   id="checkout">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group col-md-2">
@@ -276,4 +290,45 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <script>
+        $(function () {
+            (function($) {
+                // initialise datepickers
+                var opts = {
+                    format: 'yyyy-mm-dd',
+                    clearBtn: true,
+                    autoclose: true,
+                    startDate: new Date()
+                };
+                // first datepicker
+                $('#checkin').datepicker(opts);
+                // second datepickers allows plain text
+                opts.forceParse = false;
+                $('#checkout').datepicker(opts);
+                // add event listeners to datepickers
+                $('#checkin').on('changeDate', function(selected) {
+                    // see if the second picker has a date selected
+                    var toDate = $('#checkout').datepicker('getDate');
+                    if (toDate) {
+                        // if it is before the first date, set to the value of the first date
+                        if (selected.date.valueOf() > toDate.valueOf()) {
+                            $('#checkout').datepicker('setDate', selected.date);
+                        }
+                    }
+                    // sets the start date on the second picker
+                    $('#checkout').datepicker('setStartDate', selected.date);
+                });
+                $('#checkin').on('clearDate', function() {
+                    $('#checkout').datepicker('clearDates');
+                });
+            })(jQuery);
+        });
+
+    </script>
 @endsection
