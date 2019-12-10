@@ -42,7 +42,7 @@
                             <td>{{ $feature->feature }}</td>
                             <td>{{ $feature->feature_icon }}</td>
                             <td>
-                                <a href="{{ route('admin.feature.edit', $feature) }}"
+                                <a href="{{ route('admin.feature.edit', $feature->id) }}"
                                    class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>

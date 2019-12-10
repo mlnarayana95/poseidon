@@ -3,8 +3,16 @@
 namespace App\Modules\Setting\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class SiteSetting extends Model {
+
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
 
     /**
      * Add a settings value
@@ -87,7 +95,7 @@ class SiteSetting extends Model {
     }
 
     /**
-     * Get the valueidation rules for setting fields
+     * Get the validation rules for setting fields
      *
      * @return array
      */
@@ -146,7 +154,7 @@ class SiteSetting extends Model {
      */
     private static function getDefinedSettingFields()
     {
-        return collect(config('setting_fields'))->pluck('elements')->flatten(1);
+        return collect(config('settings'))->pluck('elements')->flatten(1);
     }
 
     /**
@@ -181,7 +189,35 @@ class SiteSetting extends Model {
      */
     public static function getAllSettings()
     {
-        return self::all();
+        return Cache::rememberForever('settings.all', function() {
+            return self::all();
+        });
+    }
+
+    /**
+     * Flush the cache
+     */
+    public static function flushCache()
+    {
+        Cache::forget('settings.all');
+    }
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::updated(function () {
+            self::flushCache();
+        });
+
+        static::created(function() {
+            self::flushCache();
+        });
     }
 
 }
