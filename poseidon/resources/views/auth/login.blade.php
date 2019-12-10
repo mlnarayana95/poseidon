@@ -55,6 +55,18 @@
         color: #F68500;
         width: 100%;
     }
+    #reg_form .col-md-5 .invalid-feedback{
+        display: inline;
+    }
+
+    #reg_form .col-md-5 .invalid-feedback strong{
+        color: rgba(255, 10, 20, 0.55);
+        font-size: 14px;
+    }
+
+    #reg_form .col-md-5 .alert{
+        background-color: rgba(246, 133, 0, 0.51) !important;
+    }
 
     #reg_form .cnf {
         margin: 0;
@@ -70,6 +82,13 @@
             </div>
             <div class="col-md-5">
                 <h3>Login</h3>
+                @if (Session::has('message'))
+                    <div class="alert alert-danger" role="alert">
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ session('message') }}</strong>
+                        </span>
+                    </div>
+                @endif
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group row">
