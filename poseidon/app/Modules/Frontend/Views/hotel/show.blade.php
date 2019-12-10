@@ -100,6 +100,16 @@
       margin-top: 40px;
       margin-bottom: 40px;
     }
+    
+    .looped-info{
+      margin-bottom: 10px;
+    }
+    
+    #hotel-page .looped-icon.fa{
+      padding-right: 10px;
+    }
+    
+
 @endsection
 
 @section('content')
@@ -174,7 +184,7 @@
               <div class="col-md-12">
               <div class="hotel-amenities">
                 @foreach($hotel->amenities as $amenity)
-                  <div><i class="fa fa-{{ $amenity->amenity_icon }}"></i>{{ $amenity->amenity }}</div>
+                  <div class="looped-info"><i class="fa fa-{{ $amenity->amenity_icon }} looped-icon"></i>{{ $amenity->amenity }}</div>
                 @endforeach
               </div>
   					</div>
