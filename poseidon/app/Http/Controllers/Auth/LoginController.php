@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Session;
+use Redirect;
 
 class LoginController extends Controller
 {
@@ -53,15 +54,15 @@ class LoginController extends Controller
                 //$info = $request->session()->get('user_id');
                 /*Set the session one the user is loggedin*/
                 //config(['session.lifetime' => 1440]);
-                return redirect()->route('/index');
+                return redirect()->route('/');
             }
             else{
-                return $this->redirect()->route('/index');
+                return $this->redirect()->route('/');
             }
         }
         else{
 
-            return redirect()->route('login')->with('error','Email-Address And Password are Wrong');
+            return redirect::to('/login')->with('message','Email and password invalid');
         }
 
     }
