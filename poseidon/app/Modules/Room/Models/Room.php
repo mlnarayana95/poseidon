@@ -97,6 +97,7 @@ class Room extends MyModel
         $date1 = Carbon::createFromFormat('Y-m-d', $checkin);
         $date2 = Carbon::createFromFormat('Y-m-d', $checkout);
 
+        $data['room_cost'] = $room->room_cost;
         $data['no_nights'] = $date1->diffInDays($date2);
         $data['total_fees'] = $room->room_cost * $data['no_nights'];
         $data['total_tax'] = $data['total_fees'] * (setting('gst_tax') + setting('pst_tax'))/100;

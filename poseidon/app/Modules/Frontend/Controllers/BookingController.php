@@ -2,6 +2,7 @@
 
 namespace App\Modules\Frontend\Controllers;
 
+use App\Modules\Booking\Models\Booking;
 use App\Modules\Room\Models\Room;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -66,7 +67,15 @@ class BookingController extends Controller
             return redirect()->back()->withErrors($response->transaction_response->errors)->with('cc_error', 1);
         }
 
+        $booking_details['transaction_number'] = $response->transaction_response->trans_id;
 
+        // Create the booking
+        Booking::book($booking_details);
+
+        // Send the mail
+
+        flash()->success('Booking has been made successfully');
+        return redirect('/profile');
 
     }
 
