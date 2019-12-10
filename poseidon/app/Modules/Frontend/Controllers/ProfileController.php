@@ -2,6 +2,7 @@
 
 
 namespace App\Modules\Frontend\Controllers;
+use App\Modules\Booking\Models\Booking;
 use App\Modules\Person\Models\Person;
 use Illuminate\Http\Request;
 use DB;
@@ -20,8 +21,10 @@ class ProfileController
 
     public function show()
     {
+        $bookings = Booking::with('room')->where('user_id', 1)->get();
+        dd($bookings->toArray());
+
         $person = DB::table('persons')->where('user_id',Session::get('user_id'))->first();
-        dd($person);
         return view("Frontend::profile", compact('person'));
     }
     public function load()
