@@ -21,21 +21,25 @@ class SettingController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Update the Site Settings
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request)
     {
-        $rules = [
-            'pst_tax' => 'required|numeric',
-            'gst_tax' => 'required|numeric'
-        ];
+        $rules = SiteSetting::getValidationRules();
+        $data = $this->validate($request, $rules);
 
-        $request->validate($rules);
+        $validSettings = array_keys($rules);
+
+        foreach ($data as $key => $val) {
+            if (in_array($key, $validSettings)) {
+                SiteSetting::add($key, $val, SiteSetting::getDataType($key));
+            }
+        }
 
         flash('Site Settings have been updated successfully!')->success();
-        return redirect()->route('admin.setting.index');
+        return redirect()->back();
     }
 }
