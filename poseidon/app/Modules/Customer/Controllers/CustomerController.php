@@ -5,6 +5,10 @@ namespace App\Modules\Customer\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modules\Customer\Models\Customer;
+use App\Modules\Room\Models\Room;
+use App\Modules\Hotel\Models\Hotel;
+use App\Modules\Room\Models\RoomType;
+use Carbon\Carbon;
 
 
 class CustomerController extends Controller
@@ -28,9 +32,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $data['hotels'] = Hotel::pluck('name', 'id');
-        $data['types'] = RoomType::pluck('type', 'id');
-        return view("Room::add", $data);
+        return view('Customer::add');
     }
 
     /**
@@ -42,13 +44,12 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateRoom($request);
+        $validated_data = $this->validateCustomer($request);
+        $validated_data['user_id'] = 1;
+        Customer::create($validated_data);  
+        flash('Customer has been created successfully!')->success();
 
-        Room::create($validated_data);
-
-        flash('Room has been created successfully!')->success();
-
-        return redirect()->route('admin.room.index');
+        return redirect()->route('admin.customer.index');
     }
 
     /**
@@ -70,10 +71,12 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        $data['hotels'] = Hotel::pluck('name', 'id');
-        $data['types'] = RoomType::pluck('type', 'id');
-        $data['room'] = Room::find($id);
-        return view("Room::edit", $data);
+        $data['customer'] = Customer::find($id);
+        $customer = $data['customer']->toArray();
+        $birthdate = $customer['birthdate'];
+        $customer['birthdate'] = Carbon::parse($birthdate)->format('m d Y');
+        $data['customer'] = $customer;
+        return view("Customer::edit", $data);
     }
 
     /**
@@ -86,14 +89,14 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateRoom($request);
+        $validated_data = $this->validateCustomer($request);
 
-        Room::find($id)->update($validated_data);
+        Customer::find($id)->update($validated_data);
 
-        flash('Room has been updated successfully!')->success();
+        flash('Customer has been updated successfully!')->success();
 
-        return redirect()->route('admin.room.index');
-    }
+        return redirect()->route('admin.customer.index');
+    } 
 
     /**
      * Remove the specified resource from storage.
@@ -111,24 +114,25 @@ class CustomerController extends Controller
      * @param $request
      * @return mixed
      */
-    public function validateRoom($request)
+    public function validateCustomer($request)
     {
         $rules = [
-            'hotel_id' => 'required',
-            'room_number' => 'required|numeric',
-            'room_cost' => 'required|min:2|max:10',
-            'description' => 'required',
-            'max_adults' => 'required|numeric',
-            'max_children' => 'required|numeric',
-            'room_type_id' => 'required',
-            'no_bathrooms' => 'required|numeric'
+            'first_name' => 'required|min:2|max:10',
+            'last_name' => 'required|min:2|max:10',
+            'birthdate' => 'required',
+            'address' => 'required',
+            'postal_code' => 'required',
+            'phone_number' => 'required'
         ];
 
         $validated_data = $request->validate($rules);
-
-        $validated_data['smoking'] = ($request->smoking == null) ? 0 : 1;
-        $validated_data['featured'] = ($request->featured == null) ? 0 : 1;
-
+        $validated_data['first_name'] = $request->first_name;
+        $validated_data['last_name'] = $request->last_name;
+        $validated_data['birthdate'] = $request->birthdate;
+        $validated_data['address'] = $request->address;
+        $validated_data['postal_code'] = $request->postal_code;
+        $validated_data['phone_number'] = $request->phone_number;
+        $validated_data['birthdate'] = Carbon::parse($request->birthdate)->format('Y-m-d');
         return $validated_data;
     }
 }
