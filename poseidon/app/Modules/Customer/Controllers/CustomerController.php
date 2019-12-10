@@ -5,6 +5,9 @@ namespace App\Modules\Customer\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modules\Customer\Models\Customer;
+use App\Modules\Room\Models\Room;
+use App\Modules\Hotel\Models\Hotel;
+use App\Modules\Room\Models\RoomType;
 
 
 class CustomerController extends Controller
@@ -28,9 +31,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $data['hotels'] = Hotel::pluck('name', 'id');
-        $data['types'] = RoomType::pluck('type', 'id');
-        return view("Room::add", $data);
+        return view('Customer::add');
     }
 
     /**
@@ -41,6 +42,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        dd('i am here');
         // Validate Form Inputs
         $validated_data = $this->validateRoom($request);
 
