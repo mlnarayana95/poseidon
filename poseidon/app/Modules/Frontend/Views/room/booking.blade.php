@@ -154,6 +154,13 @@
     </div>
     <div id="content">
         <div class="container">
+
+            @if($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    Provided Credit Card Information was not valid. Please Try Again.
+                </div>
+            @endif
+
             @include('flash::message')
 
             <div class="row">
@@ -249,10 +256,17 @@
             </div>
             <div class="row">
                 <div class="col-md-12 mx-auto pb-3" id="checkout">
-                    @if($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <div>{{ $error }}</div>
-                        @endforeach
+                    @if(Session::get('cc_error') && $errors->any())
+                        Please correct the following errors and try again.
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     @endif
                     <div class="btn btn-dark mb-3">
                         <i class="fas fa-credit-card"></i>

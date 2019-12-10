@@ -47,7 +47,7 @@ class BookingController extends Controller
     {
         $rules = [
             'username' => 'max:255',
-            'cardNumber' => 'required|integer',
+            'cardNumber' => 'required|numeric',
             'month' => 'required|digits:2',
             'year' => 'required|digits:2',
             'cvv' => 'required|digits:3'
@@ -62,10 +62,11 @@ class BookingController extends Controller
         $transaction = new _5bx(setting('5BX_LOGIN_ID'), setting('5BX_API_KEY'));
         $response = $this->processTransaction($transaction, $booking_details);
 
-        if(!empty($response->transaction_response->errors)) { //dd('ok');
-            flash()->error('Provided Credit Card Information was not valid. Please Try Again.');
-            return redirect()->back()->withErrors($response->transaction_response->errors);
+        if(!empty($response->transaction_response->errors)) {
+            return redirect()->back()->withErrors($response->transaction_response->errors)->with('cc_error', 1);
         }
+
+
 
     }
 
