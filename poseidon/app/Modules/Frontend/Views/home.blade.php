@@ -88,16 +88,16 @@
                 <span class="sr-only">Next</span>
             </a>
 
-            <form method="post" action="" id="search-form">
+            <form method="post" action="/search" id="search-form">
                 @csrf
                 <div class="form-row no-margin">
                     <div class="col-md-1">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="checkin">Check In</label>
+                        <label for="checkin">Check In *</label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control datepicker"
-                                   id="checkin">
+                                   id="checkin" name="checkin">
                             <div class="input-group-append">
                                 <span class="input-group-text">
                                     <i class="fa fa-calendar"></i>
@@ -106,10 +106,10 @@
                         </div>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="checkout">Check Out</label>
+                        <label for="checkout">Check Out *</label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control datepicker"
-                                   id="checkout">
+                                   id="checkout" name="checkout">
                             <div class="input-group-append">
                                 <span class="input-group-text">
                                     <i class="fa fa-calendar"></i>
@@ -121,12 +121,12 @@
                     <div class="form-group col-md-2">
                         <label for="adults">Adults</label>
                         <input type="number" class="form-control"
-                               id="adults" placeholder="">
+                               id="adults" name="adults" placeholder="">
                     </div>
                     <div class="form-group col-md-2">
                         <label for="children">Children</label>
                         <input type="number" class="form-control"
-                               id="children" placeholder="">
+                               id="children" name="children" placeholder="">
                     </div>
                     <div class="form-group col-md-2">
                         <label>&nbsp;</label><br>

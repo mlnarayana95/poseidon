@@ -99,6 +99,38 @@ class Room extends MyModel
         return $rooms;
     }
 
+    public function scopeIsNotReserved($query, $checkIn, $checkOut)
+    {
+        $book_start = Carbon::parse($checkIn.' 00:00:00');
+        $book_end = Carbon::parse($checkOut.' 11:59:59');
+
+        $reservedRooms = Booking::whereBetween('checkin_date', [$book_start, $book_end])
+            ->orWhereBetween('checkout_date', [$book_start, $book_end])
+            ->pluck('room_id')
+            ->all();
+
+        return $query->whereNotIn('rooms.id', $reservedRooms);
+    }
+
+    /**
+     * Get the List of Filtered Rooms for Frontend
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function getFilteredList(Array $request)
+    {
+        $rooms = self::with('features')
+            ->join('hotels', 'hotels.id', '=', 'rooms.hotel_id')
+            ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id')
+            ->isNotReserved($request['checkin'], $request['checkout'])
+            ->select('rooms.*',
+                DB::raw('CONCAT_WS(" ", room_types.type, hotels.name, rooms.room_number) AS full_name'),
+                'room_types.type', 'hotels.name as hotel', 'hotels.address')
+            ->paginate(20);
+            //->get();
+
+        return $rooms;
+    }
+
     /**
      * @param int $room_id
      * @param     $checkin

@@ -34,4 +34,15 @@ class RoomController extends Controller
         $data['locations'] = Location::locationsWithCount();
         return view("Frontend::room/list", $data);
     }
+
+    public function search(Request $request)
+    {
+        $data['rooms'] = Room::getFilteredList($request->all());
+        //dd($data['rooms']->toArray());
+        $data['room_types'] = RoomType::typesWithCount();
+        $data['hotels'] = Hotel::hotelsWithCount();
+        $data['features'] = Feature::featuresWithCount();
+        $data['locations'] = Location::locationsWithCount();
+        return view("Frontend::room/search", $data);
+    }
 }
