@@ -109,7 +109,7 @@
     <h1>{{ $hotel->name }}</h1>
   </div>
 
-  <div class="row min-vh-100 align-items-center">
+  <div class="row align-items-center">
             <div class="col-lg-8 offset-lg-2" id="slider">
                 <div id="myCarousel" class="carousel slide shadow">
                     <!-- main slider carousel items -->
@@ -179,12 +179,7 @@
               </div>
   					</div>
           </div>
-
-        </div>
-        <!--/main slider carousel-->
-
-
-  					<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    		<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
               <div class="hotel-distance">
                 <span><strong>Distance from Airport: </strong>{{ $hotel->airport_distance }} <em>with</em> <strong>Transportation Charge: </strong>{{ $hotel->airport_transportation }}</span>
               </div>
