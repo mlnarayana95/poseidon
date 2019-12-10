@@ -1,12 +1,10 @@
 @extends('layouts.admin.main')
-@section('title', 'Update Amenity')
-@section('heading', 'Update Amenity')
+@section('title', 'Update Customer')
+@section('heading', 'Update Customer')
 @section('breadcrumb')
     @parent
     <li>
-        <a href="{{ route('admin.amenity.index') }}">Amenities</a>
-    </li>
-    <li>
+        <a href="{{ route('admin.customer.index') }}">Customers</a>
         <a href="#">Update</a>
     </li>
 @stop
@@ -17,12 +15,12 @@
 
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Amenities Details</h3>
+                <h3 class="box-title">Customers Details</h3>
             </div>
 
-            {!! Form::model($amenity, ['route' => ['admin.amenity.update', $amenity->id], 'method' => 'put', 'class' => 'form-horizontal']) !!}
+            {!! Form::model($customer, ['route' => ['admin.customer.update', $customer['id']], 'method' => 'put', 'class' => 'form-horizontal']) !!}
             <div class="box-body">
-                @include('Amenity::form')
+                @include('Customer::form')
             </div>
             <div class="box-footer">
                 {!! Form::submit('Update', ['class' => 'btn btn-success pull-right']) !!}

@@ -6,7 +6,7 @@
  * Time: 12:18 PM
  */
 
-if (! function_exists('setting')) {
+if (!function_exists('setting')) {
 
     /**
      * @param      $key
@@ -20,30 +20,45 @@ if (! function_exists('setting')) {
         }
 
         if (is_array($key)) {
-            return App\Modules\Setting\Models\SiteSetting::set($key[0], $key[1]);
+            return App\Modules\Setting\Models\SiteSetting::set($key[0],
+                $key[1]);
         }
 
         $value = App\Modules\Setting\Models\SiteSetting::get($key);
 
         return is_null($value) ? value($default) : $value;
     }
+}
+
+if (!function_exists('format_price')) {
+
+    /**
+     * @param int $price
+     * @return string
+     */
+    function format_price($price = 0)
+    {
+        return '$' . number_format($price, 2) . ' CAD';
+    }
 
 }
+
 /**
  * @param $first_name Name of the recipient
  * @param $email email reciever email address
  * @param $view create a view that shows the format of the email
  * @return \Illuminate\Http\RedirectResponse
  */
-function sendEmail($first_name, $email,$view){
-    try{
-        $data = array('name'=>$first_name, 'email'=>$email);
-        Mail::send($view ,$data,function($mesage) use ($data){
-            $mesage->to($data['email'],$data['name'])->subject('Test subject');
+function sendEmail($first_name, $email, $view)
+{
+    try {
+        $data = array('name' => $first_name, 'email' => $email);
+        Mail::send($view, $data, function ($mesage) use ($data) {
+            $mesage->to($data['email'],
+                $data['name'])->subject('Test subject');
 
         });
         return back();
-    }
-    catch(Exception $e){
+    } catch (Exception $e) {
     }
 }

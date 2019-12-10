@@ -2,6 +2,7 @@
 
 namespace App\Modules\Frontend\Controllers;
 
+use Mail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -32,11 +33,13 @@ class ContactController extends Controller
         $validated_data['email'] = $request->email;
         $validated_data['subject'] = $request->subject;
         $validated_data['message'] = $request->message;
+
          $data = array('name'=> $validated_data['name'], 'email'=>$validated_data['email'],
             'subject'=>$validated_data['subject']);
-            Mail::send('login' ,$data,function($message) use ($data){
-                $message->to($data['email'],$data['name'])->subject($subject);
 
+            Mail::raw($validated_data['message'],function($message) use ($data){
+                $message->from($data['email'],$data['name']);
+                $message->to('espko.21@gmail.com','Evgheni')->subject($data['subject']);
             });
         return view("Frontend::contact");
 

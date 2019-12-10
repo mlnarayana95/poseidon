@@ -1,10 +1,10 @@
 @extends('layouts.admin.main')
-@section('title', 'Features')
-@section('heading', 'Features')
+@section('title', 'Amenities')
+@section('heading', 'Amenities')
 @section('breadcrumb')
     @parent
     <li>
-        <a href="#">Features</a>
+        <a href="#">Amenity</a>
     </li>
 @stop
 
@@ -14,41 +14,41 @@
 
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">All Features</h3>
+                <h3 class="box-title">All Amenities</h3>
 
                 <div class="box-tools">
-                    <a href="{{ route('admin.feature.create') }}"
+                    <a href="{{ route('admin.amenity.create') }}"
                        class="btn btn-primary">
-                        <i class="fa fa-plus-circle"></i> Add Feature
+                        <i class="fa fa-plus-circle"></i> Add Amenity
                     </a>
                 </div>
             </div>
             <div class="box-body">
 
-                <table id="features" class="table table-bordered table-hover">
+                <table id="amenities" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>Feature ID</th>
-                        <th>Feature</th>
+                        <th>Amenity ID</th>
+                        <th>Amenity</th>
                         <th>Icon</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
 
-                    @foreach($features as $feature)
+                    @foreach($amenity as $amenity)
                         <tr>
-                            <td>{{ $feature->id }}</td>
-                            <td>{{ $feature->feature }}</td>
-                            <td>{{ $feature->feature_icon }}</td>
+                            <td>{{ $amenity->id }}</td>
+                            <td>{{ $amenity->amenity }}</td>
+                            <td>{{ $amenity->amenity_icon }}</td>
                             <td>
-                                <a href="{{ route('admin.feature.edit', $feature) }}"
+                                <a href="{{ route('admin.amenity.edit', $amenity) }}"
                                    class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
 
 
-                                <a href="{{ route('admin.feature.destroy', $feature) }}" data-method="delete"
+                                <a href="{{ route('admin.amenity.destroy', $amenity) }}" data-method="delete"
                                    data-token="{{csrf_token()}}"
                                    data-confirm="Are you sure?" class="btn btn-danger">
                                     <i class="fa fa-trash"></i> Delete
@@ -67,7 +67,7 @@
 @section('scripts')
     <script>
         $(function () {
-            $('#features').DataTable({
+            $('#amenities').DataTable({
                 'paging': true,
                 'lengthChange': true,
                 'searching': false,
