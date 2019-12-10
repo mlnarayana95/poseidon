@@ -3,6 +3,8 @@
 namespace App\Modules\Room\Models;
 
 use App\Modules\Base\Models\MyModel;
+use App\Modules\Booking\Models\Booking;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
@@ -38,6 +40,14 @@ class Room extends MyModel
     public function features()
     {
         return $this->belongsToMany('App\Modules\Feature\Models\Feature');
+    }
+
+    /**
+     * Get all of the bookings for the room
+     */
+    public function bookings()
+    {
+        return $this->hasMany('App\Modules\Booking\Models\Booking');
     }
 
     /**
@@ -87,5 +97,80 @@ class Room extends MyModel
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
             ->paginate(20);
         return $rooms;
+    }
+
+    public function scopeIsNotReserved($query, $checkIn, $checkOut)
+    {
+        $book_start = Carbon::parse($checkIn.' 00:00:00');
+        $book_end = Carbon::parse($checkOut.' 11:59:59');
+
+        $reservedRooms = Booking::whereBetween('checkin_date', [$book_start, $book_end])
+            ->orWhereBetween('checkout_date', [$book_start, $book_end])
+            ->pluck('room_id')
+            ->all();
+
+        return $query->whereNotIn('rooms.id', $reservedRooms);
+    }
+
+    /**
+     * Get the List of Filtered Rooms for Frontend
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public static function getFilteredList(Array $request)
+    {
+        $rooms = self::with('features')
+            ->join('hotels', 'hotels.id', '=', 'rooms.hotel_id')
+            ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id')
+            ->isNotReserved($request['checkin'], $request['checkout'])
+            ->select('rooms.*',
+                DB::raw('CONCAT_WS(" ", room_types.type, hotels.name, rooms.room_number) AS full_name'),
+                'room_types.type', 'hotels.name as hotel', 'hotels.address')
+            ->paginate(20);
+            //->get();
+
+        return $rooms;
+    }
+
+    /**
+     * @param int $room_id
+     * @param     $checkin
+     * @param     $checkout
+     * @return mixed
+     */
+    public static function calculateRoomCost(int $room_id, $checkin, $checkout)
+    {
+        $room = Room::findOrFail($room_id);
+
+        $date1 = Carbon::createFromFormat('Y-m-d', $checkin);
+        $date2 = Carbon::createFromFormat('Y-m-d', $checkout);
+
+        $data['room_cost'] = $room->room_cost;
+        $data['no_nights'] = $date1->diffInDays($date2);
+        $data['total_fees'] = $room->room_cost * $data['no_nights'];
+        $data['total_tax'] = $data['total_fees'] * (setting('gst_tax') + setting('pst_tax'))/100;
+        $data['total_cost'] = $data['total_fees'] + $data['total_tax'];
+
+        return $data;
+    }
+
+    /**
+     * @param $room_id
+     * @param $checkin
+     * @param $checkout
+     * @return bool
+     */
+    public function isBookingAvailable($room_id, $checkin, $checkout) {
+        $bookings = Booking::where('room_id', $room_id)->all();
+        $from = Carbon::parse($checkin);
+        $to = Carbon::parse($checkout);
+
+        foreach ($bookings as $booking) {
+            $book_start = Carbon::createFromFormat($booking->checkin_date, 'Y-m-d');
+            $book_end = Carbon::createFromFormat($booking->checkout_date, 'Y-m-d');
+            if ($from->between($book_start, $book_end) || $to->between($book_start, $book_end) || ($book_start->between($from, $to) && $book_end->between($from, $to))) {
+                return false;
+            }
+        }
+        return true;
     }
 }

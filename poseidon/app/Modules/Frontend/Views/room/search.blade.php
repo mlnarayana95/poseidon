@@ -19,6 +19,9 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-md-8">
+                <div class="alert alert-info">
+                    Displaying Search Results
+                </div>
                 <div class="list-section">
 
                     @foreach($rooms as $room)
