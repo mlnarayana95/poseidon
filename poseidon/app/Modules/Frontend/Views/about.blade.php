@@ -25,7 +25,7 @@
           Best &amp; central location
         </div>
         <div class="why-info">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Thanks to the hard work of everyone involved, we have set the benchmark for responsible tourism based on high-quality initiatives. Located in unique places and serving excellent and honest gastronomy, we offer a service with an authentic personality that is a reflection of both our team’s spirit and the places we create for you to enjoy some rest and relaxation.
         </div>
       </div>
       <div class="col-md-6 text-center">
@@ -46,7 +46,7 @@
           Satisfaction gauranteed
         </div>
         <div class="why-info">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Our leaders inspire our team to live according to our company values, which include impressing our customers and clients with a truly exceptional experience, innovation, experementing and learning, being accountable and being positive and fun.
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
         <div class="become-member">
           Become a member today
         </div>
-        <button class="join shadow">Join Now</button>
+        <a href="/register" class="join shadow btn btn-main">Join Now</a>
       </div>
   </div>
 </div> 
@@ -71,20 +71,20 @@
     <div class="row about-rows">
       <div class="col-md-4">
         <blockquote>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          Pursuing our values at all times and under a system of family management, our socially responsible contracting translates positively into one of our most important assets: our employees. In Poseidon, we strive for job stability, social services and the conciliation of work and personal life. 
         </blockquote>
         <div class="cite text-right">- Janice D.</div>
       </div>
       <div class="col-md-4">
         <blockquote>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          The Poseidon Group is present in different places of the world, we are aware of and form part of diversity. We therefore understand and respect the plurality of views, culture and sensitivities among our workforce. We are a great family that fosters equal opportunities and which is inclusive and integrating. 
         </blockquote>
         <div class="cite text-right">- Peter P.</div>
 
       </div>
       <div class="col-md-4">
         <blockquote>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          The principle that distinguishes Poseidon Group is based on the service its people offer. We therefore favour the personal and professional growth of our payroll, we invest in specific technical training in each area and constantly improve our Human Capital. 
         </blockquote>
         <div class="cite text-right">- Steve G.</div>
       </div>
@@ -97,7 +97,8 @@
     <div class="row about-rows">
       <div class="col-md-12">
         <div class="text-center who-we-are">Who we are</div>
-        <div class="pos-desc text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="pos-desc text-center">Poseidon is owned by Lux Group Limited, a privately-owned business based in Melbourne Luxury Escapes is owned by Lux Group Limited, a privately-owned business based in Melbourne which was founded in 2009 by Jeremy Same and Adam Schwab. Lux Group has more than 150 team members globally, with major offices in Sydney, Melbourne, Bangalore, Singapore and San Francisco. In addition to Luxury Escapes, the Lux Group is a joint venture partner with the Catch 
+                Group in Scoopon, Cudo and TreatMe.</div>
       </div>  
     </div>
   </div>

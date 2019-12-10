@@ -54,13 +54,15 @@
               <div class="form-group">
                 <label for="inputAddress" class="required">Subject</label>
                 <input type="text" class="form-control" 
-                id="inputAddress" placeholder="Subject" name="subject"
+                id="inputAddress" placeholder="Subject" name="subject" 
+                value="{{ old('subject') }}"
                 required>
               </div>
               <div class="form-group">
                 <label for="inputAddress2"  class="required">Message</label>
 
-                <textarea class="form-control" name="message" id="message" required></textarea>
+                <textarea class="form-control" name="message" 
+                value="{{ old('massage') }}" id="message" required></textarea>
               </div>
 
               <button type="submit" class="btn btn-danger">Send Message</button>
