@@ -3,6 +3,7 @@
 namespace App\Modules\Room\Models;
 
 use App\Modules\Base\Models\MyModel;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
@@ -87,5 +88,20 @@ class Room extends MyModel
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
             ->paginate(20);
         return $rooms;
+    }
+
+    public static function calculateRoomCost(int $room_id, $checkin, $checkout)
+    {
+        $room = Room::findOrFail($room_id);
+
+        $date1 = Carbon::createFromFormat('Y-m-d', $checkin);
+        $date2 = Carbon::createFromFormat('Y-m-d', $checkout);
+
+        $data['no_nights'] = $date1->diffInDays($date2);
+        $data['total_fees'] = $room->room_cost * $data['no_nights'];
+        $data['total_tax'] = $data['total_fees'] * (setting('gst_tax') + setting('pst_tax'))/100;
+        $data['total_cost'] = $data['total_fees'] + $data['total_tax'];
+
+        return $data;
     }
 }

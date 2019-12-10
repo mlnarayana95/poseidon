@@ -63,4 +63,27 @@ return [
             ]
         ]
     ],
+    'payment' => [
+
+        'title' => 'Payment Gateway',
+        'desc' => 'Payment Gateway settings for app',
+        'icon' => 'fa fa-money',
+
+        'elements' => [
+            [
+                'type' => 'text',
+                'data' => 'string',
+                'name' => '5BX_LOGIN_ID',
+                'label' => '5BX LOGIN ID',
+                'rules' => 'required'
+            ],
+            [
+            'type' => 'text',
+            'data' => 'string',
+            'name' => '5BX_API_KEY',
+            'label' => '5BX API KEY',
+            'rules' => 'required'
+        ],
+        ]
+    ],
 ];

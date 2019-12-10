@@ -7,6 +7,47 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.img-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.btn-main {
+    border-radius: 0;
+    background-color: #F68500;
+    color: #fff;
+    border: none;
+}
+
+.form-group.has-error label {
+    color: #dd4b39;
+}
+
+.form-group.has-error .form-control, .form-group.has-error .input-group-addon {
+    border-color: #dd4b39;
+    box-shadow: none;
+}
+
+.error-message {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+dd, dt {
+    margin-bottom: 0.7rem;
+}
+
 ul.nav li:first-child {
     border-right: 1px solid #333;
 }

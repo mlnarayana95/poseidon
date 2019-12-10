@@ -28,3 +28,15 @@ if (! function_exists('setting')) {
         return is_null($value) ? value($default) : $value;
     }
 }
+
+if (! function_exists('format_price')) {
+
+    /**
+     * @param int $price
+     * @return string
+     */
+    function format_price($price = 0)
+    {
+        return '$'.number_format($price, 2).' CAD';
+    }
+}

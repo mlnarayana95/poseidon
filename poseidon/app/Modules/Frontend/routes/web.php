@@ -22,4 +22,5 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
     Route::post('update_profile','profileController@update')->name('update');
 
     Route::get('booking','BookingController@index');
+    Route::post('booking','BookingController@save');
 });

@@ -44,7 +44,7 @@
 
                                 <div class="mb-2">
                                     @foreach($room->features->take(5) as $feature)
-                                        <i class="fa fa-snowflake"></i> {{ $feature->feature }}
+                                        <i class="fa fa-{{ $feature->feature_icon }}"></i> {{ $feature->feature }}
                                     @endforeach
                                 </div>
 
