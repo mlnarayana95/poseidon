@@ -21,7 +21,6 @@ class ProfileController
     public function show()
     {
         $person = DB::table('persons')->where('user_id',Session::get('user_id'))->first();
-        dd($person);
         return view("Frontend::profile", compact('person'));
     }
     public function load()

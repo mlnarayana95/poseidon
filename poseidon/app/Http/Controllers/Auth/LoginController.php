@@ -54,7 +54,7 @@ class LoginController extends Controller
                 //$info = $request->session()->get('user_id');
                 /*Set the session one the user is loggedin*/
                 //config(['session.lifetime' => 1440]);
-                return redirect()->route('/');
+                return redirect('/profile');
             }
             else{
                 return $this->redirect()->route('/');
