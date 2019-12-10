@@ -44,6 +44,12 @@ class BookingController extends Controller
         return view("Frontend::room/booking", $data);
     }
 
+    /**
+     * Save Booking for the Logged In User
+     * @todo work on the middleware
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function save(Request $request)
     {
         $rules = [
