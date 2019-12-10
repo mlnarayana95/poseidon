@@ -1,6 +1,6 @@
 @extends('layouts.admin.main')
-@section('title', 'Amenity')
-@section('heading', 'Amenity')
+@section('title', 'Amenities')
+@section('heading', 'Amenities')
 @section('breadcrumb')
     @parent
     <li>
@@ -14,7 +14,7 @@
 
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">All Amenityes</h3>
+                <h3 class="box-title">All Amenities</h3>
 
                 <div class="box-tools">
                     <a href="{{ route('admin.amenity.create') }}"
@@ -25,7 +25,7 @@
             </div>
             <div class="box-body">
 
-                <table id="amenityes" class="table table-bordered table-hover">
+                <table id="amenities" class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>Amenity ID</th>
@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
 
-                    @foreach($amenityes as $amenity)
+                    @foreach($amenity as $amenity)
                         <tr>
                             <td>{{ $amenity->id }}</td>
                             <td>{{ $amenity->amenity }}</td>
@@ -67,7 +67,7 @@
 @section('scripts')
     <script>
         $(function () {
-            $('#amenityes').DataTable({
+            $('#amenities').DataTable({
                 'paging': true,
                 'lengthChange': true,
                 'searching': false,

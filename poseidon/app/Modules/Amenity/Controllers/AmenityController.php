@@ -2,7 +2,7 @@
 
 namespace App\Modules\Amenity\Controllers;
 
-use App\Modules\Feature\Models\Feature;
+use App\Modules\Amenity\Models\Amenity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

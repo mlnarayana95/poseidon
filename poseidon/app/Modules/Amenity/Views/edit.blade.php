@@ -4,7 +4,7 @@
 @section('breadcrumb')
     @parent
     <li>
-        <a href="{{ route('admin.amenity.index') }}">Amenityes</a>
+        <a href="{{ route('admin.amenity.index') }}">Amenities</a>
     </li>
     <li>
         <a href="#">Update</a>
@@ -17,10 +17,10 @@
 
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Amenityes Details</h3>
+                <h3 class="box-title">Amenities Details</h3>
             </div>
 
-            {!! Form::model($Amenity, ['route' => ['admin.amenity.update', $amenity->id], 'method' => 'put', 'class' => 'form-horizontal']) !!}
+            {!! Form::model($amenity, ['route' => ['admin.amenity.update', $amenity->id], 'method' => 'put', 'class' => 'form-horizontal']) !!}
             <div class="box-body">
                 @include('Amenity::form')
             </div>
