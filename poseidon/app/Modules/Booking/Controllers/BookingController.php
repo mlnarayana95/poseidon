@@ -3,6 +3,7 @@
 namespace App\Modules\Booking\Controllers;
 
 
+use App\Modules\User\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DateTime;

@@ -47,7 +47,7 @@ class LoginController extends Controller
         $this->validate($request,['email'=>'required|email','password'=>'required']);
         if(auth()->attempt(array('email'=>$input['email'],'password'=>$input['password'])))
         {
-            if(auth()->user()->user_type==1)
+            if(auth()->user()->user_type==1 && !empty(auth()->user()->email_verified_at))
             {
                 session(['user_id' => auth()->user()->id]);
                 /*how to get the info from the session variable*/
@@ -57,7 +57,7 @@ class LoginController extends Controller
                 return redirect('/profile');
             }
             else{
-                return $this->redirect()->route('/');
+                return redirect::to('verify');
             }
         }
         else{
