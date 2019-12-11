@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -45,24 +45,28 @@ class LoginController extends Controller
     {
         $input = $request->all();
         $this->validate($request,['email'=>'required|email','password'=>'required']);
+
         if(auth()->attempt(array('email'=>$input['email'],'password'=>$input['password'])))
         {
-            if(auth()->user()->user_type==1 && !empty(auth()->user()->email_verified_at))
+            if(request('ref') == 'booking' && session('booking_url') != null)
+                return redirect()->to(session('booking_url'));
+
+            // Customer
+            if(auth()->user()->user_type == 0)
             {
                 session(['user_id' => auth()->user()->id]);
-                /*how to get the info from the session variable*/
-                //$info = $request->session()->get('user_id');
-                /*Set the session one the user is loggedin*/
-                //config(['session.lifetime' => 1440]);
-                return redirect('/profile');
+                // http://poseidon.local/booking?room_id=1&adults=&children=&dates=2019-12-18+to+2019-12-20
+
+                return redirect()->intended('/profile');
             }
+            // Admin
             else{
-                return redirect::to('verify');
+                return redirect()->to('/admin/dashboard');
             }
         }
         else{
 
-            return redirect::to('/login')->with('message','Email and password invalid');
+            return redirect()->to('/login')->with('message','Email and password invalid! Or the Email address has not been verified.');
         }
 
     }
