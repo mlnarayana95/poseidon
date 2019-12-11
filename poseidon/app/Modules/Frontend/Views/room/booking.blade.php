@@ -143,11 +143,12 @@
                 <div class="col-md">
                     <h4>Total for Stay</h4>
                     <h3 class="text-left">
-                        {{ format_price((double)$room->room_cost * (double)$other_info['no_nights']) }}
+                        {{ format_price($cost['total_cost']) }}
+                        <span class="text-muted text-sm">(All Tax Inclusive)</span>
                     </h3>
                 </div>
                 <div class="col-md text-right">
-                    <a class="btn btn-dark" href="#">Continue</a>
+                    <a class="btn btn-dark" href="#details">Continue</a>
                 </div>
             </div>
         </div>
@@ -157,7 +158,8 @@
 
             @if($errors->any())
                 <div class="alert alert-danger" role="alert">
-                    Provided Credit Card Information was not valid. Please Try Again.
+                    Provided Credit Card Information was not valid. Please Try
+                    Again.
                 </div>
             @endif
 
@@ -215,7 +217,7 @@
                 </div>
 
             </div>
-            <div class="row">
+            <div class="row" id="details">
                 <div class="col-md-12">
                     <h1>Rate Details</h1>
 
@@ -232,22 +234,27 @@
                         <dd class="col-6 text-right">{{ format_price($room->room_cost) }}</dd>
 
                         <dt class="col-6">GST Tax:</dt>
-                        <dd class="col-6 text-right">{{ format_price(setting('gst_tax') * $room->room_cost) }}</dd>
+                        <dd class="col-6 text-right">{{ format_price($cost['total_gst']) }}</dd>
 
                         <dt class="col-6 border-bottom">PST Tax:</dt>
-                        <dd class="col-6 border-bottom text-right">{{ format_price(setting('pst_tax') * $room->room_cost) }}</dd>
+                        <dd class="col-6 border-bottom text-right">{{ format_price($cost['total_pst']) }}</dd>
 
                         <dt class="col-6 value">Total for Stay:</dt>
                         <dd class="col-6 text-right value">
-                            {{ format_price(
-                        (setting('gst_tax') * $room->room_cost)+
-                        (setting('pst_tax') * $room->room_cost)+
-                        $room->room_cost)}}
+                            {{ format_price($cost['total_cost'])}}
                         </dd>
                     </dl>
 
                 </div>
             </div>
+
+            @guest
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Enter Your Details</h1>
+                </div>
+            </div>
+            @endguest
 
             <div class="row">
                 <div class="col-md-12">
@@ -276,9 +283,7 @@
                         @csrf
 
                         <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
-                            <label for="username">Card holder
-                                name
-                            </label>
+                            <label for="username">Card holder name</label>
                             {!!Form::text('username', null, array('class' => 'form-control', 'id'=>'username', 'placeholder' => 'Jon Doe'))!!}
                             @if($errors->has('username'))
                                 {!! $errors->first('username', '<label class="control-label error-message"
@@ -325,7 +330,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group @if($errors->has('cvv')) {{'has-error'}} @endif">
                                     <label for="cvv" data-toggle="tooltip"
-                                         title="Three-digits code on the back of your card">
+                                           title="Three-digits code on the back of your card">
                                         CVV
                                         <i class="fa fa-question-circle"></i>
                                     </label>

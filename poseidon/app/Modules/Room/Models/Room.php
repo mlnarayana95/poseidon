@@ -55,7 +55,7 @@ class Room extends MyModel
      */
     public function images()
     {
-        return $this->belongsToMany('App\Modules\Room\Models\Image');
+        return $this->belongsToMany('App\Modules\Base\Models\Image');
     }
 
     /**
@@ -89,16 +89,27 @@ class Room extends MyModel
      */
     public static function getList()
     {
-        $rooms = self::with('features')
+        $rooms = self::with('features', 'images')
             ->join('hotels', 'hotels.id', '=', 'rooms.hotel_id')
             ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id')
+            //->join('image_room', 'image_room.room_id', '=','rooms.id')
+            //->join('images', 'image_room.image_id', '=','images.id')
             ->select('rooms.*',
                 DB::raw('CONCAT_WS(" ", room_types.type, hotels.name, rooms.room_number) AS full_name'),
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
+            //->groupby('image_room.room_id')
+            //->orderby('images.id')
             ->paginate(20);
         return $rooms;
     }
 
+    /**
+     * Available rooms
+     * @param $query
+     * @param $checkIn
+     * @param $checkOut
+     * @return mixed
+     */
     public function scopeIsNotReserved($query, $checkIn, $checkOut)
     {
         $book_start = Carbon::parse($checkIn.' 00:00:00');
@@ -147,7 +158,9 @@ class Room extends MyModel
         $data['room_cost'] = $room->room_cost;
         $data['no_nights'] = $date1->diffInDays($date2);
         $data['total_fees'] = $room->room_cost * $data['no_nights'];
-        $data['total_tax'] = $data['total_fees'] * (setting('gst_tax') + setting('pst_tax'))/100;
+        $data['total_gst'] = $data['total_fees'] * setting('gst_tax')/100;
+        $data['total_pst'] = $data['total_fees'] * setting('pst_tax')/100;
+        $data['total_tax'] = $data['total_gst'] + $data['total_pst'];
         $data['total_cost'] = $data['total_fees'] + $data['total_tax'];
 
         return $data;

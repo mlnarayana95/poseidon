@@ -11,6 +11,7 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
     Route::get('faq','FaqController@index');
 
     Route::get('room', 'RoomController@index');
+    Route::get('room/{id}', 'RoomController@show');
     Route::post('search', 'RoomController@search');
 
     Route::get('hotels', 'HotelController@index');
@@ -22,4 +23,6 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
 
     Route::get('booking','BookingController@index');
     Route::post('booking','BookingController@save');
+
+    Route::get('/profile/bookings','BookingController@show');
 });
