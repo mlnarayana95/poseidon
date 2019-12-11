@@ -20,11 +20,11 @@
                     <div class="foot-header">Quick Links</div>
                     <div>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Hotel</a></li>
-                            <li><a href="#">Popular Destinations</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">FAQs</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/hotels">Hotel</a></li>
+                            <li><a href="/hotels">Popular Destinations</a></li>
+                            <li><a href="/contact">Contact Us</a></li>
+                            <li><a href="/faq">FAQs</a></li>
                         </ul>
                     </div>
 
@@ -38,11 +38,12 @@
                                 Winnipeg, MB<br/>
                                 Canada
                             </li>
-                            <li><i class="fas fa-phone-alt fa-lg"></i> (204) 847
-                                - 7264
+                            <li><i class="fas fa-phone-alt fa-lg"></i><a href="tel:713-992-0916">(204) 847
+                                - 7264</a>
                             </li>
                             <li><i class="fas fa-envelope fa-lg"></i>
-                                contact@poseidon.com
+                              <a href="mailto:contact@poseidon.com" target="_blank">contact@poseidon.com</a>
+                                
                             </li>
                         </ul>
                     </div>
