@@ -649,6 +649,123 @@ img.award {
 
 /* About Us page End: Katie */
 
+/* Hotels Details Start: Katie */
+#myCarousel .list-inline {
+white-space:nowrap;
+overflow-x:auto;
+}
+
+#myCarousel .carousel-indicators {
+position: static;
+left: initial;
+width: initial;
+margin-left: initial;
+}
+
+#myCarousel .carousel-indicators > li {
+width: initial;
+height: initial;
+text-indent: initial;
+}
+
+#myCarousel .carousel-indicators > li.active img {
+opacity: 1;
+}
+
+#myCarousel .carousel-inner{
+  max-height: 467px;
+}
+
+#myCarousel{
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+section .section-title {
+  text-align: center;
+  color: #007b5e;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+#tabs{
+  color: #000;
+}
+
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #161527;
+  background-color: transparent;
+  border-color: transparent transparent #f3f3f3;
+  border-bottom: 4px solid !important;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#tabs .nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  color: #161527;
+  font-size: 20px;
+}
+
+.hotel-name{
+  padding: 25px;
+}
+
+.location-icon.fas{
+  color: #161527;
+}
+
+.hotel-location{
+  font-size: 1.4em;
+color: #16152;
+}
+
+.tab-icons.fas{
+  color: #161527;
+}
+
+#tabs span{
+  color: #000;
+}
+
+#nav-tab{
+  margin-bottom: 30px;
+}
+#tabs .check-in-out, .hotel-location{
+  padding: 10px 0;
+}
+
+#tabs .hotel-description{
+  letter-spacing: .3px;
+  padding: 20px 0;
+}
+
+#tabs .hotel-phone{
+  margin-bottom: 40px;
+}
+
+#tabs .tab-container{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.looped-info{
+  margin-bottom: 10px;
+}
+
+#hotel-page .looped-icon.fa{
+  padding-right: 10px;
+}
+
+.carousel-inner img{
+  max-height: 349px;
+  width: 100%;
+}
+
+/* Hotels Styles Details End */
+
 
 /* media Queires*/
 
