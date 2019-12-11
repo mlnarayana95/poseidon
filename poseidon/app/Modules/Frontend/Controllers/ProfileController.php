@@ -2,7 +2,6 @@
 
 
 namespace App\Modules\Frontend\Controllers;
-use App\Modules\Booking\Models\Booking;
 use App\Modules\Person\Models\Person;
 use Illuminate\Http\Request;
 use DB;

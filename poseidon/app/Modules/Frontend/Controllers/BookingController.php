@@ -90,8 +90,7 @@ class BookingController extends Controller
         //$user_id = Session::get('user_id');
         $user_id=1;
         $bookings = Booking::with('room')->where('user_id', $user_id)->get();
-        dd($bookings->toArray());
-        return redirect('/booking',compact($bookings));
+        return view('Frontend::booking',compact('bookings'));
     }
 
     function processTransaction(_5bx $transaction, Array $booking_details)
