@@ -8,10 +8,10 @@
             <div class="navs">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/login">Login</a>
+                        <a class="nav-link active" href="#">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/regiser">Register</a>
+                        <a class="nav-link" href="#">Register</a>
                     </li>
                     <li class="nav-item">
                         <img src="/images/fbook.png" alt="fbook">
