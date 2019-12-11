@@ -14,13 +14,20 @@ return [
 
         'elements' => [
             [
-                'type' => 'text', // input fields type
-                'data' => 'string', // data type, string, int, boolean
-                'name' => 'app_name', // unique name for field
-                'label' => 'Site Name', // you know what label it is
-                'rules' => 'required|min:2|max:50', // validation rule of laravel
-                'class' => 'w-auto px-2', // any class for input
-                'value' => 'Poseidon' // default value if you want
+                'type' => 'text',
+                // input fields type
+                'data' => 'string',
+                // data type, string, int, boolean
+                'name' => 'app_name',
+                // unique name for field
+                'label' => 'Site Name',
+                // you know what label it is
+                'rules' => 'required|min:2|max:50',
+                // validation rule of laravel
+                'class' => 'w-auto px-2',
+                // any class for input
+                'value' => 'Poseidon'
+                // default value if you want
             ]
         ]
     ],
@@ -78,12 +85,42 @@ return [
                 'rules' => 'required'
             ],
             [
-            'type' => 'text',
-            'data' => 'string',
-            'name' => '5BX_API_KEY',
-            'label' => '5BX API KEY',
-            'rules' => 'required'
-        ],
+                'type' => 'text',
+                'data' => 'string',
+                'name' => '5BX_API_KEY',
+                'label' => '5BX API KEY',
+                'rules' => 'required'
+            ],
+        ]
+    ],
+    'social_media' => [
+
+        'title' => 'Social Media',
+        'desc' => 'Social Media settings for app',
+        'icon' => 'fa fa-wechat',
+
+        'elements' => [
+            [
+                'type' => 'text',
+                'data' => 'string',
+                'name' => 'facebook',
+                'label' => 'Facebook Link',
+                'rules' => 'required|url'
+            ],
+            [
+                'type' => 'text',
+                'data' => 'string',
+                'name' => 'twitter',
+                'label' => 'Twitter Link',
+                'rules' => 'required|url'
+            ],
+            [
+                'type' => 'text',
+                'data' => 'string',
+                'name' => 'instagram',
+                'label' => 'Instagram Link',
+                'rules' => 'required|url'
+            ]
         ]
     ],
 ];
