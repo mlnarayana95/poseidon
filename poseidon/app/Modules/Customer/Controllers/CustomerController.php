@@ -5,6 +5,7 @@ namespace App\Modules\Customer\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modules\Customer\Models\Customer;
+use App\Modules\User\Models\User;
 use App\Modules\Room\Models\Room;
 use App\Modules\Hotel\Models\Hotel;
 use App\Modules\Room\Models\RoomType;
@@ -21,7 +22,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $data['customers'] = Customer::with('user')->get();
+        $data['customers'] = Customer::with('user')->whereHas('user', function ($query) {
+                $query->where('user_type', '!=', null);
+            })->get();
+
         return view("Customer::index", $data);
     }
 
@@ -32,7 +36,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('Customer::add');
+        //return view('Customer::add');
     }
 
     /**
@@ -44,12 +48,12 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateCustomer($request);
-        $validated_data['user_id'] = 1;
+        /*$validated_data = $this->validateCustomer($request);
+        
         Customer::create($validated_data);  
         flash('Customer has been created successfully!')->success();
 
-        return redirect()->route('admin.customer.index');
+        return redirect()->route('admin.customer.index');*/
     }
 
     /**
@@ -74,7 +78,7 @@ class CustomerController extends Controller
         $data['customer'] = Customer::find($id);
         $customer = $data['customer']->toArray();
         $birthdate = $customer['birthdate'];
-        $customer['birthdate'] = Carbon::parse($birthdate)->format('m d Y');
+        $customer['birthdate'] = Carbon::parse($birthdate)->format('m/d/Y');
         $data['customer'] = $customer;
         return view("Customer::edit", $data);
     }
@@ -90,7 +94,6 @@ class CustomerController extends Controller
     {
         // Validate Form Inputs
         $validated_data = $this->validateCustomer($request);
-
         Customer::find($id)->update($validated_data);
 
         flash('Customer has been updated successfully!')->success();
@@ -106,7 +109,9 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        flash('User has been deleted successfully!')->success();
+        return redirect()->route('admin.customer.index');
     }
 
     /**
@@ -132,6 +137,7 @@ class CustomerController extends Controller
         $validated_data['address'] = $request->address;
         $validated_data['postal_code'] = $request->postal_code;
         $validated_data['phone_number'] = $request->phone_number;
+        $validated_data['gender'] = $request->gender;
         $validated_data['birthdate'] = Carbon::parse($request->birthdate)->format('Y-m-d');
         return $validated_data;
     }
