@@ -9,6 +9,11 @@ class Amenity extends Model {
     // Disable TimeStamps
     public $timestamps = false;
 
+    protected $fillable = [
+        'amenity',
+        'amenity_icon'
+    ];
+
     /**
      * Get all of the hotels for the amenity.
      */
