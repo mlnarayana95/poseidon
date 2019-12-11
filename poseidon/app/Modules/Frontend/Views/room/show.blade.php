@@ -49,7 +49,7 @@
     background-color: transparent;
     border-color: transparent transparent #f3f3f3;
     border-bottom: 4px solid !important;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     }
 
@@ -58,7 +58,7 @@
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
     color: #161527;
-    font-size: 20px;
+    font-size: 18px;
     }
 
     .tab-icons.fas{
@@ -106,6 +106,45 @@
     overflow-x: hidden;
     }
 
+    .hor-line {
+    width: 1px;
+    height: 70px;
+    display: block;
+    border-right: 1px solid rgba(166,166,166,0.2);
+    margin: 0px 24px;
+    }
+
+    .pos-rel {
+    position: relative;
+    }
+
+    .top-triangle::after {
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 14px;
+    top: -5px;
+    left: 10%;
+    background-color: #fff;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-shadow: 1px -1px 0px 0px rgba(166,166,166,0.2), 0px 0px 0px 0px rgba(166,166,166,0.2);
+    z-index: 2;
+    }
+
+    .check-dates {
+    position: relative;
+    background: #fff;
+    border: solid 1px rgba(166,166,166,0.2);
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #222;
+    z-index: 1;
+    }
 
 @endsection
 
@@ -117,11 +156,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="hotel-name mb-3">
-                    <h1 class="title text-left mb-0">{{ $room->type->type }}
-                        <small>{{ $room->hotel->name }}
-                            #{{ $room->room_number }}</small>
-                    </h1>
-                    <i class="fa fa-map-marker"></i> {{ $room->hotel->address }}
+                        <h1 class="title text-left mb-0">{{ $room->type->type }}
+                            <small>{{ $room->hotel->name }}
+                                #{{ $room->room_number }}</small>
+                        </h1>
+                        <i class="fa fa-map-marker"></i> {{ $room->hotel->address }}
                     </div>
                     <div id="slider">
                         <div id="myCarousel" class="carousel slide shadow">
@@ -183,23 +222,27 @@
                             <div class="row">
                                 <div class="col-md-12 ">
                                     <nav>
-                                        <div class="nav nav-tabs nav-fill" id="nav-tab"
+                                        <div class="nav nav-tabs nav-fill"
+                                             id="nav-tab"
                                              role="tablist">
                                             <a class="nav-item nav-link active"
-                                               id="nav-home-tab" data-toggle="tab"
+                                               id="nav-home-tab"
+                                               data-toggle="tab"
                                                href="#nav-home" role="tab"
                                                aria-controls="nav-home"
                                                aria-selected="true"><i
                                                         class="fas fa-hotel fa-sm tab-icons"></i>Overview</a>
                                             <a class="nav-item nav-link"
-                                               id="nav-profile-tab" data-toggle="tab"
+                                               id="nav-profile-tab"
+                                               data-toggle="tab"
                                                href="#nav-profile" role="tab"
                                                aria-controls="nav-profile"
                                                aria-selected="false"><i
                                                         class="far fa-check-square fa-sm tab-icons"></i>
                                                 Amenities & Features</a>
                                             <a class="nav-item nav-link"
-                                               id="nav-contact-tab" data-toggle="tab"
+                                               id="nav-contact-tab"
+                                               data-toggle="tab"
                                                href="#nav-contact" role="tab"
                                                aria-controls="nav-contact"
                                                aria-selected="false"><i
@@ -208,44 +251,88 @@
                                     </nav>
                                     <div class="tab-content py-3 px-3 px-sm-0"
                                          id="nav-tabContent">
-                                        <div class="tab-pane fade show active" id="nav-home"
-                                             role="tabpanel" aria-labelledby="nav-home-tab">
+                                        <div class="tab-pane fade show active"
+                                             id="nav-home"
+                                             role="tabpanel"
+                                             aria-labelledby="nav-home-tab">
                                             <div class="hotel-description">{{ $room->description}}</div>
+
+                                            <div class="title">
+                                                Hotel Overview -
+                                                <a href="/hotel/{{ $room->hotel->slug }}">
+                                                    {{ $room->hotel->name }}
+                                                </a>
+                                            </div>
+                                            <div class="hotel-description">
+                                                {{ $room->hotel->description}}
+                                            </div>
                                             <div class="check-in-out">
-                                                <span><strong>Check in - </strong>{{ $room->hotel->checkin_time }}</span>
-                                                <br>
-                                                <span><strong>Check out - </strong>{{ $room->hotel->checkout_time }}</span>
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <div class="mb-2">
+                                                            <strong>Check-in
+                                                                Time</strong>
+                                                        </div>
+                                                        <div class="pos-rel">
+                                                            <div class="top-triangle"></div>
+                                                            <div class="check-dates">
+                                                                {{ format_time($room->hotel->checkin_time) }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hor-line"></div>
+                                                    <div>
+                                                        <div class="mb-2">
+                                                            <strong>Check-out
+                                                                Time</strong>
+                                                        </div>
+                                                        <div class="pos-rel">
+                                                            <div class="top-triangle"></div>
+                                                            <div class="check-dates">
+                                                                {{ format_time($room->hotel->checkout_time) }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="hotel-location">{{ $room->hotel->address}}</div>
                                             <div class="hotel-phone">
                                                 <span><em>Phone number: </em>{{ $room->hotel->phone_number }}</span>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="nav-profile"
+                                        <div class="tab-pane fade"
+                                             id="nav-profile"
                                              role="tabpanel"
                                              aria-labelledby="nav-profile-tab">
                                             <div class="col-md-12">
 
-                                                <div class="title">Hotel Amenities</div>
+                                                <div class="title">Hotel
+                                                    Amenities
+                                                </div>
                                                 <div class="hotel-amenities">
                                                     @foreach($room->hotel->amenities as $amenity)
-                                                        <div class="looped-info"><i
+                                                        <div class="looped-info">
+                                                            <i
                                                                     class="fa fa-{{ $amenity->amenity_icon }} looped-icon"></i>{{ $amenity->amenity }}
                                                         </div>
                                                     @endforeach
                                                 </div>
 
-                                                <div class="title">Room Features</div>
+                                                <div class="title">Room
+                                                    Features
+                                                </div>
                                                 <div class="hotel-amenities">
                                                     @foreach($room->features as $feature)
-                                                        <div class="looped-info"><i
+                                                        <div class="looped-info">
+                                                            <i
                                                                     class="fa fa-{{ $feature->feature_icon }} looped-icon"></i>{{ $feature->feature }}
                                                         </div>
                                                     @endforeach
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="nav-contact"
+                                        <div class="tab-pane fade"
+                                             id="nav-contact"
                                              role="tabpanel"
                                              aria-labelledby="nav-contact-tab">
                                             <div class="hotel-distance">
@@ -265,34 +352,57 @@
 
                     <div class="card mt-4 mb-4">
                         <div class="card-header bg-orange">Booking Details</div>
-                        <img class="card-img" src="/images/rooms/{{ $room->images->first()->file_name }}" alt="Vans">
-                        <div class="card-img-overlay d-flex justify-content-end">
-                            <a href="#" class="card-link text-danger like">
-                                <i class="fas fa-heart"></i>
-                            </a>
-                        </div>
+                        <img class="card-img"
+                             src="/images/rooms/{{ $room->images->first()->file_name }}"
+                             alt="Vans">
                         <div class="card-body">
-                            <h4 class="card-title">Vans Sk8-Hi MTE Shoes</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Style: VA33TXRJ5</h6>
-                            <p class="card-text">...</p>
-                            <div class="options d-flex flex-fill">
-                                <select class="custom-select mr-1">
-                                    <option selected>Color</option>
-                                    <option value="1">Green</option>
-                                    <option value="2">Blue</option>
-                                    <option value="3">Red</option>
-                                </select>
-                                <select class="custom-select ml-1">
-                                    <option selected>Size</option>
-                                    <option value="1">41</option>
-                                    <option value="2">42</option>
-                                    <option value="3">43</option>
-                                </select>
+                            <h4 class="card-title title">{{ $room->type->type }}
+                                <small>#{{ $room->room_number }}</small>
+                            </h4>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <i class="fa fa-hotel"></i>
+                                {{ $room->hotel->name }}
+                            </h6>
+                            <p class="card-text">
+                                Starting from
+                                <span class="text-orange text-big">
+                                    {{ format_price($room->room_cost) }}
+                                </span>
+                                per night <br/>
+                                <span class="text-muted text-sm">* Exclusive of all taxes</span>
+                            </p>
+
+                            {!! Form::open(['url' => '/booking', 'method' => 'get', 'autocomplete' => 'off']) !!}
+
+                            {{ Form::hidden('room_id', $room->id) }}
+                            <div class="options d-flex flex-fill mb-3">
+                                @php $adult_range = ['' => 'Adults'] + range(1, $room->max_adults); @endphp
+                                {{ Form::select('adults', $adult_range, null, ['class' => "custom-select mr-1"]) }}
+
+                                @php $children_range = ['' => 'Children'] + range(0, $room->max_children); @endphp
+                                {{ Form::select('children', $children_range, null, ['class' => "custom-select mr-1"]) }}
                             </div>
+
+                            <div class="form-group">
+
+                                <div class="input-group mb-3">
+                                    {{ Form::text('dates', null, ['class' => "form-control", 'id' => 'picker', 'placeholder' => 'Booking Dates']) }}
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+
                             <div class="buy d-flex justify-content-between align-items-center">
-                                <div class="price text-success"><h5 class="mt-4">$125</h5></div>
-                                <a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                                <button type="submit"
+                                   class="btn btn-block btn-danger mt-3"><i
+                                            class="fas fa-book"></i> Proceed To
+                                    Booking</button>
                             </div>
+                            {!! Form::close() !!}
                         </div>
                     </div>
 
@@ -301,4 +411,97 @@
         </div>
     </div> <!-- hotel-page div -->
 
+@endsection
+
+@section('scripts')
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
+
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <script>
+        function getDates(ranges) {
+            var dateArray = [];
+
+            $.each(ranges, function (index, value) {
+                var currentDate = moment(value[0]);
+                var stopDate = moment(value[1]);
+                while (currentDate <= stopDate) {
+                    dateArray.push(moment(currentDate).format('YYYY-MM-DD'));
+                    currentDate = moment(currentDate).add(1, 'days');
+                }
+            });
+
+            return dateArray;
+        }
+
+        // Define the disabled date array
+        var disabledArr = getDates(<?= $booked_dates ?>);//getDates([["12/06/2019", "12/08/2019"], ["12/12/2019", "12/15/2019"]]);
+
+        // Function to draw the calendar accounting the disabled dates.
+        $("#picker").daterangepicker({
+                autoApply: true,
+                minDate: new Date(),
+                autoUpdateInput: false,
+                locale: {
+                    format: 'YYYY-MM-DD',
+                    "separator": " to ",
+                },
+                isInvalidDate: function (arg) {
+                    // Prepare the date comparision
+                    var thisMonth = arg._d.getMonth() + 1;   // Months are 0 based
+                    if (thisMonth < 10) {
+                        thisMonth = "0" + thisMonth; // Leading 0
+                    }
+                    var thisDate = arg._d.getDate();
+                    if (thisDate < 10) {
+                        thisDate = "0" + thisDate; // Leading 0
+                    }
+                    var thisYear = arg._d.getYear() + 1900;   // Years are 1900 based
+
+                    var thisCompare = thisYear + "-" + thisMonth + "-" + thisDate;
+
+                    if ($.inArray(thisCompare, disabledArr) != -1) {
+                        return true; //arg._pf = {userInvalidated: true};
+                    }
+                }
+
+            }
+            , function (start_date, end_date) {
+                this.element.val(start_date.format('YYYY-MM-DD') + ' to ' + end_date.format('YYYY-MM-DD'));
+            });
+
+
+        // Function to disallow a range selection that includes disabled dates.
+        $("#picker").on("apply.daterangepicker", function (e, picker) {
+
+            // Get the selected bound dates.
+            var startDate = picker.startDate.format('YYYY-MM-DD');
+            var endDate = picker.endDate.format('YYYY-MM-DD');
+
+            // Compare the dates again.
+            var clearInput = false;
+            for (i = 0; i < disabledArr.length; i++) {
+                if (startDate < disabledArr[i] && endDate > disabledArr[i]) {
+                    clearInput = true;
+                }
+            }
+
+            // If a disabled date is in between the bounds, clear the range.
+            if (clearInput) {
+
+                // To clear selected range (on the calendar).
+                var today = new Date();
+                $(this).data('daterangepicker').setStartDate(today);
+                $(this).data('daterangepicker').setEndDate(today);
+
+                // To clear input field and keep calendar opened.
+                $(this).val("").focus();
+
+                // Alert user!
+                alert("Your range selection includes disabled dates!");
+            }
+        });
+    </script>
 @endsection

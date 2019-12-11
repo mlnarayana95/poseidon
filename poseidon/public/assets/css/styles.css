@@ -34,6 +34,15 @@ body {
     color: #fff;
 }
 
+.text-big {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.text-sm {
+    font-size: 0.8em;
+}
+
 .form-group.has-error label {
     color: #dd4b39;
 }
@@ -464,10 +473,6 @@ div.contact div button {
     padding: 62px;
 }
 
-.text-orange {
-    color: #F68500;
-}
-
 .icons {
     padding: 70px;
 }
@@ -494,11 +499,11 @@ h1 {
     color: orange;
 }
 
-.btn-danger {
+/*.btn-danger {
     color: #fff;
     background-color: orange;
     border-color: grey;
-}
+}*/
 
 .icons {
     padding: 70px;

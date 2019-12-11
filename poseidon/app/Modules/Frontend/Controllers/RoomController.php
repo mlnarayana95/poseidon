@@ -61,6 +61,13 @@ class RoomController extends Controller
         $data['room'] = Room::with('features', 'bookings', 'images', 'type', 'hotel.amenities')
             ->findOrFail($room_id);
 
+        $booked_dates = [];
+        foreach($data['room']->bookings as $key => $booking)
+        {
+            $booked_dates[$key] = [$booking->checkin_date, $booking->checkout_date];
+        }
+
+        $data['booked_dates'] = json_encode($booked_dates); //dd($data['booked_dates']);
         //dd($data['room']->toArray());
         return view("Frontend::room/show", $data);
     }
