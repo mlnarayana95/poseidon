@@ -20,7 +20,7 @@ class DashboardController extends Controller
     {
         $data['bookings'] = Booking::count();
         $data['rooms'] = Room::count();
-        $data['customers'] = User::where('user_type', 0)->count();
+        $data['customers'] = User::where('user_type', 1)->count();
         return view("Dashboard::index", $data);
     }
 }
