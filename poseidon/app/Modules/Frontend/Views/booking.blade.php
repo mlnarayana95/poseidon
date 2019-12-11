@@ -36,7 +36,7 @@
                     <div class="card">
                         <div class="card-header" id="heading<?=$key+1?>">
                             <h5 class="mb-0">
-                                <label class="title2"> Booking No. <?=$key+1?></label>
+                                <label class="title2"> From: {{$booking->checkin_date.' To '.$booking->checkout_date}}</label>
                                 <button class="btn btn-link float-right" type="button" data-toggle="collapse" data-target="#collapse<?=$key+1?>">
                                    details
                                 </button>
