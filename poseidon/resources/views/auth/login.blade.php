@@ -89,7 +89,7 @@
                         </span>
                     </div>
                 @endif
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST">
                     @csrf
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">

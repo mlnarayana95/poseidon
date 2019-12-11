@@ -77,3 +77,31 @@ function sendEmail($first_name, $email, $view)
     } catch (Exception $e) {
     }
 }
+
+if (!function_exists('user_details')) {
+
+    /**
+     * @param int $user_id
+     * @return string
+     */
+    function user_details($user_id = 0)
+    {
+        $user_id = ($user_id == 0)? auth()->user()->id : $user_id;
+        $user = \App\Modules\User\Models\User::with('person')->find($user_id);
+        return $user;
+    }
+
+}
+
+if (!function_exists('readable_date')) {
+
+    /**
+     * @param int $date
+     * @return string
+     */
+    function readable_date($date)
+    {
+        return \Carbon\Carbon::parse($date)->format('F jS, Y');
+    }
+
+}
