@@ -104,6 +104,7 @@ class RegisterController extends Controller
             DB::rollback();
         }
 
-        return redirect('/login');
+        return redirect('/login')->with('message','A verification link has been sent to your email address.
+        Please verify your account before you access into your account');;
     }
 }

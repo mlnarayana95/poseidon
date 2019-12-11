@@ -49,7 +49,7 @@ class BookingController extends Controller
             'no_nights' => $no_nights
         ];
 
-        return view("Frontend::room/booking", $data);
+        return view("Frontend::booking/booking", $data);
     }
 
     /**
