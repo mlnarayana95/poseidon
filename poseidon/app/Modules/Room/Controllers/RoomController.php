@@ -5,9 +5,11 @@ namespace App\Modules\Room\Controllers;
 use App\Modules\Feature\Models\Feature;
 use App\Modules\Hotel\Models\Hotel;
 use App\Modules\Room\Models\Room;
+use App\Modules\Base\Models\Image;
 use App\Modules\Room\Models\RoomType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB; 
 
 class RoomController extends Controller
 {
@@ -90,10 +92,17 @@ class RoomController extends Controller
     {
         // Validate Form Inputs
         $validated_data = $this->validateRoom($request);
+    
+        foreach ($validated_data['images'] as $image_id) {
+            DB::table('image_room')->insert(
+            ['room_id' => $id, 'image_id' => $image_id]
+            );  
+        }       
 
         Room::find($id)->update($validated_data);
 
         flash('Room has been updated successfully!')->success();
+
         return redirect()->route('admin.room.index');
     }
 
@@ -108,6 +117,14 @@ class RoomController extends Controller
         Room::find($id)->delete();
         flash('Room has been deleted successfully!')->success();
         return redirect()->route('admin.room.index');
+    }
+
+    public function saveImage($name)
+    {  
+        Image::create(['file_name'=>$name]);
+        $image = DB::table('images')->latest('id')->first();  
+        $image_id = $image->id;
+        return $image_id;
     }
 
     /**
@@ -127,10 +144,27 @@ class RoomController extends Controller
             'room_type_id' => 'required',
             'no_bathrooms' => 'required|numeric',
             'features' => 'required',
+            'image' => 'max:2048'
         ];
 
         $validated_data = $request->validate($rules);
+        $data = [];
+        $images= [];
+        if($request->hasFile('image'))
+        {
+            foreach($request->file('image') as $image)
+            { 
+                if(!empty($image)){
+                    $name=$image->getClientOriginalName();
+                    $image->move(public_path().'/images/rooms/', $name);
+                    array_push($data,$name);
+                    $image_id = $this->saveImage($name);
+                    array_push($images,$image_id);
+                }
+            }
+        }
 
+        $validated_data['images'] = $images;
         $validated_data['smoking'] = ($request->smoking == null) ? 0 : 1;
         $validated_data['featured'] = ($request->featured == null) ? 0 : 1;
 

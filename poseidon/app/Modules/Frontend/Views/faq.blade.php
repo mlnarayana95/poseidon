@@ -1,216 +1,47 @@
 @extends('layouts.frontend.main')
 
 @section('style')
-    body {
-    color: #717171;
-    font-size: 14px;
-    }
+  
 
-    .container-fluid {
-    padding: 0;
-    }
-
-    .container {
-    font-family: 'Poppins', sans-serif;
-    }
-
-    ul.nav {
-    margin-right: 20px;
-    }
-
-    ul.nav li:first-child {
-    border-right: 1px solid #333;
-    }
-
-    nav.navbar {
-    background: rgba(255, 255, 255, .7) !important;
-    padding: 20px 0;
-    }
-
-    div.navbar-nav {
-    font-family: 'Josefin Sans', sans-serif;
-    }
-
-    .navs .nav-item a {
-    color: #575757;
-    }
-
-    .navs .nav-item img {
-    padding: 2px;
-    }
-
-    .navbar-light .navbar-nav .nav-link,
-    .navbar-light .navbar-nav .active > .nav-link {
-    color: #F68500;
-    font-size: 1.25em;
-    }
-
-    div#carouselExampleControls {
-    position: relative;
-    }
-
-    div#carouselExampleControls form {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, .75);
-    color: #fff;
-    padding: 20px 0;
-    }
-
-    button#search {
-    background-color: #f68500;
-    border: none;
-    width: 100%;
-    }
-
-    h2 {
-    text-align: center;
-    color: #F68500;
-    padding: 40px 0;
-    }
-
-    .bc-gray {
-    background-color: #fafafa;
-    /*padding-bottom: 40px;*/
-    }
-
-
-
-    .fa, .fas, .choose-us-icon i {
-    color: #209ebb;
-    }
-
-
-    /* Krita */
-
-    header {
-    -webkit-box-shadow: 0 10px 6px -6px #ccc;
-    -moz-box-shadow: 0 10px 6px -6px #ccc;
-    box-shadow: 0 10px 6px -6px #ccc;
-    margin-bottom: 6px;
-    }
-
-    .title-div {
-    background-color: #FAFAFA;
-    height: 90px;
-    line-height: 80px;
-    margin-bottom: 20px;
-    }
-
-    .content-header {
-    width: 100%;
-    }
-
-    .title {
-    font-family: 'Josefin Sans', sans-serif;
-    margin: 12px 0;
-    font-size: 1.5em;
-    color: #f68500;
-    }
-
-
-    .text-orange {
-    color: #F68500;
-    }
-
-    .pull-right {
-    float: right;
-    }
-
-    h1, h3{
-    text-align: center;
-    }
-
-    h1{
-    color: orange;
-    }
-
-    h2{
-    color: orange;
-    }
-
-
-    .container{
-    padding:30px;
-    }
-
-    form{
-    text-align: center;
-    width: 100%;
-    }
-
-    .search input[type="search"] {
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    color: #999;
-    height: 40px;
-    padding: 20px;
-    width: 100%;
+    .faq-container{
+      padding:30px;
     }
 
     .btn-link {
-    font-weight: 500;
-    color: white;
-    border-radius: 0;
-    width: 100%;
-    height: 90px;
-
+      font-weight: 500;
+      color: #fff;
+      border-radius: 0;
+      width: 100%;
+      height: 90px;
+    }
+    
+    #faq-page .btn{
+      text-decoration: none;
+      color: #fff;
     }
 
-    a {
-    color: orange;
-    text-decoration: none;
+    #faq-page a{
+      color: orange;
+      text-decoration: none;
+    }
+    
+    .accordion{
+      margin-top: 20px;
     }
 
     .accordion>.card .card-header {
-    margin: -13px;
-    padding: 0px;
-
+      margin: -13px;
+      padding: 0px;
     }
 
-    .hero-inner{
-    width: 960px;
-    margin: 0 auto;
-    }
 
 @endsection
 
 @section('content')
-    <div class="container">
-
-        <h2>Find what you're looking for by conducting a search</h2>
-        <form role="search" class="search search-full" data-search="" data-instant="true" autocomplete="off"
-              action="/hc/en-us/search" accept-charset="UTF-8" method="get">
-            <input name="utf8" type="hidden" value="&#x2713;"/>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="search" name="query" id="query" placeholder="Search" autocomplete="off"
-                           aria-label="Search"/>
-                </div>
-            </div>
-        </form>
-
-    </div>
-    <div class="container">
+<div id="faq-page">
+    <div class="container faq-container">
+      <h1>Frequently Asked Questions</h1>
         <div class="accordion" id="accordion">
-            <!-- <div class="card">
-              <div class="card-header" id="headingOne">
-
-                  <button class="btn btn-link  type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Why do customers choose Poseidon?
-                  </button>
-
-              </div>
-
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-
-          <p>Customers choose us for our unbeatable locations, because at Iberostar, you'll be right on the seafront, in the heart of the city or in the midst of the finest architecture. They choose us for the quality of our cuisine, in which we combine traditional recipes with new concepts, using only the finest quality ingredients. We take care of every detail, creating a unique experience and providing excellent service in all of our hotels. And all of this with a commitment to the future, since sustainability is the basis of our business philosophy. </p>
-                </div>
-              </div>
-            </div> -->
             <div class="card">
                 <div class="card-header" id="headingOne">
 
@@ -317,7 +148,7 @@
                             booking process.
 
                             And if you're still having trouble choosing, you can contact our customer service team.
-                            <a class="mobile-call-center view-phones" data-remote="true" href="#" rel="nofollow"
+                            <a class="mobile-call-center view-phones" data-remote="true" href="/contact" rel="nofollow"
                                target="_blank">Contact us</a>
                         </p>
                     </div>
@@ -344,7 +175,7 @@
 
 
                             Or if you prefer, you can <a class="mobile-call-center view-phones" data-remote="true"
-                                                         href="#" rel="nofollow" target="_blank">contact</a> our
+                                                         href="/contact" rel="nofollow" target="_blank">contact</a> our
                             customer service team free of charge and an Poseidon adviser will help you to choose the
                             most suitable rate for you.
                         </p>
@@ -366,7 +197,7 @@
                             If you're having trouble choosing between several of our hotels, you can use the comparison
                             tool on iberostar.com to view their specific features and make the right choice for your
                             stay. Or if you prefer, <a class="mobile-call-center view-phones" data-remote="true"
-                                                       href="#" rel="nofollow" target="_blank">contact</a> our customer
+                                                       href="/contact" rel="nofollow" target="_blank">contact</a> our customer
                             service team, where a specialist will help you choose the best hotel for your holiday.
                         </p>
                     </div>
@@ -374,5 +205,6 @@
             </div>
         </div>
     </div>
+  </div>
 
 @endsection

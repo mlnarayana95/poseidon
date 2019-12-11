@@ -28,7 +28,7 @@
                             </div>
                             <div class="room-info">
                                 <div class="room-title">
-                                    {{ $room->full_name }}
+                                    <a href="/room/{{ $room->id }}">{{ $room->full_name }}</a>
                                 </div>
                                 <div class="mb-2">
                                     from <span

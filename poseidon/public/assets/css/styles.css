@@ -411,6 +411,10 @@ h1.title {
     font-size: 1.4em;
 }
 
+.room .room-title a {
+    color: inherit;
+}
+
 .room .room-price {
     color: #F4364F;
     font-weight: 600;

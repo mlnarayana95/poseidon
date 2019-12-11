@@ -18,9 +18,11 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            //dd(\auth()->user()->toArray());
-            if(\auth()->user()->user_type == 0) // Customer
-                return redirect('/profile');
+            if(request('ref') == 'booking')
+                return redirect()->to(url()->previous());
+            elseif(\auth()->user()->user_type == 0) // Customer
+                return redirect()->intended('/profile');
+                //return redirect('/profile');
             else
                 return redirect('/admin/dashboard');
         }

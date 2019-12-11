@@ -38,6 +38,9 @@ class BookingController extends Controller
 
         $data['cost'] = Room::calculateRoomCost($id, $check_in_date, $checkout_date);
 
+        // To save the current session url
+        session()->put('booking_url', request()->getRequestUri());
+
         //dd($data['cost']);
 
         $data['other_info'] = [
@@ -84,7 +87,6 @@ class BookingController extends Controller
         Booking::book($booking_details);
 
         // Send the mail
-
         flash()->success('Booking has been made successfully');
         return redirect('/profile');
 
