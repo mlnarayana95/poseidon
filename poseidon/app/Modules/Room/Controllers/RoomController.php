@@ -127,9 +127,21 @@ class RoomController extends Controller
             'room_type_id' => 'required',
             'no_bathrooms' => 'required|numeric',
             'features' => 'required',
+            'image' => 'required|max:2048'
         ];
 
         $validated_data = $request->validate($rules);
+        $data = [];
+
+        if($request->hasFile('image'))
+        {
+            foreach($request->file('image') as $image)
+            { 
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/images/rooms/', $name);
+                array_push($data,$name);
+            }
+        }
 
         $validated_data['smoking'] = ($request->smoking == null) ? 0 : 1;
         $validated_data['featured'] = ($request->featured == null) ? 0 : 1;
