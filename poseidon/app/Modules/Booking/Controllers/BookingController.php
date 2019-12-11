@@ -17,6 +17,16 @@ class BookingController extends Controller
      */
     public function index()
     {
+        $data['booking'] = Booking::get();
+        return view("Room::index", $data);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
+     */
+    public function create()
+    {
         $id = (int)request('room_id');
         $check_in_date = request('checkin');
         $checkout_date = request('checkout');
@@ -50,16 +60,6 @@ class BookingController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -67,7 +67,13 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate Form Inputs
+        $validated_data = $this->validateRoom($request);
+
+        Room::create($validated_data);
+
+        flash('Booking has been created successfully!')->success();
+        return redirect()->route('admin.booking.index');
     }
 
     /**
@@ -89,7 +95,8 @@ class BookingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['booking'] = Room::with('features')->find($id);
+        return view("Booking::edit", $data);
     }
 
     /**
@@ -101,7 +108,12 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated_data = $this->validateBooking($request);
+
+        Room::find($id)->update($validated_data);
+
+        flash('Booking has been updated successfully!')->success();
+        return redirect()->route('admin.booking.index');
     }
 
     /**
@@ -112,6 +124,32 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Booking::find($id)->delete();
+        flash('Booking has been deleted successfully!')->success();
+        return redirect()->route('admin.booking.index');
+    }
+
+    /**
+     * Validate Bookings Form
+     * @param $request
+     * @return mixed
+     */
+    public function validateBooking($request)
+    {
+        $rules = [
+            'user_id' => 'required|number',
+            'room_id' => 'required|number',
+            'transaction_number' => 'required|numeric',
+            'room_cost' => 'required|min:2|max:10|between:0,99.99',
+            'total_fees' => 'required|min:2|max:10|between:0,99.99',
+            'total_tax' => 'required|min:2|max:10|between:0,99.99',
+            'total_cost' => 'required|min:2|max:10|between:0,99.99',
+            'payment_type' => 'required|regex:/^[\pL\s\-]+$/u',
+            'amount_payment' => 'required|min:2|max:10|between:0,99.99',
+            'checkin_date' => 'required|date',
+            'checkout_date' => 'required|date|after:dateline_start'
+        ];
+        $validated_data = $request->validate($rules);
+        return $validated_data;
     }
 }
