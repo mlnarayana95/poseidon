@@ -248,19 +248,45 @@
                 </div>
             </div>
 
-            @guest
+            {!! Form::open(['method' => 'post']) !!}
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Enter Your Details</h1>
+                    <h1><span class="badge badge-info">1</span> Personal Details</h1>
+
+                    @guest
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
+                                <label for="username">Card holder name</label>
+                                {!!Form::text('username', null, array('class' => 'form-control', 'id'=>'username', 'placeholder' => 'Jon Doe'))!!}
+                                @if($errors->has('username'))
+                                    {!! $errors->first('username', '<label class="control-label error-message"
+                                                                           for="inputError">:message</label>') !!}
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
+                                <label for="username">Card holder name</label>
+                                {!!Form::text('username', null, array('class' => 'form-control', 'id'=>'username', 'placeholder' => 'Jon Doe'))!!}
+                                @if($errors->has('username'))
+                                    {!! $errors->first('username', '<label class="control-label error-message"
+                                                                           for="inputError">:message</label>') !!}
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    @endguest
+
                 </div>
             </div>
-            @endguest
 
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Payment Info</h1>
+                    <h1><span class="badge badge-info">2</span> Payment Info</h1>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12 mx-auto pb-3" id="checkout">
                     @if(Session::get('cc_error') && $errors->any())
@@ -279,8 +305,6 @@
                         <i class="fas fa-credit-card"></i>
                         Credit Card
                     </div>
-                    <form method="post">
-                        @csrf
 
                         <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
                             <label for="username">Card holder name</label>
@@ -345,9 +369,10 @@
                         <button type="submit"
                                 class="btn btn-main pull-right"> Confirm
                         </button>
-                    </form>
                 </div>
             </div>
+
+            {!! Form::close() !!}
         </div>
     </div>
 @endsection

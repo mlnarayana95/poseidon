@@ -18,7 +18,11 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            //dd(\auth()->user()->toArray());
+            if(\auth()->user()->user_type == 0) // Customer
+                return redirect('/profile');
+            else
+                return redirect('/admin/dashboard');
         }
 
         return $next($request);
