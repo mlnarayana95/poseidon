@@ -7,7 +7,7 @@
                     <img class="footer-image" src="/images/foot_logo.png"
                          alt="footer logo">
                     <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span>Poseidon Hotels & Resorts is a hotel chain with more than 120 four- and five-star hotels, located in the most popular holiday destinations in South America.</span>
                     </div>
                     <div class="social-footer">
                         <i class="fab fa-facebook-f fa-lg"></i>

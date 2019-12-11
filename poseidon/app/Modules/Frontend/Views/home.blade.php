@@ -150,26 +150,24 @@
                 <div class="col-md-3 text-center why-choose-us">
                     <i class="fas fa-globe-americas fa-2x choose-us-icon"></i>
                     <h6>World Class Service</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod</p>
+                    <p>We have set the benchmark for responsible tourism based on high-quality initiatives. Located in unique places and serving excellent and honest gastronomy.</p>
                 </div>
                 <div class="col-md-3 text-center why-choose-us-dollar">
                     <i class="fas fa-dollar-sign fa-2x choose-us-icon"></i>
                     <h6>Best Price Guaranteed</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod</p>
+                    <p>Book now and receive up to $800 in resort credits to enjoy and complement your dream trip!</p>
                 </div>
                 <div class="col-md-3 text-center why-choose-us">
                     <i class="fas fa-glass-cheers fa-2x choose-us-icon"></i>
                     <h6>Exotic Ambience</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod</p>
+                    <p>
+Enjoy seafood specialities and signature cocktails featuring passion, colors, 
+high-quality ingredients and one of the most breathtaking views at our first class restaurant: Poseidon del Mar.</p>
                 </div>
                 <div class="col-md-3 text-center why-choose-us">
                     <i class="fas fa-thumbs-up fa-2x choose-us-icon"></i>
-                    <h6>Great Reviews</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod</p>
+                    <h6>Guest Testimonials</h6>
+                    <p>"We had a wonderful holiday organised within budget by people who knew what they were talking about, who could make relevant recommendations for tours and activities."</p>
                 </div>
             </div>
         </div>
