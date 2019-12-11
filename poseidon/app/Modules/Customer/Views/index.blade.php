@@ -46,7 +46,7 @@
                                 $customer->user_id) }}" class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
-                                <a href="{{ route('admin.customer.destroy', $customer->user) }}" data-method="delete"
+                                <a href="{{ route('admin.customer.destroy', $customer->user_id) }}" data-method="delete"
                                    data-token="{{csrf_token()}}"
                                    data-confirm="Are you sure?" class="btn btn-danger">
                                     <i class="fa fa-trash"></i> Delete

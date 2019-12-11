@@ -37,7 +37,7 @@
 <div class="form-group">
     {!!Form::label('gender', 'Choose Gender', array('class' => 'col-md-2 col-sm-12 control-label')) !!}
     <div class="col-md-10 col-sm-12">
-       {!!Form::select('gender', array('F' => 'F','M'=> 'M', ),null,['class' => 'form-control select2','style'=>'width: 100%;'])!!}
+       {!!Form::select('gender',array('F' => 'F','M'=> 'M', ),$customer['gender'],['class' => 'form-control select2','style'=>'width: 100%;'])!!}
     </div>
 </div>
 
