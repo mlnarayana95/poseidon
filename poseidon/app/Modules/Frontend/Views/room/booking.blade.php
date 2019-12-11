@@ -271,27 +271,24 @@
                             Details</h1>
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
-                                    <label for="username">Card holder
-                                        name</label>
-                                    {!!Form::text('username', null, array('class' => 'form-control', 'id'=>'username', 'placeholder' => 'Jon Doe'))!!}
-                                    @if($errors->has('username'))
-                                        {!! $errors->first('username', '<label class="control-label error-message"
-                                                                               for="inputError">:message</label>') !!}
-                                    @endif
-                                </div>
+                            <div class="col-md-6 form-group">
+                                First Name
+                                <div class="form-control">{{ user_details()->person->first_name }}</div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
-                                    <label for="username">Card holder
-                                        name</label>
-                                    {!!Form::text('username', null, array('class' => 'form-control', 'id'=>'username', 'placeholder' => 'Jon Doe'))!!}
-                                    @if($errors->has('username'))
-                                        {!! $errors->first('username', '<label class="control-label error-message"
-                                                                               for="inputError">:message</label>') !!}
-                                    @endif
-                                </div>
+                            <div class="col-md-6 form-group">
+                                Last Name
+                                <div class="form-control">{{ user_details()->person->last_name }}</div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                Address
+                                <div class="form-control">{{ user_details()->person->address }}</div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                Email
+                                <div class="form-control">{{ user_details()->email }}</div>
                             </div>
                         </div>
 
@@ -332,23 +329,39 @@
                                                                        for="inputError">:message</label>') !!}
                             @endif
                         </div>
-                        <div class="form-group @if($errors->has('cardNumber')) {{'has-error'}} @endif">
-                            <label for="cardNumber">Card Number</label>
-                            <div class="input-group">
-                                {!!Form::text('cardNumber', null, array('class' => 'form-control', 'id'=>'cardNumber', 'maxlength'=>16, 'placeholder'=>'Your Card Number'))!!}
-                                <div class="input-group-append">
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group @if($errors->has('cardNumber')) {{'has-error'}} @endif">
+                                        <label for="cardNumber">Card Number</label>
+                                        <div class="input-group">
+                                            {!!Form::text('cardNumber', null, array('class' => 'form-control', 'id'=>'cardNumber', 'maxlength'=>16, 'placeholder'=>'Your Card Number'))!!}
+                                            <div class="input-group-append">
                                             <span class="input-group-text text-muted">
                                                 <i class="fab fa-cc-visa mx-1"></i>
                                                 <i class="fab fa-cc-amex mx-1"></i>
                                                 <i class="fab fa-cc-mastercard mx-1"></i>
                                             </span>
+                                            </div>
+                                        </div>
+                                        @if($errors->has('cardNumber'))
+                                            {!! $errors->first('cardNumber', '<label class="control-label error-message"
+                                                                                   for="inputError">:message</label>') !!}
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group @if($errors->has('cardType')) {{'has-error'}} @endif">
+                                        <label for="cardType">Card Type *</label>
+                                        {!! Form::select('cardType', ['amex' => 'American Express', 'mastercard' => 'Mastercard', 'visa' => 'Visa'], null, ['class' => 'custom-select form-control', 'id' => 'cardType']) !!}
+                                        @if($errors->has('cardType'))
+                                            {!! $errors->first('cardType', '<label class="control-label error-message"
+                                                                                   for="inputError">:message</label>') !!}
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                            @if($errors->has('cardNumber'))
-                                {!! $errors->first('cardNumber', '<label class="control-label error-message"
-                                                                       for="inputError">:message</label>') !!}
-                            @endif
-                        </div>
+
                         <div class="row">
                             <div class="col-sm-8">
                                 <div class="form-group @if($errors->has('month') || $errors->has('year')) {{'has-error'}} @endif">
