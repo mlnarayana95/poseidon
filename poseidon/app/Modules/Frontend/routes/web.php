@@ -22,4 +22,6 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
 
     Route::get('booking','BookingController@index');
     Route::post('booking','BookingController@save');
+
+    Route::get('/profile/bookings','BookingController@show');
 });

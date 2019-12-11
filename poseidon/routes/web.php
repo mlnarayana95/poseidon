@@ -23,4 +23,4 @@ Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/sendmail/{id}','ExcelController@resendEmail');
+//Route::get('/sendmail/{id}','ExcelController@resendEmail');

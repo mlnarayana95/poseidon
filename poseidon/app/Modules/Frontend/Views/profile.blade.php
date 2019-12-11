@@ -109,7 +109,7 @@
                 </div>
                 <br>
                 <a href="{{ route('update') }}" class="btn btn-primary">Update Profile</a>
-                <a href="/booking/list" class="btn btn-primary">My Bookings</a>
+                <a href="/profile/bookings" class="btn btn-primary">My Bookings</a>
                 <br>
             </div>
         </div>
