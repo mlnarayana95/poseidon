@@ -91,6 +91,11 @@
                 @endif
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
+                    @if (session('resent'))
+                        <div class="alert alert-success" role="alert">
+                            {{ __('A verification link has been sent to your email address.') }}
+                        </div>
+                    @endif
                     <div class="form-group row">
                         <label for="email"
                                class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

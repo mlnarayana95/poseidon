@@ -3,10 +3,7 @@
 namespace App\Modules\Booking\Controllers;
 
 
-use App\Modules\User\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DateTime;
 use DB;
 class BookingController extends Controller
 {
@@ -18,63 +15,13 @@ class BookingController extends Controller
      */
     public function index()
     {
+        dd('Entered into index methods controller');
         $data['booking'] = Booking::get();
-        return view("Room::index", $data);
-    }
+        $data['rooms'] = Room::pluck('room_number', 'id');
+        $data['customers'] = Customer::pluck('id','first_name','last_name');
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Exception
-     */
-    public function create()
-    {
-        $id = (int)request('room_id');
-        $check_in_date = request('checkin');
-        $checkout_date = request('checkout');
-        $date1 = new Datetime($check_in_date);
-        $date2 = new Datetime($checkout_date);
-        $no_nights = $date2->diff($date1)->format('%a');
-        $data['room'] = DB::table('rooms')
-            ->join('room_types','rooms.room_type_id','=','room_types.id')
-            ->join('image_rooms','rooms.id','=','image_rooms.room_id')
-            ->join('images','images.id','=','image_rooms.image_id')
-            ->where('rooms.id','=',$id)
-            ->select(
-                'rooms.id'
-                ,'rooms.room_number'
-                ,'rooms.description'
-                ,'room_types.type'
-                ,'rooms.max_adults'
-                ,'rooms.max_children'
-                ,'rooms.no_bathrooms'
-                ,'rooms.smoking'
-                ,'rooms.room_cost'
-                ,'images.file_name'
-            )
-            ->first();
-        $tax1 = DB::table('site_settings')->where('name','=','psd_tax')->select('value')->first();
-        $tax2 = DB::table('site_settings')->where('name','=','gst_tax')->select('value')->first();
-        $psd_tax = (double)$tax1->value;
-        $gst_tax = (double)$tax2->value;
-        $data['other_info']=['psd_tax' =>$psd_tax, 'gst_tax'=>$gst_tax,'checkin_date'=>$check_in_date,'checkout_date'=>$checkout_date,'no_nights'=>$no_nights];
-        return view("Booking::index",$data);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // Validate Form Inputs
-        $validated_data = $this->validateRoom($request);
-
-        Room::create($validated_data);
-
-        flash('Booking has been created successfully!')->success();
-        return redirect()->route('admin.booking.index');
+        dd($data->toArray());
+        return view("Booking::index", $data);
     }
 
     /**
@@ -86,48 +33,6 @@ class BookingController extends Controller
     public function show($id)
     {
 
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $data['booking'] = Room::with('features')->find($id);
-        return view("Booking::edit", $data);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $validated_data = $this->validateBooking($request);
-
-        Room::find($id)->update($validated_data);
-
-        flash('Booking has been updated successfully!')->success();
-        return redirect()->route('admin.booking.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        Booking::find($id)->delete();
-        flash('Booking has been deleted successfully!')->success();
-        return redirect()->route('admin.booking.index');
     }
 
     /**

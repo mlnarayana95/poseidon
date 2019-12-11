@@ -28,18 +28,15 @@
                 <table id="booking" class="table table-bordered table-hover">
                     <thead>
                     <tr>
+                        <th>Customer Name</th>
                         <th>Booking ID</th>
-                        <th>User</th>
-                        <th>Room</th>
+                        <th>Room ID</th>
+                        <th>Room Number</th>
                         <th>Transaction Number</th>
-                        <th>Room Cost</th>
-                        <th>Total Fees</th>
-                        <th>Total Tax</th>
-                        <th>Total cost</th>
-                        <th>Payment Type</th>
-                        <th>Amount Paid</th>
                         <th>Checkin Date</th>
                         <th>Checkout Date</th>
+                        <th>Total cost</th>
+                        <th>Payment Amount</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -47,19 +44,26 @@
 
                     @foreach($bookings as $booking)
                         <tr>
-                            <td>{{ $room->id }}</td>
-                            <td>{{ $room->type->type }}</td>
-                            <td>{{ $room->room_number }}</td>
-                            <td>${{ $room->room_cost }}</td>
-                            <td>{{ $room->hotel->name }}</td>
+                            <td>{{ $booking->id }}</td>
+                            <td>{{ $booking->user_id }}</td>
+                            <td>{{ $booking->room_id }}</td>
+                            <td>{{ $booking->transaction_number }}</td>
+                            <td>${{ $booking->room_cost }}</td>
+                            <td>${{ $booking->total_fees }}</td>
+                            <td>${{ $booking->total_tax }}</td>
+                            <td>${{ $booking->total_cost }}</td>
+                            <td>{{ $booking->payment_type }}</td>
+                            <td>{{ $booking->amount_payment }}</td>
+                            <td>{{ $booking->checkin_date }}</td>
+                            <td>{{ $booking->checkout_date }}</td>
                             <td>
-                                <a href="{{ route('admin.room.edit', $room) }}"
+                                <a href="{{ route('admin.booking.edit', $room) }}"
                                    class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
 
 
-                                <a href="{{ route('admin.room.destroy', $room) }}" data-method="delete"
+                                <a href="{{ route('admin.booking.destroy', $room) }}" data-method="delete"
                                    data-token="{{csrf_token()}}"
                                    data-confirm="Are you sure?" class="btn btn-danger">
                                     <i class="fa fa-trash"></i> Delete
@@ -67,7 +71,6 @@
                             </td>
                         </tr>
                     @endforeach
-
                     </tbody>
                 </table>
             </div>
