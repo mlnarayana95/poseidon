@@ -42,7 +42,7 @@
                                 </button>
                             </h5>
                         </div>
-                        <div id="collapse<?=$key+1?>" class="collapse show" aria-labelledby="headingOne" data-parent="#bookings_accordion">
+                        <div id="collapse<?=$key+1?>" class="collapse" aria-labelledby="headingOne" data-parent="#bookings_accordion">
                             <div class="card-body">
                                 <label>Room number: </label> <label class="value">{{$booking->room->room_number}}</label><br>
                                 <label>Description: </label><br>
