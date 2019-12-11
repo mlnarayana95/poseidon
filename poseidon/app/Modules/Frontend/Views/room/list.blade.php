@@ -24,7 +24,7 @@
                     @foreach($rooms as $room)
                         <div class="room shadow">
                             <div class="room-img">
-                                <img src="/images/room1.jpg" alt="Code">
+                                <img src="/images/rooms/{{ $room->images->first()->file_name }}" alt="Code" class="img-fit" />
                             </div>
                             <div class="room-info">
                                 <div class="room-title">
@@ -49,16 +49,13 @@
                                 </div>
 
                                 <div class="mb-2">
-                                    Ut tellus dolor, dapibus eget, elementum
-                                    vel, cursus
-                                    eleifend, elit. Aenean auctor wisi et
-                                    urna...
+                                    {{ limit_words($room->description) }}
                                 </div>
 
                                 <hr/>
 
                                 <div class="text-right">
-                                    <a href="" class="btn btn-link">Details</a>
+                                    <a href="/room/{{ $room->id }}" class="btn btn-link">Details</a>
                                 </div>
                             </div>
                         </div>

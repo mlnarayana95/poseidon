@@ -43,6 +43,21 @@ if (!function_exists('format_price')) {
 
 }
 
+if (!function_exists('format_time')) {
+
+    /**
+     * @param int $time
+     * @return string
+     */
+    function format_time($time)
+    {
+        //$formatted_time = Carbon::createFromFormat('Y-m-d', $time)->format('g:i A');
+        $formatted_time = \Carbon\Carbon::parse($time)->format('g:i A');
+        return $formatted_time;
+    }
+
+}
+
 /**
  * @param $first_name Name of the recipient
  * @param $email email reciever email address

@@ -20,11 +20,13 @@ class BookingController extends Controller
     public function index()
     {
         $id = (int)request('room_id');
-        $check_in_date = request('checkin');
-        $checkout_date = request('checkout');
+        $dates = explode(" to ", request('dates'));
 
-        if($id == 0 || $check_in_date == null || $checkout_date == null)
+        if($id == 0 || $dates == null)
             abort(404);
+
+        $check_in_date = $dates[0];
+        $checkout_date = $dates[1];
 
         $date1 = Carbon::createFromFormat('Y-m-d', $check_in_date);
         $date2 = Carbon::createFromFormat('Y-m-d', $checkout_date);
@@ -34,7 +36,9 @@ class BookingController extends Controller
         $data['room'] = Room::with('hotel', 'type', 'features', 'featuredImage')
             ->findOrFail($id);
 
-        //dd($data['room']->toArray());
+        $data['cost'] = Room::calculateRoomCost($id, $check_in_date, $checkout_date);
+
+        //dd($data['cost']);
 
         $data['other_info'] = [
             'checkin_date' => $check_in_date,
