@@ -187,16 +187,16 @@
   				</nav>
   				<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
   					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div class="hotel-description">{{ $hotel->description}}</div>
-                <div class="check-in-out">
-                  <span><strong>Check in - </strong>{{ $hotel->checkin_time }}</span>
-                  <br>
-                  <span><strong>Check out - </strong>{{ $hotel->checkout_time }}</span>
-                </div>
-                <div class="hotel-location">{{ $hotel->address}}</div>
-                <div class="hotel-phone">
-                  <span><em>Phone number: </em>{{ $hotel->phone_number }}</span>
-                </div>
+              <div class="hotel-description">{{ $hotel->description}}</div>
+                  <div class="check-in-out">
+                    <span><strong>Check in - </strong>{{ $hotel->checkin_time }}</span>
+                    <br>
+                    <span><strong>Check out - </strong>{{ $hotel->checkout_time }}</span>
+                  </div>
+                  <div class="hotel-location">{{ $hotel->address}}</div>
+                  <div class="hotel-phone">
+                    <span><em>Phone number: </em>{{ $hotel->phone_number }}</span>
+                  </div>
   					</div>
   					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
               <div class="col-md-12">
