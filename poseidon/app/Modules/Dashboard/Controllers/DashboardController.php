@@ -6,6 +6,7 @@ use App\Modules\Booking\Models\Booking;
 use App\Modules\Room\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Modules\User\Models\User;
 
 class DashboardController extends Controller
 {
