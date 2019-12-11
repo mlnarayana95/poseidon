@@ -3,6 +3,7 @@
 
 namespace App\Modules\Frontend\Controllers;
 use App\Modules\Person\Models\Person;
+use App\Modules\User\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -20,7 +21,7 @@ class ProfileController
 
     public function show()
     {
-        $person = DB::table('persons')->where('user_id',Session::get('user_id'))->first();
+        $person = Person::where('user_id', auth()->user()->id)->first();
         return view("Frontend::profile", compact('person'));
     }
     public function load()

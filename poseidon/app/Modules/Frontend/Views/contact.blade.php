@@ -32,6 +32,8 @@
               </ul>
           </div><br />
       @endif
+
+      @include('flash::message')
     <div class="row">
         <div class="col-md-6">
             <form method="post" action="{{url('contact')}}" novalidate>
@@ -41,24 +43,27 @@
                 <div class="form-group col-md-6">
                   <label for="name" class="required">Name</label>
                   <input type="text" class="form-control" name="name" 
+                  value="{{ old('name') }}"
                   id="name" placeholder="Name" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="email" class="required">Email</label>
                   <input type="email" class="form-control" name="email"
+                  value="{{ old('email') }}"
                   id="email" placeholder="Email" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputAddress" class="required">Subject</label>
                 <input type="text" class="form-control" 
-                id="inputAddress" placeholder="Subject" name="subject"
+                id="inputAddress" placeholder="Subject" name="subject" 
+                value="{{ old('subject') }}"
                 required>
               </div>
               <div class="form-group">
                 <label for="inputAddress2"  class="required">Message</label>
 
-                <textarea class="form-control" name="message" id="message" required></textarea>
+                <textarea class="form-control" name="message" value="{{ old('name') }}" id="message" required></textarea>
               </div>
 
               <button type="submit" class="btn btn-danger">Send Message</button>
@@ -67,10 +72,10 @@
         <div class="col-md-6">
              <div class="icons">
             <p>
-                <a href="#" class="btn btn-info btn-lg">
+                <a style="max-width: 276px;" href="#" class="btn btn-info btn-lg">
                     <span class="fas fa-map-marker-alt"></span>
-                    Fake Adress,Winnipeg<br/>
-                         MB R7B 7T7
+                    Winnipeg , MB R7B 7T7<br/>
+                         
                 </a>
                 
             </p>

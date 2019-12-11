@@ -20,6 +20,11 @@ class User extends Model {
      */
     protected $dates = ['deleted_at'];
 
+    public function person()
+    {
+       $this->belongsTo('App\Modules\Person\Models\Person');
+    }
+
     public function customer()
     {
        $this->belongsTo('App\Modules\Customer\Models\Customer');

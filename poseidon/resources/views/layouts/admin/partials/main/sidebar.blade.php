@@ -5,9 +5,6 @@
             <li class="treeview {{ (request()->is('admin/dashboard')) ? 'active' : '' }}" style="height: auto;">
                 <a href="{{ route('admin.dashboard') }}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
                 </a>
             </li>
             <li class="treeview {{ (request()->is('admin/booking*')) ? 'active' : '' }}">
@@ -174,7 +171,7 @@
                 </ul>
             </li>
             <li class="{{ (request()->is('admin/settings*')) ? 'active' : '' }}">
-                <a href="pages/widgets.html">
+                <a href="/admin/settings">
                     <i class="fa fa-cogs"></i> <span>Settings</span>
                     <span class="pull-right-container">
                         <small class="label pull-right bg-green">new</small>

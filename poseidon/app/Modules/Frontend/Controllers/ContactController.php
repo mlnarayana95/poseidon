@@ -41,6 +41,8 @@ class ContactController extends Controller
                 $message->from($data['email'],$data['name']);
                 $message->to('espko.21@gmail.com','Evgheni')->subject($data['subject']);
             });
+
+            flash()->success('Your email has been send successfully');
         return view("Frontend::contact");
 
 

@@ -4,12 +4,24 @@
         <div class="container">
             <div class="navs">
                 <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
-                    </li>
+                    @guest()
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile/bookings">Bookings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="" target="_blank" href="{{ setting('facebook') }}">
                             <img src="/images/fbook.png" alt="fbook">

@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -45,9 +45,11 @@ class LoginController extends Controller
     {
         $input = $request->all();
         $this->validate($request,['email'=>'required|email','password'=>'required']);
+
         if(auth()->attempt(array('email'=>$input['email'],'password'=>$input['password'])))
         {
-            if(auth()->user()->user_type==1)
+            // Customer
+            if(auth()->user()->user_type==0)
             {
                 session(['user_id' => auth()->user()->id]);
                 /*how to get the info from the session variable*/
@@ -56,13 +58,14 @@ class LoginController extends Controller
                 //config(['session.lifetime' => 1440]);
                 return redirect('/profile');
             }
+            // Admin
             else{
-                return $this->redirect()->route('/');
+                return $this->redirect()->route('/admin/dashboard');
             }
         }
         else{
 
-            return redirect::to('/login')->with('message','Email and password invalid');
+            return redirect()->to('/login')->with('message','Email and password invalid! Or the Email address has not been verified.');
         }
 
     }
