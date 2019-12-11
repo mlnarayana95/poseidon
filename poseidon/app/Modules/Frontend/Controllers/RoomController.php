@@ -35,6 +35,11 @@ class RoomController extends Controller
         return view("Frontend::room/list", $data);
     }
 
+    /**
+     * Get Filtered Result Based on the Search Queries Provided
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function search(Request $request)
     {
         $data['rooms'] = Room::getFilteredList($request->all());
@@ -44,5 +49,26 @@ class RoomController extends Controller
         $data['features'] = Feature::featuresWithCount();
         $data['locations'] = Location::locationsWithCount();
         return view("Frontend::room/search", $data);
+    }
+
+    /**
+     * Get Room Details
+     * @param $room_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show($room_id)
+    {
+        $data['room'] = Room::with('features', 'bookings', 'images', 'type', 'hotel.amenities')
+            ->findOrFail($room_id);
+
+        $booked_dates = [];
+        foreach($data['room']->bookings as $key => $booking)
+        {
+            $booked_dates[$key] = [$booking->checkin_date, $booking->checkout_date];
+        }
+
+        $data['booked_dates'] = json_encode($booked_dates); //dd($data['booked_dates']);
+        //dd($data['room']->toArray());
+        return view("Frontend::room/show", $data);
     }
 }

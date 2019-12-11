@@ -1,4 +1,4 @@
-
+@hasSection('heading')
 <div class="title-div">
     <div class="container">
         <div class="row content-header">
@@ -15,5 +15,6 @@
         </div>
     </div>
 </div><!-- /.title-div -->
+@endif
 
 @yield('content')

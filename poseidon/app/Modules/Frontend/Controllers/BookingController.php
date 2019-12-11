@@ -22,6 +22,7 @@ class BookingController extends Controller
         $check_in_date = request('checkin');
         $checkout_date = request('checkout');
 
+        dd(request()->all());
         if($id == 0 || $check_in_date == null || $checkout_date == null)
             abort(404);
 

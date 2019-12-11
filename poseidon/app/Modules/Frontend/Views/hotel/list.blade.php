@@ -25,7 +25,7 @@
                     <div class="room shadow">
                         <div class="room-img">
                             <img src="/images/hotels/{{ $hotel->featuredImage->first()->file_name }}"
-                                 alt="{{ $hotel->name }}"/>
+                                 alt="{{ $hotel->name }}" class="img-fit"/>
                         </div>
                         <div class="room-info">
                             <div>
@@ -46,8 +46,8 @@
                             </div>
 
                             <div class="mb-2">
-                                @foreach($hotel->amenities->take(5) as $amenity)
-                                    <i class="fa fa-snowflake"></i> {{ $amenity->amenity }}
+                                @foreach($hotel->amenities->take(6) as $amenity)
+                                    <i class="fa fa-{{ $amenity->amenity_icon }}"></i> {{ $amenity->amenity }}
                                 @endforeach
                             </div>
 
