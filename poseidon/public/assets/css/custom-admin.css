@@ -59,3 +59,51 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 /* End Switch CSS */
+
+/* Dashboard Styles - Katie */
+
+.card{
+  color: #fff;
+  width: 21rem;
+  height: 15rem;
+  display: inline-block;
+  margin: 30px;
+  border-radius: 5px;
+}
+
+.card-header, .card-body{
+  font-size: 1.6em;
+  padding-left: 20px;
+}
+
+.card-header{
+  padding-bottom: 10px;
+  border-radius: 5px;
+
+}
+
+.bookings{
+  background-color: #dc4245;
+}
+
+.rooms .card-header{
+  background: #697179;
+}
+
+.bookings .card-header{
+  background-color: #d64042;
+}
+
+.customers .card-header{
+  background-color: #3f9eb2;
+}
+
+.customers{
+  background-color: #42a3b8;
+}
+
+.rooms{
+  background-color: #6c757d;
+}
+
+/* end of dashboard styles */
