@@ -678,7 +678,7 @@ opacity: 1;
   max-height: 467px;
 }
 
-#myCarousel{
+#hotel-page #myCarousel{
   max-width: 700px;
   margin: 0 auto 30px;
 }
@@ -721,7 +721,7 @@ section .section-title {
 
 .hotel-location{
   font-size: 1.4em;
-color: #16152;
+  color: #16152;
 }
 
 .tab-icons.fas{
@@ -761,7 +761,7 @@ color: #16152;
   padding-right: 10px;
 }
 
-.carousel-inner img{
+#hotel-page .carousel-inner img{
   max-height: 349px;
   width: 100%;
 }
