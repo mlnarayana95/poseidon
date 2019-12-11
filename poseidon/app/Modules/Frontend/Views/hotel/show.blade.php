@@ -75,6 +75,15 @@
       padding: 25px;
     }
     
+    .location-icon.fas{
+      color: #161527;
+    }
+    
+    .hotel-location{
+      font-size: 1.4em;
+    color: #16152;
+    }
+    
     .tab-icons.fas{
       color: #161527;
     }
@@ -123,9 +132,9 @@
 @section('content')
 
 <div id='hotel-page'>
-  <div class="container hotel-name">
+  <div class="container hotel-name text-center">
     <h1>{{ $hotel->name }}</h1>
-    <div>{{ $hotel->location->location }}</div>
+    <div class="hotel-location"><i class="fas fa-map-marker-alt fa-lg location-icon"></i>{{ $hotel->location->location }}</div>
   </div>
 
   <div class="row align-items-center">
