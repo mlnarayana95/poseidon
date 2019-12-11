@@ -158,7 +158,9 @@ class Room extends MyModel
         $data['room_cost'] = $room->room_cost;
         $data['no_nights'] = $date1->diffInDays($date2);
         $data['total_fees'] = $room->room_cost * $data['no_nights'];
-        $data['total_tax'] = $data['total_fees'] * (setting('gst_tax') + setting('pst_tax'))/100;
+        $data['total_gst'] = $data['total_fees'] * setting('gst_tax')/100;
+        $data['total_pst'] = $data['total_fees'] * setting('pst_tax')/100;
+        $data['total_tax'] = $data['total_gst'] + $data['total_pst'];
         $data['total_cost'] = $data['total_fees'] + $data['total_tax'];
 
         return $data;

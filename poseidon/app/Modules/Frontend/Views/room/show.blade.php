@@ -376,7 +376,7 @@
 
                             {{ Form::hidden('room_id', $room->id) }}
                             <div class="options d-flex flex-fill mb-3">
-                                @php $adult_range = ['' => 'Adults'] + range(1, $room->max_adults); @endphp
+                                @php $adult_range = ['' => 'Adults'] + array_combine(range(1, $room->max_adults), range(1, $room->max_adults)); @endphp
                                 {{ Form::select('adults', $adult_range, null, ['class' => "custom-select mr-1"]) }}
 
                                 @php $children_range = ['' => 'Children'] + range(0, $room->max_children); @endphp
