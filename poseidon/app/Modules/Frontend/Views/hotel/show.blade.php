@@ -117,10 +117,6 @@
       width: 100%;
     }
     
-    body{
-      overflow-x: hidden;
-    }
-    
 
 @endsection
 
@@ -129,6 +125,7 @@
 <div id='hotel-page'>
   <div class="container hotel-name">
     <h1>{{ $hotel->name }}</h1>
+    <div>{{ $hotel->location->location }}</div>
   </div>
 
   <div class="row align-items-center">
