@@ -142,3 +142,11 @@
         <strong>Yes </strong>
     </div>
 </div>
+
+<div class="form-group">
+    {!!Form::label('image', 'Image Upload', array('class' => 'col-sm-2 control-label custom-file-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::file('image[]', $attributes = array('multiple','class'=>'form-control custom-file-input','id'=>'image')) !!}
+    </div>
+
+</div>
