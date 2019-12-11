@@ -93,7 +93,8 @@ class BookingController extends Controller
 
         //$user_id = Session::get('user_id');
         $user_id=1;
-        $bookings = Booking::with('room')->where('user_id', $user_id)->get();
+        $bookings = Booking::with('room')
+            ->where('user_id', $user_id)->get();
         return view('Frontend::booking',compact('bookings'));
     }
 
