@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Session;
 use Pagerange\Bx\_5bx;
 
 class BookingController extends Controller
@@ -87,6 +88,14 @@ class BookingController extends Controller
         flash()->success('Booking has been made successfully');
         return redirect('/profile');
 
+    }
+    public function show(){
+
+        //$user_id = Session::get('user_id');
+        $user_id=1;
+        $bookings = Booking::with('room')
+            ->where('user_id', $user_id)->get();
+        return view('Frontend::booking',compact('bookings'));
     }
 
     function processTransaction(_5bx $transaction, Array $booking_details)
