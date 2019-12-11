@@ -1,6 +1,7 @@
 body {
     color: #717171;
     font-size: 14px;
+    overflow-x: hidden;
 }
 
 .container {

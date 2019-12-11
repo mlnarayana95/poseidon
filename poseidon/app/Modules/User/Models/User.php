@@ -24,6 +24,6 @@ class User extends Model {
 
     public function customer()
     {
-        $this->belongsTo('App\Modules\Customer\Models\Customer');
+       $this->belongsTo('App\Modules\Customer\Models\Customer');
     }
 }
