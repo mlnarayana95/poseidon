@@ -252,7 +252,7 @@
                          alt="top 2">
                     <div class="destination">
                         <h4>Mexico</h4>
-                        <button class="home-button">Explore</button>
+                        <button class="home-button"><a class="nav-link nav-item" href="/hotels">Explore</a></button>
                     </div>
                 </div>
 
@@ -286,7 +286,7 @@
     <div class="d-flex align-content-center flex-wrap justify-content-center contact-us-image">
         <div class="contact text-center">
             <h3 class="pb-4">Start Your Adventure With Us</h3>
-            <button class="home-button">Contact Us</button>
+            <button class="home-button"><a class="nav-link nav-item" href="/contact">Contact Us</a></button>
         </div>
     </div>
 
