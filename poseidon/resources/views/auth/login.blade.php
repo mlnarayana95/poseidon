@@ -89,7 +89,7 @@
                         </span>
                     </div>
                 @endif
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="email"

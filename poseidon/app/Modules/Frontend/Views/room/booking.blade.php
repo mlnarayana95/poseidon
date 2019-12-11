@@ -109,7 +109,7 @@
     font-size: 1.2em
     }
 
-    #content .col-md-12 a {
+    #content .col-md-12 a.dark {
     border-radius: 0;
     padding: 10px;
     margin: 10px;
@@ -148,7 +148,7 @@
                     </h3>
                 </div>
                 <div class="col-md text-right">
-                    <a class="btn btn-dark" href="#details">Continue</a>
+                    <a class="btn btn-dark dark" href="#details">Continue</a>
                 </div>
             </div>
         </div>
@@ -248,63 +248,81 @@
                 </div>
             </div>
 
-            {!! Form::open(['method' => 'post']) !!}
-            <div class="row">
-                <div class="col-md-12">
-                    <h1><span class="badge badge-info">1</span> Personal Details</h1>
-
-                    @guest
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
-                                <label for="username">Card holder name</label>
-                                {!!Form::text('username', null, array('class' => 'form-control', 'id'=>'username', 'placeholder' => 'Jon Doe'))!!}
-                                @if($errors->has('username'))
-                                    {!! $errors->first('username', '<label class="control-label error-message"
-                                                                           for="inputError">:message</label>') !!}
-                                @endif
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
-                                <label for="username">Card holder name</label>
-                                {!!Form::text('username', null, array('class' => 'form-control', 'id'=>'username', 'placeholder' => 'Jon Doe'))!!}
-                                @if($errors->has('username'))
-                                    {!! $errors->first('username', '<label class="control-label error-message"
-                                                                           for="inputError">:message</label>') !!}
-                                @endif
+            @guest
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-3">
+                            <div class="bg-info text-white card-header">Login or Register</div>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">
+                                    Please <a href="/login?ref=booking">Login</a> or <a
+                                            href="/register">Register</a> to continue.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    @endguest
-
                 </div>
-            </div>
+            @else
+                {!! Form::open(['method' => 'post']) !!}
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1><span class="badge badge-info">1</span> Personal
+                            Details</h1>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <h1><span class="badge badge-info">2</span> Payment Info</h1>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12 mx-auto pb-3" id="checkout">
-                    @if(Session::get('cc_error') && $errors->any())
-                        Please correct the following errors and try again.
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
+                                    <label for="username">Card holder
+                                        name</label>
+                                    {!!Form::text('username', null, array('class' => 'form-control', 'id'=>'username', 'placeholder' => 'Jon Doe'))!!}
+                                    @if($errors->has('username'))
+                                        {!! $errors->first('username', '<label class="control-label error-message"
+                                                                               for="inputError">:message</label>') !!}
+                                    @endif
+                                </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
+                                    <label for="username">Card holder
+                                        name</label>
+                                    {!!Form::text('username', null, array('class' => 'form-control', 'id'=>'username', 'placeholder' => 'Jon Doe'))!!}
+                                    @if($errors->has('username'))
+                                        {!! $errors->first('username', '<label class="control-label error-message"
+                                                                               for="inputError">:message</label>') !!}
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1><span class="badge badge-info">2</span> Payment Info
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mx-auto pb-3" id="checkout">
+                        @if(Session::get('cc_error') && $errors->any())
+                            Please correct the following errors and try again.
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                         @endif
-                    @endif
-                    <div class="btn btn-dark mb-3">
-                        <i class="fas fa-credit-card"></i>
-                        Credit Card
-                    </div>
+                        <div class="btn btn-dark mb-3">
+                            <i class="fas fa-credit-card"></i>
+                            Credit Card
+                        </div>
 
                         <div class="form-group @if($errors->has('username')) {{'has-error'}} @endif">
                             <label for="username">Card holder name</label>
@@ -369,10 +387,11 @@
                         <button type="submit"
                                 class="btn btn-main pull-right"> Confirm
                         </button>
+                    </div>
                 </div>
-            </div>
 
-            {!! Form::close() !!}
+                {!! Form::close() !!}
+            @endif
         </div>
     </div>
 @endsection

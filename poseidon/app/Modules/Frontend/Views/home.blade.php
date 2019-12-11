@@ -7,20 +7,40 @@
         <div class="container">
             <div class="navs">
                 <ul class="nav justify-content-end">
+                    @guest()
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile/bookings">Bookings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                        </li>
+                    @endif
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Login</a>
+                        <a class="" target="_blank" href="{{ setting('facebook') }}">
+                            <img src="/images/fbook.png" alt="fbook">
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="" target="_blank" href="{{ setting('twitter') }}">
+                            <img src="/images/twitter.png" alt="twitter">
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <img src="/images/fbook.png" alt="fbook">
-                    </li>
-                    <li class="nav-item">
-                        <img src="/images/twitter.png" alt="twitter">
-                    </li>
-                    <li class="nav-item">
-                        <img src="/images/insta.png" alt="insta">
+                        <a class="" target="_blank" href="{{ setting('instagram') }}">
+                            <img src="/images/insta.png" alt="insta">
+                        </a>
                     </li>
                 </ul>
             </div>
