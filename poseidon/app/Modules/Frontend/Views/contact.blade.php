@@ -32,6 +32,8 @@
               </ul>
           </div><br />
       @endif
+
+      @include('flash::message')
     <div class="row">
         <div class="col-md-6">
             <form method="post" action="{{url('contact')}}" novalidate>
@@ -61,8 +63,7 @@
               <div class="form-group">
                 <label for="inputAddress2"  class="required">Message</label>
 
-                <textarea class="form-control" name="message" 
-                value="{{ old('massage') }}" id="message" required></textarea>
+                <textarea class="form-control" name="message" value="{{ old('name') }}" id="message" required></textarea>
               </div>
 
               <button type="submit" class="btn btn-danger">Send Message</button>
@@ -71,10 +72,10 @@
         <div class="col-md-6">
              <div class="icons">
             <p>
-                <a href="#" class="btn btn-info btn-lg">
+                <a style="max-width: 276px;" href="#" class="btn btn-info btn-lg">
                     <span class="fas fa-map-marker-alt"></span>
-                    Fake Adress,Winnipeg<br/>
-                         MB R7B 7T7
+                    Winnipeg , MB R7B 7T7<br/>
+                         
                 </a>
                 
             </p>
