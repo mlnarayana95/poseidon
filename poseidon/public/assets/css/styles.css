@@ -201,12 +201,16 @@ div.top-destination .destination h4 {
     margin: 150px auto 100px;
 }
 
-.destination button {
-    font-size: 1.4em;
+.destination button{
     background-color: #f4364f;
-    color: #fff;
     padding: 11px 30px;
     border: none;
+}
+
+.destination button a, .contact button a{
+  color: #fff;
+  font-size: 1.4em;
+  text-decoration: none;
 }
 
 .stats {
@@ -230,9 +234,7 @@ div.contact h3 {
 
 div.contact button {
     background-color: #f4364f;
-    color: #fff;
-    font-size: 1.4em;
-    padding: 14px 18px;
+    padding: 10px 14px;
     border: none;
 }
 
@@ -672,7 +674,7 @@ text-indent: initial;
 opacity: 1;
 }
 
-#myCarousel .carousel-inner{
+#hotel-page #myCarousel .carousel-inner{
   max-height: 467px;
 }
 
