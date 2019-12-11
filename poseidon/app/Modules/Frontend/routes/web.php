@@ -11,6 +11,7 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
     Route::get('faq','FaqController@index');
 
     Route::get('room', 'RoomController@index');
+    Route::get('room/{id}', 'RoomController@show');
     Route::post('search', 'RoomController@search');
 
     Route::get('hotels', 'HotelController@index');
