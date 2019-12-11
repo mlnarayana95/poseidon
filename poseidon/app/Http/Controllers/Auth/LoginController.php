@@ -43,6 +43,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        dd('Entered here');
         $input = $request->all();
         $this->validate($request,['email'=>'required|email','password'=>'required']);
 
