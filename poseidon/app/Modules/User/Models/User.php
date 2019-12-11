@@ -12,8 +12,6 @@ class User extends Model {
 	use SoftDeletes;
 
     protected $fillable = ['email', 'password', 'user_type'];
-    protected $table = 'user';
-    protected $primaryKey = 'user_id';
 
     /**
      * The attributes that should be mutated to dates.
@@ -21,6 +19,11 @@ class User extends Model {
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function person()
+    {
+       $this->belongsTo('App\Modules\Person\Models\Person');
+    }
 
     public function customer()
     {
