@@ -11,17 +11,17 @@
                         <a class="nav-link" href="/register">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="" href="#">
+                        <a class="" target="_blank" href="{{ setting('facebook') }}">
                             <img src="/images/fbook.png" alt="fbook">
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="" href="#">
+                        <a class="" target="_blank" href="{{ setting('twitter') }}">
                             <img src="/images/twitter.png" alt="twitter">
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="" href="#">
+                        <a class="" target="_blank" href="{{ setting('instagram') }}">
                             <img src="/images/insta.png" alt="insta">
                         </a>
                     </li>
