@@ -24,7 +24,8 @@ class DashboardController extends Controller
             ->get();
         $data['booking'] = Booking::count();
         $data['rooms'] = Room::count();
-        $data['customers'] = User::where('user_type', 1)->count();
+        $data['customers'] = User::where('user_type', 0)->count();
+        $data['total_paid'] = Booking::sum('total_cost');
         return view("Dashboard::index", $data);
     }
 }
