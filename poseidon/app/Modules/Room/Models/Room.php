@@ -59,14 +59,6 @@ class Room extends MyModel
     }
 
     /**
-     * Get the images for the room
-     */
-    public function featuredImage()
-    {
-        return $this->belongsToMany('App\Modules\Base\Models\Image')->where('is_featured',1);
-    }
-
-    /**
      * Get the room type
      */
     public function type()
@@ -92,13 +84,9 @@ class Room extends MyModel
         $rooms = self::with('features', 'images')
             ->join('hotels', 'hotels.id', '=', 'rooms.hotel_id')
             ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id')
-            //->join('image_room', 'image_room.room_id', '=','rooms.id')
-            //->join('images', 'image_room.image_id', '=','images.id')
             ->select('rooms.*',
                 DB::raw('CONCAT_WS(" ", room_types.type, hotels.name, rooms.room_number) AS full_name'),
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
-            //->groupby('image_room.room_id')
-            //->orderby('images.id')
             ->paginate(20);
         return $rooms;
     }
@@ -125,15 +113,22 @@ class Room extends MyModel
 
     /**
      * Get the List of Filtered Rooms for Frontend
+     * @param $request array
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public static function getFilteredList(Array $request)
     {
         $rooms = self::with('features')
             ->join('hotels', 'hotels.id', '=', 'rooms.hotel_id')
-            ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id')
-            ->isNotReserved($request['checkin'], $request['checkout'])
-            ->select('rooms.*',
+            ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id');
+
+        if(isset($request['checkin']) && isset($request['checkout']))
+            $rooms = $rooms->isNotReserved($request['checkin'], $request['checkout']);
+
+        if(isset($request['hotel_id']))
+            $rooms = $rooms->where('hotel_id', $request['hotel_id']);
+
+        $rooms = $rooms->select('rooms.*',
                 DB::raw('CONCAT_WS(" ", room_types.type, hotels.name, rooms.room_number) AS full_name'),
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
             ->paginate(20);
@@ -178,8 +173,8 @@ class Room extends MyModel
         $to = Carbon::parse($checkout);
 
         foreach ($bookings as $booking) {
-            $book_start = Carbon::createFromFormat($booking->checkin_date, 'Y-m-d');
-            $book_end = Carbon::createFromFormat($booking->checkout_date, 'Y-m-d');
+            $book_start = Carbon::parse($booking->checkin_date);
+            $book_end = Carbon::parse($booking->checkout_date);
             if ($from->between($book_start, $book_end) || $to->between($book_start, $book_end) || ($book_start->between($from, $to) && $book_end->between($from, $to))) {
                 return false;
             }

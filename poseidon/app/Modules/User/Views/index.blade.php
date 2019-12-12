@@ -43,10 +43,10 @@
                             <td>{{ $user->created_at->format('M d Y')}}</td>
                             <td>
                                 <a href="{{ route('admin.user.edit', 
-                                $user->user_id) }}" class="btn btn-primary marginRight">
+                                $user->id) }}" class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
-                                <a href="{{ route('admin.user.destroy', $user) }}" data-method="delete"
+                                <a href="{{ route('admin.user.destroy', $user->id) }}" data-method="delete"
                                    data-token="{{csrf_token()}}"
                                    data-confirm="Are you sure?" class="btn btn-danger">
                                     <i class="fa fa-trash"></i> Delete

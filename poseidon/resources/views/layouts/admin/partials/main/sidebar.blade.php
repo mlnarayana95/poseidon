@@ -7,20 +7,10 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="treeview {{ (request()->is('admin/booking*')) ? 'active' : '' }}">
-                <a href="#">
-                    <i class="fa fa-briefcase"></i>
-                    <span>Booking</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-              <span class="label label-primary pull-right">4</span>
-            </span>
+            <li class="{{ (request()->is('admin/booking*')) ? 'active' : '' }}" style="height: auto;">
+                <a href="{{ route('admin.booking.index') }}">
+                    <i class="fa fa-briefcase"></i> <span>Bookings</span>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.booking.index') }}"><i
-                                    class="fa fa-circle-o"></i> List All</a>
-                    </li>
-                </ul>
             </li>
             <li class="treeview {{ (request()->is('admin/room*')) ? 'active' : '' }}">
                 <a href="#">
@@ -28,7 +18,6 @@
                     <span>Rooms</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
-              <span class="label label-primary pull-right">4</span>
             </span>
                 </a>
                 <ul class="treeview-menu">
@@ -39,17 +28,16 @@
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
-            <li class="treeview {{ (request()->is('admin/destination*')) ? 'active' : '' }}">
+            <li class="treeview {{ (request()->is('admin/location*')) ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-map"></i>
                     <span>Destinations</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
-              <span class="label label-primary pull-right">4</span>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.location.index') }}"><i
+                    <li><a href="/admin/location"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
                     <li><a href="{{route('admin.location.create')}}"><i
@@ -63,7 +51,6 @@
                     <span>Hotels</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
-                        <span class="label label-primary pull-right">4</span>
                     </span>
                 </a>
                 <ul class="treeview-menu">
@@ -81,7 +68,6 @@
                     <span>Hotel Amenities</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
-                        <span class="label label-primary pull-right">4</span>
                     </span>
                 </a>
                 <ul class="treeview-menu">
@@ -93,13 +79,12 @@
                 </ul>
             </li>
 
-            <li class="treeview {{ (request()->is('admin/service*')) ? 'active' : '' }}">
+            <li class="treeview {{ (request()->is('admin/feature*')) ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-tv"></i>
                     <span>Room Features</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
-                        <span class="label label-primary pull-right">4</span>
                     </span>
                 </a>
                 <ul class="treeview-menu">
@@ -112,13 +97,12 @@
             </li>
 
 
-            <li class="treeview {{ (request()->is('admin/customers*')) ? 'active' : '' }}">
+            <li class="treeview {{ (request()->is('admin/customer*')) ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-black-tie"></i>
                     <span>Customers</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
-                        <span class="label label-primary pull-right">4</span>
                     </span>
                 </a>
                 <ul class="treeview-menu">
@@ -130,34 +114,12 @@
                 </ul>
             </li>
 
-            <li class="treeview {{ (request()->is('admin/chart*')) ? 'active' : '' }}">
-                <a href="#">
-                    <i class="fa fa-pie-chart"></i>
-                    <span>Charts</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/charts/chartjs.html"><i
-                                    class="fa fa-circle-o"></i> ChartJS</a></li>
-                    <li><a href="pages/charts/morris.html"><i
-                                    class="fa fa-circle-o"></i> Morris</a></li>
-                    <li><a href="pages/charts/flot.html"><i
-                                    class="fa fa-circle-o"></i> Flot</a></li>
-                    <li><a href="pages/charts/inline.html"><i
-                                    class="fa fa-circle-o"></i> Inline
-                            charts</a></li>
-                </ul>
-            </li>
-
             <li class="treeview {{ (request()->is('admin/user*')) ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-users"></i>
                     <span>Users</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
-                        <span class="label label-primary pull-right">4</span>
                     </span>
                 </a>
                 <ul class="treeview-menu">
@@ -171,9 +133,6 @@
             <li class="{{ (request()->is('admin/settings*')) ? 'active' : '' }}">
                 <a href="/admin/settings">
                     <i class="fa fa-cogs"></i> <span>Settings</span>
-                    <span class="pull-right-container">
-                        <small class="label pull-right bg-green">new</small>
-                    </span>
                 </a>
             </li>
         </ul>

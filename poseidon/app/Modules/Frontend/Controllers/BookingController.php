@@ -43,15 +43,15 @@ class BookingController extends Controller
         $check_in_date = $dates[0];
         $checkout_date = $dates[1];
 
-        if(!Room::isBookingAvailable($id, $check_in_date, $checkout_date))
-            abort(404);
-
         $date1 = Carbon::createFromFormat('Y-m-d', $check_in_date);
         $date2 = Carbon::createFromFormat('Y-m-d', $checkout_date);
 
+        if(!(Room::isBookingAvailable($id, $check_in_date, $checkout_date)))
+            abort(404);
+
         $no_nights = $date1->diffInDays($date2);
 
-        $data['room'] = Room::with('hotel', 'type', 'features', 'featuredImage')
+        $data['room'] = Room::with('hotel', 'type', 'features', 'images')
             ->findOrFail($id);
 
         $data['cost'] = Room::calculateRoomCost($id, $check_in_date, $checkout_date);

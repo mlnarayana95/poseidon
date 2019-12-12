@@ -25,7 +25,7 @@ class CustomerController extends Controller
         $data['customers'] = Customer::with('user')->whereHas('user', function ($query) {
                 $query->where('user_type', '!=', null);
             })->get();
-
+        
         return view("Customer::index", $data);
     }
 

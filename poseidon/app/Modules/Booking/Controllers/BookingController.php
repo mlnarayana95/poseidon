@@ -6,17 +6,17 @@ namespace App\Modules\Booking\Controllers;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Modules\Booking\Models\Booking;
+
 class BookingController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
      */
     public function index()
     {
-        $data['bookings'] = Booking::with('user.person','room')->get();
+        $data['bookings'] = Booking::with('user.person', 'room')->get();
         //dd($data['bookings']->toArray());
         return view("Booking::index", $data);
     }
@@ -24,12 +24,13 @@ class BookingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $data['booking'] = Booking::with('user.person','room')->findOrFail($id);
+        $data['booking'] = Booking::with('user.person',
+            'room')->findOrFail($id);
 
         return view("Booking::detail", $data);
     }

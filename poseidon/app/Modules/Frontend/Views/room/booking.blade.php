@@ -170,7 +170,7 @@
             </div>
             <div class="row">
                 <div class="col-md-7 no-padding">
-                    <img src="/images/rooms/{{$room->featuredImage->first()->file_name}}"
+                    <img src="/images/rooms/{{$room->images->first()->file_name}}"
                          alt="{{ $room->type->type }}" class="img-fit"/>
                 </div>
 
