@@ -172,8 +172,8 @@ class Room extends MyModel
      * @param $checkout
      * @return bool
      */
-    public function isBookingAvailable($room_id, $checkin, $checkout) {
-        $bookings = Booking::where('room_id', $room_id)->all();
+    public static function isBookingAvailable($room_id, $checkin, $checkout) {
+        $bookings = Booking::where('room_id', $room_id)->get();
         $from = Carbon::parse($checkin);
         $to = Carbon::parse($checkout);
 

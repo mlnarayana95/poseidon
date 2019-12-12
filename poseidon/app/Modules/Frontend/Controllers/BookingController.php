@@ -19,6 +19,21 @@ class BookingController extends Controller
      */
     public function index()
     {
+        if(request()->ajax())
+        {
+            $rules = [
+                'adults' => 'required',
+                'dates' => 'required'
+            ];
+
+            $validator = \Validator::make(request()->all(), $rules);
+            if ($validator->fails())
+                return response()->json(['status' => 0, 'errors' => $validator->getMessageBag()->toArray()]);
+            else
+                return response()->json(['status' => 1]);
+        }
+
+        // if validates
         $id = (int)request('room_id');
         $dates = explode(" to ", request('dates'));
 
@@ -27,6 +42,9 @@ class BookingController extends Controller
 
         $check_in_date = $dates[0];
         $checkout_date = $dates[1];
+
+        if(!Room::isBookingAvailable($id, $check_in_date, $checkout_date))
+            abort(404);
 
         $date1 = Carbon::createFromFormat('Y-m-d', $check_in_date);
         $date2 = Carbon::createFromFormat('Y-m-d', $checkout_date);
@@ -49,7 +67,7 @@ class BookingController extends Controller
             'no_nights' => $no_nights
         ];
 
-        return view("Frontend::booking/booking", $data);
+        return view("Frontend::room/booking", $data);
     }
 
     /**
@@ -92,9 +110,7 @@ class BookingController extends Controller
 
     }
     public function show(){
-
-        //$user_id = Session::get('user_id');
-        $user_id=1;
+        $user_id= auth()->user()->id;
         $bookings = Booking::with('room')
             ->where('user_id', $user_id)->get();
         return view('Frontend::booking',compact('bookings'));
@@ -107,7 +123,7 @@ class BookingController extends Controller
         $transaction->exp_date($booking_details['month'].$booking_details['year']); // expiry date month and year (august 2022)
         $transaction->cvv($booking_details['cvv']); // card cvv number
         //$transaction->ref_num('2011099'); // your reference or invoice number
-        $transaction->card_type('visa'); // card type (visa, mastercard, amex)
+        $transaction->card_type($booking_details['cardType']); // card type (visa, mastercard, amex)
         return $transaction->authorize_and_capture(); // returns JSON object
 
     }
