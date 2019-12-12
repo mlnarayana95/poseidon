@@ -38,7 +38,6 @@ class HotelController extends Controller
         $data['rooms'] = Room::getFilteredList(['hotel_id' => $id]); //dd($data['rooms']->toArray());
         $data['room_types'] = RoomType::typesWithCount();
         $data['features'] = Feature::featuresWithCount();
-        $data['locations'] = Location::locationsWithCount();
         return view("Frontend::hotel/rooms", $data);
     }
 }

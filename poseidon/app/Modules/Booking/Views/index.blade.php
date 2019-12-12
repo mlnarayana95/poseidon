@@ -24,7 +24,6 @@
                 </div>
             </div>
             <div class="box-body">
-
                 <table id="booking" class="table table-bordered table-hover">
                     <thead>
                     <tr>

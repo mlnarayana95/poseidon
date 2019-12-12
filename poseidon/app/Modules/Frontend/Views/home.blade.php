@@ -199,45 +199,34 @@ high-quality ingredients and one of the most breathtaking views at our first cla
             <h2 class="header-effect">Our Hotel Rooms</h2>
             <div class="row">
 
-                <div class="col-md-4 col-sm-1">
+                @foreach($rooms as $room)
+                <div class="col-md-4 col-sm-1 mb-3">
                     <div class="home-room shadow">
-                        <img src="/images/room1.jpg" alt="room1">
+                        <div class="room-img">
+                            <img src="/images/rooms/{{ $room->images->first()->file_name }}"
+                                 alt="{{ $room->type->type }}"
+                                 class="img-fit" />
+                        </div>
                         <div class="row home-room-info">
                             <div class="col-md-8">
-                                <h4>Family Room</h4>
-                                <i class="fa fa-map-marker"></i> Place Cuba
+                                <h4>
+                                    <a href="/room/{{ $room->id }}" class="title-link">
+                                        {{ $room->type->type }}
+                                    </a>
+                                </h4>
                             </div>
                             <div class="col-md-4 text-right"><span
-                                        class="price">$420</span></div>
+                                        class="price">${{ number_format($room->room_cost) }}</span>
+                            </div>
+                            <div class="col-md-12">
+                                <i class="fa fa-map-marker"></i> {{ $room->hotel->location->location }}
+                                <br>
+                                <i class="fa fa-building"></i> {{ $room->hotel->name }}
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="home-room shadow">
-                        <img src="/images/room2.jpg" alt="room2">
-                        <div class="row home-room-info">
-                            <div class="col-md-8">
-                                <h4>Deluxe Room</h4>
-                                <i class="fa fa-map-marker"></i> Place Mexico
-                            </div>
-                            <div class="col-md-4 text-right"><span
-                                        class="price">$610</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="home-room shadow">
-                        <img src="/images/room3.jpg" alt="room3">
-                        <div class="row home-room-info">
-                            <div class="col-md-8">
-                                <h4>Family Room</h4>
-                                <i class="fa fa-map-marker"></i> Place Maldives
-                            </div>
-                            <div class="col-md-4 text-right"><span
-                                        class="price">$530</span></div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

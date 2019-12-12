@@ -59,14 +59,6 @@ class Room extends MyModel
     }
 
     /**
-     * Get the images for the room
-     */
-    public function featuredImage()
-    {
-        return $this->belongsToMany('App\Modules\Base\Models\Image')->where('is_featured',1);
-    }
-
-    /**
      * Get the room type
      */
     public function type()
@@ -181,8 +173,8 @@ class Room extends MyModel
         $to = Carbon::parse($checkout);
 
         foreach ($bookings as $booking) {
-            $book_start = Carbon::createFromFormat($booking->checkin_date, 'Y-m-d');
-            $book_end = Carbon::createFromFormat($booking->checkout_date, 'Y-m-d');
+            $book_start = Carbon::parse($booking->checkin_date);
+            $book_end = Carbon::parse($booking->checkout_date);
             if ($from->between($book_start, $book_end) || $to->between($book_start, $book_end) || ($book_start->between($from, $to) && $book_end->between($from, $to))) {
                 return false;
             }
