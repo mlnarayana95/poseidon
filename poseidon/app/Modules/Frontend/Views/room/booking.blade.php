@@ -265,6 +265,10 @@
                 </div>
             @else
                 {!! Form::open(['method' => 'post']) !!}
+
+                    {{ Form::hidden('room_id', $room->id) }}
+                    {{ Form::hidden('checkin_date', $other_info['checkin_date']) }}
+                    {{ Form::hidden('checkout_date', $other_info['checkout_date']) }}
                 <div class="row">
                     <div class="col-md-12">
                         <h1><span class="badge badge-info">1</span> Personal

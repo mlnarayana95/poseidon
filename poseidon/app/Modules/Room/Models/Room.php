@@ -143,7 +143,7 @@ class Room extends MyModel
      * @param     $checkout
      * @return mixed
      */
-    public static function calculateRoomCost(int $room_id, $checkin, $checkout)
+    public static function calculateRoomCost($room_id, $checkin, $checkout)
     {
         $room = Room::findOrFail($room_id);
 
