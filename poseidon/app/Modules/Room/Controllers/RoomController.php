@@ -4,6 +4,7 @@ namespace App\Modules\Room\Controllers;
 
 use App\Modules\Feature\Models\Feature;
 use App\Modules\Hotel\Models\Hotel;
+use App\Modules\Room\Models\FeatureRoom;
 use App\Modules\Room\Models\Room;
 use App\Modules\Base\Models\Image;
 use App\Modules\Room\Models\RoomType;
@@ -49,12 +50,27 @@ class RoomController extends Controller
         // Validate Form Inputs
         $validated_data = $this->validateRoom($request);
 
-        $room_id = Room::create($validated_data);
+        DB::beginTransaction();
 
-        foreach ($validated_data['images'] as $image_id) {
-            DB::table('image_room')->insert(
-                ['room_id' => $room_id, 'image_id' => $image_id]
-            );
+        try {
+            $room_id = Room::create($validated_data);
+
+            /* Feature Add */
+            foreach ($validated_data['features'] as $feature_id) {
+                FeatureRoom::create(['room_id' => $room_id, 'feature_id'=>$feature_id]);
+            }
+
+            foreach ($validated_data['images'] as $image_id) {
+                DB::table('image_room')->insert(
+                    ['room_id' => $room_id, 'image_id' => $image_id]
+                );
+            }
+
+            DB::commit();
+            // all good
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
         }
 
         flash('Room has been created successfully!')->success();
@@ -99,17 +115,32 @@ class RoomController extends Controller
         // Validate Form Inputs
         $validated_data = $this->validateRoom($request, false);
 
-        foreach ($validated_data['features'] as $feature_id) {
-            FeatureRoom::updateOrInsert(['room_id'=>$id,'feature_id'=>$feature_id]);
+        DB::beginTransaction();
+
+        try {
+            // Remove Features
+            if (isset($request['features'])) {
+                FeatureRoom::whereNotIn('feature_id', $request['features'])->delete();
+            }
+
+            foreach ($validated_data['features'] as $feature_id) {
+                FeatureRoom::updateOrCreate(['room_id' => $id,'feature_id'=>$feature_id]);
+            }
+
+            foreach ($validated_data['images'] as $image_id) {
+                DB::table('image_room')->insert(
+                    ['room_id' => $id, 'image_id' => $image_id]
+                );
+            }
+
+            Room::find($id)->update($validated_data);
+
+            DB::commit();
+            // all good
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
         }
-
-        foreach ($validated_data['images'] as $image_id) {
-            DB::table('image_room')->insert(
-            ['room_id' => $id, 'image_id' => $image_id]
-            );  
-        }       
-
-        Room::find($id)->update($validated_data);
 
         flash('Room has been updated successfully!')->success();
 
