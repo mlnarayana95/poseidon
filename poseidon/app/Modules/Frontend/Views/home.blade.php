@@ -2,7 +2,7 @@
 @section('title', 'Home')
 
 @section('content')
-<link rel="icon" href="images/favicon-16x16.png" />
+
     <div class="social-head">
         <div class="container">
             <div class="navs">
@@ -16,29 +16,36 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link active" href="/profile">Profile</a>
+                            <a class="nav-link active"
+                               href="/profile">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/profile/bookings">Bookings</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            <a class="nav-link" href="{{ route('logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                            <form id="logout-form"
+                                  action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">{{ csrf_field() }}</form>
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a class="" target="_blank" href="{{ setting('facebook') }}">
+                        <a class="" target="_blank"
+                           href="{{ setting('facebook') }}">
                             <img src="/images/fbook.png" alt="fbook">
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="" target="_blank" href="{{ setting('twitter') }}">
+                        <a class="" target="_blank"
+                           href="{{ setting('twitter') }}">
                             <img src="/images/twitter.png" alt="twitter">
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="" target="_blank" href="{{ setting('instagram') }}">
+                        <a class="" target="_blank"
+                           href="{{ setting('instagram') }}">
                             <img src="/images/insta.png" alt="insta">
                         </a>
                     </li>
@@ -108,7 +115,8 @@
                 <span class="sr-only">Next</span>
             </a>
 
-            <form method="post" action="/search" id="search-form" autocomplete="off">
+            <form method="post" action="/search" id="search-form"
+                  autocomplete="off">
                 @csrf
                 <div class="form-row no-margin">
                     <div class="col-md-1">
@@ -170,24 +178,33 @@
                 <div class="col-md-3 text-center why-choose-us">
                     <i class="fas fa-globe-americas fa-2x choose-us-icon"></i>
                     <h6>World Class Service</h6>
-                    <p>We have set the benchmark for responsible tourism based on high-quality initiatives. Located in unique places and serving excellent and honest gastronomy.</p>
+                    <p>We have set the benchmark for responsible tourism based
+                        on high-quality initiatives. Located in unique places
+                        and serving excellent and honest gastronomy.</p>
                 </div>
                 <div class="col-md-3 text-center why-choose-us-dollar">
                     <i class="fas fa-dollar-sign fa-2x choose-us-icon"></i>
                     <h6>Best Price Guaranteed</h6>
-                    <p>Book now and receive up to $800 in resort credits to enjoy and complement your dream trip!</p>
+                    <p>Book now and receive up to $800 in resort credits to
+                        enjoy and complement your dream trip!</p>
                 </div>
                 <div class="col-md-3 text-center why-choose-us">
                     <i class="fas fa-glass-cheers fa-2x choose-us-icon"></i>
                     <h6>Exotic Ambience</h6>
                     <p>
-Enjoy seafood specialities and signature cocktails featuring passion, colors, 
-high-quality ingredients and one of the most breathtaking views at our first class restaurant: Poseidon del Mar.</p>
+                        Enjoy seafood specialities and signature cocktails
+                        featuring passion, colors,
+                        high-quality ingredients and one of the most
+                        breathtaking views at our first class restaurant:
+                        Poseidon del Mar.</p>
                 </div>
                 <div class="col-md-3 text-center why-choose-us">
                     <i class="fas fa-thumbs-up fa-2x choose-us-icon"></i>
                     <h6>Guest Testimonials</h6>
-                    <p>"We had a wonderful holiday organised within budget by people who knew what they were talking about, who could make relevant recommendations for tours and activities."</p>
+                    <p>"We had a wonderful holiday organised within budget by
+                        people who knew what they were talking about, who could
+                        make relevant recommendations for tours and
+                        activities."</p>
                 </div>
             </div>
         </div>
@@ -199,45 +216,35 @@ high-quality ingredients and one of the most breathtaking views at our first cla
             <h2 class="header-effect">Our Hotel Rooms</h2>
             <div class="row">
 
-                <div class="col-md-4 col-sm-1">
-                    <div class="home-room shadow">
-                        <img src="/images/room1.jpg" alt="room1">
-                        <div class="row home-room-info">
-                            <div class="col-md-8">
-                                <h4>Family Room</h4>
-                                <i class="fa fa-map-marker"></i> Place Cuba
+                @foreach($rooms as $room)
+                    <div class="col-md-4 col-sm-1 mb-3">
+                        <div class="home-room shadow">
+                            <div class="room-img">
+                                <img src="/images/rooms/{{ $room->images->first()->file_name }}"
+                                     alt="{{ $room->type->type }}"
+                                     class="img-fit"/>
                             </div>
-                            <div class="col-md-4 text-right"><span
-                                        class="price">$420</span></div>
+                            <div class="row home-room-info">
+                                <div class="col-md-8">
+                                    <h4>
+                                        <a href="/room/{{ $room->id }}"
+                                           class="title-link">
+                                            {{ $room->type->type }}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="col-md-4 text-right"><span
+                                            class="price">${{ number_format($room->room_cost) }}</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <i class="fa fa-map-marker"></i> {{ $room->hotel->location->location }}
+                                    <br>
+                                    <i class="fa fa-building"></i> {{ $room->hotel->name }}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="home-room shadow">
-                        <img src="/images/room2.jpg" alt="room2">
-                        <div class="row home-room-info">
-                            <div class="col-md-8">
-                                <h4>Deluxe Room</h4>
-                                <i class="fa fa-map-marker"></i> Place Mexico
-                            </div>
-                            <div class="col-md-4 text-right"><span
-                                        class="price">$610</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="home-room shadow">
-                        <img src="/images/room3.jpg" alt="room3">
-                        <div class="row home-room-info">
-                            <div class="col-md-8">
-                                <h4>Junior Room</h4>
-                                <i class="fa fa-map-marker"></i> Place Maldives
-                            </div>
-                            <div class="col-md-4 text-right"><span
-                                        class="price">$530</span></div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -252,7 +259,8 @@ high-quality ingredients and one of the most breathtaking views at our first cla
                          alt="top 1">
                     <div class="destination">
                         <h4>Cuba</h4>
-                        <button class="home-button"><a href="/hotels">Explore</a></button>
+                        <button class="home-button"><a
+                                    href="/hotels">Explore</a></button>
                     </div>
                 </div>
 
@@ -261,7 +269,8 @@ high-quality ingredients and one of the most breathtaking views at our first cla
                          alt="top 3">
                     <div class="destination">
                         <h4>Maldives</h4>
-                        <button class="home-button"><a href="/hotels">Explore</a></button>
+                        <button class="home-button"><a
+                                    href="/hotels">Explore</a></button>
                     </div>
                 </div>
 
@@ -270,7 +279,8 @@ high-quality ingredients and one of the most breathtaking views at our first cla
                          alt="top 2">
                     <div class="destination">
                         <h4>Mexico</h4>
-                        <button class="home-button"><a href="/hotels">Explore</a></button>
+                        <button class="home-button"><a
+                                    href="/hotels">Explore</a></button>
                     </div>
                 </div>
 
@@ -304,7 +314,9 @@ high-quality ingredients and one of the most breathtaking views at our first cla
     <div class="d-flex align-content-center flex-wrap justify-content-center contact-us-image">
         <div class="contact text-center">
             <h3 class="pb-4">Start Your Adventure With Us</h3>
-            <button class="home-button"><a class="nav-link nav-item" href="/contact">Contact Us</a></button>
+            <button class="home-button"><a class="nav-link nav-item"
+                                           href="/contact">Contact Us</a>
+            </button>
         </div>
     </div>
 
@@ -312,11 +324,13 @@ high-quality ingredients and one of the most breathtaking views at our first cla
 
 @section('scripts')
     <!-- Bootstrap Date-Picker Plugin -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script>
         $(function () {
-            (function($) {
+            (function ($) {
                 // initialise datepickers
                 var opts = {
                     format: 'yyyy-mm-dd',
@@ -330,7 +344,7 @@ high-quality ingredients and one of the most breathtaking views at our first cla
                 opts.forceParse = false;
                 $('#checkout').datepicker(opts);
                 // add event listeners to datepickers
-                $('#checkin').on('changeDate', function(selected) {
+                $('#checkin').on('changeDate', function (selected) {
                     // see if the second picker has a date selected
                     var toDate = $('#checkout').datepicker('getDate');
                     if (toDate) {
@@ -342,7 +356,7 @@ high-quality ingredients and one of the most breathtaking views at our first cla
                     // sets the start date on the second picker
                     $('#checkout').datepicker('setStartDate', selected.date);
                 });
-                $('#checkin').on('clearDate', function() {
+                $('#checkin').on('clearDate', function () {
                     $('#checkout').datepicker('clearDates');
                 });
             })(jQuery);

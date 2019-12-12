@@ -17,7 +17,6 @@
                 <h3 class="box-title">All Bookings</h3>
             </div>
             <div class="box-body">
-
                 <table id="booking" class="table table-bordered table-hover">
                     <thead>
                     <tr>
