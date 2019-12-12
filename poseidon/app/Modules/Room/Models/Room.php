@@ -147,8 +147,9 @@ class Room extends MyModel
     {
         $room = Room::findOrFail($room_id);
 
-        $date1 = Carbon::createFromFormat('Y-m-d', $checkin);
-        $date2 = Carbon::createFromFormat('Y-m-d', $checkout);
+        $date1 = Carbon::parse($checkin);
+        $date2 = Carbon::parse($checkout);
+        //$date2 = Carbon::createFromFormat('Y-m-d', $checkout);
 
         $data['room_cost'] = $room->room_cost;
         $data['no_nights'] = $date1->diffInDays($date2);

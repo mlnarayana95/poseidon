@@ -846,6 +846,11 @@ section .section-title {
   padding: 0px;
 }
 
+#bookings_accordion .card .card-header {
+  margin: inherit;
+  padding: inherit;
+}
+
 /* FAQ styles end */
 
 

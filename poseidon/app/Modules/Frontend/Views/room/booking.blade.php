@@ -269,6 +269,8 @@
                     {{ Form::hidden('room_id', $room->id) }}
                     {{ Form::hidden('checkin_date', $other_info['checkin_date']) }}
                     {{ Form::hidden('checkout_date', $other_info['checkout_date']) }}
+                    {{ Form::hidden('adults', $other_info['adults']) }}
+                    {{ Form::hidden('children', $other_info['children']) }}
                 <div class="row">
                     <div class="col-md-12">
                         <h1><span class="badge badge-info">1</span> Personal
@@ -373,8 +375,8 @@
                                         <label for="month">Expiration</label>
                                     </div>
                                     <div class="input-group">
-                                        {!!Form::number('month', null, array('class' => 'form-control', 'id'=>'month', 'maxlength'=>2, 'placeholder'=>'MM'))!!}
-                                        {!!Form::number('year', null, array('class' => 'form-control', 'id'=>'year', 'maxlength'=>2, 'placeholder'=>'YY'))!!}
+                                        {!!Form::text('month', null, array('class' => 'form-control', 'pattern' => "\d*", 'id'=>'month', 'maxlength'=>2, 'placeholder'=>'MM'))!!}
+                                        {!!Form::text('year', null, array('class' => 'form-control', 'pattern' => "\d*", 'id'=>'year', 'maxlength'=>2, 'placeholder'=>'YY'))!!}
                                     </div>
                                     @if($errors->has('month'))
                                         {!! $errors->first('month', '<label class="control-label error-message"
