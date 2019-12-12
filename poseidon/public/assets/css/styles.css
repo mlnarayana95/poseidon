@@ -768,6 +768,40 @@ section .section-title {
 
 /* Hotels Styles Details End */
 
+/* FAQ styles start */
+.faq-container{
+  padding:30px;
+}
+
+#faq-page .btn-link {
+  font-weight: 500;
+  color: #fff;
+  border-radius: 0;
+  width: 100%;
+  height: 90px;
+}
+
+#faq-page .btn{
+  text-decoration: none;
+  color: #fff;
+}
+
+#faq-page a{
+  color: orange;
+  text-decoration: none;
+}
+
+.accordion{
+  margin-top: 20px;
+}
+
+.accordion>.card .card-header {
+  margin: -13px;
+  padding: 0px;
+}
+
+/* FAQ styles end */
+
 
 /* media Queires*/
 
@@ -781,5 +815,4 @@ section .section-title {
     .img-fluid {
         width: 100%;
     }
-
 }

@@ -234,7 +234,7 @@
                          alt="top 1">
                     <div class="destination">
                         <h4>Cuba</h4>
-                        <button class="home-button"><a href="/hotels">Explore</a></button>
+                        <button class="home-button"><a href="/hotels/1">Explore</a></button>
                     </div>
                 </div>
 
@@ -243,7 +243,7 @@
                          alt="top 3">
                     <div class="destination">
                         <h4>Maldives</h4>
-                        <button class="home-button"><a href="/hotels">Explore</a></button>
+                        <button class="home-button"><a href="/hotels/2">Explore</a></button>
                     </div>
                 </div>
 
@@ -252,7 +252,7 @@
                          alt="top 2">
                     <div class="destination">
                         <h4>Mexico</h4>
-                        <button class="home-button"><a href="/hotels">Explore</a></button>
+                        <button class="home-button"><a href="/hotels/3">Explore</a></button>
                     </div>
                 </div>
 

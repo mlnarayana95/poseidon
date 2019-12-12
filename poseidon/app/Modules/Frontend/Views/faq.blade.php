@@ -1,41 +1,5 @@
 @extends('layouts.frontend.main')
 
-@section('style')
-  
-
-    .faq-container{
-      padding:30px;
-    }
-
-    .btn-link {
-      font-weight: 500;
-      color: #fff;
-      border-radius: 0;
-      width: 100%;
-      height: 90px;
-    }
-    
-    #faq-page .btn{
-      text-decoration: none;
-      color: #fff;
-    }
-
-    #faq-page a{
-      color: orange;
-      text-decoration: none;
-    }
-    
-    .accordion{
-      margin-top: 20px;
-    }
-
-    .accordion>.card .card-header {
-      margin: -13px;
-      padding: 0px;
-    }
-
-
-@endsection
 
 @section('content')
 <div id="faq-page">
