@@ -15,7 +15,7 @@ class Customer extends Model{
 
  	public function user()
     {
-        return $this->hasOne('App\Modules\User\Models\User', 'user_id');
+        return $this->hasOne('App\Modules\User\Models\User', 'id');
     }
 
 }

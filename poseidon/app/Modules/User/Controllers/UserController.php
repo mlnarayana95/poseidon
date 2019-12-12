@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::all();  
+        $data['users'] = User::all();
         return view("User::index",$data);
     }
 
