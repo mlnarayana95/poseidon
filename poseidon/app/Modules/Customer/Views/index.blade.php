@@ -28,7 +28,7 @@
                     <tr>
                         <th>User ID</th>
                         <th>Name</th>
-                        <th>User Type</th>
+                        <th>Email</th>
                         <th>Phone Number</th>
                         <th>Actions</th>
                     </tr>
@@ -39,8 +39,8 @@
                         <tr>
                             <td>{{ $customer->user_id }}</td>
                             <td>{{ $customer->first_name . ' '. $customer->last_name }}</td>
-                            <td>{{ $customer->user->user_type ? 'Admin' : 'User'}} </td>
-                            <td>{{ $customer->phone_number}}</td>
+                            <td><a href="mailto:emailhere">{{ $customer->user->email }}</a></td>
+                            <td><a href="tel:phone">{{ $customer->phone_number}}</a></td>
                             <td>
                                 <a href="{{ route('admin.customer.edit', 
                                 $customer->user_id) }}" class="btn btn-primary marginRight">

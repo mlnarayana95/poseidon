@@ -5,6 +5,7 @@ namespace App\Modules\User\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modules\User\Models\User;
+use App\Modules\Customer\Models\Customer;
 
 class UserController extends Controller
 {
@@ -22,8 +23,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::all();
-        return view("User::index",$data);
+        $data['users'] = Customer::with('user')->whereHas('user', function ($query) {
+                $query->where('user_type', '!=', null);
+            })->get();
+        
+        return view("User::index", $data);
     }
 
     /**
