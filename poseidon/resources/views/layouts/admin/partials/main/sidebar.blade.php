@@ -41,7 +41,7 @@
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
-            <li class="treeview {{ (request()->is('admin/destination*')) ? 'active' : '' }}">
+            <li class="treeview {{ (request()->is('admin/location*')) ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-map"></i>
                     <span>Destinations</span>
@@ -51,10 +51,10 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.location.index') }}"><i
+                    <li><a href="/admin/location"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i
+                    <li><a href="/admin/location/add"><i
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
