@@ -288,6 +288,10 @@ div.footer li a {
     color: #c9c7bf;
 }
 
+div.social-footer a{
+  color: #fff;
+}
+
 div.footer .social-footer .fab {
     padding: 20px 10px;
 }
@@ -861,4 +865,13 @@ section .section-title {
     .img-fluid {
         width: 100%;
     }
+    
+    span.carousel-control-next-icon, span.carousel-control-prev-icon{
+      display: none;
+    }
+    
+    nav.home-navbar{
+      position: relative;
+    }
+    
 }
