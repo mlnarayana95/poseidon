@@ -20,6 +20,8 @@
                 <label>Room number: </label> <span class="value">{{$booking->room->room_number}}</span><br>
                 <label>Room id: </label> <span class="value">{{$booking->room_id}}</span><br>
                 <label>Room number: </label> <span class="value">{{$booking->room->type->type}}</span><br>
+                <label>No. Adults: </label> <span class="value">{{$booking->adults}}</span><br>
+                <label>No. Children: </label> <span class="value">{{$booking->children}}</span><br>
                 <label>Checkin date: </label> <span class="value">{{$booking->checkin_date}} </span><br>
                 <label>Checkout date: </label> <span class="value">{{$booking->checkout_date}} </span><br>
                 <label>Transaction No: </label> <span class="value">{{$booking->transaction_number}}</span><br>

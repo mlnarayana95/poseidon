@@ -58,6 +58,10 @@
                                     </p>
                                     <label>Checkin date: </label> <label
                                             class="value">{{$booking->checkin_date}} </label><br>
+                                    <label>No. Adults: </label> <label
+                                            class="value">{{$booking->adults}} </label><br>
+                                    <label>No. Children: </label> <label
+                                            class="value">{{$booking->children}} </label><br>
                                     <label>Checkout date: </label> <label
                                             class="value">{{$booking->checkout_date}} </label><br>
                                     <label>Transaction No: </label> <label

@@ -78,6 +78,26 @@ function sendEmail($first_name, $email, $view)
     }
 }
 
+/**
+ * @param $first_name Name of the recipient
+ * @param $email email reciever email address
+ * @param $view create a view that shows the format of the email
+ * @return \Illuminate\Http\RedirectResponse
+ */
+function sendBookingEmail($booking)
+{
+    try {
+        $data = array('booking'=>$booking->ToArray());
+        Mail::send('booking_mail', $data, function ($message) use ($data) {
+            $message->to($data['email'],
+                $data['name'])->subject('Test subject');
+
+        });
+        return back();
+    } catch (Exception $e) {
+    }
+}
+
 if (!function_exists('user_details')) {
 
     /**
