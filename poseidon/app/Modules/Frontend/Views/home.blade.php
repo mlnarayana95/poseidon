@@ -59,7 +59,7 @@
         <nav class="navbar home-navbar navbar-expand-md navbar-light bg-light">
 
             <div class="container">
-                <a href="#" class="navbar-brand">
+                <a href="/" class="navbar-brand">
                     <img src="/images/logo.png" alt="logo">
                 </a>
                 <button type="button" class="navbar-toggler"
