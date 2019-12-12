@@ -99,6 +99,10 @@ class RoomController extends Controller
         // Validate Form Inputs
         $validated_data = $this->validateRoom($request, false);
 
+        foreach ($validated_data['features'] as $feature_id) {
+            FeatureRoom::updateOrInsert(['room_id'=>$id,'feature_id'=>$feature_id]);
+        }
+
         foreach ($validated_data['images'] as $image_id) {
             DB::table('image_room')->insert(
             ['room_id' => $id, 'image_id' => $image_id]
@@ -156,7 +160,7 @@ class RoomController extends Controller
 
         if($add)
             $rules['image'] = 'image|required|max:2048';
-
+    
         $validated_data = $request->validate($rules);
         $data = [];
         $images= [];
