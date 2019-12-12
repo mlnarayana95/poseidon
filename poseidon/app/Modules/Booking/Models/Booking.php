@@ -24,7 +24,7 @@ class Booking extends Model
     /**
      * Get all of the customer for the customer
      */
-    public function customer()
+    public function user()
     {
         return $this->belongsTo('App\Modules\User\Models\User');
     }

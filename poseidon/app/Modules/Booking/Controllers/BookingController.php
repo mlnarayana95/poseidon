@@ -5,6 +5,7 @@ namespace App\Modules\Booking\Controllers;
 
 use App\Http\Controllers\Controller;
 use DB;
+use App\Modules\Booking\Models\Booking;
 class BookingController extends Controller
 {
 
@@ -15,12 +16,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        dd('Entered into index methods controller');
-        $data['booking'] = Booking::get();
-        $data['rooms'] = Room::pluck('room_number', 'id');
-        $data['customers'] = Customer::pluck('id','first_name','last_name');
-
-        dd($data->toArray());
+        $data['bookings'] = Booking::with('user.person','room')->get();
+        //dd($data['bookings']->toArray());
         return view("Booking::index", $data);
     }
 
