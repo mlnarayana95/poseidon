@@ -92,10 +92,14 @@ class Hotel extends Model
      * Get Hotels With Count
      * @return mixed
      */
-    public static function hotelsWithCount()
+    public static function hotelsWithCount($location_id = 0)
     {
-        $hotels = self::has('rooms')
-            ->withCount('rooms')
+        $hotels = self::has('rooms');
+
+        if($location_id != 0)
+            $hotels = $hotels->where('location_id', $location_id);
+
+        $hotels = $hotels->withCount('rooms')
             ->orderBy('name')
             ->get();
         return $hotels;

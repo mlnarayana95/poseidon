@@ -16,6 +16,9 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
 
     Route::get('hotels', 'HotelController@index');
     Route::get('hotel/{slug}', 'HotelController@show');
+    Route::get('hotel/{id}/rooms', 'HotelController@rooms');
+
+    Route::get('destination/{id}', 'DestinationController@rooms');
 
     Route::get('booking','BookingController@index');
     Route::post('booking','BookingController@save');
