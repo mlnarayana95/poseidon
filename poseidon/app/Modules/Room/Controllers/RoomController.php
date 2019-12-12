@@ -190,7 +190,7 @@ class RoomController extends Controller
         ];
 
         if($add)
-            $rules['image'] = 'image|required|max:2048';
+            $rules['image'] = 'image|required';
     
         $validated_data = $request->validate($rules);
         $data = [];

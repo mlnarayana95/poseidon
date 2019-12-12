@@ -122,8 +122,8 @@ class HotelController extends Controller
         
         $validated_data['description'] = $request->description;
         $validated_data['location_id'] = $request->location_id;
-        $validated_data['airport_distance'] = $request->airport_distance;
-        $validated_data['airport_transportation'] = $request->airport_transportation;
+        $validated_data['airport_distance'] = ($request->airport_distance == null)? '' : $request->airport_distance;
+        $validated_data['airport_transportation'] = ($request->airport_transportation == null)? '' : $request->airport_transportation;
         $validated_data['pet_friendly'] = ($request->pet_friendly == null) ? 0 : 1;
         $validated_data['checkin_time'] = Carbon::createFromFormat('H:i A',
             $request->checkin_time)->toTimeString();

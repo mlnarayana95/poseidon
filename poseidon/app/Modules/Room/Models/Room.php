@@ -143,12 +143,13 @@ class Room extends MyModel
      * @param     $checkout
      * @return mixed
      */
-    public static function calculateRoomCost(int $room_id, $checkin, $checkout)
+    public static function calculateRoomCost($room_id, $checkin, $checkout)
     {
         $room = Room::findOrFail($room_id);
 
-        $date1 = Carbon::createFromFormat('Y-m-d', $checkin);
-        $date2 = Carbon::createFromFormat('Y-m-d', $checkout);
+        $date1 = Carbon::parse($checkin);
+        $date2 = Carbon::parse($checkout);
+        //$date2 = Carbon::createFromFormat('Y-m-d', $checkout);
 
         $data['room_cost'] = $room->room_cost;
         $data['no_nights'] = $date1->diffInDays($date2);

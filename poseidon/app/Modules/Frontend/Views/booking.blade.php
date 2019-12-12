@@ -26,8 +26,10 @@
 </style>
 @section('content')
     <div class="container py-5">
+
         <div class="row text-center text-white mb-5">
             <div class="col-lg-7 mx-auto">
+                @include('flash::message')
                 <h1 class="display-4">Your Bookings</h1>
             </div>
         </div>
