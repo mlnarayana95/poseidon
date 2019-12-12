@@ -20,8 +20,6 @@
                     <li><a href="{{ route('admin.booking.index') }}"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i
-                                    class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
             <li class="treeview {{ (request()->is('admin/room*')) ? 'active' : '' }}">
@@ -37,7 +35,7 @@
                     <li><a href="{{ route('admin.room.index') }}"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i
+                    <li><a href="{{route('admin.room.create')}}"><i
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
@@ -54,7 +52,7 @@
                     <li><a href="{{ route('admin.location.index') }}"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i
+                    <li><a href="{{route('admin.location.create')}}"><i
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
@@ -72,7 +70,7 @@
                     <li><a href="{{ route('admin.hotel.index') }}"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i
+                    <li><a href="{{route('admin.hotel.create')}}"><i
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
@@ -90,7 +88,7 @@
                     <li><a href="{{ route('admin.amenity.index') }}"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i
+                    <li><a href="{{route('admin.amenity.create')}}"><i
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
@@ -108,7 +106,7 @@
                     <li><a href="{{ route('admin.feature.index') }}"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i
+                    <li><a href="{{route('admin.feature.create')}}"><i
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
@@ -127,7 +125,7 @@
                     <li><a href="{{ route('admin.customer.index') }}"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i
+                    <li><a href="{{route('admin.customer.create')}}"><i
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
@@ -166,7 +164,7 @@
                     <li><a href="{{ route('admin.user.index') }}"><i
                                     class="fa fa-circle-o"></i> List All</a>
                     </li>
-                    <li><a href="pages/layout/boxed.html"><i
+                    <li><a href="{{ route('admin.user.create') }}"><i
                                     class="fa fa-circle-o"></i> Add New</a></li>
                 </ul>
             </li>
