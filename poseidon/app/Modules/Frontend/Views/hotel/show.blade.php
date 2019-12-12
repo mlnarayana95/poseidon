@@ -11,6 +11,50 @@
 
 @stop
 
+@section('style')
+.check-dates {
+  position: relative;
+  background: #fff;
+  border: solid 1px rgba(166,166,166,0.2);
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #222;
+  z-index: 1;
+}
+
+.top-triangle::after {
+  position: absolute;
+  content: '';
+  width: 14px;
+  height: 14px;
+  top: -5px;
+  left: 10%;
+  background-color: #fff;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-shadow: 1px -1px 0px 0px rgba(166,166,166,0.2), 0px 0px 0px 0px rgba(166,166,166,0.2);
+  z-index: 2;
+}
+
+.hor-line {
+  width: 1px;
+  height: 70px;
+  display: block;
+  border-right: 1px solid rgba(166,166,166,0.2);
+  margin: 0px 24px;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+@endsection
+
+
 
 @section('content')
 
@@ -71,11 +115,35 @@
   				<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
   					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
               <div class="hotel-description">{{ $hotel->description}}</div>
-                  <div class="check-in-out">
-                    <span><strong>Check in - </strong>{{ $hotel->checkin_time }}</span>
-                    <br>
-                    <span><strong>Check out - </strong>{{ $hotel->checkout_time }}</span>
+              <div class="check-in-out">
+                  <div class="d-flex">
+                      <div>
+                          <div class="mb-2">
+                              <strong>Check-in
+                                  Time</strong>
+                          </div>
+                          <div class="pos-rel">
+                              <div class="top-triangle"></div>
+                              <div class="check-dates">
+                                  {{ format_time($hotel->checkin_time) }}
+                              </div>
+                          </div>
+                      </div>
+                      <div class="hor-line"></div>
+                      <div>
+                          <div class="mb-2">
+                              <strong>Check-out
+                                  Time</strong>
+                          </div>
+                          <div class="pos-rel">
+                              <div class="top-triangle"></div>
+                              <div class="check-dates">
+                                  {{ format_time($hotel->checkout_time) }}
+                              </div>
+                          </div>
+                      </div>
                   </div>
+              </div>
                   <div class="hotel-location">{{ $hotel->address}}</div>
                   <div class="hotel-phone">
                     <span><em>Phone number: </em>{{ $hotel->phone_number }}</span>
