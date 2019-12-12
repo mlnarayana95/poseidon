@@ -16,13 +16,20 @@ Route::group(['module' => 'Frontend', 'middleware' => ['web'], 'namespace' => 'A
 
     Route::get('hotels', 'HotelController@index');
     Route::get('hotel/{slug}', 'HotelController@show');
+    Route::get('hotel/{id}/rooms', 'HotelController@rooms');
+
+    Route::get('destination/{id}', 'DestinationController@rooms');
+
+    Route::get('booking','BookingController@index');
+    Route::post('booking','BookingController@save');
+});
+
+Route::group(['module' => 'Frontend', 'middleware' => ['web', 'auth'], 'namespace' => 'App\Modules\Frontend\Controllers'], function() {
 
     Route::get('profile','ProfileController@show')->name('profile');
     Route::get('update_profile','profileController@load')->name('update');
     Route::post('update_profile','profileController@update')->name('update');
 
-    Route::get('booking','BookingController@index');
-    Route::post('booking','BookingController@save');
-
     Route::get('/profile/bookings','BookingController@show');
+
 });

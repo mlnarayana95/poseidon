@@ -48,19 +48,20 @@ class LoginController extends Controller
 
         if(auth()->attempt(array('email'=>$input['email'],'password'=>$input['password'])))
         {
+            if(request('ref') == 'booking' && session('booking_url') != null)
+                return redirect()->to(session('booking_url'));
+
             // Customer
-            if(auth()->user()->user_type==0)
+            if(auth()->user()->user_type == 0)
             {
                 session(['user_id' => auth()->user()->id]);
-                /*how to get the info from the session variable*/
-                //$info = $request->session()->get('user_id');
-                /*Set the session one the user is loggedin*/
-                //config(['session.lifetime' => 1440]);
-                return redirect('/profile');
+                // http://poseidon.local/booking?room_id=1&adults=&children=&dates=2019-12-18+to+2019-12-20
+
+                return redirect()->intended('/profile');
             }
             // Admin
             else{
-                return $this->redirect()->route('/admin/dashboard');
+                return redirect()->to('/admin/dashboard');
             }
         }
         else{

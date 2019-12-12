@@ -60,6 +60,7 @@ class RoomController extends Controller
     {
         $data['room'] = Room::with('features', 'bookings', 'images', 'type', 'hotel.amenities')
             ->findOrFail($room_id);
+        //dd($data['room']->toArray());
 
         $booked_dates = [];
         foreach($data['room']->bookings as $key => $booking)

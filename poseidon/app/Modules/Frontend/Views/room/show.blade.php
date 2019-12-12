@@ -372,20 +372,21 @@
                                 <span class="text-muted text-sm">* Exclusive of all taxes</span>
                             </p>
 
-                            {!! Form::open(['url' => '/booking', 'method' => 'get', 'autocomplete' => 'off']) !!}
+                            {!! Form::open(['url' => '/booking', 'method' => 'get', 'autocomplete' => 'off', 'id' => 'booking-form']) !!}
 
                             {{ Form::hidden('room_id', $room->id) }}
-                            <div class="options d-flex flex-fill mb-3">
-                                @php $adult_range = ['' => 'Adults'] + array_combine(range(1, $room->max_adults), range(1, $room->max_adults)); @endphp
-                                {{ Form::select('adults', $adult_range, null, ['class' => "custom-select mr-1"]) }}
+                            <div class="form-group mb-3">
+                                <div class="options d-flex flex-fill" id="adults">
+                                    @php $adult_range = ['' => 'Adults'] + array_combine(range(1, $room->max_adults), range(1, $room->max_adults)); @endphp
+                                    {{ Form::select('adults', $adult_range, null, ['class' => "custom-select mr-1"]) }}
 
-                                @php $children_range = ['' => 'Children'] + range(0, $room->max_children); @endphp
-                                {{ Form::select('children', $children_range, null, ['class' => "custom-select mr-1"]) }}
+                                    @php $children_range = ['' => 'Children'] + range(0, $room->max_children); @endphp
+                                    {{ Form::select('children', $children_range, null, ['class' => "custom-select mr-1", 'id' => 'children']) }}
+                                </div>
                             </div>
 
                             <div class="form-group">
-
-                                <div class="input-group mb-3">
+                                <div class="input-group" id="dates">
                                     {{ Form::text('dates', null, ['class' => "form-control", 'id' => 'picker', 'placeholder' => 'Booking Dates']) }}
                                     <div class="input-group-append">
                                         <span class="input-group-text">
@@ -502,6 +503,37 @@
                 // Alert user!
                 alert("Your range selection includes disabled dates!");
             }
+        });
+
+        // Ajax Form Submit
+        $("#booking-form").submit(function(event){
+            event.preventDefault(); //prevent default action
+            var post_url = $(this).attr("action"); //get form action url
+            var request_method = $(this).attr("method"); //get form GET/POST method
+            var form_data = $(this).serialize(); //Encode form elements for submission
+
+            // For error messages
+            $(this).find('.has-error').removeClass('has-error');
+            $(this).find('label.error').remove();
+            $(this).find('.callout').remove();
+
+            $.ajax({
+                url : post_url,
+                type: request_method,
+                data : form_data
+            }).done(function(response){
+                if (response.status == 1) {
+                    window.location.replace(this.url);
+                } else {
+                    $.each(response.errors, function (i, v) {
+                        $('#booking-form').find('#' + i).after('<label class="error ">' + v + '</label>').closest('.form-group').addClass('has-error');
+                    });
+                }
+
+                setTimeout(function () {
+                    $('.callout').remove()
+                }, 2500);
+            });
         });
     </script>
 @endsection

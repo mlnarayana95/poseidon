@@ -89,8 +89,13 @@
                         </span>
                     </div>
                 @endif
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST">
                     @csrf
+                    @if (session('resent'))
+                        <div class="alert alert-success" role="alert">
+                            {{ __('A verification link has been sent to your email address.') }}
+                        </div>
+                    @endif
                     <div class="form-group row">
                         <label for="email"
                                class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -120,19 +125,6 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                             @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-md-6 offset-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember"
-                                       id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                <label class="form-check-label" for="remember">
-                                    {{ __('Remember Me') }}
-                                </label>
-                            </div>
                         </div>
                     </div>
                     <div class="form-group row mb-0">

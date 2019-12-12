@@ -59,6 +59,19 @@ body {
     color: #dc3545;
 }
 
+.pagination {
+    justify-content: center;
+}
+
+.page-item.active .page-link {
+    background-color: #F68500;
+    border-color: #F68500;
+}
+
+.page-link {
+    color: #F68500;
+}
+
 dd, dt {
     margin-bottom: 0.7rem;
 }
@@ -352,6 +365,35 @@ header .nav-link {
     color: #f68500;
 }
 
+a.title-link {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #f68500;
+    display: inline-block;
+    position: relative;
+}
+
+a.title-link:hover {
+    text-decoration: none;
+}
+
+a.title-link::before {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    color: transparent;
+    content: "•";
+    text-shadow: transparent 0 0;
+    font-size: 1.2em;
+    transform: translateX(-50%);
+    pointer-events: none;
+    transition: text-shadow 0.3s ease 0s, color 0.3s ease 0s;
+}
+
+a.title-link:hover::before, a.title-link:focus::before {
+    color: #f68500;
+    text-shadow: 10px 0 #f68500, -10px 0 #f68500;
+}
+
 h1.title {
     font-size: 2em;
 }
@@ -409,6 +451,10 @@ h1.title {
     color: #f68500;
     font-weight: 600;
     font-size: 1.4em;
+}
+
+.room .room-title a {
+    color: inherit;
 }
 
 .room .room-price {

@@ -19,6 +19,21 @@ class BookingController extends Controller
      */
     public function index()
     {
+        if(request()->ajax())
+        {
+            $rules = [
+                'adults' => 'required',
+                'dates' => 'required'
+            ];
+
+            $validator = \Validator::make(request()->all(), $rules);
+            if ($validator->fails())
+                return response()->json(['status' => 0, 'errors' => $validator->getMessageBag()->toArray()]);
+            else
+                return response()->json(['status' => 1]);
+        }
+
+        // if validates
         $id = (int)request('room_id');
         $dates = explode(" to ", request('dates'));
 
@@ -31,12 +46,18 @@ class BookingController extends Controller
         $date1 = Carbon::createFromFormat('Y-m-d', $check_in_date);
         $date2 = Carbon::createFromFormat('Y-m-d', $checkout_date);
 
+        if(!(Room::isBookingAvailable($id, $check_in_date, $checkout_date)))
+            abort(404);
+
         $no_nights = $date1->diffInDays($date2);
 
-        $data['room'] = Room::with('hotel', 'type', 'features', 'featuredImage')
+        $data['room'] = Room::with('hotel', 'type', 'features', 'images')
             ->findOrFail($id);
 
         $data['cost'] = Room::calculateRoomCost($id, $check_in_date, $checkout_date);
+
+        // To save the current session url
+        session()->put('booking_url', request()->getRequestUri());
 
         //dd($data['cost']);
 
@@ -84,15 +105,12 @@ class BookingController extends Controller
         Booking::book($booking_details);
 
         // Send the mail
-
         flash()->success('Booking has been made successfully');
         return redirect('/profile');
 
     }
     public function show(){
-
-        //$user_id = Session::get('user_id');
-        $user_id=1;
+        $user_id= auth()->user()->id;
         $bookings = Booking::with('room')
             ->where('user_id', $user_id)->get();
         return view('Frontend::booking',compact('bookings'));
@@ -105,7 +123,7 @@ class BookingController extends Controller
         $transaction->exp_date($booking_details['month'].$booking_details['year']); // expiry date month and year (august 2022)
         $transaction->cvv($booking_details['cvv']); // card cvv number
         //$transaction->ref_num('2011099'); // your reference or invoice number
-        $transaction->card_type('visa'); // card type (visa, mastercard, amex)
+        $transaction->card_type($booking_details['cardType']); // card type (visa, mastercard, amex)
         return $transaction->authorize_and_capture(); // returns JSON object
 
     }
