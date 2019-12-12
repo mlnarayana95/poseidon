@@ -29,7 +29,9 @@ class BookingController extends Controller
      */
     public function show($id)
     {
+        $data['booking'] = Booking::with('user.person','room')->findOrFail($id);
 
+        return view("Booking::detail", $data);
     }
 
     /**

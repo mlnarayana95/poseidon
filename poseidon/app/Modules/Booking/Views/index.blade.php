@@ -36,7 +36,7 @@
                     <tbody>
                     @foreach($bookings as $booking)
                         <tr>
-                            <td>{{ $booking->user->person->last_name.','.$booking->user->person->first_name }}</td>
+                            <td>{{ $booking->user->person->first_name.' '.$booking->user->person->last_name }}</td>
                             <td>{{ $booking->id }}</td>
                             <td>{{ $booking->room_id }}</td>
                             <td>{{ $booking->room->room_number }}</td>
