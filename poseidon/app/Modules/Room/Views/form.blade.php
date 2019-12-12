@@ -51,7 +51,7 @@
 </div>
 
 <div class="form-group @if($errors->has('description')) {{'has-error'}} @endif">
-    {!!Form::label('description', 'Description', array('class' => 'col-sm-2 control-label')) !!}
+    {!!Form::label('description', 'Description *', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!!Form::textarea('description', null, array('class' => 'form-control', 'id'=>'description'))!!}
         @if($errors->has('description'))
@@ -131,7 +131,7 @@
     </div>
 </div>
 
-<div class="form-group">
+{{--<div class="form-group">
     {!!Form::label('featured', 'Featured', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         <strong>No </strong>
@@ -141,12 +141,16 @@
         </label>
         <strong>Yes </strong>
     </div>
-</div>
+</div>--}}
 
-<div class="form-group">
+<div class="form-group @if($errors->has('image[]')) {{'has-error'}} @endif">
     {!!Form::label('image', 'Image Upload', array('class' => 'col-sm-2 control-label custom-file-label')) !!}
     <div class="col-sm-10">
         {!! Form::file('image[]', $attributes = array('multiple','class'=>'form-control custom-file-input','id'=>'image')) !!}
+        @if($errors->has('image[]'))
+            {!! $errors->first('image[]', '<label class="control-label"
+                                                   for="inputError">:message</label>') !!}
+        @endif
     </div>
 
 </div>
