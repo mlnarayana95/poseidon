@@ -866,4 +866,12 @@ section .section-title {
         width: 100%;
     }
     
+    span.carousel-control-next-icon, span.carousel-control-prev-icon{
+      display: none;
+    }
+    
+    nav.home-navbar{
+      position: relative;
+    }
+    
 }
