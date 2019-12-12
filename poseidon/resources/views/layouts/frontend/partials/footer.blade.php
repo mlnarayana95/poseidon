@@ -10,10 +10,9 @@
                         <span>Poseidon Hotels & Resorts is a hotel chain with more than 120 four- and five-star hotels, located in the most popular holiday destinations in South America.</span>
                     </div>
                     <div class="social-footer">
-                        <i class="fab fa-facebook-f fa-lg"></i>
-                        <i class="fab fa-instagram fa-lg"></i>
-                        <i class="fab fa-youtube fa-lg"></i>
-                        <i class="fab fa-twitter fa-lg"></i>
+                        <a href="{{ setting('facebook') }}"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="{{ setting('instagram') }}"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="{{ setting('twitter') }}"><i class="fab fa-twitter fa-lg"></i></a>
                     </div>
                 </div>
                 <div class='col-md-4 mx-auto'>
@@ -22,7 +21,7 @@
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li><a href="/hotels">Hotel</a></li>
-                            <li><a href="/hotels">Popular Destinations</a></li>
+                            <li><a href="/room">Rooms</a></li>
                             <li><a href="/contact">Contact Us</a></li>
                             <li><a href="/faq">FAQs</a></li>
                         </ul>

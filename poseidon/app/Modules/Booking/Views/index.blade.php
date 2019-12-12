@@ -63,7 +63,7 @@
 @section('scripts')
     <script>
         $(function () {
-            $('#rooms').DataTable({
+            $('#booking').DataTable({
                 'paging': true,
                 'lengthChange': true,
                 'searching': false,
