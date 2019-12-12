@@ -49,7 +49,13 @@ class RoomController extends Controller
         // Validate Form Inputs
         $validated_data = $this->validateRoom($request);
 
-        Room::create($validated_data);
+        $room_id = Room::create($validated_data);
+
+        foreach ($validated_data['images'] as $image_id) {
+            DB::table('image_room')->insert(
+                ['room_id' => $room_id, 'image_id' => $image_id]
+            );
+        }
 
         flash('Room has been created successfully!')->success();
         return redirect()->route('admin.room.index');
@@ -91,7 +97,7 @@ class RoomController extends Controller
     public function update(Request $request, $id)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateRoom($request);
+        $validated_data = $this->validateRoom($request, false);
     
         foreach ($validated_data['images'] as $image_id) {
             DB::table('image_room')->insert(
@@ -130,9 +136,10 @@ class RoomController extends Controller
     /**
      * Validate Room Form
      * @param $request
+     * @param $add boolean
      * @return mixed
      */
-    public function validateRoom($request)
+    public function validateRoom($request, $add = true)
     {
         $rules = [
             'hotel_id' => 'required',
@@ -143,13 +150,16 @@ class RoomController extends Controller
             'max_children' => 'required|numeric',
             'room_type_id' => 'required',
             'no_bathrooms' => 'required|numeric',
-            'features' => 'required',
-            'image' => 'max:2048'
+            'features' => 'required'
         ];
+
+        if($add)
+            $rules['image[]'] = 'required|max:2048';
 
         $validated_data = $request->validate($rules);
         $data = [];
         $images= [];
+
         if($request->hasFile('image'))
         {
             foreach($request->file('image') as $image)
