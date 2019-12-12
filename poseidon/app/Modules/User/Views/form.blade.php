@@ -1,3 +1,4 @@
+@if(!isset($user))
 <div class="form-group @if($errors->has('email')) {{'has-error'}} @endif">
     {!!Form::label('email', 'Email *', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
@@ -30,6 +31,7 @@
         @endif
     </div>
 </div>
+@endif
 <div class="form-group">
     {!!Form::label('user_type', 'Select User Type', array('class' => 'col-md-2 col-sm-12 control-label')) !!}
     <div class="col-md-10 col-sm-12">
@@ -58,24 +60,23 @@
     </div>
 </div>
 
+<div class="form-group">
+    {!!Form::label('gender', 'Choose Gender', array('class' => 'col-md-2 col-sm-12 control-label')) !!}
+    <div class="col-md-10 col-sm-12">
+       {!!Form::select('gender',array('F' => 'F','M'=> 'M', ), null,['class' => 'form-control select2','style'=>'width: 100%;'])!!}
+    </div>
+</div>
+
 <div class="form-group @if($errors->has('birthdate')) {{'has-error'}} @endif">
     {!!Form::label('birthdate', 'Birth Date *', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-           
-        {{ Form::text('birthdate',$user['birthdate'], array('class' => 'form-control date','id' => 'birthdate','data-provide'=>'datepicker')) }}                           
+        
+        {{ Form::text('birthdate', $birthdate ?? null, array('class' => 'form-control date','id' => 'birthdate','data-provide'=>'datepicker')) }}                           
     
         @if($errors->has('birthdate'))
             {!! $errors->first('birthdate', '<label class="control-label"
                                                    for="inputError">:message</label>') !!}
         @endif
-    </div>
-</div>
-
-
-<div class="form-group">
-    {!!Form::label('gender', 'Choose Gender', array('class' => 'col-md-2 col-sm-12 control-label')) !!}
-    <div class="col-md-10 col-sm-12">
-       {!!Form::select('gender',array('F' => 'F','M'=> 'M', ),$user['gender'],['class' => 'form-control select2','style'=>'width: 100%;'])!!}
     </div>
 </div>
 
