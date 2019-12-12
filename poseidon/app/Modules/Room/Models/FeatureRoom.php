@@ -11,4 +11,6 @@ class FeatureRoom extends Model {
     // Disable TimeStamps
     public $timestamps = false;
 
+    public $fillable = ['feature_id', 'room_id'];
+
 }
