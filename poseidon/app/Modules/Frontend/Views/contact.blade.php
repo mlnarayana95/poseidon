@@ -81,14 +81,14 @@
             </p>
 
            <p>
-            <a style="width: 276px;" href="#" class="btn btn-info btn-lg">
+            <a style="width: 276px;" href="tel:713-992-0916" class="btn btn-info btn-lg">
               <span class="fas fa-phone-alt"></span>
-               1(289)7777-777 
+               (204)847-7262
             </a>
            
           </p>
           <p>
-            <a href="#" class="btn btn-info btn-lg">
+            <a href="mailto:contact@poseidon.com" target="_blank" class="btn btn-info btn-lg">
               <span class="fas fa-envelope-open-text"></span>
               help@poseidon.com
             </a>

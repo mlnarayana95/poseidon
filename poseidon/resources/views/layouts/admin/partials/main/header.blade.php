@@ -1,4 +1,5 @@
 <header class="main-header">
+     <link rel="shortcut icon" href="<?php echo asset('assets/image/favicon-16x16.png'); ?>">
     <!-- Logo -->
     <a href="{{ url('dashboard') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->

@@ -2,7 +2,7 @@
 @section('title', 'Home')
 
 @section('content')
-
+<link rel="icon" href="images/favicon-16x16.png" />
     <div class="social-head">
         <div class="container">
             <div class="navs">
@@ -230,7 +230,7 @@ high-quality ingredients and one of the most breathtaking views at our first cla
                         <img src="/images/room3.jpg" alt="room3">
                         <div class="row home-room-info">
                             <div class="col-md-8">
-                                <h4>Family Room</h4>
+                                <h4>Junior Room</h4>
                                 <i class="fa fa-map-marker"></i> Place Maldives
                             </div>
                             <div class="col-md-4 text-right"><span
