@@ -2,7 +2,7 @@
 @section('title', 'Home')
 
 @section('content')
-
+<link rel="icon" href="images/favicon-16x16.png" />
     <div class="social-head">
         <div class="container">
             <div class="navs">
