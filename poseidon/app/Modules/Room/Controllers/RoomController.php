@@ -98,7 +98,7 @@ class RoomController extends Controller
     {
         // Validate Form Inputs
         $validated_data = $this->validateRoom($request, false);
-    
+
         foreach ($validated_data['images'] as $image_id) {
             DB::table('image_room')->insert(
             ['room_id' => $id, 'image_id' => $image_id]
