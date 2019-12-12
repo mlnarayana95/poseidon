@@ -11,14 +11,6 @@ use App\Http\Controllers\Controller;
 class HotelController extends Controller
 {
 
-    protected $rules = [
-        'name' => 'required|min:2|max:255',
-        'address' => 'required|min:2|max:255',
-        'postal_code' => 'required|min:2|max:10',
-        'phone_number' => 'required|min:10|max:16',
-        'checkin_time' => 'required',
-        'checkout_time' => 'required'
-    ];
 
     /**
      * Display a listing of the resource.
@@ -51,7 +43,7 @@ class HotelController extends Controller
     public function store(Request $request)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateHotel($request);
+        $validated_data = $this->validateHotel($request,true);
 
         Hotel::create($validated_data);
 
@@ -84,7 +76,7 @@ class HotelController extends Controller
     public function update(Request $request, $id)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateHotel($request);
+        $validated_data = $this->validateHotel($request,false);
 
         Hotel::find($id)->update($validated_data);
 
@@ -111,10 +103,23 @@ class HotelController extends Controller
      * @param $request
      * @return mixed
      */
-    public function validateHotel($request)
+    public function validateHotel($request,$add)
     {
-        $validated_data = $request->validate($this->rules);
+        $rules = [
+            'name' => 'required|min:2|max:255',
+            'address' => 'required|min:2|max:255',
+            'postal_code' => 'required|min:2|max:10',
+            'phone_number' => 'required|min:10|max:16',
+            'checkin_time' => 'required',
+            'checkout_time' => 'required',
+            'image' => 'image'
+        ];
 
+        if($add)
+            $rules['image'] = 'required|max:2048';
+       
+        $validated_data = $request->validate($rules);
+        
         $validated_data['description'] = $request->description;
         $validated_data['location_id'] = $request->location_id;
         $validated_data['airport_distance'] = $request->airport_distance;
