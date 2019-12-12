@@ -150,11 +150,12 @@ class RoomController extends Controller
             'max_children' => 'required|numeric',
             'room_type_id' => 'required',
             'no_bathrooms' => 'required|numeric',
-            'features' => 'required'
+            'features' => 'required',
+            'image' => 'image'
         ];
 
         if($add)
-            $rules['image[]'] = 'required|max:2048';
+            $rules['image'] = 'image|required|max:2048';
 
         $validated_data = $request->validate($rules);
         $data = [];
