@@ -9,13 +9,6 @@ use App\Modules\Location\Models\Location;
 class LocationController extends Controller
 {
 
-    protected $rules = [
-        'location' => 'required|min:2|max:255',
-        'description' => 'required|min:2|max:255',
-        'slug' => 'required|min:2|max:10',
-        'image_id' => 'required',
-        'is_featured' => 'required'
-    ];
 
     /**
      * Display a listing of the resource.
@@ -35,6 +28,7 @@ class LocationController extends Controller
      */
     public function create()
     {
+
         return view("Location::add");
     }
 
@@ -116,11 +110,16 @@ class LocationController extends Controller
      */
     public function validateLocation($request)
     {
-        $validated_data = $request->validate($this->rules);
-        $validated_data['location'] = $request->location;
-        $validated_data['description'] = $request->description;
-        $validated_data['slug'] = $request->slug;
-        $validated_data['image_id'] = $request->image_id;
+        $rules = [
+        'location' => 'required|min:2|max:255',
+        'description' => 'required|min:2|max:255',
+        'slug' => 'required|min:2|max:10',
+        'image_id' => 'required',
+        'is_featured' => 'required'
+        ];
+
+        $validated_data = $request->validate($rules);
+
         $validated_data['is_featured'] = ($request->is_featured == null) ? 0 : 1;
 
         return $validated_data;

@@ -63,7 +63,7 @@
                         <p>If there is no availability, the hotel requires a minimum number of nights for your dates or
                             you exceed the maximum occupation per room. Please contact our customer service. Our
                             advisers will make a note of your request and do all they can to help you. <a
-                                    class="mobile-call-center view-phones" data-remote="true" href="#" rel="nofollow"
+                                    class="mobile-call-center view-phones" data-remote="true" href="/contact" rel="nofollow"
                                     target="_blank">Contact us</a>
                         </p>
                     </div>
@@ -88,7 +88,7 @@
                             website main menu. You will need your booking reference to hand and the email address you
                             entered when you booked, or the email, hotel and check-in date.
 
-                            And of course, you can <a class="mobile-call-center view-phones" data-remote="true" href="#"
+                            And of course, you can <a class="mobile-call-center view-phones" data-remote="true" href="/contact"
                                                       rel="nofollow" target="_blank">contact</a> our customer service
                             team free of charge and an Poseidon adviser will help you with your booking.
                         </p>

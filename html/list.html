@@ -1,6 +1,376 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
 
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/58d8ede058.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins:400,600&display=swap" rel="stylesheet">
+
+    <title>Poseidon</title>
+
+    <style>
+
+        body {
+            color: #717171;
+            font-size: 14px;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .container {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        ul.nav li:first-child {
+            border-right: 1px solid #333;
+        }
+
+        nav.navbar {
+            background: rgba(255, 255, 255, .7) !important;
+            padding: 20px 0;
+        }
+
+        .navs .nav-item a {
+            color: #575757;
+        }
+
+        .navs .nav-item img {
+            padding: 2px;
+        }
+
+        .navbar-light .navbar-nav .nav-link,
+        .navbar-light .navbar-nav .active > .nav-link {
+            color: #F68500;
+            font-size: 1.25em;
+        }
+
+        div#carouselExampleControls {
+            position: relative;
+        }
+
+        div#carouselExampleControls form {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .75);
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        button#search {
+            background-color: #f68500;
+            border: none;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #F68500;
+            padding: 40px 0;
+        }
+
+        .bc-gray {
+            background-color: #fafafa;
+            /*padding-bottom: 40px;*/
+        }
+
+        .rooms img {
+            width: 100%;
+            max-height: 200px;
+        }
+
+        .room {
+            background-color: #fff;
+        }
+
+        .room .room-info {
+            margin: 0;
+            border-top: none;
+            padding: 20px;
+        }
+
+        .fa, .fas, .choose-us-icon i {
+            color: #209ebb;
+        }
+
+        div.why-choose-us i {
+            padding: 20px 20px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        span.price {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+        }
+
+        div.top-destination {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        div.top-destination .destination {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+            background: rgba(0, 0, 0, .25);
+            text-align: center;
+        }
+
+        div.top-destination .destination h4 {
+            text-align: center;
+            color: #fff;
+            margin: 150px auto 100px;
+        }
+
+        .destination button {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+        }
+
+        .stats {
+            padding-top: 30px;
+        }
+
+        .stats h4 {
+            color: #f68500;
+        }
+
+        div.contact {
+            position: relative;
+        }
+
+        div.contact div {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+            text-align: center;
+            background: rgba(0, 0, 0, .45);
+        }
+
+        div.contact div h3 {
+            color: #f68500;
+            margin: 100px auto 50px;
+        }
+
+        div.contact div button {
+            background-color: #f4364f;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+        }
+
+        /* Footer Style Starts Here*/
+        div.footer {
+            background-color: #161527;
+            min-height: 250px;
+            color: #fff;
+
+        }
+
+        div.footer .fa, div.footer .fas {
+            color: #fff;
+        }
+
+        div.footer li, span {
+            list-style-type: none;
+            color: #c9c7bf;
+        }
+
+        div.footer ul {
+            padding-left: 0;
+        }
+
+
+        div.footer li a {
+            line-height: 1.8;
+            text-decoration: none;
+            color: #c9c7bf;
+        }
+
+        div.footer .social-footer .fab {
+            padding: 20px 10px;
+        }
+
+        div.footer .foot-header {
+            color: #fff;
+            font-size: 1.4em;
+            padding-bottom: 6px;
+        }
+
+        div.footer .row {
+            font-size: .9em;
+            padding-top: 30px;
+        }
+
+        div.footer .contact-info {
+            line-height: 1.9;
+        }
+
+        div.footer fa, .fas {
+            margin-right: 8px;
+            color: #fff;
+        }
+
+        div.footer .contact-info li {
+            margin-bottom: 8px;
+        }
+
+        div.footer .footer-image {
+            padding-bottom: 8px;
+            width: 175px;
+        }
+
+        div.copy-container {
+            background-color: #161527;
+            opacity: .9;
+            color: #fff;
+            min-height: 35px;
+            line-height: 36px;
+        }
+
+        div.copy {
+            font-size: .8em;
+        }
+
+        /* Footer Style Ends Here */
+
+        /* Krita */
+
+        header {
+            -webkit-box-shadow: 0 10px 6px -6px #ccc;
+            -moz-box-shadow: 0 10px 6px -6px #ccc;
+            box-shadow: 0 10px 6px -6px #ccc;
+            margin-bottom: 6px;
+        }
+
+        header .nav-link {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .title-div {
+            background-color: #FAFAFA;
+            height: 90px;
+            line-height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .content-header {
+            width: 100%;
+        }
+
+        .title {
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 12px 0;
+            font-size: 1.5em;
+            color: #f68500;
+        }
+
+        /* Breadcrumb style */
+        .content-header .content-breadcrumb {
+            font-size: 0.8em;
+            list-style: none;
+        }
+
+        .content-breadcrumb > li {
+            display: inline-block;
+        }
+
+        .content-breadcrumb > li + li::before {
+            padding: 0 5px;
+            content: "\003e";
+        }
+
+        /* List Items */
+        .list-section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .room {
+            width: 48%;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .room:nth-of-type(2n) {
+            margin-right: 0;
+        }
+
+        .room:nth-of-type(2n+1) {
+            margin-left: 0;
+        }
+
+        .room-img img {
+            width: 100%;
+        }
+
+        .room-info {
+            padding: 10px;
+        }
+
+        .room .room-title {
+            color: #f68500;
+            font-weight: 600;
+            font-size: 1.4em;
+        }
+
+        .room .room-price {
+            color: #F4364F;
+            font-weight: 600;
+            font-size: 1.6em;
+        }
+
+        .btn-link {
+            background: #F68500;
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 0;
+            -webkit-box-shadow: 0 10px 6px -6px #ddd;
+            -moz-box-shadow: 0 10px 6px -6px #ddd;
+            box-shadow: 0 10px 6px -6px #ddd;
+        }
+
+        .text-orange {
+            color: #F68500;
+        }
+
+        .pull-right {
+            float: right;
+        }
+
+        .panel i {
+            color: #F68500;
+        }
+
+        .panel-body {
+            padding: 20px 0;
+        }
+
+    </style>
+</head>
 
 <body>
 
@@ -491,7 +861,7 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
 
-<!--jQuery -->
+<!--jQuery khosada-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

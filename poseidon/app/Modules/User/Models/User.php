@@ -22,11 +22,6 @@ class User extends Model {
 
     public function person()
     {
-       $this->belongsTo('App\Modules\Person\Models\Person');
-    }
-
-    public function customer()
-    {
-       $this->belongsTo('App\Modules\Customer\Models\Customer');
+       return $this->hasOne('App\Modules\Person\Models\Person');
     }
 }

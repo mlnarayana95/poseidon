@@ -7,13 +7,12 @@
                     <img class="footer-image" src="/images/foot_logo.png"
                          alt="footer logo">
                     <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span>Poseidon Hotels & Resorts is a hotel chain with more than 120 four- and five-star hotels, located in the most popular holiday destinations in South America.</span>
                     </div>
                     <div class="social-footer">
-                        <i class="fab fa-facebook-f fa-lg"></i>
-                        <i class="fab fa-instagram fa-lg"></i>
-                        <i class="fab fa-youtube fa-lg"></i>
-                        <i class="fab fa-twitter fa-lg"></i>
+                        <a href="{{ setting('facebook') }}"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="{{ setting('instagram') }}"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="{{ setting('twitter') }}"><i class="fab fa-twitter fa-lg"></i></a>
                     </div>
                 </div>
                 <div class='col-md-4 mx-auto'>
@@ -22,7 +21,7 @@
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li><a href="/hotels">Hotel</a></li>
-                            <li><a href="/hotels">Popular Destinations</a></li>
+                            <li><a href="/room">Rooms</a></li>
                             <li><a href="/contact">Contact Us</a></li>
                             <li><a href="/faq">FAQs</a></li>
                         </ul>
@@ -66,10 +65,11 @@
 
 
 <!--jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+{{--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>--}}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

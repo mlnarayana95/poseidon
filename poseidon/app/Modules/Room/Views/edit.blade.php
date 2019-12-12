@@ -18,7 +18,7 @@
                 <h3 class="box-title">Room Details</h3>
             </div>
 
-            {!! Form::model($room, ['route' => ['admin.room.update', $room->id], 'method' => 'put', 'class' => 'form-horizontal']) !!}
+            {!! Form::model($room, ['route' => ['admin.room.update', $room->id], 'method' => 'put','enctype'=>'multipart/form-data','class' => 'form-horizontal']) !!}
             <div class="box-body">
                 @include('Room::form')
             </div>
