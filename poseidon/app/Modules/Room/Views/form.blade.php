@@ -143,13 +143,13 @@
     </div>
 </div>--}}
 
-<div class="form-group @if($errors->has('image[]')) {{'has-error'}} @endif">
+<div class="form-group @if($errors->has('image')) {{'has-error'}} @endif">
     {!!Form::label('image', 'Image Upload', array('class' => 'col-sm-2 control-label custom-file-label')) !!}
     <div class="col-sm-10">
-        {!! Form::file('image[]', $attributes = array('multiple','class'=>'form-control custom-file-input','id'=>'image')) !!}
-        @if($errors->has('image[]'))
-            {!! $errors->first('image[]', '<label class="control-label"
-                                                   for="inputError">:message</label>') !!}
+        {!! Form::file('image', $attributes = array('multiple','class'=>'form-control custom-file-input','id'=>'image')) !!}
+        @if($errors->has('image'))
+            {!! $errors->first('image', '<label class="control-label"
+                                                   for="inputError">The file must be an image and below 2 MB size</label>') !!}
         @endif
     </div>
 
