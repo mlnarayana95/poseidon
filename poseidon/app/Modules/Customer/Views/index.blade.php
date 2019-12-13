@@ -14,12 +14,6 @@
         <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">All Customers</h3>
-
-                <div class="box-tools">
-                    <a href="{{ route('admin.customer.create') }}" class="btn btn-primary">
-                        <i class="fa fa-plus-circle"></i> Add Customers
-                    </a>
-                </div>
             </div>
             <div class="box-body">
 
