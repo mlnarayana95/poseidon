@@ -19,6 +19,14 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-md-8">
+
+                @if(isset($search) && !empty($search))
+                <div class="callout callout-info">
+                    <h4><i class="fa fa-search"></i> Search Results!</h4>
+                    <p>{{ $rooms->total() }} record(s) found.</p>
+                </div>
+                @endif
+
                 <div class="list-section">
 
                     @foreach($rooms as $room)
@@ -63,7 +71,7 @@
                 </div>
 
                 <div class="pagination-links mt-3">
-                    {!! $rooms->links() !!}
+                    {!! $rooms->appends(Request::except('page'))->links() !!}
                 </div>
             </div><!-- List Ends Here -->
 
@@ -79,15 +87,46 @@
     <!--Plugin JavaScript file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
 
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
     <script>
-        $(".price-slider").ionRangeSlider({
-            type: "double",
-            grid: true,
-            min: 0,
-            max: 1000,
-            from: 200,
-            to: 800,
-            prefix: "$"
+        $(".price-slider").ionRangeSlider();
+
+        $(function () {
+            (function ($) {
+                // initialise datepickers
+                var opts = {
+                    format: 'yyyy-mm-dd',
+                    clearBtn: true,
+                    autoclose: true,
+                    startDate: new Date()
+                };
+                // first datepicker
+                $('#checkin').datepicker(opts);
+                // second datepickers allows plain text
+                opts.forceParse = false;
+                $('#checkout').datepicker(opts);
+                // add event listeners to datepickers
+                $('#checkin').on('changeDate', function (selected) {
+                    // see if the second picker has a date selected
+                    var toDate = $('#checkout').datepicker('getDate');
+                    if (toDate) {
+                        // if it is before the first date, set to the value of the first date
+                        if (selected.date.valueOf() > toDate.valueOf()) {
+                            $('#checkout').datepicker('setDate', selected.date);
+                        }
+                    }
+                    // sets the start date on the second picker
+                    $('#checkout').datepicker('setStartDate', selected.date);
+                });
+                $('#checkin').on('clearDate', function () {
+                    $('#checkout').datepicker('clearDates');
+                });
+            })(jQuery);
         });
     </script>
 @endsection

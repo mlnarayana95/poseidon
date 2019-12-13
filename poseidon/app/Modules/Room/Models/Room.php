@@ -77,14 +77,59 @@ class Room extends MyModel
 
     /**
      * Get the List of Rooms for Frontend
+     * @param $search array
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public static function getList()
+    public static function getList($search = array())
     {
         $rooms = self::with('features', 'images')
             ->join('hotels', 'hotels.id', '=', 'rooms.hotel_id')
-            ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id')
-            ->select('rooms.*',
+            ->join('room_types', 'rooms.room_type_id', '=', 'room_types.id');
+
+        if(isset($search['features']) && $search['features'] != null) {
+            $features = $search['features'];
+            $rooms = $rooms->whereHas('features', function($q) use($features){
+                $q->whereIn('id', $features);
+            });
+        }
+
+        if(isset($search['types']) && $search['types'] != null) {
+            $types = $search['types'];
+            $rooms = $rooms->whereHas('type', function($q) use($types){
+                $q->whereIn('id', $types);
+            });
+        }
+
+        if(isset($search['hotels']) && $search['hotels'] != null) {
+            $hotels = $search['hotels'];
+            $rooms = $rooms->whereHas('hotel', function($q) use($hotels){
+                $q->whereIn('id', $hotels);
+            });
+        }
+
+        if(isset($search['locations']) && $search['locations'] != null) {
+            $locations = $search['locations'];
+            $rooms = $rooms->whereHas('hotel.location', function($q) use($locations){
+                $q->whereIn('id', $locations);
+            });
+        }
+
+        if(isset($search['price_range']) && $search['price_range'] != null) {
+            $price_range = explode(';', $search['price_range']);
+            $rooms = $rooms->where('room_cost', '>=', $price_range[0]);
+            $rooms = $rooms->where('room_cost', '<=', $price_range[1]);
+        }
+
+        if(isset($search['checkin']) && isset($search['checkout']))
+            $rooms = $rooms->isNotReserved($search['checkin'], $search['checkout']);
+
+        if(isset($search['adults']) && $search['adults'] != '')
+            $rooms = $rooms->where('max_adults', '>=', $search['adults']);
+
+        if(isset($search['children']) && $search['children'] != '')
+            $rooms = $rooms->where('max_children', '>=', $search['children']);
+
+        $rooms = $rooms->select('rooms.*',
                 DB::raw('CONCAT_WS(" ", room_types.type, hotels.name, rooms.room_number) AS full_name'),
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
             ->paginate(20);
@@ -143,12 +188,13 @@ class Room extends MyModel
      * @param     $checkout
      * @return mixed
      */
-    public static function calculateRoomCost(int $room_id, $checkin, $checkout)
+    public static function calculateRoomCost($room_id, $checkin, $checkout)
     {
         $room = Room::findOrFail($room_id);
 
-        $date1 = Carbon::createFromFormat('Y-m-d', $checkin);
-        $date2 = Carbon::createFromFormat('Y-m-d', $checkout);
+        $date1 = Carbon::parse($checkin);
+        $date2 = Carbon::parse($checkout);
+        //$date2 = Carbon::createFromFormat('Y-m-d', $checkout);
 
         $data['room_cost'] = $room->room_cost;
         $data['no_nights'] = $date1->diffInDays($date2);

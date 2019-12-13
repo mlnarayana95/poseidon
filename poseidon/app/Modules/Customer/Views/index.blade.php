@@ -14,12 +14,6 @@
         <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">All Customers</h3>
-
-                <div class="box-tools">
-                    <a href="{{ route('admin.customer.create') }}" class="btn btn-primary">
-                        <i class="fa fa-plus-circle"></i> Add Customers
-                    </a>
-                </div>
             </div>
             <div class="box-body">
 
@@ -28,7 +22,7 @@
                     <tr>
                         <th>User ID</th>
                         <th>Name</th>
-                        <th>User Type</th>
+                        <th>Email</th>
                         <th>Phone Number</th>
                         <th>Actions</th>
                     </tr>
@@ -39,8 +33,8 @@
                         <tr>
                             <td>{{ $customer->user_id }}</td>
                             <td>{{ $customer->first_name . ' '. $customer->last_name }}</td>
-                            <td>{{ $customer->user->user_type ? 'Admin' : 'User'}} </td>
-                            <td>{{ $customer->phone_number}}</td>
+                            <td><a href="mailto:emailhere">{{ $customer->user->email }}</a></td>
+                            <td><a href="tel:phone">{{ $customer->phone_number}}</a></td>
                             <td>
                                 <a href="{{ route('admin.customer.edit', 
                                 $customer->user_id) }}" class="btn btn-primary marginRight">

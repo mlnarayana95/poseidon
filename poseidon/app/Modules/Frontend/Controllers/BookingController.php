@@ -64,6 +64,8 @@ class BookingController extends Controller
         $data['other_info'] = [
             'checkin_date' => $check_in_date,
             'checkout_date' => $checkout_date,
+            'adults' => request('adults'),
+            'children' => (request('children') == '')? 0 : request('children'),
             'no_nights' => $no_nights
         ];
 
@@ -81,14 +83,14 @@ class BookingController extends Controller
         $rules = [
             'username' => 'max:255',
             'cardNumber' => 'required|numeric',
-            'month' => 'required|digits:2',
+            'month' => 'required',
             'year' => 'required|digits:2',
             'cvv' => 'required|digits:3'
         ];
 
         $request->validate($rules);
 
-        $cost = Room::calculateRoomCost($request['room_id'], $request['checkin'], $request['checkout']);
+        $cost = Room::calculateRoomCost($request['room_id'], $request['checkin_date'], $request['checkout_date']);
 
         $booking_details = array_merge($request->all(), $cost);
         // Payment
@@ -106,7 +108,7 @@ class BookingController extends Controller
 
         // Send the mail
         flash()->success('Booking has been made successfully');
-        return redirect('/profile');
+        return redirect('/profile/bookings');
 
     }
     public function show(){

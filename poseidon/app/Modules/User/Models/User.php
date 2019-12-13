@@ -11,7 +11,7 @@ class User extends Model {
 
 	use SoftDeletes;
 
-    protected $fillable = ['email', 'password', 'user_type'];
+    protected $fillable = ['email', 'password', 'user_type','email_verified_at'];
 
     /**
      * The attributes that should be mutated to dates.
