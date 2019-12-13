@@ -187,11 +187,11 @@ class RoomController extends Controller
             'room_type_id' => 'required',
             'no_bathrooms' => 'required|numeric',
             'features' => 'required',
-            'image' => 'image'
+            'image[]' => 'image'
         ];
 
         if($add)
-            $rules['image'] = 'required';
+            $rules['image[]'] = 'required';
     
         $validated_data = $request->validate($rules);
         $data = [];
@@ -201,17 +201,16 @@ class RoomController extends Controller
         {
             foreach($request->file('image') as $image)
             { 
-                if(!empty($image)){
-                    $name=$image->getClientOriginalName();
+                
+                 $name=$image->getClientOriginalName();
                     $image->move(public_path().'/images/rooms/', $name);
                     array_push($data,$name);
                     $image_id = $this->saveImage($name);
                     array_push($images,$image_id);
-                }
             }
         }
-
         $validated_data['images'] = $images;
+
         $validated_data['smoking'] = ($request->smoking == null) ? 0 : 1;
         $validated_data['featured'] = ($request->featured == null) ? 0 : 1;
 
