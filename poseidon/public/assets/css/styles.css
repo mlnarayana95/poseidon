@@ -855,6 +855,39 @@ section .section-title {
   padding: inherit;
 }
 
+.callout {
+    border-radius: 3px;
+    margin: 0 0 20px 0;
+    padding: 15px 30px 15px 15px;
+    border-left: 5px solid #eee;
+    color: #fff;
+}
+
+.callout.callout-info {
+    border-color: #0097bc;
+}
+
+.callout.callout-info {
+    background-color: #00c0ef;
+}
+
+.callout h4 {
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.callout p:last-child {
+    margin-bottom: 0;
+}
+
+.callout i {
+    color: #fff;
+}
+
+.count {
+    font-weight: bold;
+}
 /* FAQ styles end */
 
 
