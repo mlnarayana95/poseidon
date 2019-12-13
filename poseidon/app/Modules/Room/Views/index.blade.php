@@ -74,8 +74,8 @@
             $('#rooms').DataTable({
                 'paging': true,
                 'lengthChange': true,
-                'searching': false,
-                'ordering': true,
+                'searching': true,
+                "order": [[ 0, "desc" ]],
                 'info': true,
                 'autoWidth': false
             });

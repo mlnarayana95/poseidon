@@ -139,7 +139,7 @@ class RoomController extends Controller
             DB::commit();
             // all good
         } catch (\Exception $e) {
-            DB::rollback();
+            DB::rollback(); dd($e);
             // something went wrong
         }
 
@@ -187,11 +187,13 @@ class RoomController extends Controller
             'room_type_id' => 'required',
             'no_bathrooms' => 'required|numeric',
             'features' => 'required',
-            'image[]' => 'image'
+            'image.*' => 'image'
         ];
 
-        if($add)
-            $rules['image[]'] = 'required';
+        if($add) {
+            $rules['image'] = 'required';
+            $rules['image.*'] = 'image';
+        }
     
         $validated_data = $request->validate($rules);
         $data = [];
