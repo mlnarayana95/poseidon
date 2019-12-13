@@ -39,7 +39,7 @@ class ContactController extends Controller
 
             Mail::raw($validated_data['message'],function($message) use ($data){
                 $message->from($data['email'],$data['name']);
-                $message->to('espko.21@gmail.com','Evgheni')->subject($data['subject']);
+                $message->to(setting('contact_email'),'Poseidon Admin')->subject($data['subject']);
             });
 
             flash()->success('Your email has been send successfully');
