@@ -53,16 +53,16 @@ class RoomController extends Controller
         DB::beginTransaction();
 
         try {
-            $room_id = Room::create($validated_data);
+            $room = Room::create($validated_data);
 
             /* Feature Add */
             foreach ($validated_data['features'] as $feature_id) {
-                FeatureRoom::create(['room_id' => $room_id, 'feature_id'=>$feature_id]);
+                FeatureRoom::create(['room_id' => $room->id, 'feature_id'=>$feature_id]);
             }
 
             foreach ($validated_data['images'] as $image_id) {
                 DB::table('image_room')->insert(
-                    ['room_id' => $room_id, 'image_id' => $image_id]
+                    ['room_id' => $room->id, 'image_id' => $image_id]
                 );
             }
 
@@ -70,6 +70,7 @@ class RoomController extends Controller
             // all good
         } catch (\Exception $e) {
             DB::rollback();
+            //dd($e);
             // something went wrong
         }
 
