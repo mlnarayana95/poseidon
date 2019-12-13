@@ -21,10 +21,10 @@
             <div class="col-md-8">
                 <div class="list-section">
 
-                    @foreach($hotels as $hotel) <?php //dd($hotel->featuredImage->first()->file_name) ?>
+                    @foreach($hotels as $hotel) <?php //dd($hotel->images->first()->file_name) ?>
                     <div class="room shadow">
                         <div class="room-img">
-                            <img src="/images/hotels/{{ $hotel->featuredImage->first()->file_name }}"
+                            <img src="/images/hotels/{{ $hotel->images->first()->file_name }}"
                                  alt="{{ $hotel->name }}" class="img-fit"/>
                         </div>
                         <div class="room-info">
