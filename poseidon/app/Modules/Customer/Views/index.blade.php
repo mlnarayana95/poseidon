@@ -31,16 +31,16 @@
 
                     @foreach($customers as $customer)
                         <tr>
-                            <td>{{ $customer->user_id }}</td>
-                            <td>{{ $customer->first_name . ' '. $customer->last_name }}</td>
-                            <td><a href="mailto:emailhere">{{ $customer->user->email }}</a></td>
-                            <td><a href="tel:phone">{{ $customer->phone_number}}</a></td>
+                            <td>{{ $customer->id }}</td>
+                            <td>{{ $customer->person->first_name . ' '. $customer->person->last_name }}</td>
+                            <td><a href="mailto:{{ $customer->email }}">{{ $customer->email }}</a></td>
+                            <td><a href="tel:{{ $customer->phone_number}}">{{ $customer->person->phone_number}}</a></td>
                             <td>
                                 <a href="{{ route('admin.customer.edit', 
-                                $customer->user_id) }}" class="btn btn-primary marginRight">
+                                $customer->id) }}" class="btn btn-primary marginRight">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
-                                <a href="{{ route('admin.customer.destroy', $customer->user_id) }}" data-method="delete"
+                                <a href="{{ route('admin.customer.destroy', $customer->id) }}" data-method="delete"
                                    data-token="{{csrf_token()}}"
                                    data-confirm="Are you sure?" class="btn btn-danger">
                                     <i class="fa fa-trash"></i> Delete
@@ -62,7 +62,7 @@
             $('#customers').DataTable({
                 'paging': true,
                 'lengthChange': true,
-                'searching': false,
+                'searching': true,
                 'ordering': true,
                 'info': true,
                 'autoWidth': false
