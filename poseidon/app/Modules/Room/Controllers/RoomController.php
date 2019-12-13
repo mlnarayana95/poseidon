@@ -53,16 +53,16 @@ class RoomController extends Controller
         DB::beginTransaction();
 
         try {
-            $room_id = Room::create($validated_data);
+            $room = Room::create($validated_data);
 
             /* Feature Add */
             foreach ($validated_data['features'] as $feature_id) {
-                FeatureRoom::create(['room_id' => $room_id, 'feature_id'=>$feature_id]);
+                FeatureRoom::create(['room_id' => $room->id, 'feature_id'=>$feature_id]);
             }
 
             foreach ($validated_data['images'] as $image_id) {
                 DB::table('image_room')->insert(
-                    ['room_id' => $room_id, 'image_id' => $image_id]
+                    ['room_id' => $room->id, 'image_id' => $image_id]
                 );
             }
 
@@ -70,6 +70,7 @@ class RoomController extends Controller
             // all good
         } catch (\Exception $e) {
             DB::rollback();
+            //dd($e);
             // something went wrong
         }
 
@@ -138,7 +139,7 @@ class RoomController extends Controller
             DB::commit();
             // all good
         } catch (\Exception $e) {
-            DB::rollback();
+            DB::rollback(); dd($e);
             // something went wrong
         }
 
@@ -186,11 +187,13 @@ class RoomController extends Controller
             'room_type_id' => 'required',
             'no_bathrooms' => 'required|numeric',
             'features' => 'required',
-            'image' => 'image'
+            'image.*' => 'image'
         ];
 
-        if($add)
-            $rules['image'] = 'image|required';
+        if($add) {
+            $rules['image'] = 'required';
+            $rules['image.*'] = 'image';
+        }
     
         $validated_data = $request->validate($rules);
         $data = [];
@@ -200,17 +203,16 @@ class RoomController extends Controller
         {
             foreach($request->file('image') as $image)
             { 
-                if(!empty($image)){
-                    $name=$image->getClientOriginalName();
+                
+                 $name=$image->getClientOriginalName();
                     $image->move(public_path().'/images/rooms/', $name);
                     array_push($data,$name);
                     $image_id = $this->saveImage($name);
                     array_push($images,$image_id);
-                }
             }
         }
-
         $validated_data['images'] = $images;
+
         $validated_data['smoking'] = ($request->smoking == null) ? 0 : 1;
         $validated_data['featured'] = ($request->featured == null) ? 0 : 1;
 

@@ -22,10 +22,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $data['customers'] = Customer::with('user')->whereHas('user', function ($query) {
-                $query->where('user_type', '!=', null);
-            })->get();
-        
+        $data['customers'] = User::with('person')->where('user_type', 0)->get();
         return view("Customer::index", $data);
     }
 

@@ -132,7 +132,10 @@ class Room extends MyModel
         $rooms = $rooms->select('rooms.*',
                 DB::raw('CONCAT_WS(" ", room_types.type, hotels.name, rooms.room_number) AS full_name'),
                 'room_types.type', 'hotels.name as hotel', 'hotels.address')
+            ->orderBy('id', 'desc')
             ->paginate(20);
+            //->get();
+        //dd($rooms->toArray());
         return $rooms;
     }
 

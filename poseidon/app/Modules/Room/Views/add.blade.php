@@ -18,7 +18,7 @@
                 <h3 class="box-title">Room Details</h3>
             </div>
 
-            {!! Form::open(['route' => 'admin.room.store', 'method' => 'post', 'class' => 'form-horizontal']) !!}
+            {!! Form::open(['route' => 'admin.room.store', 'method' => 'post','enctype'=>'multipart/form-data','class' => 'form-horizontal']) !!}
             <div class="box-body">
                 @include('Room::form')
             </div>
