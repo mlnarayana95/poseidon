@@ -48,7 +48,7 @@
     <!-- main navbar -->
     <div class="container">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a href="#" class="navbar-brand">
+            <a href="/" class="navbar-brand">
                 <img src="/images/logo.png" alt="logo">
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse"

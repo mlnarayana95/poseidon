@@ -59,7 +59,7 @@
         <nav class="navbar home-navbar navbar-expand-md navbar-light bg-light">
 
             <div class="container">
-                <a href="#" class="navbar-brand">
+                <a href="/" class="navbar-brand">
                     <img src="/images/logo.png" alt="logo">
                 </a>
                 <button type="button" class="navbar-toggler"
@@ -260,9 +260,6 @@
                     <div class="destination">
                         <h4>Cuba</h4>
 
-                        <button class="home-button"><a href="/hotels">Explore</a></button>
-
-
                         <button class="home-button"><a
                                     href="/hotels">Explore</a></button>
 
@@ -276,9 +273,6 @@
                     <div class="destination">
                         <h4>Maldives</h4>
 
-                        <button class="home-button"><a href="/hotels">Explore</a></button>
-
-
                         <button class="home-button"><a
                                     href="/hotels">Explore</a></button>
 
@@ -290,8 +284,6 @@
                          alt="top 2">
                     <div class="destination">
                         <h4>Mexico</h4>
-
-
 
                         <button class="home-button"><a
                                     href="/hotels">Explore</a></button>

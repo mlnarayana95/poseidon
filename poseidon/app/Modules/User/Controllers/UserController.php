@@ -5,15 +5,12 @@ namespace App\Modules\User\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modules\User\Models\User;
+use App\Modules\Customer\Models\Customer;
+use Carbon\Carbon;
+use DB;
 
 class UserController extends Controller
 {
-
-    protected $rules = [
-        'email' => 'required|email',
-        'password' => 'required|min:8|max:255|same:confirm_password',
-        'confirm_password' => 'required|min:8|max:255'
-    ];
 
     /**
      * Display a listing of the resource.
@@ -22,8 +19,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::all();
-        return view("User::index",$data);
+        $data['users'] = Customer::with('user')->whereHas('user', function ($query) {
+                $query->where('user_type', 1);
+            })->get();
+        
+        return view("User::index", $data);
     }
 
     /**
@@ -45,9 +45,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateUser($request);
+        $validated_data = $this->validateUser($request, true);
 
-        User::create($validated_data);
+        // Adding mandatory fields 
+        $validated_data['user_type'] = 1;
+        $validated_data['email_verified_at'] = Carbon::now();
+        $validated_data['user'] = User::create($validated_data);
+        $validated_data['user_id'] = $validated_data['user']->id;
+        Customer::create($validated_data);
 
         flash('User has been created successfully!')->success();
 
@@ -73,7 +78,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data['user'] = User::find($id);
+        $data['user'] = Customer::with('user')->whereHas('user', function ($query ) use ($id){
+                $query->where('id', $id);
+            })->first();
+        $user = $data['user'];
+        
+        $data['birthdate'] = Carbon::parse($user->birthdate)->format('m/d/Y');
         return view("User::edit", $data);
     }
 
@@ -87,11 +97,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         // Validate Form Inputs
-        $validated_data = $this->validateUser($request);
+        $validated_data = $this->validateUser($request, false);
 
-        User::find($id)->update($validated_data);
+        Customer::find($id)->update($validated_data);
 
-        flash('Hotel has been updated successfully!')->success();
+        flash('User has been updated successfully!')->success();
 
         return redirect()->route('admin.user.index');
     }
@@ -114,12 +124,27 @@ class UserController extends Controller
      * @param $request
      * @return mixed
      */
-    public function validateUser($request)
-    {
-        $validated_data = $request->validate($this->rules);
-        $validated_data['email'] = $request->email;
-        $validated_data['passwd'] = $request->password;
-        $validated_data['user_type'] = $request->user_type;
+    public function validateUser($request, $add=true)
+    {        
+        $rules = [
+        'first_name' => ['required', 'max:255', 'regex:/^[\pL\s\-]+$/u'],
+        'last_name' => ['required', 'max:255', 'regex:/^[\pL\s\-]+$/u'],
+        'birthdate' => ['required', 'max:255'],
+        'address' => ['required', 'max:500'],
+        'postal_code' => ['required', 'max:500'],
+        'phone_number' => ['required', 'max:500']
+        ];
+
+        if($add)
+        {
+            $rules['email'] =  'required|email|unique:users';
+            $rules['password'] =  'required|min:8|max:255|same:confirm_password';
+            $rules['confirm_password'] = 'required|min:8|max:255';
+        }
+
+        $validated_data = $request->validate($rules);
+
+        $validated_data['birthdate'] = Carbon::parse($request->birthdate)->format('Y-m-d');
         return $validated_data;
     }
 }

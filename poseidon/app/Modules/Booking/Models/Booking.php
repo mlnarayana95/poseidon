@@ -16,7 +16,8 @@ class Booking extends Model
         'total_tax',
         'total_cost',
         'payment_type',
-        'amount_payment',
+        'adults',
+        'children',
         'checkin_date',
         'checkout_date'
     ];
@@ -43,7 +44,7 @@ class Booking extends Model
     public static function book(Array $booking_details)
     {
         self::create([
-            'user_id' => 1, //change it later
+            'user_id' => auth()->user()->id,
             'room_id' => $booking_details['room_id'],
             'transaction_number' => $booking_details['transaction_number'],
             'room_cost' => $booking_details['room_cost'],
@@ -51,9 +52,10 @@ class Booking extends Model
             'total_tax' => $booking_details['total_tax'],
             'total_cost' => $booking_details['total_cost'],
             'payment_type' => 'Card',
-            'amount_payment' => $booking_details['total_cost'],
-            'checkin_date' => $booking_details['checkin'],
-            'checkout_date' => $booking_details['checkout']
+            'adults' => $booking_details['adults'],
+            'children' => $booking_details['children'],
+            'checkin_date' => $booking_details['checkin_date'],
+            'checkout_date' => $booking_details['checkout_date']
         ]);
     }
 

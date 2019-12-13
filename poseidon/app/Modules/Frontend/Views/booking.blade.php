@@ -4,8 +4,12 @@
         color: #f68500;
     }
 
-    #details .value {
+    label {
+        font-weight: bold;
+    }
 
+    .value {
+        color: #717171;
     }
 
     #details .btn-primary {
@@ -26,8 +30,10 @@
 </style>
 @section('content')
     <div class="container py-5">
+
         <div class="row text-center text-white mb-5">
             <div class="col-lg-7 mx-auto">
+                @include('flash::message')
                 <h1 class="display-4">Your Bookings</h1>
             </div>
         </div>
@@ -50,34 +56,32 @@
                             <div id="collapse<?=$key + 1?>" class="collapse" aria-labelledby="headingOne"
                                  data-parent="#bookings_accordion">
                                 <div class="card-body">
-                                    <label>Room number: </label> <label
-                                            class="value">{{$booking->room->room_number}}</label><br>
+                                    <label>Room number: </label> <span
+                                            class="value">{{$booking->room->room_number}}</span><br>
                                     <label>Description: </label><br>
                                     <p class="text-justify value">
                                         {{$booking->room->description}}
                                     </p>
-                                    <label>Checkin date: </label> <label
-                                            class="value">{{$booking->checkin_date}} </label><br>
-                                    <label>No. Adults: </label> <label
-                                            class="value">{{$booking->adults}} </label><br>
-                                    <label>No. Children: </label> <label
-                                            class="value">{{$booking->children}} </label><br>
-                                    <label>Checkout date: </label> <label
-                                            class="value">{{$booking->checkout_date}} </label><br>
-                                    <label>Transaction No: </label> <label
-                                            class="value">{{$booking->transaction_number}}</label><br>
-                                    <label>Room cost: </label> <label
-                                            class="value">{{number_format($booking->room_cost)}}</label><br>
-                                    <label>Total Fees: </label> <label
-                                            class="value">{{number_format($booking->total_fees)}}</label><br>
-                                    <label>Total Tax: </label> <label
-                                            class="value">{{number_format($booking->total_tax)}}</label><br>
-                                    <label>Total Cost: </label> <label
-                                            class="value">{{number_format($booking->total_cost)}}</label><br>
-                                    <label>Payment Type: </label> <label
-                                            class="value">{{$booking->payment_type}}</label><br>
-                                    <label>Amount paid: </label> <label
-                                            class="value">{{number_format($booking->amount_payment)}}</label><br>
+                                    <label>Checkin date: </label> <span
+                                            class="value">{{$booking->checkin_date}} </span><br>
+                                    <label>Checkout date: </label> <span
+                                            class="value">{{$booking->checkout_date}} </span><br>
+                                    <label>Transaction No: </label> <span
+                                            class="value">{{$booking->transaction_number}}</span><br>
+                                    <label>Adults: </label> <span
+                                            class="value">{{$booking->adults}}</span><br>
+                                    <label>Children: </label> <span
+                                            class="value">{{$booking->children}}</span><br>
+                                    <label>Room cost: </label> <span
+                                            class="value">{{format_price($booking->room_cost)}}</span><br>
+                                    <label>Total Fees: </label> <span
+                                            class="value">{{format_price($booking->total_fees)}}</span><br>
+                                    <label>Total Tax: </label> <span
+                                            class="value">{{format_price($booking->total_tax)}}</span><br>
+                                    <label>Total Cost: </label> <span
+                                            class="value">{{format_price($booking->total_cost)}}</span><br>
+                                    <label>Payment Type: </label> <span
+                                            class="value">{{$booking->payment_type}}</span><br>
                                 </div>
                             </div>
                         </div>
