@@ -9,6 +9,17 @@
     </div>
 </div>
 
+<div class="form-group @if($errors->has('amenities')) {{'has-error'}} @endif">
+    {!!Form::label('amenities', 'Amenities *', array('class' => 'col-md-2 col-sm-12 control-label')) !!}
+    <div class="col-md-10 col-sm-12">
+        {!!Form::select('amenities[]', $amenities, null, array('class' => 'form-control select2', 'id' => 'amenities', 'style'=>'width: 100%;', 'multiple' => 'multiple'))!!}
+        @if($errors->has('amenities'))
+            {!! $errors->first('amenities', '<label class="control-label"
+                                                   for="inputError">:message</label>') !!}
+        @endif
+    </div>
+</div>
+
 <div class="form-group @if($errors->has('description')) {{'has-error'}} @endif">
     {!!Form::label('description', 'Description', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
@@ -139,7 +150,7 @@
 <div class="form-group @if($errors->has('image')) {{'has-error'}} @endif">
     {!!Form::label('image', 'Image Upload', array('class' => 'col-sm-2 control-label custom-file-label')) !!}
     <div class="col-sm-10">
-        {!! Form::file('image', $attributes = array('multiple','class'=>'form-control custom-file-input','id'=>'image')) !!}
+        {!! Form::file('image[]', $attributes = array('multiple','class'=>'form-control custom-file-input','id'=>'image')) !!}
         @if($errors->has('image'))
             {!! $errors->first('image', '<label class="control-label"
                                                    for="inputError">The file must be an image and below 2 MB size</label>') !!}
