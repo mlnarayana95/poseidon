@@ -27,8 +27,9 @@
                     <thead>
                     <tr>
                         <th>User ID</th>
+                        <th>Full Name</th>
                         <th>Email</th>
-                        <th>User Type</th>
+                        <th>Phone Number</th>
                         <th>Member Joining Date</th>
                         <th>Actions</th>
                     </tr>
@@ -37,9 +38,10 @@
 
                     @foreach($users as $user)
                         <tr>
-                            <td>{{ $user->user_id }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->user_type ? 'Admin' : 'User'}} </td>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->first_name . ' ' . $user->last_name }}</td>
+                            <td><a href="mailto:emailhere">{{ $user->user->email }}</a></td>
+                            <td><a href="tel:phone">{{ $user->phone_number}}</a></td>
                             <td>{{ $user->created_at->format('M d Y')}}</td>
                             <td>
                                 <a href="{{ route('admin.user.edit', 

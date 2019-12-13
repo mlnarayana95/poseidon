@@ -18,7 +18,7 @@
                 <h3 class="box-title">User Details</h3>
             </div>
 
-            {!! Form::model($user, ['route' => ['admin.user.update', $user->id], 'method' => 'put', 'class' => 'form-horizontal']) !!}
+            {!! Form::model($user, ['route' => ['admin.user.update', $user], 'method' => 'put', 'class' => 'form-horizontal']) !!}
             <div class="box-body">
                 @include('User::form')
             </div>
