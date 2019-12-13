@@ -60,11 +60,11 @@
                  id="navbarCollapse">
 
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-link nav-item active" href="/">Home</a>
-                    <a class="nav-link nav-item" href="/about">About Us</a>
-                    <a class="nav-link nav-item" href="/room">Rooms</a>
-                    <a class="nav-link nav-item" href="/hotels">Hotels</a>
-                    <a class="nav-link nav-item" href="/contact">Contact Us</a>
+                    <a class="nav-link nav-item title-link {{ (request()->is('')) ? 'active' : '' }}" href="/">Home</a>
+                    <a class="nav-link nav-item title-link {{ (request()->is('about')) ? 'active' : '' }}" href="/about">About Us</a>
+                    <a class="nav-link nav-item title-link {{ (request()->is('room*')) ? 'active' : '' }}" href="/room">Rooms</a>
+                    <a class="nav-link nav-item title-link {{ (request()->is('hotels*')) ? 'active' : '' }}" href="/hotels">Hotels</a>
+                    <a class="nav-link nav-item title-link {{ (request()->is('contact')) ? 'active' : '' }}" href="/contact">Contact Us</a>
                 </div>
             </div>
         </nav>
