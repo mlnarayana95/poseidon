@@ -18,10 +18,4 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-
-    # Lock Down HtAcess
-    AuthType Basic
-    AuthName "Private PHP Capstone Project"
-    AuthUserFile .htpasswd
-    Require valid-user
 </IfModule>
