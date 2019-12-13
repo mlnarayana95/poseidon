@@ -27,7 +27,12 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $data['rooms'] = Room::getList();
+        $data['rooms'] = Room::getList(request()->all());
+
+        $data['search'] = request()->except('page');
+        //dd($data['search']);
+
+        $data['maxprice'] = Room::max('room_cost');
         $data['room_types'] = RoomType::typesWithCount();
         $data['hotels'] = Hotel::hotelsWithCount();
         $data['features'] = Feature::featuresWithCount();

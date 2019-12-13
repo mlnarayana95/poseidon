@@ -3,172 +3,182 @@
 
 @section('content')
 
-    <div class="social-head">
-        <div class="container">
-            <div class="navs">
-                <ul class="nav justify-content-end">
-                    @guest()
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/register">Register</a>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link active"
-                               href="/profile">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/profile/bookings">Bookings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+    <header>
+        <div class="social-head">
+            <div class="container">
+                <div class="navs">
+                    <ul class="nav justify-content-end">
+                        @guest()
+                            <li class="nav-item">
+                                <a class="nav-link active"
+                                   href="/login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   href="/register">Register</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link active"
+                                   href="/profile">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/profile/bookings">Bookings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 
-                            <form id="logout-form"
-                                  action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">{{ csrf_field() }}</form>
+                                <form id="logout-form"
+                                      action="{{ route('logout') }}"
+                                      method="POST"
+                                      style="display: none;">{{ csrf_field() }}</form>
+                            </li>
+                        @endif
+                        <li class="nav-item">
+                            <a class="" target="_blank"
+                               href="{{ setting('facebook') }}">
+                                <img src="/images/fbook.png" alt="fbook">
+                            </a>
                         </li>
-                    @endif
-                    <li class="nav-item">
-                        <a class="" target="_blank"
-                           href="{{ setting('facebook') }}">
-                            <img src="/images/fbook.png" alt="fbook">
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="" target="_blank"
-                           href="{{ setting('twitter') }}">
-                            <img src="/images/twitter.png" alt="twitter">
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="" target="_blank"
-                           href="{{ setting('instagram') }}">
-                            <img src="/images/insta.png" alt="insta">
-                        </a>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <a class="" target="_blank"
+                               href="{{ setting('twitter') }}">
+                                <img src="/images/twitter.png" alt="twitter">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="" target="_blank"
+                               href="{{ setting('instagram') }}">
+                                <img src="/images/insta.png" alt="insta">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="nav-background">
-        <!-- navbar in banner -->
-        <nav class="navbar home-navbar navbar-expand-md navbar-light bg-light">
+        <div class="nav-background">
+            <!-- navbar in banner -->
+            <nav class="navbar home-navbar navbar-expand-md navbar-light bg-light">
 
-            <div class="container">
-                <a href="/" class="navbar-brand">
-                    <img src="/images/logo.png" alt="logo">
-                </a>
-                <button type="button" class="navbar-toggler"
-                        data-toggle="collapse"
-                        data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="container">
+                    <a href="/" class="navbar-brand">
+                        <img src="/images/logo.png" alt="logo">
+                    </a>
+                    <button type="button" class="navbar-toggler"
+                            data-toggle="collapse"
+                            data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse justify-content-between"
-                     id="navbarCollapse">
+                    <div class="collapse navbar-collapse justify-content-between"
+                         id="navbarCollapse">
 
-                    <div class="navbar-nav ml-auto">
-                        <a class="nav-link nav-item active" href="/">Home</a>
-                        <a class="nav-link nav-item" href="/about">About Us</a>
-                        <a class="nav-link nav-item" href="/room">Rooms</a>
-                        <a class="nav-link nav-item" href="/hotels">Hotels</a>
-                        <a class="nav-link nav-item" href="/contact">Contact
-                            Us</a>
+                        <div class="navbar-nav ml-auto">
+                            <a class="nav-link nav-item title-link active"
+                               href="/">Home</a>
+                            <a class="nav-link nav-item title-link" href="/about">About
+                                Us</a>
+                            <a class="nav-link nav-item title-link" href="/room">Rooms</a>
+                            <a class="nav-link nav-item title-link"
+                               href="/hotels">Hotels</a>
+                            <a class="nav-link nav-item title-link" href="/contact">Contact
+                                Us</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <!-- main navbar ends -->
+            <!-- main navbar ends -->
 
-        <div id="carouselExampleControls" class="carousel slide"
-             data-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide"
+                 data-ride="carousel">
 
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/images/banner.jpg" class="d-block w-100"
-                         alt="banner">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/banner.jpg" class="d-block w-100"
+                             alt="banner">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/banner2.jpg" class="d-block w-100"
+                             alt="banner">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/banner3.jpg" class="d-block w-100"
+                             alt="banner">
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="/images/banner2.jpg" class="d-block w-100"
-                         alt="banner">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/banner3.jpg" class="d-block w-100"
-                         alt="banner">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls"
-               role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#carouselExampleControls"
+                   role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon"
                           aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls"
-               role="button" data-slide="next">
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls"
+                   role="button" data-slide="next">
                     <span class="carousel-control-next-icon"
                           aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                    <span class="sr-only">Next</span>
+                </a>
 
-            <form method="post" action="/search" id="search-form"
-                  autocomplete="off">
-                @csrf
-                <div class="form-row no-margin">
-                    <div class="col-md-1">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="checkin">Check In *</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control datepicker"
-                                   id="checkin" name="checkin">
-                            <div class="input-group-append">
+                <form method="get" action="/room" id="search-form"
+                      autocomplete="off">
+                    @csrf
+                    <div class="form-row no-margin">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="checkin">Check In *</label>
+                            <div class="input-group mb-3">
+                                <input type="text"
+                                       class="form-control datepicker"
+                                       id="checkin" name="checkin">
+                                <div class="input-group-append">
                                 <span class="input-group-text">
                                     <i class="fa fa-calendar"></i>
                                 </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="checkout">Check Out *</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control datepicker"
-                                   id="checkout" name="checkout">
-                            <div class="input-group-append">
+                        <div class="form-group col-md-2">
+                            <label for="checkout">Check Out *</label>
+                            <div class="input-group mb-3">
+                                <input type="text"
+                                       class="form-control datepicker"
+                                       id="checkout" name="checkout">
+                                <div class="input-group-append">
                                 <span class="input-group-text">
                                     <i class="fa fa-calendar"></i>
                                 </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group col-md-2">
-                        <label for="adults">Adults</label>
-                        <input type="number" class="form-control"
-                               id="adults" name="adults" placeholder="">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="children">Children</label>
-                        <input type="number" class="form-control"
-                               id="children" name="children" placeholder="">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label>&nbsp;</label><br>
-                        <button id="search" type="submit"
-                                class="btn btn-primary">Search
-                        </button>
-                    </div>
-                    <div class="col-md-1">
+                        <div class="form-group col-md-2">
+                            <label for="adults">Adults</label>
+                            <input type="number" class="form-control"
+                                   id="adults" name="adults" placeholder="">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="children">Children</label>
+                            <input type="number" class="form-control"
+                                   id="children" name="children" placeholder="">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>&nbsp;</label><br>
+                            <button id="search" type="submit"
+                                    class="btn btn-primary">Search
+                            </button>
+                        </div>
+                        <div class="col-md-1">
 
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
+    </header>
 
     <div>
         <div class="container">
@@ -261,7 +271,8 @@
                         <h4>Cuba</h4>
 
                         <button class="home-button"><a
-                                    href="/hotels">Explore</a></button>
+                                    href="/room?locations%5B%5D=1">Explore</a>
+                        </button>
 
 
                     </div>
@@ -274,7 +285,8 @@
                         <h4>Maldives</h4>
 
                         <button class="home-button"><a
-                                    href="/hotels">Explore</a></button>
+                                    href="/room?locations%5B%5D=2">Explore</a>
+                        </button>
 
                     </div>
                 </div>
@@ -286,7 +298,8 @@
                         <h4>Mexico</h4>
 
                         <button class="home-button"><a
-                                    href="/hotels">Explore</a></button>
+                                    href="/room?locations%5B%5D=3">Explore</a>
+                        </button>
 
                     </div>
                 </div>
@@ -299,20 +312,20 @@
         <div class="container">
             <div class="row stats pb-4">
                 <div class="col-md-3 text-center">
-                    <h4><strong>35472</strong></h4>
+                    <h4 class="count">{{ $stats['customers'] }}</h4>
                     <span>HAPPY CUSTOMERS</span>
                 </div>
                 <div class="col-md-3 text-center">
-                    <h4><strong>6</strong></h4>
+                    <h4 class="count">{{ $stats['destinations'] }}</h4>
                     <span>AMAZING DESTINATIONS</span>
                 </div>
                 <div class="col-md-3 text-center">
-                    <h4><strong>404</strong></h4>
+                    <h4 class="count">{{ $stats['rooms'] }}</h4>
                     <span>ROOMS AVAILABLE</span>
                 </div>
                 <div class="col-md-3 text-center">
-                    <h4><strong>4.5</strong></h4>
-                    <span>CUSTOMER RATINGS</span>
+                    <h4 class="count">13</h4>
+                    <span>YEARS OF SERVICE</span>
                 </div>
             </div>
         </div>
@@ -367,6 +380,27 @@
                     $('#checkout').datepicker('clearDates');
                 });
             })(jQuery);
+
+            var a = 0;
+            // For nice animation counter
+            $(window).scroll(function() {
+
+                var oTop = $('.stats').offset().top - window.innerHeight;
+                if (a == 0 && $(window).scrollTop() > oTop) {
+                    $('.count').each(function () {
+                        $(this).prop('Counter', 0).animate({
+                            Counter: $(this).text()
+                        }, {
+                            duration: 1200,
+                            easing: 'swing',
+                            step: function (now) {
+                                $(this).text(Math.ceil(now));
+                            }
+                        });
+                    });
+                    a=1;
+                }
+            });
         });
 
     </script>
