@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Modules\User\Models\User;
 use App\Modules\Customer\Models\Customer;
 use Carbon\Carbon;
+use DB;
 
 class UserController extends Controller
 {
@@ -46,7 +47,12 @@ class UserController extends Controller
         // Validate Form Inputs
         $validated_data = $this->validateUser($request, true);
 
-        User::create($validated_data);
+        // Adding mandatory fields 
+        $validated_data['user_type'] = 1;
+        $validated_data['email_verified_at'] = Carbon::now();
+        $validated_data['user'] = User::create($validated_data);
+        $validated_data['user_id'] = $validated_data['user']->id;
+        Customer::create($validated_data);
 
         flash('User has been created successfully!')->success();
 
@@ -131,13 +137,13 @@ class UserController extends Controller
 
         if($add)
         {
-            $rules =
-            ['email' => 'required|email|unique:users',
-            'password' => 'required|min:8|max:255|same:confirm_password',
-            'confirm_password' => 'required|min:8|max:255'];
+            $rules['email'] =  'required|email|unique:users';
+            $rules['password'] =  'required|min:8|max:255|same:confirm_password';
+            $rules['confirm_password'] = 'required|min:8|max:255';
         }
-        
+
         $validated_data = $request->validate($rules);
+
         $validated_data['birthdate'] = Carbon::parse($request->birthdate)->format('Y-m-d');
         return $validated_data;
     }
