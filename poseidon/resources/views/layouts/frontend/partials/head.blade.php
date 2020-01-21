@@ -20,7 +20,7 @@
           rel="stylesheet">
 
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
 
     <!-- Additional Page Specific CSS-->
     @yield('stylelink')
